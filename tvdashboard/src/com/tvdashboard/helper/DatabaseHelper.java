@@ -15,6 +15,7 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+	//changing file
 	// Logcat tag
     private static final String LOG = "DatabaseHelper";
  
