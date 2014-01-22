@@ -17,6 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	//changing file
 	// Logcat tag
+	//add comment
     private static final String LOG = "DatabaseHelper";
  
     // Database Version
