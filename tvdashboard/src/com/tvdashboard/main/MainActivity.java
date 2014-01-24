@@ -17,84 +17,37 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity{
 
 	private MediaHandler mHandler;
 	protected SurfacePanel dashBoardSurfaceView = null;
     protected SurfaceThread dashBoardThread;
     protected View loFav = null;
     protected View loRecent = null;
-    
-	private List<VideoCategory> lstVc;
-//	Button multimedia;
+    ImageButton Tv;
 	Button btnStart, btnStop;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		dashBoardSurfaceView = (SurfacePanel)findViewById(R.id.dashboardSurface);
-		dashBoardThread = dashBoardSurfaceView.getThread();
+		
 
-        btnStart = (Button)findViewById(R.id.btnStart);
-        btnStart.setOnClickListener(this);
-
-        btnStop = (Button)findViewById(R.id.btnStop);
-        btnStop.setOnClickListener(this);
-        
-        this.loFav = (View) findViewById(R.id.llFavorites);
-        this.loRecent = (View) findViewById(R.id.llRecent);
-        
-//        this.loFav.setfo
-        
-//		DashboardUtility.getInstance().setActivity(this);
-		//InitDashboard();
-//		setContentView(R.layout.activity_main);
-//		mHandler = new MediaHandler();
-//		lstVc = mHandler.InitVideoCategories(getApplicationContext());
-//		multimedia = (Button)findViewById(R.id.btnMultimedia);
-//		parentLayout = (View)findViewById(R.id.llParentLayout);
-//		InitDashboardMultimedia();
-
+		Tv = (ImageButton)findViewById(R.id.webView1);
+		Tv.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 	
-	protected void InitDashboard(){
-		this.dashBoardSurfaceView = new SurfacePanel(this);
-	    this.dashBoardSurfaceView.setVisibility(0);
-	    this.dashBoardSurfaceView.setZOrderOnTop(true);
-	    this.dashBoardSurfaceView.getHolder().setFormat(-2);
-	    this.dashBoardSurfaceView.requestFocus();
-	    
-	    //add a layout for the dialler
-	    
-//	    if (this.mActiveOKitUI == null) {
-//	      this.mActiveOKitUI = MstarOKitUI.getInstance();
-//	    }
-//	    this.mActiveOKitUI.init(this.glView.getGameEngine());
-//	    this.gameEngine = this.glView.gameEngine;
-	}
-	
-	public void onClick(View v)
-    {
 
-        switch (v.getId()) {
-	        case R.id.btnStart:
-	            if(dashBoardThread.mState == dashBoardThread.STATE_PLAY){
-	            	dashBoardThread.setDashboardState(SurfaceThread.STATE_RUNNING);
-	            	Log.v("btnevent", "start");
-	            }
 	
-	            break;
-	
-	        case R.id.btnStop:
-	            if(dashBoardThread.mState == dashBoardThread.STATE_RUNNING){
-	            	dashBoardThread.setDashboardState(SurfaceThread.STATE_PLAY);
-	            	Log.v("btnevent", "stop");
-	            }
-	            break;
-        }
-    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -103,26 +56,5 @@ public class MainActivity extends Activity implements OnClickListener {
 		return true;
 	}
 	
-//	public void InitDashboardMultimedia(){
-//		
-//		multimedia.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				switch (parentLayout.getVisibility()){
-//					case View.INVISIBLE:
-//						parentLayout.setVisibility(View.VISIBLE);
-//						break;
-//					case View.VISIBLE:
-//						parentLayout.setVisibility(View.INVISIBLE);
-//						break;
-//					default:
-//						break;
-//					
-//				}			
-//			}
-//		});
-//	}
 
 }
