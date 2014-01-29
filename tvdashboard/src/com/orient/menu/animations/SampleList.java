@@ -61,7 +61,7 @@ public class SampleList extends SherlockListActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        SubMenu sub = menu.addSubMenu("Theme");
+        SubMenu sub = (SubMenu) menu.addSubMenu("Theme");
         sub.add(0, R.style.Theme_Sherlock, 0, "Default");
         sub.add(0, R.style.Theme_Sherlock_Light, 0, "Light");
         sub.add(0, R.style.Theme_Sherlock_Light_DarkActionBar, 0, "Light (Dark Action Bar)");
