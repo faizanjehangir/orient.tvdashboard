@@ -8,7 +8,66 @@
 package com.tvdashboard.database;
 
 public final class R {
+    public static final class anim {
+        public static final int anim_fade_in=0x7f040000;
+        public static final int anim_fade_out=0x7f040001;
+        public static final int from_middle=0x7f040002;
+        public static final int to_middle=0x7f040003;
+        public static final int zoom_in=0x7f040004;
+        public static final int zoom_out=0x7f040005;
+    }
     public static final class attr {
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>rightToLeft</code></td><td>0</td><td></td></tr>
+<tr><td><code>bottomToTop</code></td><td>1</td><td></td></tr>
+<tr><td><code>leftToRight</code></td><td>2</td><td></td></tr>
+<tr><td><code>topToBottom</code></td><td>3</td><td></td></tr>
+</table>
+         */
+        public static final int direction=0x7f010000;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int item_selected_index=0x7f010004;
+        /**  default:250 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int items=0x7f010003;
+        /**  default:400 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int wheel_diameter=0x7f010002;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int wheel_rotation_duration=0x7f010001;
+    }
+    public static final class color {
+        public static final int text_color=0x7f050001;
+        public static final int white=0x7f050000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -17,31 +76,138 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f070000;
+        public static final int activity_vertical_margin=0x7f070001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int layout_border=0x7f020001;
+        public static final int appicon=0x7f020000;
+        public static final int back=0x7f020001;
+        public static final int fav=0x7f020002;
+        public static final int glow=0x7f020003;
+        public static final int hdmi1off=0x7f020004;
+        public static final int hdmi1on=0x7f020005;
+        public static final int hdmi2off=0x7f020006;
+        public static final int hdmi2on=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int largetile=0x7f020009;
+        public static final int layout_border=0x7f02000a;
+        public static final int mediumtile=0x7f02000b;
+        public static final int movie=0x7f02000c;
+        public static final int movie1=0x7f02000d;
+        public static final int movie10=0x7f02000e;
+        public static final int movie2=0x7f02000f;
+        public static final int movie3=0x7f020010;
+        public static final int movie4=0x7f020011;
+        public static final int movie5=0x7f020012;
+        public static final int movie6=0x7f020013;
+        public static final int movie7=0x7f020014;
+        public static final int movie8=0x7f020015;
+        public static final int movie9=0x7f020016;
+        public static final int movieicon=0x7f020017;
+        public static final int musicicon=0x7f020018;
+        public static final int musicvideoicon=0x7f020019;
+        public static final int picturesicon=0x7f02001a;
+        public static final int recent=0x7f02001b;
+        public static final int recentmusic=0x7f02001c;
+        public static final int recentpictures=0x7f02001d;
+        public static final int selectlarge=0x7f02001e;
+        public static final int selectmedium=0x7f02001f;
+        public static final int selectsmall=0x7f020020;
+        public static final int smalltile=0x7f020021;
+        public static final int tv=0x7f020022;
+        public static final int tv1=0x7f020023;
+        public static final int tvshowicon=0x7f020024;
+        public static final int usboff=0x7f020025;
+        public static final int usbon=0x7f020026;
     }
     public static final class id {
-        public static final int action_settings=0x7f080010;
-        public static final int btnChoose=0x7f080009;
-        public static final int btnDummy=0x7f080007;
-        public static final int btnDummyAgain=0x7f080008;
-        public static final int btnStart=0x7f080004;
-        public static final int btnStop=0x7f080005;
-        public static final int btn_add_source=0x7f08000f;
-        public static final int btn_browse=0x7f08000a;
-        public static final int dashboardScreen=0x7f080000;
-        public static final int dashboardSurface=0x7f080001;
-        public static final int llFavorites=0x7f080003;
-        public static final int llHolder=0x7f080002;
-        public static final int llRecent=0x7f080006;
-        public static final int spinner_database=0x7f08000e;
-        public static final int spinner_source=0x7f08000d;
-        public static final int text_browse=0x7f08000b;
-        public static final int text_source_name=0x7f08000c;
+        public static final int Music=0x7f06001e;
+        public static final int action_settings=0x7f060056;
+        public static final int bottomToTop=0x7f060001;
+        public static final int btnChoose=0x7f06004f;
+        public static final int btn_add_source=0x7f060055;
+        public static final int btn_browse=0x7f060050;
+        public static final int button1=0x7f060007;
+        public static final int button10=0x7f060014;
+        public static final int button11=0x7f060016;
+        public static final int button12=0x7f060021;
+        public static final int button13=0x7f060023;
+        public static final int button14=0x7f060025;
+        public static final int button15=0x7f060027;
+        public static final int button16=0x7f060032;
+        public static final int button17=0x7f060034;
+        public static final int button18=0x7f060036;
+        public static final int button19=0x7f060038;
+        public static final int button2=0x7f060006;
+        public static final int button3=0x7f060008;
+        public static final int button4=0x7f060042;
+        public static final int button5=0x7f060044;
+        public static final int button6=0x7f060046;
+        public static final int button7=0x7f060048;
+        public static final int button8=0x7f060010;
+        public static final int button9=0x7f060012;
+        public static final int favImage1=0x7f060041;
+        public static final int favImage2=0x7f060043;
+        public static final int favImage3=0x7f060045;
+        public static final int favImage4=0x7f060047;
+        public static final int favImage5=0x7f060049;
+        public static final int favourite=0x7f06000c;
+        public static final int favtext=0x7f06003f;
+        public static final int horizontalScrollView1=0x7f060004;
+        public static final int ib1=0x7f060040;
+        public static final int ib2=0x7f06000e;
+        public static final int ib3=0x7f06001f;
+        public static final int ib4=0x7f060030;
+        public static final int icon=0x7f06004a;
+        public static final int icon2=0x7f06004b;
+        public static final int iconMusic=0x7f060029;
+        public static final int iconMusic2=0x7f06002a;
+        public static final int iconMusic3=0x7f06002b;
+        public static final int iconMusic4=0x7f06002c;
+        public static final int iconMusic5=0x7f06002d;
+        public static final int iconPictures=0x7f06003a;
+        public static final int iconPictures2=0x7f06003b;
+        public static final int iconPictures3=0x7f06003c;
+        public static final int iconPictures4=0x7f06003d;
+        public static final int iconPictures5=0x7f06003e;
+        public static final int iconVideos=0x7f060018;
+        public static final int iconVideos2=0x7f060019;
+        public static final int iconVideos3=0x7f06001a;
+        public static final int iconVideos4=0x7f06001b;
+        public static final int iconVideos5=0x7f06001c;
+        public static final int imageView1=0x7f06004c;
+        public static final int imageView2=0x7f06004d;
+        public static final int imageView3=0x7f06004e;
+        public static final int leftToRight=0x7f060002;
+        public static final int movies=0x7f06001d;
+        public static final int musicImage1=0x7f060020;
+        public static final int musicImage2=0x7f060022;
+        public static final int musicImage3=0x7f060024;
+        public static final int musicImage4=0x7f060026;
+        public static final int musicImage5=0x7f060028;
+        public static final int picImage1=0x7f060031;
+        public static final int picImage2=0x7f060033;
+        public static final int picImage3=0x7f060035;
+        public static final int picImage4=0x7f060037;
+        public static final int picImage5=0x7f060039;
+        public static final int picture=0x7f06002f;
+        public static final int pictures=0x7f06002e;
+        public static final int recent=0x7f06000b;
+        public static final int recentImage1=0x7f06000f;
+        public static final int recentImage2=0x7f060011;
+        public static final int recentImage3=0x7f060013;
+        public static final int recentImage4=0x7f060015;
+        public static final int recentImage5=0x7f060017;
+        public static final int recenttext=0x7f06000d;
+        public static final int rightToLeft=0x7f060000;
+        public static final int spinner_database=0x7f060054;
+        public static final int spinner_source=0x7f060053;
+        public static final int textView1=0x7f06000a;
+        public static final int text_browse=0x7f060051;
+        public static final int text_source_name=0x7f060052;
+        public static final int topToBottom=0x7f060003;
+        public static final int tvLayout=0x7f060005;
+        public static final int webView1=0x7f060009;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -50,13 +216,13 @@ public final class R {
         public static final int list_item=0x7f030003;
     }
     public static final class menu {
-        public static final int form1=0x7f070000;
-        public static final int main=0x7f070001;
+        public static final int form1=0x7f0a0000;
+        public static final int main=0x7f0a0001;
     }
     public static final class string {
-        public static final int action_settings=0x7f050001;
-        public static final int app_name=0x7f050000;
-        public static final int hello_world=0x7f050002;
+        public static final int action_settings=0x7f080001;
+        public static final int app_name=0x7f080000;
+        public static final int hello_world=0x7f080002;
     }
     public static final class style {
         /** 
@@ -80,10 +246,91 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f090001;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a Wheel.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #Wheel_item_selected_index com.tvdashboard.database:item_selected_index}</code></td><td></td></tr>
+           <tr><td><code>{@link #Wheel_items com.tvdashboard.database:items}</code></td><td> default:250 </td></tr>
+           <tr><td><code>{@link #Wheel_wheel_diameter com.tvdashboard.database:wheel_diameter}</code></td><td> default:400 </td></tr>
+           <tr><td><code>{@link #Wheel_wheel_rotation_duration com.tvdashboard.database:wheel_rotation_duration}</code></td><td></td></tr>
+           </table>
+           @see #Wheel_item_selected_index
+           @see #Wheel_items
+           @see #Wheel_wheel_diameter
+           @see #Wheel_wheel_rotation_duration
+         */
+        public static final int[] Wheel = {
+            0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.tvdashboard.database.R.attr#item_selected_index}
+          attribute's value can be found in the {@link #Wheel} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.tvdashboard.database:item_selected_index
+        */
+        public static final int Wheel_item_selected_index = 3;
+        /**
+          <p>
+          @attr description
+           default:250 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.tvdashboard.database:items
+        */
+        public static final int Wheel_items = 2;
+        /**
+          <p>
+          @attr description
+           default:400 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.tvdashboard.database:wheel_diameter
+        */
+        public static final int Wheel_wheel_diameter = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.tvdashboard.database.R.attr#wheel_rotation_duration}
+          attribute's value can be found in the {@link #Wheel} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.tvdashboard.database:wheel_rotation_duration
+        */
+        public static final int Wheel_wheel_rotation_duration = 0;
+    };
 }
