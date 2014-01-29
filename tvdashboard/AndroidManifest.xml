@@ -23,13 +23,13 @@
             </intent-filter>
         </activity>
         
-<!--         <activity -->
-<!--             android:name="com.tvdashboard.FileManagerForm" -->
-<!--             android:label="@string/app_name" > -->
-<!--         </activity> -->
-<!--         <activity android:name="com.tvdashboard.DirectoryPicker" -->
-<!--                   android:label="@string/app_name"> -->
-<!--         </activity> -->
+        <activity
+            android:name="com.tvdashboard.FileManagerForm"
+            android:label="@string/app_name" >
+        </activity>
+        <activity android:name="com.tvdashboard.DirectoryPicker"
+                  android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>

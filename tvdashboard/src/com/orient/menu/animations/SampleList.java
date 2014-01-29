@@ -24,20 +24,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.actionbarsherlock.app.SherlockListActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-import com.tvdashboard.database.R;
-
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.view.SubMenu;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
+
+import com.actionbarsherlock.R;
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.SubMenu;
 
 public class SampleList extends SherlockListActivity {
     public static int THEME = R.style.Theme_Sherlock;
@@ -61,7 +61,7 @@ public class SampleList extends SherlockListActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        SubMenu sub = (SubMenu) menu.addSubMenu("Theme");
+        SubMenu sub = menu.addSubMenu("Theme");
         sub.add(0, R.style.Theme_Sherlock, 0, "Default");
         sub.add(0, R.style.Theme_Sherlock_Light, 0, "Light");
         sub.add(0, R.style.Theme_Sherlock_Light_DarkActionBar, 0, "Light (Dark Action Bar)");
