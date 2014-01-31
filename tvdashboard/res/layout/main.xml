@@ -5,101 +5,106 @@
     android:layout_height="match_parent"
     android:background="@drawable/dashboard_bg" >
 
-    <RelativeLayout
-        android:id="@+id/PieControlLayout"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0"
-        android:background="@null" >
-
-        <com.digitalaria.gama.wheel.Wheel
-            android:id="@+id/wheel"
+        <LinearLayout
+            android:id="@+id/CategoriesLayout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="-150dp" >
-        </com.digitalaria.gama.wheel.Wheel>
-    </RelativeLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-    <LinearLayout
-        android:id="@+id/PieControlLayoutHandle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical" >
-
-        <Button
-            android:id="@+id/openLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Open" >
-        </Button>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ContentLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="80dp"
-        android:orientation="horizontal" >
-
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="70dp"
+                android:layout_marginTop="100dp"
+                android:scrollbars="none" >
+                <LinearLayout
+                    android:id="@+id/ContentFragmentLayout"
+                    android:paddingLeft="450dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+        
         <LinearLayout
             android:id="@+id/TvLayout"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.3"
-            android:orientation="vertical" >
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="80dp"
+            android:orientation="vertical"
+            android:background="@drawable/dashboard_bgoverlay" >
+            
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="100dp"
+        		android:layout_marginLeft="20dp"
+				android:src="@drawable/text_ontv" />
 
             <ImageView
                 android:id="@+id/tv"
                 android:layout_width="wrap_content"
-                android:layout_height="400dp"
+                android:layout_height="350dp"
                 android:background="#FFFFFF" />
 
             <Button
                 android:id="@+id/HDMIBtn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/hdmi1_btn_style" />
 
             <Button
                 android:id="@+id/HDMIBtn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/hdmi2_btn_style" />
 
             <Button
                 android:id="@+id/USBBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/usb_btn_style" />
         </LinearLayout>
+    
+    <RelativeLayout
+        android:id="@+id/PieControlLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:background="@drawable/bg" >
 
-        <LinearLayout
-            android:id="@+id/CategoriesLayout"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.7"
-            android:orientation="vertical" >
+        <com.digitalaria.gama.wheel.Wheel
+            android:id="@+id/wheel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" >
+        </com.digitalaria.gama.wheel.Wheel>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/PieControlLayoutHandle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical" >
 
-            <FrameLayout
-                android:id="@+id/ContentFragmentLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-                <HorizontalScrollView 
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    
-                </HorizontalScrollView>
-                
-            </FrameLayout>
-        </LinearLayout>
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/openLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/dial_inside" >
+        </ImageButton>
+    </RelativeLayout>
 
 </RelativeLayout>
