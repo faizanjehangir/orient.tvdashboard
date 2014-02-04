@@ -4,7 +4,6 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
-import android.widget.Toast;
 
 public class ExpandAnimationLTR extends Animation implements Animation.AnimationListener {
 	private View view;
