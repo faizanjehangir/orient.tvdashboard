@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.tvdashboard.database.R;
-import com.tvdashboard.main.MainActivity;
+import com.tvdashboard.main.MainDashboard;
 
 import android.app.FragmentManager;
 import android.app.ListActivity;
