@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.app.ActionBar.LayoutParams;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -80,7 +81,13 @@ public class MainDashboard extends SherlockActivity {
 			@Override
 			public void onItemClick(WheelAdapter<?> parent, View view,
 					int position, long id) {
-				Toast.makeText(getApplicationContext(), "Item # " + String.valueOf(position) , Toast.LENGTH_SHORT).show();				
+				switch (position)
+				{
+				case 1:
+					Intent intent = new Intent(context, VideoSection.class);
+					startActivity(intent);
+				}
+//				Toast.makeText(getApplicationContext(), "Item # " + String.valueOf(position) , Toast.LENGTH_SHORT).show();				
 			}
 		});
 
@@ -131,7 +138,7 @@ public class MainDashboard extends SherlockActivity {
 	
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		Toast.makeText(context, menu.getItem(3).getTitle(), Toast.LENGTH_SHORT).show();
+//		Toast.makeText(context, menu.getItem(3).getTitle(), Toast.LENGTH_SHORT).show();
 		return super.onPrepareOptionsMenu(menu);
 	}
 
