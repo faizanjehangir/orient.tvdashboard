@@ -81,6 +81,7 @@ public class VideoSection extends SherlockFragmentActivity {
 		fragment = new SelectedDirectoryListFragment();
         
 		browseText.setText(dir);
+		layoutDirectory.setVisibility(View.GONE);
 		
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -147,7 +148,8 @@ public class VideoSection extends SherlockFragmentActivity {
         
         btnBrowse.setOnClickListener(new OnClickListener() {			
 			@Override
-			public void onClick(View v) {				
+			public void onClick(View v) {
+				layoutDirectory.setVisibility(View.VISIBLE);
 				initializeDirectory();
 			}
 		});

@@ -29,7 +29,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:background="@drawable/video_bgoverlay"
-        android:paddingLeft="100dp">
+        android:paddingLeft="80dp">
 
     <LinearLayout   
         android:layout_width="wrap_content"
@@ -148,10 +148,8 @@
         <LinearLayout
             android:id="@+id/DirectoryLayout"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:layout_weight="0.7"
-            android:visibility="gone" >
+            android:layout_height="250dp"
+            android:layout_margin="10dp" >
 
             <fragment
                 android:id="@+id/directoryFragment"
@@ -208,6 +206,12 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     android:hint="DEFINE SOURCE" />
+                
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/text_step2" />
 
                 <Spinner
                     android:id="@+id/spinner_database"

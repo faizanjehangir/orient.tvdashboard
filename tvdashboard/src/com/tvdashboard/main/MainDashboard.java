@@ -124,6 +124,13 @@ public class MainDashboard extends SherlockActivity {
  
 		RecentVideosFragment recentVideosFragment = new RecentVideosFragment();
 		t.add(dashboard_content.getId(), recentVideosFragment, "RecentVideosFragment");
+		
+		RecentMusicFragment recentmusicFragment = new RecentMusicFragment();
+		t.add(dashboard_content.getId(), recentmusicFragment, "RecentMusicFragment");
+		
+		RecentPicturesFragment recentpicturesFragment = new RecentPicturesFragment();
+		t.add(dashboard_content.getId(), recentpicturesFragment, "RecentPicturesFragment");
+		
 		t.commit();
 		
 		DisplayMetrics metrics = new DisplayMetrics();
