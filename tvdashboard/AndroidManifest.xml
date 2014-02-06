@@ -13,18 +13,17 @@
         android:icon="@drawable/orient_logo" >
         <activity
             android:name="com.tvdashboard.main.MainDashboard"
-            android:windowSoftInputMode="stateHidden"
             android:screenOrientation="landscape" > 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>   
+               
         </activity>
         <activity
             android:name="com.tvdashboard.main.VideoSection"
-            android:windowSoftInputMode="stateHidden"
+            android:windowSoftInputMode="adjustNothing|stateHidden"
             android:screenOrientation="landscape" >
-            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -12,7 +12,7 @@
 
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
@@ -22,19 +22,14 @@
             android:layout_height="wrap_content"
             android:padding="10dip" />
     </LinearLayout>
-    
-    <RelativeLayout 
-        android:id="@+id/OptionsLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/video_bgoverlay"
-        android:paddingLeft="80dp">
 
     <LinearLayout   
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"  
-        android:layout_centerVertical="true" 
+        android:layout_height="match_parent"  
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="80dp"
+        android:paddingTop="200dp"
+        android:background="@drawable/video_bgoverlay"
         android:orientation="vertical" >
 
         <ImageView
@@ -81,8 +76,6 @@
             android:layout_margin="5dp"
             android:background="@drawable/music_videos_btn_style" />
     </LinearLayout>
-    
-    </RelativeLayout>
 
     <!-- **************************** Layout for Right Add Source Menu ******************************* -->
 
@@ -90,10 +83,11 @@
         android:id="@+id/AddSourceLayout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
         android:layout_alignParentRight="true"
         android:layout_weight="0"
-        android:background="@drawable/addsource_dropshadow"
+        android:background="@drawable/bg_panel"
+        android:paddingLeft="120dp"
+        android:paddingTop="70dp"
         android:orientation="vertical" >
 
         <RelativeLayout
@@ -154,7 +148,7 @@
             <fragment
                 android:id="@+id/directoryFragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 class="com.tvdashboard.main.SelectedDirectoryListFragment" />
         </LinearLayout>
 

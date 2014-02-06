@@ -62,6 +62,7 @@ public class VideoSection extends SherlockFragmentActivity {
 		setTheme(SampleList.THEME);
         requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
     	getSupportActionBar().setDisplayShowTitleEnabled(false);
+//    	getSupportActionBar().setIcon(android.R.color.transparent);
     	getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
 		setContentView(R.layout.videos_section);
 		
@@ -141,7 +142,7 @@ public class VideoSection extends SherlockFragmentActivity {
 			public void onClick(View v) {
 				if (isExpandedRight) {
         			isExpandedRight = false;
-        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.4),(int)(screenWidth), 3, screenWidth));
+        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
         		}        		
 			}
 		});
@@ -193,10 +194,10 @@ public class VideoSection extends SherlockFragmentActivity {
         	public void onClick(View v) {
         		if (isExpandedRight) {
         			isExpandedRight = false;
-        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.4),(int)(screenWidth), 3, screenWidth));
+        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
         		}else {
             		isExpandedRight= true;
-            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.4), 3, screenWidth));
+            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
         		}
         		}
         });
@@ -246,7 +247,6 @@ public class VideoSection extends SherlockFragmentActivity {
 	
 	private void initializeDirectory()
 	{
-		layoutDirectory.setVisibility(View.VISIBLE);
 		btnSelect.setVisibility(View.VISIBLE);
 		SelectedDirectoryListFragment fragment = (SelectedDirectoryListFragment) getFragmentManager()
                 .findFragmentById(R.id.directoryFragment);
