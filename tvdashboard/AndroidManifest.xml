@@ -14,17 +14,39 @@
         <activity
             android:name="com.tvdashboard.main.MainDashboard"
             android:screenOrientation="landscape" > 
-               
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>               
         </activity>
         <activity
             android:name="com.tvdashboard.main.VideoSection"
             android:windowSoftInputMode="adjustNothing|stateHidden"
             android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
+        
+        <activity
+            android:name="com.tvdashboard.main.AppSection"
+            android:windowSoftInputMode="adjustNothing|stateHidden"
+            android:screenOrientation="landscape" >
+
+        </activity>
+        
+        <activity
+            android:name="com.tvdashboard.main.MusicSection"
+            android:windowSoftInputMode="adjustNothing|stateHidden"
+            android:screenOrientation="landscape" >
+
+        </activity>
+        
+        <activity
+            android:name="com.tvdashboard.main.PictureSection"
+            android:windowSoftInputMode="adjustNothing|stateHidden"
+            android:screenOrientation="landscape" >
+
+        </activity>
+
     </application>
 
 </manifest>
