@@ -1,5 +1,10 @@
 package com.tvdashboard.main;
 
+import java.text.DateFormatSymbols;
+import java.util.Date;
+
+import org.json.JSONException;
+
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -10,12 +15,16 @@ import com.orient.menu.animations.CollapseAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.SampleList;
 import com.tvdashboard.database.R;
+import com.tvdashboard.weather.JSONWeatherParser;
+import com.tvdashboard.weather.Weather;
+import com.tvdashboard.weather.WeatherHttpClient;
 import com.tvos.common.TvManager;
 import com.tvos.common.TvPlayer;
 import com.tvos.common.exception.TvCommonException;
 import com.tvos.common.vo.*;
 import com.tvos.common.vo.TvOsType.EnumInputSource;
 
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,7 +34,10 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -71,6 +83,8 @@ public class MainDashboard extends SherlockActivity {
 	public boolean powerFirstOn = true;
 	FrameLayout surfaceLayout;
 	TvPlayer player;
+	public static  String weatherParam;
+	private static Menu menu;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +101,11 @@ public class MainDashboard extends SherlockActivity {
         context = this.getApplicationContext();
         MenuListLeft = (RelativeLayout) findViewById(R.id.PieControlLayout);
         openButtonLeft = (ImageButton) findViewById(R.id.openLeft);
+        
+        Thread myThread = null;
+        Runnable myRunnableThread = new CountDownRunner();
+        myThread= new Thread(myRunnableThread);
+        myThread.start();
         
         try {
         	
@@ -149,6 +168,37 @@ public class MainDashboard extends SherlockActivity {
 				case 1:
 					Intent intent = new Intent(context, VideoSection.class);
 					startActivity(intent);
+					
+					break;
+					
+				case 2:
+					Intent intent1 = new Intent(context, MusicSection.class);
+					startActivity(intent1);
+					
+					break;
+					
+				case 3:
+					Intent intent2 = new Intent(context, PictureSection.class);
+					startActivity(intent2);
+					
+					break;
+					
+				case 4:
+					Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+					startActivity(viewIntent);
+					
+					break;
+					
+				case 5: 
+					startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
+						
+					break;
+						
+				case 0:
+					Intent intent3 = new Intent(context, AppSection.class);
+					startActivity(intent3);
+					
+					break;
 				}
 //				Toast.makeText(getApplicationContext(), "Item # " + String.valueOf(position) , Toast.LENGTH_SHORT).show();				
 			}
@@ -270,7 +320,7 @@ public class MainDashboard extends SherlockActivity {
     	.setIcon(R.drawable.network)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
-        menu.add("14�")
+        menu.add("0°")
     	.setIcon(R.drawable.weather1)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
@@ -448,5 +498,84 @@ public class MainDashboard extends SherlockActivity {
 		this.wm = ((WindowManager) getSystemService("window"));
 		this.wm.addView(this.surfaceView, this.surfaceParams);
 	}
+	
+	public void doWork() {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                try{
+//                    TextView txtCurrentTime= (TextView)findViewById(R.id.time);
+//                    TextView txtCurrentDate= (TextView)findViewById(R.id.date);
+                    Date dt = new Date();
+                    int hours = dt.getHours();
+                    int minutes = dt.getMinutes();
+                    int seconds = dt.getSeconds();
+                    int day = dt.getDay();
+                    int month = dt.getMonth();
+                    int year = dt.getYear();
+                    String curTime = hours + ":" + minutes;// + ":" + seconds;
+                    String curDate = day + " " + new DateFormatSymbols().getMonths()[month-1];
+                    menu.getItem(3).setTitle(curTime);
+//                    txtCurrentDate.setText(curDate);
+//                    txtCurrentTime.setText(curTime);
+                }catch (Exception e) {}
+            }
+        });
+    }
+
+    class CountDownRunner implements Runnable{
+        // @Override
+        public void run() {
+            while(!Thread.currentThread().isInterrupted()){
+                try {
+                    doWork();
+                    Thread.sleep(1000); // Pause of 1 Second
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }catch(Exception e){
+                }
+            }
+        }
+    }
+    
+    private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
+
+		@Override
+		protected Weather doInBackground(String... params) {
+			Weather weather = new Weather();
+			String data = ( (new WeatherHttpClient()).getWeatherData(params[0]));
+
+			try {
+				weather = JSONWeatherParser.getWeather(data);
+				// Let's retrieve the icon
+				weather.iconData = ( (new WeatherHttpClient()).getImage(weather.currentCondition.getIcon()));
+
+			} catch (JSONException e) {				
+				e.printStackTrace();
+			}
+			return weather;
+
+	}
+	@Override
+		protected void onPostExecute(Weather weather) {			
+			super.onPostExecute(weather);
+
+			if (weather.iconData != null && weather.iconData.length > 0) {
+				Bitmap img = BitmapFactory.decodeByteArray(weather.iconData, 0, weather.iconData.length); 
+//				imgView.setImageBitmap(img);
+				menu.getItem(2).setIcon(new BitmapDrawable(img));
+			}
+			
+			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "°C");
+//			cityText.setText(weather.location.getCity() + "," + weather.location.getCountry());
+//			condDescr.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getDescr() + ")");
+//			temp.setText("" + Math.round((weather.temperature.getTemp() - 273.15)) + "�C");
+//			hum.setText("" + weather.currentCondition.getHumidity() + "%");
+//			press.setText("" + weather.currentCondition.getPressure() + " hPa");
+//			windSpeed.setText("" + weather.wind.getSpeed() + " mps");
+//			windDeg.setText("" + weather.wind.getDeg() + "�");
+
+		}
+    }
+	
 
 }

@@ -21,7 +21,7 @@ class VideoFragmentAdapter extends FragmentPagerAdapter implements IconPagerAdap
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
 //    @Override

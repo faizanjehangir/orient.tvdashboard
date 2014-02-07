@@ -3,8 +3,10 @@ package com.tvdashboard.main;
 import java.io.File;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.view.ViewPager;
@@ -169,7 +171,44 @@ public class VideoSection extends SherlockFragmentActivity {
 			@Override
 			public void onItemClick(WheelAdapter<?> parent, View view,
 					int position, long id) {
-				Toast.makeText(getApplicationContext(), "Item # " + String.valueOf(position) , Toast.LENGTH_SHORT).show();				
+				switch (position)
+				{
+				case 1:
+					Intent intent = new Intent(context, VideoSection.class);
+					startActivity(intent);
+					
+					break;
+					
+				case 2:
+					Intent intent1 = new Intent(context, MusicSection.class);
+					startActivity(intent1);
+					
+					break;
+					
+				case 3:
+					Intent intent2 = new Intent(context, PictureSection.class);
+					startActivity(intent2);
+					
+					break;
+					
+				case 4:
+					Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+					startActivity(viewIntent);
+					
+					break;
+					
+				case 5: 
+					startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
+						
+					break;
+						
+				case 0:
+					Intent intent3 = new Intent(context, AppSection.class);
+					startActivity(intent3);
+					
+					break;
+				}
+				//Toast.makeText(getApplicationContext(), "Item # " + String.valueOf(position) , Toast.LENGTH_SHORT).show();				
 			}
 		});
 

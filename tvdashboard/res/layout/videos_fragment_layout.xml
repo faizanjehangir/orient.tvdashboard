@@ -45,7 +45,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
                     android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
+                    android:src="@drawable/musicvideo_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
                     android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
+                    android:src="@drawable/musicvideo_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
                         android:paddingRight="10dp"
-                        android:src="@drawable/app_icon" />
+                        android:src="@drawable/musicvideo_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -149,7 +149,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
                         android:paddingRight="10dp"
-                        android:src="@drawable/app_icon" />
+                        android:src="@drawable/musicvideo_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -181,7 +181,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
                         android:paddingRight="10dp"
-                        android:src="@drawable/app_icon" />
+                        android:src="@drawable/musicvideo_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -211,7 +211,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
                         android:paddingRight="10dp"
-                        android:src="@drawable/app_icon" />
+                        android:src="@drawable/musicvideo_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"

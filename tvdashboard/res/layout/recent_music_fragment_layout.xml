@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="20dp"
-        android:src="@drawable/text_favorites" />
+        android:src="@drawable/text_recentmusic" />
 
     <LinearLayout
         android:layout_width="match_parent"
