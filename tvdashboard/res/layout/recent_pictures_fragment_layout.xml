@@ -1,36 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="500dp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginRight="20dp"
-    android:background="@null"
-    android:orientation="vertical" >
+    android:background="@null" >
 
     <ImageView
+        android:id="@+id/FragmentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
         android:layout_marginLeft="20dp"
+        android:layout_alignLeft="@id/LayoutMain"
         android:src="@drawable/text_recentpictures" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/LayoutMain"
+        android:layout_width="800dp"
         android:layout_height="match_parent"
-        android:background="@null"
+        android:layout_below="@id/FragmentTitle"
+        android:layout_centerInParent="true"
         android:orientation="horizontal"
-        android:weightSum="2" >
+        android:weightSum="3" >
 
         <LinearLayout
+            android:id="@+id/LayoutLeftContent"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:weightSum="6"
+            android:layout_marginRight="7dp"
             android:orientation="vertical" >
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="0.7" >
+                android:layout_weight="4"
+                android:layout_marginBottom="7dp" >
 
                 <ImageButton
                     android:id="@+id/image1"
@@ -57,18 +64,18 @@
                     android:layout_alignParentRight="true"
                     android:text="" />
             </RelativeLayout>
-
+            
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="0.3" >
+                android:layout_weight="2" >
 
                 <ImageButton
                     android:id="@+id/image2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:adjustViewBounds="true"
-                    android:background="@null"
+                    android:background="@drawable/tiles_selector_style"
                     android:scaleType="centerCrop"
                     android:src="@drawable/movie2" />
 
@@ -88,28 +95,38 @@
                     android:layout_alignParentRight="true"
                     android:text="" />
             </RelativeLayout>
+            
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LayoutMiddleContent"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:weightSum="1" >
-
+            android:weightSum="6"
+            android:layout_marginRight="7dp"
+            android:orientation="vertical" >
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:layout_weight="4"
+                android:weightSum="2"
+                android:layout_marginBottom="7dp">
+            
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="0.25" >
+                android:layout_weight="1"
+                android:layout_marginBottom="7dp" >
 
                 <ImageButton
                     android:id="@+id/image3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:adjustViewBounds="true"
-                    android:background="@null"
+                    android:background="@drawable/tiles_selector_style"
                     android:scaleType="centerCrop"
                     android:src="@drawable/movie3" />
 
@@ -129,19 +146,18 @@
                     android:layout_alignParentRight="true"
                     android:text="" />
             </RelativeLayout>
-
+            
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="0.25" >
+                android:layout_weight="1" >
 
                 <ImageButton
                     android:id="@+id/image4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
-                    android:background="@null"
+                    android:background="@drawable/tiles_selector_style"
                     android:scaleType="centerCrop"
                     android:src="@drawable/movie4" />
 
@@ -161,18 +177,20 @@
                     android:layout_alignParentRight="true"
                     android:text="" />
             </RelativeLayout>
-
+            
+            </LinearLayout>
+            
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="0.25" >
+                android:layout_weight="2" >
 
                 <ImageButton
                     android:id="@+id/image5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
-                    android:background="@null"
+                    android:background="@drawable/tiles_selector_style"
                     android:scaleType="centerCrop"
                     android:src="@drawable/movie5" />
 
@@ -191,23 +209,83 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:text="" />
-            </RelativeLayout>
+            </RelativeLayout>            
+            
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/LayoutRightContent"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:weightSum="6"
+            android:layout_marginRight="7dp"
+            android:orientation="vertical" >  
+            
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="0.25" >
+                android:layout_weight="4"
+                android:layout_marginBottom="7dp" >
 
                 <ImageButton
-                    android:id="@+id/image5"
+                    android:id="@+id/image6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
-                    android:background="@null"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/goto_pictures_btn_style" />
-            </RelativeLayout>
-        </LinearLayout>
-    </LinearLayout>
+                    android:background="@drawable/tiles_selector_style"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/movie7" />
 
-</LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/app_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:text="" />
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2" >
+
+                <ImageButton
+                    android:id="@+id/image7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/tiles_selector_style"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/movie2" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/app_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:text="" />
+            </RelativeLayout>
+                        
+        </LinearLayout>
+    </LinearLayout>    
+
+</RelativeLayout>

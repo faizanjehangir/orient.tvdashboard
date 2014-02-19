@@ -14,10 +14,9 @@ import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
-class WheelItemView extends ImageButton {
+class WheelItemView extends ImageView {
 
 	private int _index;
 	private float _x;

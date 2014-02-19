@@ -10,7 +10,7 @@ package com.digitalaria.gama.wheel;
 final class Configuration {
 	/* Configuration */
 	public static final int  ITEM_CLICK_AREA_PADDING         = 4;
-	public static final int  DEFAULT_WHEEL_ROTATION_DURATION = 1000;
+	public static final int  DEFAULT_WHEEL_ROTATION_DURATION = 800;
 	public static final int  DEFAULT_WHEEL_DIAMETER          = 250;
 	public static final long LAYOUT_DELAY                    = 250;
 	

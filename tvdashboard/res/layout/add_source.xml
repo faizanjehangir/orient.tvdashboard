@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_panel"
+    android:orientation="vertical"
+    android:paddingLeft="140dp"
+    android:paddingTop="70dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp" >
+
+        <ImageButton
+            android:id="@+id/returnBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/return_btn_style" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/text_step1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" >
+
+        <ImageButton
+            android:id="@+id/btn_browse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/browse_btn_style" />
+
+        <EditText
+            android:id="@+id/text_browse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toLeftOf="@id/btn_browse"
+            android:background="@drawable/addsource_edittext_style"
+            android:enabled="false"
+            android:hint="ADD SOURCE"
+            android:padding="11dp"
+            android:singleLine="true"
+            android:textColor="#6d6d6d" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/DirectoryLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_margin="10dp" >
+
+        <fragment
+            android:id="@+id/directoryFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.tvdashboard.main.SelectedDirectoryListFragment" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp" >
+
+        <ImageButton
+            android:id="@+id/okBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ok_btn_style" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/text_source_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/addsource_edittext_style"
+                android:hint="NAME SOURCE"
+                android:padding="11dp"
+                android:singleLine="true"
+                android:textColor="#6d6d6d" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/text_step2" />
+
+            <Spinner
+                android:id="@+id/spinner_source"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:hint="DEFINE SOURCE" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/text_step3" />
+
+            <Spinner
+                android:id="@+id/spinner_database"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp" >
+
+                <ImageButton
+                    android:id="@+id/btn_add_source"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/addsource_btn_style" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -2,13 +2,19 @@ package com.tvdashboard.main;
 
 import com.tvdashboard.database.R;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 public class RecentMusicFragment extends Fragment{
+	
+	public static RecentMusicFragment newInstance() {
+		RecentMusicFragment fragment = new RecentMusicFragment();
+
+        return fragment;
+    }
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {

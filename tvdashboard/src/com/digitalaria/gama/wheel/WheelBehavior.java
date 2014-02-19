@@ -13,7 +13,6 @@ import java.util.Comparator;
 
 import com.tvdashboard.database.R;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -34,11 +33,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView.ScaleType;
 
 
-final class WheelBehavior extends WheelAdapter<Adapter> implements GestureDetector.OnGestureListener {
+final class WheelBehavior extends WheelAdapter<Adapter> implements
+		GestureDetector.OnGestureListener {
 
 	private Wheel _parent;
 	private int _rotationDirection = Wheel.CW;
 	private int _backgroundInitRotationAngle;
+	
+	public static int tmp;
 
 	private int _rotationAnimationDuration = 450;
 	private int _wheelDiameter = 250;
@@ -82,7 +84,7 @@ final class WheelBehavior extends WheelAdapter<Adapter> implements GestureDetect
 	 * AngleOffset of the selection position. Touched item will move to this
 	 * position.
 	 */
-	protected int selectionAngleOffset = 0;
+	protected int selectionAngleOffset = 0; // Selected item angle
 	private Rect _touchFrame;
 	protected boolean isLayouted = false;
 	private float _slotAngleUnit = 0;
@@ -913,7 +915,7 @@ final class WheelBehavior extends WheelAdapter<Adapter> implements GestureDetect
 	public void onLongPress(MotionEvent e) {
 	}
 
-	@SuppressLint("WrongCall") protected void setRotatedItem(boolean flag) {
+	protected void setRotatedItem(boolean flag) {
 		_hasRotatedItem = flag;
 		if (isLayouted)
 			onLayout(true, getLeft(), getTop(), getRight(), getBottom());
@@ -927,7 +929,7 @@ final class WheelBehavior extends WheelAdapter<Adapter> implements GestureDetect
 		_parent = wheel;
 	}
 
-	protected void setTouchArea(int from, int to) { 
+	protected void setTouchArea(int from, int to) {
 		_touchAreaFrom = from;
 		_touchAreaTo = to;
 		_hasTouchArea = true;
@@ -938,7 +940,10 @@ final class WheelBehavior extends WheelAdapter<Adapter> implements GestureDetect
 		_isMoveItemIntoSlot = false;
 		_doNotCallBack = false;
 		scrollIntoSlots();
-		int tmp = (_selectedItemID + 1) % getCount();
+//		int tmp = (_selectedItemID + 1) % getCount();
+		tmp = (_selectedItemID + 1);
+		if (tmp > (getCount() - 1) )
+			tmp = 0;
 		moveItemIntoSlot(tmp);
 		return tmp;
 	}
@@ -948,7 +953,7 @@ final class WheelBehavior extends WheelAdapter<Adapter> implements GestureDetect
 		_isMoveItemIntoSlot = false;
 		_doNotCallBack = false;
 		scrollIntoSlots();
-		int tmp = (_selectedItemID - 1);
+		tmp = (_selectedItemID - 1);
 		if (tmp < 0)
 			tmp = getCount() - 1;
 		moveItemIntoSlot(tmp);

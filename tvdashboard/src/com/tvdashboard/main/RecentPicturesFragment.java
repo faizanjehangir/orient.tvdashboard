@@ -2,13 +2,19 @@ package com.tvdashboard.main;
 
 import com.tvdashboard.database.R;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 public class RecentPicturesFragment extends Fragment{
+	
+	public static RecentPicturesFragment newInstance() {
+		RecentPicturesFragment fragment = new RecentPicturesFragment();
+
+        return fragment;
+    }
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {

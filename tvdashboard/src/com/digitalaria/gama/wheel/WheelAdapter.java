@@ -7,14 +7,12 @@
 
 package com.digitalaria.gama.wheel;
 
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
-import android.widget.Toast;
 
 public abstract class WheelAdapter<T extends Adapter> extends ViewGroup {
 

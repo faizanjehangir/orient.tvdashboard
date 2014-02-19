@@ -55,7 +55,7 @@ public class WeatherHttpClient {
 			con = (HttpURLConnection) ( new URL(IMG_URL + code)).openConnection();
 			con.setRequestMethod("GET");
 			con.setDoInput(true);
-			con.setDoOutput(true);
+			con.setDoOutput(false);
 			con.connect();
 
 			// Let's read the response

@@ -14,7 +14,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 
 import com.digitalaria.gama.wheel.WheelAdapter.OnItemClickListener;
 import com.digitalaria.gama.wheel.WheelAdapter.OnItemSelectionUpdatedListener;
@@ -44,7 +43,7 @@ public final class Wheel extends FrameLayout {
 	private WheelBehavior _wheelBehavior;
 
 	private ViewStub _backgroundViewDummy;
-	protected ImageButton _backgroundView;
+	protected View _backgroundView;
 
 	protected boolean _hasBackgroundImage = false;
 
@@ -335,7 +334,7 @@ public final class Wheel extends FrameLayout {
 
 		_backgroundViewDummy.setInflatedId(inflatedId);
 		_backgroundViewDummy.setLayoutResource(layoutResource);
-		_backgroundView = (ImageButton) _backgroundViewDummy.inflate();
+		_backgroundView = _backgroundViewDummy.inflate();
 
 		if (_backgroundView != null)
 			_hasBackgroundImage = true;

@@ -6,80 +6,30 @@
     android:background="@drawable/dashboard_bg" >
 
     <LinearLayout
-        android:id="@+id/CategoriesLayout"
-        android:layout_width="wrap_content"
+        android:id="@+id/ContentFragmentLayout"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerInParent="true"
         android:orientation="vertical" >
 
-        <HorizontalScrollView
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="70dp"
-            android:layout_marginTop="100dp"
-            android:scrollbars="none" >
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-            <LinearLayout
-                android:id="@+id/ContentFragmentLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingLeft="500dp" >
-            </LinearLayout>
-        </HorizontalScrollView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/TvLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/dashboard_bgoverlay"
-        android:orientation="vertical"
-        android:paddingLeft="100dp"
-        android:paddingRight="40dp" >
-
-        <ImageView
-            android:layout_width="wrap_content"
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="100dp"
-            android:src="@drawable/text_ontv" />
-        
-        <FrameLayout
-                 android:id="@+id/surframelayout"
-                 android:layout_width="350dp"
-                 android:layout_height="250dp"  
-                 android:layout_marginLeft="20dp"              
-                 android:layout_marginTop="10dp" >
-             </FrameLayout>
-
-        <Button
-            android:id="@+id/btnHDMIOne"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/hdmi1_btn_style" />
-
-        <Button
-            android:id="@+id/btnHDMITwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/hdmi2_btn_style" />
-
-        <Button
-            android:id="@+id/btnTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/usb_btn_style" />
+            android:padding="20dip" />
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/PieControlLayout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:focusable="true"
         android:background="@drawable/bg" >
 
         <com.digitalaria.gama.wheel.Wheel
@@ -88,7 +38,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="-100dp" >
+            android:layout_marginLeft="-65dp"
+            android:nextFocusLeft="@id/openLeft"
+            android:nextFocusRight="@id/openLeft"
+            android:nextFocusUp="@id/wheel"
+            android:nextFocusDown="@id/wheel"
+            android:soundEffectsEnabled="true"
+            android:focusable="true" >  
         </com.digitalaria.gama.wheel.Wheel>
     </RelativeLayout>
 
