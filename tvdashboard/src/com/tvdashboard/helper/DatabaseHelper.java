@@ -26,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String LOG = "DatabaseHelper";
 
 	// Database Version
-	private static final int DATABASE_VERSION = 14;
+	private static final int DATABASE_VERSION = 15;
 
 	// Database Name
 
@@ -87,9 +87,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 		// creating required tables
-		db.execSQL("DROP TABLE IF EXISTS " + TABLE_VIDEO);
+		/*db.execSQL("DROP TABLE IF EXISTS " + TABLE_VIDEO);
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_PICTURE);
-		db.execSQL("DROP TABLE IF EXISTS " + TABLE_MUSIC);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_MUSIC);*/
 		db.execSQL(CREATE_TABLE_PICTURE);
 		db.execSQL(CREATE_TABLE_MUSIC);
 		db.execSQL(CREATE_TABLE_VIDEO);
@@ -125,9 +125,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public void addpicturelist(List<Picture_BLL> pics){
 		String query = "";
 		SQLiteDatabase db = this.getWritableDatabase();
+		Time now = new Time();
+		now.setToNow();
 		for(int i=0;i<pics.size();i++)
 		{
-			query="insert into table_picture (key_fav, key_path, key_source_name, key_isalbum ,  key_isactive, key_timestamp) VALUES ('" + pics.get(i).isFav() + "','" + pics.get(i).getPath() + "','" + pics.get(i).getSourcename() +"','"  + Boolean.toString( pics.get(i).isIsalbum()) + "','" + Boolean.toString( pics.get(i).isIsactive()) + "','testtime');";
+			query="insert into table_picture (key_fav, key_path, key_source_name, key_isalbum ,  key_isactive, key_timestamp) VALUES ('" + pics.get(i).isFav() + "','" + pics.get(i).getPath() + "','" + pics.get(i).getSourcename() +"','"  + Boolean.toString( pics.get(i).isIsalbum()) + "','" + Boolean.toString( pics.get(i).isIsactive()) + "','"+now.toString()+"');";
 			db.execSQL(query);
 		}
 		
