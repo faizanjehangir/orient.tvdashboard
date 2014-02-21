@@ -2,7 +2,9 @@ package com.tvdashboard.main;
 
 import java.io.File;
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.json.JSONException;
 
@@ -45,7 +47,11 @@ import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
 import com.tvdashboard.database.R;
+import com.tvdashboard.helper.Media_source;
+import com.tvdashboard.helper.Source;
 import com.tvdashboard.main.MainDashboard.CountDownRunner;
+import com.tvdashboard.model.Music;
+import com.tvdashboard.model.Video;
 import com.tvdashboard.weather.GPSTracker;
 import com.tvdashboard.weather.JSONWeatherParser;
 import com.tvdashboard.weather.Weather;
@@ -55,7 +61,7 @@ import com.viewpagerindicator.PageIndicator;
 
 public class VideoSection extends SherlockFragmentActivity {
 
-	private Context context;
+	public static Context context;
 	private LinearLayout layoutRightMenu,layoutDirectory;
 	private RelativeLayout layoutDialer;
 	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnBrowse;
@@ -90,6 +96,17 @@ public class VideoSection extends SherlockFragmentActivity {
 		setContentView(R.layout.videos_section);
 		
 		context = this.getApplicationContext();
+		
+		Media_source m = null;
+        m = m.Videos;
+		
+        
+        // check which basic category has been selected
+        
+        this.context = this.getApplicationContext();
+		Source mSource = new Source(Media_source.Videos, context);
+		/*mSource.selectStuff(m);*/
+		
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
         layoutDirectory = (LinearLayout)findViewById(R.id.DirectoryLayout);
@@ -103,7 +120,7 @@ public class VideoSection extends SherlockFragmentActivity {
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
         
 		fragment = new SelectedDirectoryListFragment();
-        
+        fragment.introduce("VideoSection");
 		browseText.setText(dir);
 		layoutDirectory.setVisibility(View.GONE);
 		btnSelect.setVisibility(View.INVISIBLE);
@@ -140,7 +157,7 @@ public class VideoSection extends SherlockFragmentActivity {
         
         if (weatherParam != "")
         {
-        	new JSONWeatherTask().execute(weatherParam);
+        	/*new JSONWeatherTask().execute(weatherParam);*/
         }
         
 // ****************************************************************** //
@@ -377,8 +394,29 @@ public class VideoSection extends SherlockFragmentActivity {
 			public void onClick(View v) {
 				btnSelect.setVisibility(View.GONE);
 				layoutDirectory.setVisibility(View.GONE);
+				
+				String path = browseText.getText().toString();
+			    /*Log.d("Files", "Path: " + path);*/
+			    File f = new File(path);        
+			    File file[] = f.listFiles();
+			    /*Log.d("Files", "Size: "+ file.length);*/
+			    String filenames = "";
+			    List<Video> Video = new ArrayList<Video>();
+			    for (int i=0; i < file.length; i++)
+			    {
+			    	Video video = new Video();
+			    	video.setFav(false);
+			    	video.setIsactive(true);
+			    	video.setSub_cat("movies");
+			    	video.setPath(file[i].getName());
+			    	video.setSourcename("testalbum");
+			    	Video.add(video);
+			        /*Log.d("Files", "FileName:" + file[i].getName());*/
+			    }
+			    Source mSource = new Source(Media_source.Music, context);
+			    mSource.insertVideoList(Video);
 			}
-		});	       
+		});  
         
 	}
 	
@@ -475,7 +513,7 @@ public class VideoSection extends SherlockFragmentActivity {
         }
     }
     
-    private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
+/*    private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
 
 		@Override
 		protected Weather doInBackground(String... params) {
@@ -492,9 +530,7 @@ public class VideoSection extends SherlockFragmentActivity {
 			}
 			return weather;
 
-	}
-	@Override
-		protected void onPostExecute(Weather weather) {			
+	}*		protected void onPostExecute(Weather weather) {			
 			super.onPostExecute(weather);
 
 			if (weather.iconData != null && weather.iconData.length > 0) {
@@ -512,7 +548,9 @@ public class VideoSection extends SherlockFragmentActivity {
 //			windSpeed.setText("" + weather.wind.getSpeed() + " mps");
 //			windDeg.setText("" + weather.wind.getDeg() + "�");
 
-		}
-    }
+		}/
+	@Override
+/**/
+    
 
 }

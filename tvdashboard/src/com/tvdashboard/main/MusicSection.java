@@ -2,7 +2,9 @@ package com.tvdashboard.main;
 
 import java.io.File;
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.json.JSONException;
 
@@ -45,17 +47,21 @@ import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
 import com.tvdashboard.database.R;
+import com.tvdashboard.helper.Media_source;
+import com.tvdashboard.helper.Source;
 import com.tvdashboard.main.VideoSection.CountDownRunner;
-import com.tvdashboard.weather.GPSTracker;
+import com.tvdashboard.model.Music;
+import com.tvdashboard.model.Picture_BLL;
+/*import com.tvdashboard.weather.GPSTracker;
 import com.tvdashboard.weather.JSONWeatherParser;
 import com.tvdashboard.weather.Weather;
-import com.tvdashboard.weather.WeatherHttpClient;
+import com.tvdashboard.weather.WeatherHttpClient;*/
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 
 public class MusicSection extends SherlockFragmentActivity {
 
-	private Context context;
+	public static Context context;
 	private LinearLayout layoutRightMenu,layoutDirectory;
 	private RelativeLayout layoutDialer;
 	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnBrowse;
@@ -72,7 +78,7 @@ public class MusicSection extends SherlockFragmentActivity {
     
     public static Menu menu;
     public static String currTime;
-	public static Weather weather;
+	/*public static Weather weather;*/
 	public static  String weatherParam="";
     
     MusicFragmentAdapter mAdapter;
@@ -89,6 +95,18 @@ public class MusicSection extends SherlockFragmentActivity {
 		setContentView(R.layout.music_section);
 		
 		context = this.getApplicationContext();
+		
+		Media_source m = null;
+        m = m.Music;
+		
+        
+        // check which basic category has been selected
+        
+        this.context = this.getApplicationContext();
+		Source mSource = new Source(Media_source.Music, context);
+		/*mSource.selectStuff(m);*/
+		
+		
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
         layoutDirectory = (LinearLayout)findViewById(R.id.DirectoryLayout);
@@ -102,7 +120,7 @@ public class MusicSection extends SherlockFragmentActivity {
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
         
         fragment = new SelectedDirectoryListFragment();
-        
+        fragment.introduce("MusicSection");
 		browseText.setText(dir);
 		layoutDirectory.setVisibility(View.GONE);
 		btnSelect.setVisibility(View.INVISIBLE);
@@ -116,7 +134,7 @@ public class MusicSection extends SherlockFragmentActivity {
         screenWidth = metrics.widthPixels;
         screenHeight = metrics.heightPixels;
 		
-		GPSTracker gpsTracker = new GPSTracker(this);
+		/*GPSTracker gpsTracker = new GPSTracker(this);
         if (gpsTracker.canGetLocation())
 		{
         	String country = gpsTracker.getCountryName(this);
@@ -126,7 +144,7 @@ public class MusicSection extends SherlockFragmentActivity {
         else
 		{
 			gpsTracker.showSettingsAlert();
-		}
+		}*/
         
 // *********************** Timer Thread ***************************** //        
         
@@ -139,7 +157,7 @@ public class MusicSection extends SherlockFragmentActivity {
         
         if (weatherParam != "")
         {
-        	new JSONWeatherTask().execute(weatherParam);
+        	/*new JSONWeatherTask().execute(weatherParam);*/
         }
         
 // ****************************************************************** //
@@ -375,6 +393,27 @@ public class MusicSection extends SherlockFragmentActivity {
 			public void onClick(View v) {
 				btnSelect.setVisibility(View.GONE);
 				layoutDirectory.setVisibility(View.GONE);
+				
+				String path = browseText.getText().toString();
+			    /*Log.d("Files", "Path: " + path);*/
+			    File f = new File(path);        
+			    File file[] = f.listFiles();
+			    /*Log.d("Files", "Size: "+ file.length);*/
+			    String filenames = "";
+			    List<Music> music = new ArrayList<Music>();
+			    for (int i=0; i < file.length; i++)
+			    {
+			    	Music musicObj = new Music();
+			    	musicObj.setFav(false);
+			    	musicObj.setIsactive(true);
+			    	musicObj.setIsalbum(true);
+			    	musicObj.setPath(file[i].getName());
+			    	musicObj.setSourcename("testalbum");
+			    	music.add(musicObj);
+			        /*Log.d("Files", "FileName:" + file[i].getName());*/
+			    }
+			    Source mSource = new Source(Media_source.Music, context);
+			    mSource.insertMusicList(music);
 			}
 		});
         
@@ -474,7 +513,7 @@ public class MusicSection extends SherlockFragmentActivity {
         }
     }
     
-    private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
+   /* private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
 
 		@Override
 		protected Weather doInBackground(String... params) {
@@ -512,6 +551,6 @@ public class MusicSection extends SherlockFragmentActivity {
 //			windDeg.setText("" + weather.wind.getDeg() + "�");
 
 		}
-    }
+    }*/
 
 }

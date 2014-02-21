@@ -25,6 +25,7 @@ public class SelectedDirectoryListFragment extends Fragment {
 	public static File file;
 	public static String path;
 	public static View view;
+	public static String calledBy;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class SelectedDirectoryListFragment extends Fragment {
 		lv = (ListView) getActivity().findViewById(R.id.directoryList);
 		adapter = new DirectoryListAdapter(this.getActivity(),R.id.directoryList, allFiles);
 		lv.setAdapter(adapter);
-
+		
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -61,7 +62,15 @@ public class SelectedDirectoryListFragment extends Fragment {
 					if (!temp_file.isFile()) 
 					{
 						file = new File(file, allFiles.get(position).getTitle());
-						VideoSection.browseText.setText(file.getAbsolutePath());
+						if(calledBy=="PictureSection"){
+							PictureSection.browseText.setText(file.getAbsolutePath());
+						}
+						else if(calledBy=="VideoSection"){
+							VideoSection.browseText.setText(file.getAbsolutePath());
+						}
+						else if(calledBy=="MusicSection"){
+							MusicSection.browseText.setText(file.getAbsolutePath());
+						}
 						path = file.getAbsolutePath();
 						File list[] = file.listFiles();	
 						initializeDirList(list);			
@@ -80,6 +89,10 @@ public class SelectedDirectoryListFragment extends Fragment {
 			Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.selected_dir, container, false);		
 		return view;
+	}
+	
+	public void introduce(String intro){
+		calledBy = intro;
 	}
 	
 	public void updateDirectoryList (File [] list){

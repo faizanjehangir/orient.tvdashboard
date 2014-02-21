@@ -2,7 +2,9 @@ package com.tvdashboard.main;
 
 import java.io.File;
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.json.JSONException;
 
@@ -45,7 +47,10 @@ import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
 import com.tvdashboard.database.R;
+import com.tvdashboard.helper.Media_source;
+import com.tvdashboard.helper.Source;
 import com.tvdashboard.main.VideoSection.CountDownRunner;
+import com.tvdashboard.model.Picture_BLL;
 import com.tvdashboard.weather.GPSTracker;
 import com.tvdashboard.weather.JSONWeatherParser;
 import com.tvdashboard.weather.Weather;
@@ -55,7 +60,7 @@ import com.viewpagerindicator.PageIndicator;
 
 public class PictureSection extends SherlockFragmentActivity {
 
-	private Context context;
+	public static Context context;
 	private LinearLayout layoutRightMenu,layoutDirectory;
 	private RelativeLayout layoutDialer;
 	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnBrowse;
@@ -88,6 +93,16 @@ public class PictureSection extends SherlockFragmentActivity {
     	getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
 		setContentView(R.layout.picture_section);
 		
+		final Media_source m = Media_source.Picture;
+        
+		
+        
+        // check which basic category has been selected
+        
+        this.context = this.getApplicationContext();
+		Source mSource = new Source(Media_source.Picture, context);
+		
+		
 		context = this.getApplicationContext();
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
@@ -102,7 +117,7 @@ public class PictureSection extends SherlockFragmentActivity {
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
         
         fragment = new SelectedDirectoryListFragment();
-        
+        fragment.introduce("PictureSection");
 		browseText.setText(dir);
 		layoutDirectory.setVisibility(View.GONE);
 		btnSelect.setVisibility(View.INVISIBLE);
@@ -373,6 +388,30 @@ public class PictureSection extends SherlockFragmentActivity {
 			public void onClick(View v) {
 				btnSelect.setVisibility(View.GONE);
 				layoutDirectory.setVisibility(View.GONE);
+				
+				//Source.selectStuff(m);
+				
+				String path = browseText.getText().toString();
+			    /*Log.d("Files", "Path: " + path);*/
+			    File f = new File(path);        
+			    File file[] = f.listFiles();
+			    /*Log.d("Files", "Size: "+ file.length);*/
+			    String filenames = "";
+			    
+			    List<Picture_BLL> pics = new ArrayList<Picture_BLL>();
+			    for (int i=0; i < file.length; i++)
+			    {
+			    	Picture_BLL pic = new Picture_BLL();
+			    	pic.setFav(false);
+			    	pic.setIsactive(true);
+			    	pic.setIsalbum(true);
+			    	pic.setPath(file[i].getName());
+			    	pic.setSourcename("testalbum");
+			    	pics.add(pic);
+			        /*Log.d("Files", "FileName:" + file[i].getName());*/
+			    }
+			    Source mSource = new Source(Media_source.Picture, context);
+			    mSource.insertPictureList(pics);
 			}
 		});
         
