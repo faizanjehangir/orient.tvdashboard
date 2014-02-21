@@ -51,6 +51,7 @@ import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
 import com.tvdashboard.main.MainDashboard.CountDownRunner;
 import com.tvdashboard.model.Music;
+import com.tvdashboard.model.Picture_BLL;
 import com.tvdashboard.model.Video;
 import com.tvdashboard.weather.GPSTracker;
 import com.tvdashboard.weather.JSONWeatherParser;
@@ -64,8 +65,8 @@ public class VideoSection extends SherlockFragmentActivity {
 	public static Context context;
 	private LinearLayout layoutRightMenu,layoutDirectory;
 	private RelativeLayout layoutDialer;
-	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnBrowse;
-	public static EditText browseText;
+	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnAddSource,btnBrowse;
+	public static EditText browseText,txtAlbumName;
 	private int screenWidth, screenHeight;
 	private boolean isExpandedLeft,isExpandedRight;
 	private Wheel wheel;
@@ -100,7 +101,7 @@ public class VideoSection extends SherlockFragmentActivity {
 		Media_source m = null;
         m = m.Videos;
 		
-        
+        txtAlbumName = (EditText)findViewById(R.id.text_source_name);
         // check which basic category has been selected
         
         this.context = this.getApplicationContext();
@@ -118,6 +119,7 @@ public class VideoSection extends SherlockFragmentActivity {
         browseText = (EditText)findViewById(R.id.text_browse);
         btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
+        btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
         
 		fragment = new SelectedDirectoryListFragment();
         fragment.introduce("VideoSection");
@@ -388,12 +390,13 @@ public class VideoSection extends SherlockFragmentActivity {
 			}
 		});
         
-        btnSelect.setOnClickListener(new OnClickListener() {
+        btnAddSource.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				btnSelect.setVisibility(View.GONE);
-				layoutDirectory.setVisibility(View.GONE);
+				
+				
+				/*Source.selectStuff(m);*/
 				
 				String path = browseText.getText().toString();
 			    /*Log.d("Files", "Path: " + path);*/
@@ -401,23 +404,45 @@ public class VideoSection extends SherlockFragmentActivity {
 			    File file[] = f.listFiles();
 			    /*Log.d("Files", "Size: "+ file.length);*/
 			    String filenames = "";
-			    List<Video> Video = new ArrayList<Video>();
+			    
+			    List<Video> pics = new ArrayList<Video>();
 			    for (int i=0; i < file.length; i++)
 			    {
-			    	Video video = new Video();
-			    	video.setFav(false);
-			    	video.setIsactive(true);
-			    	video.setSub_cat("movies");
-			    	video.setPath(file[i].getName());
-			    	video.setSourcename("testalbum");
-			    	Video.add(video);
+			    	if (file[i].isDirectory()) {
+	                    /*fileList.add(listFile[i]);*/
+	                    /*getpicfile(file[i]);*/
+	 
+	                } else {
+	                    if (file[i].getName().endsWith(".vlc")
+	                            || file[i].getName().endsWith(".mp4")
+	                            || file[i].getName().endsWith(".mvx")
+	                            || file[i].getName().endsWith(".flv")
+	                            )
+	                    {
+	                    	Video vid = new Video();
+	    			    	vid.setFav(false);
+	    			    	vid.setIsactive(true);
+	    			    	vid.setSub_cat("movies");
+	    			    	vid.setPath(file[i].getPath());
+	    			    	vid.setSourcename(txtAlbumName.getText().toString());
+	    			    	pics.add(vid);
+	                    }
+	                }
 			        /*Log.d("Files", "FileName:" + file[i].getName());*/
 			    }
-			    Source mSource = new Source(Media_source.Music, context);
-			    mSource.insertVideoList(Video);
+			    Source mSource = new Source(Media_source.Picture, context);
+			    mSource.insertVideoList(pics);
 			}
-		});  
+		});
         
+        btnSelect.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				btnSelect.setVisibility(View.GONE);
+				layoutDirectory.setVisibility(View.GONE);
+			}
+    	});
 	}
 	
 	@Override
