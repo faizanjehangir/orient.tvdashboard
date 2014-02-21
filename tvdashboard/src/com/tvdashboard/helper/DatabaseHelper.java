@@ -141,9 +141,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public void addmusiclist(List<Music> music){
 		String query = "";
 		SQLiteDatabase db = this.getWritableDatabase();
+		Time now = new Time();
+		now.setToNow();
 		for(int i=0;i<music.size();i++)
 		{
-			query="insert into table_music (key_fav, key_path, key_source_name, key_isalbum ,  key_isactive, key_timestamp) VALUES ('" + music.get(i).isFav() + "','" + music.get(i).getPath() + "','" + music.get(i).getSourcename() +"','"  + Boolean.toString( music.get(i).isIsalbum()) + "','" + Boolean.toString( music.get(i).isIsactive()) + "','testtime');";
+			query="insert into table_music (key_fav, key_path, key_source_name, key_isalbum ,  key_isactive, key_timestamp) VALUES ('" + music.get(i).isFav() + "','" + music.get(i).getPath() + "','" + music.get(i).getSourcename() +"','"  + Boolean.toString( music.get(i).isIsalbum()) + "','" + Boolean.toString( music.get(i).isIsactive()) + "','"+now.toString()+"');";
 			db.execSQL(query);
 		}
 		
@@ -154,9 +156,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public void addVideolist(List<Video> video){
 		String query = "";
 		SQLiteDatabase db = this.getWritableDatabase();
+		Time now = new Time();
+		now.setToNow();
 		for(int i=0;i<video.size();i++)
 		{
-			query="insert into table_video (key_fav, key_path, key_source_name, key_subcat ,  key_isactive, key_timestamp) VALUES ('" + video.get(i).isFav() + "','" + video.get(i).getPath() + "','" + video.get(i).getSourcename() +"','"  + video.get(i).getSub_cat() + "','" + Boolean.toString( video.get(i).isIsactive()) + "','testtime');";
+			query="insert into table_video (key_fav, key_path, key_source_name, key_subcat ,  key_isactive, key_timestamp) VALUES ('" + video.get(i).isFav() + "','" + video.get(i).getPath() + "','" + video.get(i).getSourcename() +"','"  + video.get(i).getSub_cat() + "','" + Boolean.toString( video.get(i).isIsactive()) + "','"+now.toString()+"');";
 			db.execSQL(query);
 		}
 		
