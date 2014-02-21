@@ -194,7 +194,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	 * */
 	public List<Video> getAllVideos() {
 		List<Video> lstVideo = new ArrayList<Video>();
-		String selectQuery = "SELECT  * FROM " + TABLE_VIDEO;
+		String selectQuery = "SELECT  * FROM " + "table_video";
 
 		Log.e(LOG, selectQuery);
 
@@ -228,7 +228,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		List<Video> lstVideo = new ArrayList<Video>();
 
 		String selectQuery = "SELECT  * FROM " + TABLE_VIDEO + 
-				" WHERE " + TABLE_VIDEO + "." + KEY_VIDEO_SUBCAT_ID + 
+				" WHERE " + TABLE_VIDEO + "." + "key_subcat" + 
 				" = " + category;
 
 		Log.e(LOG, selectQuery);
@@ -260,8 +260,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public List<Music> getAllFavMusic(int fav) {
 		List<Music> lstMusic = new ArrayList<Music>();
 
-		String selectQuery = "SELECT  * FROM " + TABLE_MUSIC + 
-				" WHERE " + TABLE_MUSIC + "." + KEY_FAV + 
+		String selectQuery = "SELECT  * FROM " + "table_music" + 
+				" WHERE " + "table_music" + "." + "key_fav" + 
 				" = " + fav;
 
 		Log.e(LOG, selectQuery);
@@ -292,8 +292,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public List<Picture_BLL> getAllFavPictures(int fav) {
 		List<Picture_BLL> lstPic = new ArrayList<Picture_BLL>();
 
-		String selectQuery = "SELECT  * FROM " + TABLE_PICTURE + 
-				" WHERE " + TABLE_PICTURE + "." + KEY_FAV + 
+		String selectQuery = "SELECT  * FROM " + "table_picture" + 
+				" WHERE " + "table_picture" + "." + KEY_FAV + 
 				" = " + fav;
 
 		Log.e(LOG, selectQuery);
