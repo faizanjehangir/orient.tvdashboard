@@ -24,9 +24,9 @@ public class MediaHandler {
 		vcMusic.setName("Music Video");
 		
 		DatabaseHelper helper = new DatabaseHelper(context);
-		vcMovies.setId((int) helper.createVideoCategory(vcMovies));
+		/*vcMovies.setId((int) helper.createVideoCategory(vcMovies));
 		vcShows.setId((int) helper.createVideoCategory(vcShows));
-		vcMusic.setId((int) helper.createVideoCategory(vcMusic));
+		vcMusic.setId((int) helper.createVideoCategory(vcMusic));*/
 	
 		lstVc.add(vcMovies);
 		lstVc.add(vcShows);
