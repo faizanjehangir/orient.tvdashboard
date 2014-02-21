@@ -63,8 +63,8 @@ public class PictureSection extends SherlockFragmentActivity {
 	public static Context context;
 	private LinearLayout layoutRightMenu,layoutDirectory;
 	private RelativeLayout layoutDialer;
-	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnBrowse;
-	public static EditText browseText;
+	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnBrowse, btnAddSource;
+	public static EditText browseText,txtAlbumName;
 	private int screenWidth, screenHeight;
 	private boolean isExpandedLeft,isExpandedRight;
 	private Wheel wheel;
@@ -112,6 +112,12 @@ public class PictureSection extends SherlockFragmentActivity {
         btnReturn = (ImageButton) findViewById(R.id.returnBtn);
         btnBrowse = (ImageButton)findViewById(R.id.btn_browse);
         btnSelect = (ImageButton)findViewById(R.id.okBtn);
+        btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
+        
+        
+         
+        txtAlbumName = (EditText)findViewById(R.id.text_source_name);
+        
         browseText = (EditText)findViewById(R.id.text_browse);
         btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
@@ -154,7 +160,7 @@ public class PictureSection extends SherlockFragmentActivity {
         
         if (weatherParam != "")
         {
-        	new JSONWeatherTask().execute(weatherParam);
+        	/*new JSONWeatherTask().execute(weatherParam);*/
         }
         
 // ****************************************************************** //		
@@ -388,8 +394,16 @@ public class PictureSection extends SherlockFragmentActivity {
 			public void onClick(View v) {
 				btnSelect.setVisibility(View.GONE);
 				layoutDirectory.setVisibility(View.GONE);
+			}
+    	});
+        
+        btnAddSource.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
 				
-				//Source.selectStuff(m);
+				
+				/*Source.selectStuff(m);*/
 				
 				String path = browseText.getText().toString();
 			    /*Log.d("Files", "Path: " + path);*/
@@ -401,13 +415,25 @@ public class PictureSection extends SherlockFragmentActivity {
 			    List<Picture_BLL> pics = new ArrayList<Picture_BLL>();
 			    for (int i=0; i < file.length; i++)
 			    {
-			    	Picture_BLL pic = new Picture_BLL();
-			    	pic.setFav(false);
-			    	pic.setIsactive(true);
-			    	pic.setIsalbum(true);
-			    	pic.setPath(file[i].getName());
-			    	pic.setSourcename("testalbum");
-			    	pics.add(pic);
+			    	if (file[i].isDirectory()) {
+	                    /*fileList.add(listFile[i]);*/
+	                    /*getpicfile(file[i]);*/
+	 
+	                } else {
+	                    if (file[i].getName().endsWith(".png")
+	                            || file[i].getName().endsWith(".jpg")
+	                            || file[i].getName().endsWith(".jpeg")
+	                            || file[i].getName().endsWith(".gif"))
+	                    {
+	                    	Picture_BLL pic = new Picture_BLL();
+	    			    	pic.setFav(false);
+	    			    	pic.setIsactive(true);
+	    			    	pic.setIsalbum(true);
+	    			    	pic.setPath(file[i].getPath());
+	    			    	pic.setSourcename(txtAlbumName.getText().toString());
+	    			    	pics.add(pic);
+	                    }
+	                }
 			        /*Log.d("Files", "FileName:" + file[i].getName());*/
 			    }
 			    Source mSource = new Source(Media_source.Picture, context);
@@ -510,7 +536,7 @@ public class PictureSection extends SherlockFragmentActivity {
         }
     }
     
-    private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
+    /*private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
 
 		@Override
 		protected Weather doInBackground(String... params) {
@@ -548,6 +574,6 @@ public class PictureSection extends SherlockFragmentActivity {
 //			windDeg.setText("" + weather.wind.getDeg() + "�");
 
 		}
-    }
+    }*/
 
 }
