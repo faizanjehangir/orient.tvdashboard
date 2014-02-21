@@ -157,7 +157,7 @@ public class Source {
             for (int i = 0; i < listFile.length; i++) {
  
                 if (listFile[i].isDirectory()) {
-                    fileList.add(listFile[i]);
+                    /*fileList.add(listFile[i]);*/
                     getpicfile(listFile[i]);
  
                 } else {
@@ -165,7 +165,6 @@ public class Source {
                             || listFile[i].getName().endsWith(".jpg")
                             || listFile[i].getName().endsWith(".jpeg")
                             || listFile[i].getName().endsWith(".gif"))
- 
                     {
                         fileList.add(listFile[i]);
                     }
@@ -173,7 +172,7 @@ public class Source {
  
             }
         }
-
+        
         return fileList;
     }
 	
