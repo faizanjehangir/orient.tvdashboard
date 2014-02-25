@@ -19,7 +19,10 @@ import com.digitalaria.gama.wheel.WheelAdapter.OnItemClickListener;
 import com.orient.menu.animations.CollapseAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.SampleList;
+import com.tvdashboard.apps.AppSection;
 import com.tvdashboard.database.R;
+import com.tvdashboard.music.MusicSection;
+import com.tvdashboard.pictures.PictureSection;
 import com.tvdashboard.weather.GPSTracker;
 import com.tvdashboard.weather.JSONWeatherParser;
 import com.tvdashboard.weather.Weather;
@@ -31,6 +34,7 @@ import com.tvos.common.vo.*;
 import com.tvos.common.vo.TvOsType.EnumInputSource;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
+import com.tvdashboard.videos.VideoSection;
 import com.tvdashboard.viewpageradapters.DashboardViewpagerAdapter;
 import android.support.v4.view.ViewPager;
 

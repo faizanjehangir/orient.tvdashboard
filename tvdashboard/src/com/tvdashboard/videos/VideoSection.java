@@ -1,4 +1,4 @@
-package com.tvdashboard.main;
+package com.tvdashboard.videos;
 
 import java.io.File;
 import java.text.DateFormatSymbols;
@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.json.JSONException;
 
+import android.app.LocalActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -33,8 +34,13 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.TabHost.OnTabChangeListener;
+import android.widget.TabHost.TabSpec;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -46,13 +52,14 @@ import com.orient.menu.animations.CollapseAnimationRTL;
 import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
+import com.tvdashboard.apps.AppSection;
 import com.tvdashboard.database.R;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
-import com.tvdashboard.main.MainDashboard.CountDownRunner;
-import com.tvdashboard.model.Music;
-import com.tvdashboard.model.Picture_BLL;
+import com.tvdashboard.main.SelectedDirectoryListFragment;
 import com.tvdashboard.model.Video;
+import com.tvdashboard.music.MusicSection;
+import com.tvdashboard.pictures.PictureSection;
 import com.tvdashboard.weather.GPSTracker;
 import com.tvdashboard.weather.JSONWeatherParser;
 import com.tvdashboard.weather.Weather;
@@ -60,12 +67,15 @@ import com.tvdashboard.weather.WeatherHttpClient;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 
-public class VideoSection extends SherlockFragmentActivity {
-
+public class VideoSection extends SherlockFragmentActivity implements OnTabChangeListener {
+	
+	public static TabHost tabHost;
+	public static int tabCounter=0;
+	
 	public static Context context;
 	private LinearLayout layoutRightMenu,layoutDirectory;
 	private RelativeLayout layoutDialer;
-	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnAddSource,btnBrowse;
+	private ImageButton btnOpenleftmenu,/*btnOpenRightMenu,*/btnSelect, btnReturn, btnAddSource, btnBrowse;
 	public static EditText browseText,txtAlbumName;
 	private int screenWidth, screenHeight;
 	private boolean isExpandedLeft,isExpandedRight;
@@ -75,16 +85,11 @@ public class VideoSection extends SherlockFragmentActivity {
 	SelectedDirectoryListFragment fragment;
     private int[] icons = {
     		R.drawable.apps, R.drawable.videos, R.drawable.music,
-    		R.drawable.pictures, R.drawable.browser, R.drawable.settings };
-    
-    public static Menu menu;
-    public static String currTime;
-	public static Weather weather;
-	public static  String weatherParam="";
-    
-    VideoFragmentAdapter mAdapter;
-    ViewPager mPager;
-    PageIndicator mIndicator;
+    		R.drawable.pictures, R.drawable.browser, R.drawable.settings };    
+    private static Menu menu;
+    private static String currTime;
+	private static Weather weather;
+	private static  String weatherParam="";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -92,42 +97,35 @@ public class VideoSection extends SherlockFragmentActivity {
 		setTheme(SampleList.THEME);
         requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
     	getSupportActionBar().setDisplayShowTitleEnabled(false);
-//    	getSupportActionBar().setIcon(android.R.color.transparent);
+    	getSupportActionBar().setIcon(R.drawable.text_videostitle);
     	getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
 		setContentView(R.layout.videos_section);
 		
-		context = this.getApplicationContext();
-		
 		Media_source m = null;
-        m = m.Videos;
-		
+        m = m.Videos;		
         txtAlbumName = (EditText)findViewById(R.id.text_source_name);
-        // check which basic category has been selected
-        
-        this.context = this.getApplicationContext();
 		Source mSource = new Source(Media_source.Videos, context);
-		/*mSource.selectStuff(m);*/
 		
+		context = this.getApplicationContext();
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
         layoutDirectory = (LinearLayout)findViewById(R.id.DirectoryLayout);
         layoutRightMenu = (LinearLayout) findViewById(R.id.AddSourceLayout);
-        btnOpenRightMenu = (ImageButton) findViewById(R.id.AddSource);
+//        btnOpenRightMenu = (ImageButton) findViewById(R.id.AddSource);
         btnReturn = (ImageButton) findViewById(R.id.returnBtn);
         btnBrowse = (ImageButton)findViewById(R.id.btn_browse);
         btnSelect = (ImageButton)findViewById(R.id.okBtn);
         browseText = (EditText)findViewById(R.id.text_browse);
         btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
-        btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
         
 		fragment = new SelectedDirectoryListFragment();
-        fragment.introduce("VideoSection");
+        
 		browseText.setText(dir);
 		layoutDirectory.setVisibility(View.GONE);
 		btnSelect.setVisibility(View.INVISIBLE);
 		
-        isExpandedLeft = true;
+		layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
         layoutDialer.setEnabled(false);
         init();
         
@@ -136,33 +134,68 @@ public class VideoSection extends SherlockFragmentActivity {
         screenWidth = metrics.widthPixels;
         screenHeight = metrics.heightPixels;
 		
-		GPSTracker gpsTracker = new GPSTracker(this);
-        if (gpsTracker.canGetLocation())
-		{
-        	String country = gpsTracker.getCountryName(this);
-        	String city = gpsTracker.getLocality(this);
-        	weatherParam = city+","+country;
-		}
-        else
-		{
-			gpsTracker.showSettingsAlert();
-		}
-        
-// *********************** Timer Thread ***************************** //        
-        
-        Thread myThread = null;
-        Runnable myRunnableThread = new CountDownRunner();
-        myThread= new Thread(myRunnableThread);
-        myThread.start();
-        
-// *********************** Weather Api ****************************** //
-        
-        if (weatherParam != "")
-        {
-        	/*new JSONWeatherTask().execute(weatherParam);*/
-        }
+//		GPSTracker gpsTracker = new GPSTracker(this);
+//        if (gpsTracker.canGetLocation())
+//		{
+//        	String country = gpsTracker.getCountryName(this);
+//        	String city = gpsTracker.getLocality(this);
+//        	weatherParam = city+","+country;
+//		}
+//        else
+//		{
+//			gpsTracker.showSettingsAlert();
+//		}
+//        
+//// *********************** Timer Thread ***************************** //        
+//        
+//        Thread myThread = null;
+//        Runnable myRunnableThread = new CountDownRunner();
+//        myThread= new Thread(myRunnableThread);
+//        myThread.start();
+//        
+//// *********************** Weather Api ****************************** //
+//        
+//        if (weatherParam != "")
+//        {
+//        	new JSONWeatherTask().execute(weatherParam);
+//        }
         
 // ****************************************************************** //
+
+        
+     		tabHost = (TabHost) findViewById(android.R.id.tabhost);
+     		LocalActivityManager mLocalActivityManager = new LocalActivityManager(this, false);
+     	    mLocalActivityManager.dispatchCreate(savedInstanceState);
+     	    tabHost.setup(mLocalActivityManager);
+     		TabSpec tab1 = tabHost.newTabSpec("TV Shows");
+     		TabSpec tab2 = tabHost.newTabSpec("Movies");
+     		TabSpec tab3 = tabHost.newTabSpec("Music Videos");
+     		tab1.setIndicator("TV Shows");
+     		tab1.setContent(new Intent(this, TVShows.class));
+     		tab2.setIndicator("Movies");
+     		tab2.setContent(new Intent(this, Movies.class));
+     		tab3.setIndicator("Music Videos");
+     		tab3.setContent(new Intent(this, MusicVideos.class));
+     		tabHost.addTab(tab1);
+     		tabHost.addTab(tab2);
+     		tabHost.addTab(tab3);
+     		
+     		TextView x = (TextView) tabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
+     	    x.setTextSize(25);
+     	    x = (TextView) tabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title);
+    	    x.setTextSize(25);
+    	    x = (TextView) tabHost.getTabWidget().getChildAt(2).findViewById(android.R.id.title);
+     	    x.setTextSize(25);
+
+     		tabHost.setOnTabChangedListener(new OnTabChangeListener() {
+     			public TabHost tabHost1 = tabHost;
+
+     			@Override
+     			public void onTabChanged(String tabId) {
+     				int pos = this.tabHost1.getCurrentTab();
+     				this.tabHost1.setCurrentTab(pos);
+     			}
+     		});
         
         wheel.setOnKeyListener(new OnKeyListener() {			
 			@Override
@@ -310,29 +343,17 @@ public class VideoSection extends SherlockFragmentActivity {
         	}
         });
 		
-		btnOpenRightMenu.setOnClickListener(new OnClickListener() {
-        	public void onClick(View v) {
-        		if (isExpandedRight) {
-        			isExpandedRight = false;
-        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
-        		}else {
-            		isExpandedRight= true;
-            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
-        		}
-        		}
-        });
-        
-        
-        
-        layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
-        
-        mAdapter = new VideoFragmentAdapter(getSupportFragmentManager());
-
-        mPager = (ViewPager)findViewById(R.id.pager);
-        mPager.setAdapter(mAdapter);
-
-        mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
-        mIndicator.setViewPager(mPager);
+//		btnOpenRightMenu.setOnClickListener(new OnClickListener() {
+//        	public void onClick(View v) {
+//        		if (isExpandedRight) {
+//        			isExpandedRight = false;
+//        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
+//        		}else {
+//            		isExpandedRight= true;
+//            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+//        		}
+//        		}
+//        });        
         
         browseText.addTextChangedListener(new TextWatcher() 
         {
@@ -390,51 +411,6 @@ public class VideoSection extends SherlockFragmentActivity {
 			}
 		});
         
-        btnAddSource.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-				
-				/*Source.selectStuff(m);*/
-				
-				String path = browseText.getText().toString();
-			    /*Log.d("Files", "Path: " + path);*/
-			    File f = new File(path);        
-			    File file[] = f.listFiles();
-			    /*Log.d("Files", "Size: "+ file.length);*/
-			    String filenames = "";
-			    
-			    List<Video> pics = new ArrayList<Video>();
-			    for (int i=0; i < file.length; i++)
-			    {
-			    	if (file[i].isDirectory()) {
-	                    /*fileList.add(listFile[i]);*/
-	                    /*getpicfile(file[i]);*/
-	 
-	                } else {
-	                    if (file[i].getName().endsWith(".vlc")
-	                            || file[i].getName().endsWith(".mp4")
-	                            || file[i].getName().endsWith(".mvx")
-	                            || file[i].getName().endsWith(".flv")
-	                            )
-	                    {
-	                    	Video vid = new Video();
-	    			    	vid.setFav(false);
-	    			    	vid.setIsactive(true);
-	    			    	vid.setSub_cat("movies");
-	    			    	vid.setPath(file[i].getPath());
-	    			    	vid.setSourcename(txtAlbumName.getText().toString());
-	    			    	pics.add(vid);
-	                    }
-	                }
-			        /*Log.d("Files", "FileName:" + file[i].getName());*/
-			    }
-			    Source mSource = new Source(Media_source.Picture, context);
-			    mSource.insertVideoList(pics);
-			}
-		});
-        
         btnSelect.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -442,7 +418,49 @@ public class VideoSection extends SherlockFragmentActivity {
 				btnSelect.setVisibility(View.GONE);
 				layoutDirectory.setVisibility(View.GONE);
 			}
-    	});
+		});	  
+        
+		btnAddSource.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				/* Source.selectStuff(m); */
+
+				String path = browseText.getText().toString();
+				/* Log.d("Files", "Path: " + path); */
+				File f = new File(path);
+				File file[] = f.listFiles();
+				/* Log.d("Files", "Size: "+ file.length); */
+				String filenames = "";
+
+				List<Video> pics = new ArrayList<Video>();
+				for (int i = 0; i < file.length; i++) {
+					if (file[i].isDirectory()) {
+						/* fileList.add(listFile[i]); */
+						/* getpicfile(file[i]); */
+
+					} else {
+						if (file[i].getName().endsWith(".vlc")
+								|| file[i].getName().endsWith(".mp4")
+								|| file[i].getName().endsWith(".mvx")
+								|| file[i].getName().endsWith(".flv")) {
+							Video vid = new Video();
+							vid.setFav(false);
+							vid.setIsactive(true);
+							vid.setSub_cat("movies");
+							vid.setPath(file[i].getPath());
+							vid.setSourcename(txtAlbumName.getText().toString());
+							pics.add(vid);
+						}
+					}
+					/* Log.d("Files", "FileName:" + file[i].getName()); */
+				}
+				Source mSource = new Source(Media_source.Picture, context);
+				mSource.insertVideoList(pics);
+			}
+		});
+        
 	}
 	
 	@Override
@@ -471,7 +489,6 @@ public class VideoSection extends SherlockFragmentActivity {
 	
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-//		Toast.makeText(context, menu.getItem(2).getTitle(), Toast.LENGTH_SHORT).show();
 		this.menu = menu;
 		return super.onPrepareOptionsMenu(menu);
 	}
@@ -515,7 +532,7 @@ public class VideoSection extends SherlockFragmentActivity {
                     int day = dt.getDay();
                     int month = dt.getMonth();
                     int year = dt.getYear();
-                    currTime = hours + " : " + minutes;// + ":" + seconds;
+                    currTime = hours + " : " + minutes;
                     String curDate = day + " " + new DateFormatSymbols().getMonths()[month-1];
                     menu.getItem(3).setTitle(currTime);
                 }catch (Exception e) {}
@@ -538,7 +555,7 @@ public class VideoSection extends SherlockFragmentActivity {
         }
     }
     
-/*    private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
+    private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
 
 		@Override
 		protected Weather doInBackground(String... params) {
@@ -547,7 +564,6 @@ public class VideoSection extends SherlockFragmentActivity {
 
 			try {
 				weather = JSONWeatherParser.getWeather(data);
-				// Let's retrieve the icon
 				weather.iconData = ( (new WeatherHttpClient()).getImage(weather.currentCondition.getIcon()));
 
 			} catch (JSONException e) {				
@@ -555,27 +571,24 @@ public class VideoSection extends SherlockFragmentActivity {
 			}
 			return weather;
 
-	}*		protected void onPostExecute(Weather weather) {			
+	}
+	@Override
+		protected void onPostExecute(Weather weather) {			
 			super.onPostExecute(weather);
 
 			if (weather.iconData != null && weather.iconData.length > 0) {
 				Bitmap img = BitmapFactory.decodeByteArray(weather.iconData, 0, weather.iconData.length); 
-//				imgView.setImageBitmap(img);
 				menu.getItem(2).setIcon(new BitmapDrawable(img));
 			}
 			
 			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "°C		");
-//			cityText.setText(weather.location.getCity() + "," + weather.location.getCountry());
-//			condDescr.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getDescr() + ")");
-//			temp.setText("" + Math.round((weather.temperature.getTemp() - 273.15)) + "�C");
-//			hum.setText("" + weather.currentCondition.getHumidity() + "%");
-//			press.setText("" + weather.currentCondition.getPressure() + " hPa");
-//			windSpeed.setText("" + weather.wind.getSpeed() + " mps");
-//			windDeg.setText("" + weather.wind.getDeg() + "�");
 
-		}/
+		}
+    }
+
 	@Override
-/**/
-    
+	public void onTabChanged(String tabId) {
+		
+	}
 
 }

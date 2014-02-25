@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import com.orient.menu.directorylist.DirectoryItems;
 import com.orient.menu.directorylist.DirectoryListAdapter;
 import com.tvdashboard.database.R;
+import com.tvdashboard.music.MusicSection;
+import com.tvdashboard.pictures.PictureSection;
+import com.tvdashboard.videos.VideoSection;
 
 import android.app.Fragment;
 import android.os.Bundle;

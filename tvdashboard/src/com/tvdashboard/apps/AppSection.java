@@ -1,10 +1,8 @@
-package com.tvdashboard.main;
+package com.tvdashboard.apps;
 
 import java.io.File;
 import java.text.DateFormatSymbols;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import org.json.JSONException;
 
@@ -18,10 +16,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
-import android.support.v4.view.ViewPager;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
@@ -29,9 +23,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
 import android.view.Window;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -42,35 +34,26 @@ import com.digitalaria.gama.wheel.Wheel;
 import com.digitalaria.gama.wheel.WheelAdapter;
 import com.digitalaria.gama.wheel.WheelAdapter.OnItemClickListener;
 import com.orient.menu.animations.CollapseAnimationLTR;
-import com.orient.menu.animations.CollapseAnimationRTL;
 import com.orient.menu.animations.ExpandAnimationLTR;
-import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
 import com.tvdashboard.database.R;
-import com.tvdashboard.helper.Media_source;
-import com.tvdashboard.helper.Source;
-import com.tvdashboard.main.VideoSection.CountDownRunner;
-import com.tvdashboard.model.Picture_BLL;
+import com.tvdashboard.music.MusicSection;
+import com.tvdashboard.pictures.PictureSection;
+import com.tvdashboard.videos.VideoSection;
 import com.tvdashboard.weather.GPSTracker;
 import com.tvdashboard.weather.JSONWeatherParser;
 import com.tvdashboard.weather.Weather;
 import com.tvdashboard.weather.WeatherHttpClient;
-import com.viewpagerindicator.CirclePageIndicator;
-import com.viewpagerindicator.PageIndicator;
 
-public class PictureSection extends SherlockFragmentActivity {
+public class AppSection extends SherlockFragmentActivity {
 
-	public static Context context;
-	private LinearLayout layoutRightMenu,layoutDirectory;
+	private Context context;
 	private RelativeLayout layoutDialer;
-	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnBrowse, btnAddSource;
-	public static EditText browseText,txtAlbumName;
+	private ImageButton btnOpenleftmenu;
 	private int screenWidth, screenHeight;
 	private boolean isExpandedLeft,isExpandedRight;
 	private Wheel wheel;
 	private Resources res;
-	public static String dir="";
-	SelectedDirectoryListFragment fragment;
     private int[] icons = {
     		R.drawable.apps, R.drawable.videos, R.drawable.music,
     		R.drawable.pictures, R.drawable.browser, R.drawable.settings };
@@ -79,10 +62,9 @@ public class PictureSection extends SherlockFragmentActivity {
     public static String currTime;
 	public static Weather weather;
 	public static  String weatherParam="";
-    
-    PicturesFragmentAdapter mAdapter;
-    ViewPager mPager;
-    PageIndicator mIndicator;
+	
+    ImageButton appSettings;
+    ImageButton downloadApp;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -91,43 +73,14 @@ public class PictureSection extends SherlockFragmentActivity {
         requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
     	getSupportActionBar().setDisplayShowTitleEnabled(false);
     	getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
-		setContentView(R.layout.picture_section);
-		
-		final Media_source m = Media_source.Picture;
-        
-		
-        
-        // check which basic category has been selected
-        
-        this.context = this.getApplicationContext();
-		Source mSource = new Source(Media_source.Picture, context);
-		
+		setContentView(R.layout.app_section);
 		
 		context = this.getApplicationContext();
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
-        layoutDirectory = (LinearLayout)findViewById(R.id.DirectoryLayout);
-        layoutRightMenu = (LinearLayout) findViewById(R.id.AddSourceLayout);
-        btnOpenRightMenu = (ImageButton) findViewById(R.id.AddSource);
-        btnReturn = (ImageButton) findViewById(R.id.returnBtn);
-        btnBrowse = (ImageButton)findViewById(R.id.btn_browse);
-        btnSelect = (ImageButton)findViewById(R.id.okBtn);
-        btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
-        
-        
-         
-        txtAlbumName = (EditText)findViewById(R.id.text_source_name);
-        
-        browseText = (EditText)findViewById(R.id.text_browse);
         btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
         
-        fragment = new SelectedDirectoryListFragment();
-        fragment.introduce("PictureSection");
-		browseText.setText(dir);
-		layoutDirectory.setVisibility(View.GONE);
-		btnSelect.setVisibility(View.INVISIBLE);
-		
         isExpandedLeft = true;
         layoutDialer.setEnabled(false);
         init();
@@ -136,8 +89,8 @@ public class PictureSection extends SherlockFragmentActivity {
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         screenWidth = metrics.widthPixels;
         screenHeight = metrics.heightPixels;
-		
-		GPSTracker gpsTracker = new GPSTracker(this);
+        
+        GPSTracker gpsTracker = new GPSTracker(this);
         if (gpsTracker.canGetLocation())
 		{
         	String country = gpsTracker.getCountryName(this);
@@ -160,16 +113,34 @@ public class PictureSection extends SherlockFragmentActivity {
         
         if (weatherParam != "")
         {
-        	/*new JSONWeatherTask().execute(weatherParam);*/
+        	new JSONWeatherTask().execute(weatherParam);
         }
         
-// ****************************************************************** //		
+// ****************************************************************** //	
         
-        mAdapter = new PicturesFragmentAdapter(getSupportFragmentManager());
-        mPager = (ViewPager)findViewById(R.id.pager);
-        mPager.setAdapter(mAdapter);
-        mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
-        mIndicator.setViewPager(mPager);
+        
+        downloadApp.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+				try {
+				    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+				} catch (android.content.ActivityNotFoundException anfe) {
+				    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+				}
+			}
+		});
+        
+        appSettings.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				startActivityForResult(new Intent(android.provider.Settings.ACTION_APPLICATION_SETTINGS), 0);
+			}
+		});
         
         wheel.setOnKeyListener(new OnKeyListener() {			
 			@Override
@@ -277,7 +248,7 @@ public class PictureSection extends SherlockFragmentActivity {
 			}
 		});
 
-        
+
         btnOpenleftmenu.setOnFocusChangeListener(new OnFocusChangeListener() {
 
 			@Override
@@ -318,129 +289,7 @@ public class PictureSection extends SherlockFragmentActivity {
         	}
         });
         
-        btnOpenRightMenu.setOnClickListener(new OnClickListener() {
-        	public void onClick(View v) {
-        		if (isExpandedRight) {
-        			isExpandedRight = false;
-        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
-        		}else {
-            		isExpandedRight= true;
-            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
-        		}
-        		}
-        });
-        
-        
-        
-        browseText.addTextChangedListener(new TextWatcher() 
-        {
-			
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				SelectedDirectoryListFragment fragment = (SelectedDirectoryListFragment) getFragmentManager()
-                        .findFragmentById(R.id.directoryFragment);
-				File file = new File (browseText.getText().toString());
-				fragment.refresh();
-				SelectedDirectoryListFragment.view.setVisibility(View.VISIBLE);
-			}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		});
-        
-        browseText.setOnFocusChangeListener(new OnFocusChangeListener() {			
-			@Override
-			public void onFocusChange(View v, boolean hasFocus) {
-				if (hasFocus)
-					initializeDirectory();
-			}			
-			
-		});
-        
-        btnReturn.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				if (isExpandedRight) {
-        			isExpandedRight = false;
-        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
-        		}        		
-			}
-		});
-        
-        btnBrowse.setOnClickListener(new OnClickListener() {			
-			@Override
-			public void onClick(View v) {
-				layoutDirectory.setVisibility(View.VISIBLE);
-				btnSelect.setVisibility(View.VISIBLE);
-				initializeDirectory();
-			}
-		});
-        
-        btnSelect.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				btnSelect.setVisibility(View.GONE);
-				layoutDirectory.setVisibility(View.GONE);
-			}
-    	});
-        
-        btnAddSource.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-				
-				/*Source.selectStuff(m);*/
-				
-				String path = browseText.getText().toString();
-			    /*Log.d("Files", "Path: " + path);*/
-			    File f = new File(path);        
-			    File file[] = f.listFiles();
-			    /*Log.d("Files", "Size: "+ file.length);*/
-			    String filenames = "";
-			    
-			    List<Picture_BLL> pics = new ArrayList<Picture_BLL>();
-			    for (int i=0; i < file.length; i++)
-			    {
-			    	if (file[i].isDirectory()) {
-	                    /*fileList.add(listFile[i]);*/
-	                    /*getpicfile(file[i]);*/
-	 
-	                } else {
-	                    if (file[i].getName().endsWith(".png")
-	                            || file[i].getName().endsWith(".jpg")
-	                            || file[i].getName().endsWith(".jpeg")
-	                            || file[i].getName().endsWith(".gif"))
-	                    {
-	                    	Picture_BLL pic = new Picture_BLL();
-	    			    	pic.setFav(false);
-	    			    	pic.setIsactive(true);
-	    			    	pic.setIsalbum(true);
-	    			    	pic.setPath(file[i].getPath());
-	    			    	pic.setSourcename(txtAlbumName.getText().toString());
-	    			    	pics.add(pic);
-	                    }
-	                }
-			        /*Log.d("Files", "FileName:" + file[i].getName());*/
-			    }
-			    Source mSource = new Source(Media_source.Picture, context);
-			    mSource.insertPictureList(pics);
-			}
-		});
-        
+       
 	}
 	
 	@Override
@@ -492,16 +341,6 @@ public class PictureSection extends SherlockFragmentActivity {
 		return ret;
 	}
 	
-	private void initializeDirectory()
-	{
-		SelectedDirectoryListFragment fragment = (SelectedDirectoryListFragment) getFragmentManager()
-                .findFragmentById(R.id.directoryFragment);
-		File file = new File (Environment.getExternalStorageDirectory().toString());
-		SelectedDirectoryListFragment.file = new File(Environment.getExternalStorageDirectory().toString());
-		fragment.refresh();
-		SelectedDirectoryListFragment.view.setVisibility(View.VISIBLE);
-	}
-	
 	public void doWork() {
         runOnUiThread(new Runnable() {
             public void run() {
@@ -536,7 +375,7 @@ public class PictureSection extends SherlockFragmentActivity {
         }
     }
     
-    /*private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
+    private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
 
 		@Override
 		protected Weather doInBackground(String... params) {
@@ -560,20 +399,12 @@ public class PictureSection extends SherlockFragmentActivity {
 
 			if (weather.iconData != null && weather.iconData.length > 0) {
 				Bitmap img = BitmapFactory.decodeByteArray(weather.iconData, 0, weather.iconData.length); 
-//				imgView.setImageBitmap(img);
 				menu.getItem(2).setIcon(new BitmapDrawable(img));
 			}
 			
 			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "°C		");
-//			cityText.setText(weather.location.getCity() + "," + weather.location.getCountry());
-//			condDescr.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getDescr() + ")");
-//			temp.setText("" + Math.round((weather.temperature.getTemp() - 273.15)) + "�C");
-//			hum.setText("" + weather.currentCondition.getHumidity() + "%");
-//			press.setText("" + weather.currentCondition.getPressure() + " hPa");
-//			windSpeed.setText("" + weather.wind.getSpeed() + " mps");
-//			windDeg.setText("" + weather.wind.getDeg() + "�");
 
 		}
-    }*/
+    }
 
 }

@@ -1,4 +1,4 @@
-package com.tvdashboard.main;
+package com.tvdashboard.pictures;
 
 import java.io.File;
 import java.text.DateFormatSymbols;
@@ -46,26 +46,27 @@ import com.orient.menu.animations.CollapseAnimationRTL;
 import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
+import com.tvdashboard.apps.AppSection;
 import com.tvdashboard.database.R;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
-import com.tvdashboard.main.VideoSection.CountDownRunner;
-import com.tvdashboard.model.Music;
+import com.tvdashboard.main.SelectedDirectoryListFragment;
 import com.tvdashboard.model.Picture_BLL;
-import com.tvdashboard.model.Video;
-/*import com.tvdashboard.weather.GPSTracker;
+import com.tvdashboard.music.MusicSection;
+import com.tvdashboard.videos.VideoSection;
+import com.tvdashboard.weather.GPSTracker;
 import com.tvdashboard.weather.JSONWeatherParser;
 import com.tvdashboard.weather.Weather;
-import com.tvdashboard.weather.WeatherHttpClient;*/
+import com.tvdashboard.weather.WeatherHttpClient;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 
-public class MusicSection extends SherlockFragmentActivity {
+public class PictureSection extends SherlockFragmentActivity {
 
 	public static Context context;
 	private LinearLayout layoutRightMenu,layoutDirectory;
 	private RelativeLayout layoutDialer;
-	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnAddSource,btnBrowse;
+	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnBrowse, btnAddSource;
 	public static EditText browseText,txtAlbumName;
 	private int screenWidth, screenHeight;
 	private boolean isExpandedLeft,isExpandedRight;
@@ -79,10 +80,10 @@ public class MusicSection extends SherlockFragmentActivity {
     
     public static Menu menu;
     public static String currTime;
-	/*public static Weather weather;*/
+	public static Weather weather;
 	public static  String weatherParam="";
     
-    MusicFragmentAdapter mAdapter;
+    PicturesFragmentAdapter mAdapter;
     ViewPager mPager;
     PageIndicator mIndicator;
 	
@@ -93,21 +94,19 @@ public class MusicSection extends SherlockFragmentActivity {
         requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
     	getSupportActionBar().setDisplayShowTitleEnabled(false);
     	getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
-		setContentView(R.layout.music_section);
+		setContentView(R.layout.picture_section);
 		
-		context = this.getApplicationContext();
-		
-		Media_source m = null;
-        m = m.Music;
+		final Media_source m = Media_source.Picture;
+        
 		
         
         // check which basic category has been selected
         
         this.context = this.getApplicationContext();
-		Source mSource = new Source(Media_source.Music, context);
-		/*mSource.selectStuff(m);*/
+		Source mSource = new Source(Media_source.Picture, context);
 		
-		txtAlbumName = (EditText)findViewById(R.id.text_source_name);
+		
+		context = this.getApplicationContext();
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
         layoutDirectory = (LinearLayout)findViewById(R.id.DirectoryLayout);
@@ -116,12 +115,18 @@ public class MusicSection extends SherlockFragmentActivity {
         btnReturn = (ImageButton) findViewById(R.id.returnBtn);
         btnBrowse = (ImageButton)findViewById(R.id.btn_browse);
         btnSelect = (ImageButton)findViewById(R.id.okBtn);
+        btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
+        
+        
+         
+        txtAlbumName = (EditText)findViewById(R.id.text_source_name);
+        
         browseText = (EditText)findViewById(R.id.text_browse);
         btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
-        btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
+        
         fragment = new SelectedDirectoryListFragment();
-        fragment.introduce("MusicSection");
+        fragment.introduce("PictureSection");
 		browseText.setText(dir);
 		layoutDirectory.setVisibility(View.GONE);
 		btnSelect.setVisibility(View.INVISIBLE);
@@ -135,7 +140,7 @@ public class MusicSection extends SherlockFragmentActivity {
         screenWidth = metrics.widthPixels;
         screenHeight = metrics.heightPixels;
 		
-		/*GPSTracker gpsTracker = new GPSTracker(this);
+		GPSTracker gpsTracker = new GPSTracker(this);
         if (gpsTracker.canGetLocation())
 		{
         	String country = gpsTracker.getCountryName(this);
@@ -145,14 +150,14 @@ public class MusicSection extends SherlockFragmentActivity {
         else
 		{
 			gpsTracker.showSettingsAlert();
-		}*/
+		}
         
 // *********************** Timer Thread ***************************** //        
         
-        /*Thread myThread = null;
+        Thread myThread = null;
         Runnable myRunnableThread = new CountDownRunner();
         myThread= new Thread(myRunnableThread);
-        myThread.start();*/
+        myThread.start();
         
 // *********************** Weather Api ****************************** //
         
@@ -161,11 +166,9 @@ public class MusicSection extends SherlockFragmentActivity {
         	/*new JSONWeatherTask().execute(weatherParam);*/
         }
         
-// ****************************************************************** //
+// ****************************************************************** //		
         
-        layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
-        
-        mAdapter = new MusicFragmentAdapter(getSupportFragmentManager());
+        mAdapter = new PicturesFragmentAdapter(getSupportFragmentManager());
         mPager = (ViewPager)findViewById(R.id.pager);
         mPager.setAdapter(mAdapter);
         mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
@@ -388,6 +391,15 @@ public class MusicSection extends SherlockFragmentActivity {
 			}
 		});
         
+        btnSelect.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				btnSelect.setVisibility(View.GONE);
+				layoutDirectory.setVisibility(View.GONE);
+			}
+    	});
+        
         btnAddSource.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -403,7 +415,7 @@ public class MusicSection extends SherlockFragmentActivity {
 			    /*Log.d("Files", "Size: "+ file.length);*/
 			    String filenames = "";
 			    
-			    List<Music> pics = new ArrayList<Music>();
+			    List<Picture_BLL> pics = new ArrayList<Picture_BLL>();
 			    for (int i=0; i < file.length; i++)
 			    {
 			    	if (file[i].isDirectory()) {
@@ -411,36 +423,26 @@ public class MusicSection extends SherlockFragmentActivity {
 	                    /*getpicfile(file[i]);*/
 	 
 	                } else {
-	                    if (file[i].getName().endsWith(".mp3")
-	                            || file[i].getName().endsWith(".mav")
-	                            || file[i].getName().endsWith(".gsm")
-	                            )
+	                    if (file[i].getName().endsWith(".png")
+	                            || file[i].getName().endsWith(".jpg")
+	                            || file[i].getName().endsWith(".jpeg")
+	                            || file[i].getName().endsWith(".gif"))
 	                    {
-	                    	Music music = new Music();
-	    			    	music.setFav(false);
-	    			    	music.setIsactive(true);
-	    			    	music.setIsalbum(true);
-	    			    	music.setPath(file[i].getPath());
-	    			    	music.setSourcename(txtAlbumName.getText().toString());
-	    			    	pics.add(music);
+	                    	Picture_BLL pic = new Picture_BLL();
+	    			    	pic.setFav(false);
+	    			    	pic.setIsactive(true);
+	    			    	pic.setIsalbum(true);
+	    			    	pic.setPath(file[i].getPath());
+	    			    	pic.setSourcename(txtAlbumName.getText().toString());
+	    			    	pics.add(pic);
 	                    }
 	                }
 			        /*Log.d("Files", "FileName:" + file[i].getName());*/
 			    }
 			    Source mSource = new Source(Media_source.Picture, context);
-			    mSource.insertMusicList(pics);
+			    mSource.insertPictureList(pics);
 			}
 		});
-        
-        btnSelect.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				btnSelect.setVisibility(View.GONE);
-				layoutDirectory.setVisibility(View.GONE);
-			}
-    	});
-        
         
 	}
 	
@@ -522,7 +524,7 @@ public class MusicSection extends SherlockFragmentActivity {
         });
     }
 
-   /* class CountDownRunner implements Runnable{
+    class CountDownRunner implements Runnable{
         // @Override
         public void run() {
             while(!Thread.currentThread().isInterrupted()){
@@ -535,9 +537,9 @@ public class MusicSection extends SherlockFragmentActivity {
                 }
             }
         }
-    }*/
+    }
     
-   /* private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
+    /*private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
 
 		@Override
 		protected Weather doInBackground(String... params) {

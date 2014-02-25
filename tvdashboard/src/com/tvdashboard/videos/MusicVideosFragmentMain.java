@@ -1,6 +1,4 @@
-package com.tvdashboard.main;
-
-import com.tvdashboard.database.R;
+package com.tvdashboard.videos;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,10 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MusicFragment extends Fragment{
+import com.tvdashboard.database.R;
+
+public class MusicVideosFragmentMain extends Fragment{
 	
-	public static MusicFragment newInstance() {
-        MusicFragment fragment = new MusicFragment();
+	public static MusicVideosFragmentMain newInstance() {
+		MusicVideosFragmentMain fragment = new MusicVideosFragmentMain();
 
         return fragment;
     }
@@ -31,7 +31,7 @@ public class MusicFragment extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.music_fragment_layout, container, false);
+		View view = inflater.inflate(R.layout.music_videos_main_fragment_layout, container, false);
 		return view;
 	}	
 	

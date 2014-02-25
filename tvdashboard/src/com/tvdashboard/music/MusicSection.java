@@ -1,8 +1,10 @@
-package com.tvdashboard.main;
+package com.tvdashboard.music;
 
 import java.io.File;
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.json.JSONException;
 
@@ -16,6 +18,10 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.view.ViewPager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
@@ -23,7 +29,9 @@ import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -34,34 +42,52 @@ import com.digitalaria.gama.wheel.Wheel;
 import com.digitalaria.gama.wheel.WheelAdapter;
 import com.digitalaria.gama.wheel.WheelAdapter.OnItemClickListener;
 import com.orient.menu.animations.CollapseAnimationLTR;
+import com.orient.menu.animations.CollapseAnimationRTL;
 import com.orient.menu.animations.ExpandAnimationLTR;
+import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
+import com.tvdashboard.apps.AppSection;
 import com.tvdashboard.database.R;
-import com.tvdashboard.weather.GPSTracker;
+import com.tvdashboard.helper.Media_source;
+import com.tvdashboard.helper.Source;
+import com.tvdashboard.main.SelectedDirectoryListFragment;
+import com.tvdashboard.model.Music;
+import com.tvdashboard.model.Picture_BLL;
+import com.tvdashboard.model.Video;
+import com.tvdashboard.pictures.PictureSection;
+import com.tvdashboard.videos.VideoSection;
+/*import com.tvdashboard.weather.GPSTracker;
 import com.tvdashboard.weather.JSONWeatherParser;
 import com.tvdashboard.weather.Weather;
-import com.tvdashboard.weather.WeatherHttpClient;
+import com.tvdashboard.weather.WeatherHttpClient;*/
+import com.viewpagerindicator.CirclePageIndicator;
+import com.viewpagerindicator.PageIndicator;
 
-public class AppSection extends SherlockFragmentActivity {
+public class MusicSection extends SherlockFragmentActivity {
 
-	private Context context;
+	public static Context context;
+	private LinearLayout layoutRightMenu,layoutDirectory;
 	private RelativeLayout layoutDialer;
-	private ImageButton btnOpenleftmenu;
+	private ImageButton btnOpenleftmenu,btnOpenRightMenu,btnSelect, btnReturn, btnAddSource,btnBrowse;
+	public static EditText browseText,txtAlbumName;
 	private int screenWidth, screenHeight;
 	private boolean isExpandedLeft,isExpandedRight;
 	private Wheel wheel;
 	private Resources res;
+	public static String dir="";
+	SelectedDirectoryListFragment fragment;
     private int[] icons = {
     		R.drawable.apps, R.drawable.videos, R.drawable.music,
     		R.drawable.pictures, R.drawable.browser, R.drawable.settings };
     
     public static Menu menu;
     public static String currTime;
-	public static Weather weather;
+	/*public static Weather weather;*/
 	public static  String weatherParam="";
-	
-    ImageButton appSettings;
-    ImageButton downloadApp;
+    
+    MusicFragmentAdapter mAdapter;
+    ViewPager mPager;
+    PageIndicator mIndicator;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,14 +96,39 @@ public class AppSection extends SherlockFragmentActivity {
         requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
     	getSupportActionBar().setDisplayShowTitleEnabled(false);
     	getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
-		setContentView(R.layout.app_section);
+		setContentView(R.layout.music_section);
 		
 		context = this.getApplicationContext();
+		
+		Media_source m = null;
+        m = m.Music;
+		
+        
+        // check which basic category has been selected
+        
+        this.context = this.getApplicationContext();
+		Source mSource = new Source(Media_source.Music, context);
+		/*mSource.selectStuff(m);*/
+		
+		txtAlbumName = (EditText)findViewById(R.id.text_source_name);
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
+        layoutDirectory = (LinearLayout)findViewById(R.id.DirectoryLayout);
+        layoutRightMenu = (LinearLayout) findViewById(R.id.AddSourceLayout);
+        btnOpenRightMenu = (ImageButton) findViewById(R.id.AddSource);
+        btnReturn = (ImageButton) findViewById(R.id.returnBtn);
+        btnBrowse = (ImageButton)findViewById(R.id.btn_browse);
+        btnSelect = (ImageButton)findViewById(R.id.okBtn);
+        browseText = (EditText)findViewById(R.id.text_browse);
         btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
-        
+        btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
+        fragment = new SelectedDirectoryListFragment();
+        fragment.introduce("MusicSection");
+		browseText.setText(dir);
+		layoutDirectory.setVisibility(View.GONE);
+		btnSelect.setVisibility(View.INVISIBLE);
+		
         isExpandedLeft = true;
         layoutDialer.setEnabled(false);
         init();
@@ -86,8 +137,8 @@ public class AppSection extends SherlockFragmentActivity {
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         screenWidth = metrics.widthPixels;
         screenHeight = metrics.heightPixels;
-        
-        GPSTracker gpsTracker = new GPSTracker(this);
+		
+		/*GPSTracker gpsTracker = new GPSTracker(this);
         if (gpsTracker.canGetLocation())
 		{
         	String country = gpsTracker.getCountryName(this);
@@ -97,47 +148,31 @@ public class AppSection extends SherlockFragmentActivity {
         else
 		{
 			gpsTracker.showSettingsAlert();
-		}
+		}*/
         
 // *********************** Timer Thread ***************************** //        
         
-        Thread myThread = null;
+        /*Thread myThread = null;
         Runnable myRunnableThread = new CountDownRunner();
         myThread= new Thread(myRunnableThread);
-        myThread.start();
+        myThread.start();*/
         
 // *********************** Weather Api ****************************** //
         
         if (weatherParam != "")
         {
-        	new JSONWeatherTask().execute(weatherParam);
+        	/*new JSONWeatherTask().execute(weatherParam);*/
         }
         
-// ****************************************************************** //	
+// ****************************************************************** //
         
+        layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
         
-        downloadApp.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
-				try {
-				    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-				} catch (android.content.ActivityNotFoundException anfe) {
-				    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-				}
-			}
-		});
-        
-        appSettings.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				startActivityForResult(new Intent(android.provider.Settings.ACTION_APPLICATION_SETTINGS), 0);
-			}
-		});
+        mAdapter = new MusicFragmentAdapter(getSupportFragmentManager());
+        mPager = (ViewPager)findViewById(R.id.pager);
+        mPager.setAdapter(mAdapter);
+        mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
+        mIndicator.setViewPager(mPager);
         
         wheel.setOnKeyListener(new OnKeyListener() {			
 			@Override
@@ -245,7 +280,7 @@ public class AppSection extends SherlockFragmentActivity {
 			}
 		});
 
-
+        
         btnOpenleftmenu.setOnFocusChangeListener(new OnFocusChangeListener() {
 
 			@Override
@@ -286,7 +321,130 @@ public class AppSection extends SherlockFragmentActivity {
         	}
         });
         
-       
+        btnOpenRightMenu.setOnClickListener(new OnClickListener() {
+        	public void onClick(View v) {
+        		if (isExpandedRight) {
+        			isExpandedRight = false;
+        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
+        		}else {
+            		isExpandedRight= true;
+            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+        		}
+        		}
+        });
+        
+        
+        
+        browseText.addTextChangedListener(new TextWatcher() 
+        {
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				SelectedDirectoryListFragment fragment = (SelectedDirectoryListFragment) getFragmentManager()
+                        .findFragmentById(R.id.directoryFragment);
+				File file = new File (browseText.getText().toString());
+				fragment.refresh();
+				SelectedDirectoryListFragment.view.setVisibility(View.VISIBLE);
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+        
+        browseText.setOnFocusChangeListener(new OnFocusChangeListener() {			
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				if (hasFocus)
+					initializeDirectory();
+			}			
+			
+		});
+        
+        btnReturn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if (isExpandedRight) {
+        			isExpandedRight = false;
+        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
+        		}        		
+			}
+		});
+        
+        btnBrowse.setOnClickListener(new OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				layoutDirectory.setVisibility(View.VISIBLE);
+				btnSelect.setVisibility(View.VISIBLE);
+				initializeDirectory();
+			}
+		});
+        
+        btnAddSource.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+				/*Source.selectStuff(m);*/
+				
+				String path = browseText.getText().toString();
+			    /*Log.d("Files", "Path: " + path);*/
+			    File f = new File(path);        
+			    File file[] = f.listFiles();
+			    /*Log.d("Files", "Size: "+ file.length);*/
+			    String filenames = "";
+			    
+			    List<Music> pics = new ArrayList<Music>();
+			    for (int i=0; i < file.length; i++)
+			    {
+			    	if (file[i].isDirectory()) {
+	                    /*fileList.add(listFile[i]);*/
+	                    /*getpicfile(file[i]);*/
+	 
+	                } else {
+	                    if (file[i].getName().endsWith(".mp3")
+	                            || file[i].getName().endsWith(".mav")
+	                            || file[i].getName().endsWith(".gsm")
+	                            )
+	                    {
+	                    	Music music = new Music();
+	    			    	music.setFav(false);
+	    			    	music.setIsactive(true);
+	    			    	music.setIsalbum(true);
+	    			    	music.setPath(file[i].getPath());
+	    			    	music.setSourcename(txtAlbumName.getText().toString());
+	    			    	pics.add(music);
+	                    }
+	                }
+			        /*Log.d("Files", "FileName:" + file[i].getName());*/
+			    }
+			    Source mSource = new Source(Media_source.Picture, context);
+			    mSource.insertMusicList(pics);
+			}
+		});
+        
+        btnSelect.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				btnSelect.setVisibility(View.GONE);
+				layoutDirectory.setVisibility(View.GONE);
+			}
+    	});
+        
+        
 	}
 	
 	@Override
@@ -338,6 +496,16 @@ public class AppSection extends SherlockFragmentActivity {
 		return ret;
 	}
 	
+	private void initializeDirectory()
+	{
+		SelectedDirectoryListFragment fragment = (SelectedDirectoryListFragment) getFragmentManager()
+                .findFragmentById(R.id.directoryFragment);
+		File file = new File (Environment.getExternalStorageDirectory().toString());
+		SelectedDirectoryListFragment.file = new File(Environment.getExternalStorageDirectory().toString());
+		fragment.refresh();
+		SelectedDirectoryListFragment.view.setVisibility(View.VISIBLE);
+	}
+	
 	public void doWork() {
         runOnUiThread(new Runnable() {
             public void run() {
@@ -357,7 +525,7 @@ public class AppSection extends SherlockFragmentActivity {
         });
     }
 
-    class CountDownRunner implements Runnable{
+   /* class CountDownRunner implements Runnable{
         // @Override
         public void run() {
             while(!Thread.currentThread().isInterrupted()){
@@ -370,9 +538,9 @@ public class AppSection extends SherlockFragmentActivity {
                 }
             }
         }
-    }
+    }*/
     
-    private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
+   /* private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
 
 		@Override
 		protected Weather doInBackground(String... params) {
@@ -410,6 +578,6 @@ public class AppSection extends SherlockFragmentActivity {
 //			windDeg.setText("" + weather.wind.getDeg() + "�");
 
 		}
-    }
+    }*/
 
 }

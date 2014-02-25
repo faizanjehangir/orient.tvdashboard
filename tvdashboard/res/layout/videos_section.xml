@@ -4,82 +4,36 @@
     android:layout_height="match_parent"
     android:background="@drawable/video_bg" >
 
-    <LinearLayout
-        android:id="@+id/ContentFragmentLayout"
+    <TabHost
+        android:id="@android:id/tabhost"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:layout_marginTop="70dp" >
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
+        <LinearLayout
+            android:id="@+id/LinearLayout01"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-        <com.viewpagerindicator.CirclePageIndicator
-            android:id="@+id/indicator"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dip" />
-    </LinearLayout>
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:divider="@android:color/transparent" >
+            </TabWidget>
 
-    <LinearLayout  
-        android:id="@+id/OptionsLayout" 
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"  
-        android:layout_alignParentLeft="true"
-        android:paddingLeft="80dp"
-        android:paddingTop="200dp"
-        android:background="@drawable/video_bgoverlay"
-        android:orientation="vertical" >
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="35dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/text_videostitle" />
-
-        <ImageButton
-            android:id="@+id/AddSource"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/video_addsource_btn_style" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Sources"
-            android:textSize="28dp" />
-
-        <ImageButton
-            android:id="@+id/TvShows"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/tv_shows_btn_style" />
-
-        <ImageButton
-            android:id="@+id/Movies"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/movies_btn_style" />
-
-        <ImageButton
-            android:id="@+id/MusicVideos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/music_videos_btn_style" />
-    </LinearLayout>
 
     <!-- **************************** Layout for Right Add Source Menu ******************************* -->
-    
+
     <include
         android:id="@+id/AddSourceLayout"
         android:layout_width="0dp"
@@ -87,7 +41,6 @@
         android:layout_alignParentRight="true"
         android:layout_weight="0"
         layout="@layout/add_source" />
-
 
     <!-- **************************************************************************************** -->
 
@@ -104,12 +57,12 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="-65dp"
+            android:focusable="true"
+            android:nextFocusDown="@id/wheel"
             android:nextFocusLeft="@id/openLeft"
             android:nextFocusRight="@id/openLeft"
             android:nextFocusUp="@id/wheel"
-            android:nextFocusDown="@id/wheel"
-            android:soundEffectsEnabled="true"
-            android:focusable="true" >  
+            android:soundEffectsEnabled="true" >
         </com.digitalaria.gama.wheel.Wheel>
     </RelativeLayout>
 

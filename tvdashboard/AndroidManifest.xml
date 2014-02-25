@@ -19,36 +19,46 @@
         <activity
             android:name="com.tvdashboard.main.MainDashboard"
             android:screenOrientation="landscape" > 
-            <intent-filter>
+                           
+        </activity>
+        <activity
+            android:name="com.tvdashboard.videos.VideoSection"
+            android:windowSoftInputMode="adjustNothing|stateHidden"
+            android:screenOrientation="landscape" >
+			<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>               
+            </intent-filter>
         </activity>
+        
         <activity
-            android:name="com.tvdashboard.main.VideoSection"
+            android:name="com.tvdashboard.apps.AppSection"
             android:windowSoftInputMode="adjustNothing|stateHidden"
             android:screenOrientation="landscape" >
 
         </activity>
         
         <activity
-            android:name="com.tvdashboard.main.AppSection"
+            android:name="com.tvdashboard.music.MusicSection"
             android:windowSoftInputMode="adjustNothing|stateHidden"
             android:screenOrientation="landscape" >
 
         </activity>
         
         <activity
-            android:name="com.tvdashboard.main.MusicSection"
+            android:name="com.tvdashboard.pictures.PictureSection"
             android:windowSoftInputMode="adjustNothing|stateHidden"
             android:screenOrientation="landscape" >
-
         </activity>
         
         <activity
-            android:name="com.tvdashboard.main.PictureSection"
-            android:windowSoftInputMode="adjustNothing|stateHidden"
-            android:screenOrientation="landscape" >
+            android:name="com.tvdashboard.videos.TVShows" >
+        </activity>
+        <activity
+            android:name="com.tvdashboard.videos.Movies" >
+        </activity>
+        <activity
+            android:name="com.tvdashboard.videos.MusicVideos" >
         </activity>
 
     </application>

@@ -1,27 +1,27 @@
-package com.tvdashboard.main;
+package com.tvdashboard.music;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.viewpagerindicator.IconPagerAdapter;
 
-class VideoFragmentAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
+class MusicFragmentAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
 //    protected static final String[] CONTENT = new String[] { "This", "Is", "A", "Test", };
 
 //    private int mCount = CONTENT.length;
 
-    public VideoFragmentAdapter(FragmentManager fm) {
+    public MusicFragmentAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public Fragment getItem(int position) {
-        return VideosFragment.newInstance();
+        return MusicFragment.newInstance();
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
 //    @Override

@@ -1,4 +1,4 @@
-package com.tvdashboard.main;
+package com.tvdashboard.pictures;
 
 import com.tvdashboard.database.R;
 
@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class AppFragment extends Fragment{
+public class PictureFragment extends Fragment{
 	
-	public static AppFragment newInstance() {
-        AppFragment fragment = new AppFragment();
+	public static PictureFragment newInstance() {
+        PictureFragment fragment = new PictureFragment();
 
         return fragment;
     }
@@ -31,7 +31,7 @@ public class AppFragment extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.app_fragment_layout, container, false);
+		View view = inflater.inflate(R.layout.picture_fragment_layout, container, false);
 		return view;
 	}	
 	

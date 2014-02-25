@@ -1,22 +1,22 @@
-package com.tvdashboard.main;
+package com.tvdashboard.apps;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.viewpagerindicator.IconPagerAdapter;
 
-class PicturesFragmentAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
+class AppFragmentAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
 //    protected static final String[] CONTENT = new String[] { "This", "Is", "A", "Test", };
 
 //    private int mCount = CONTENT.length;
 
-    public PicturesFragmentAdapter(FragmentManager fm) {
+    public AppFragmentAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public Fragment getItem(int position) {
-        return PictureFragment.newInstance();
+        return AppFragment.newInstance();
     }
 
     @Override

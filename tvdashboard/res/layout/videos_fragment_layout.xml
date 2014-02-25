@@ -14,7 +14,6 @@
         android:weightSum="2"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="40dp"
-        android:layout_marginLeft="540dp"
         android:layout_marginRight="120dp" >
 
         <LinearLayout

@@ -4,12 +4,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tvdashboard.main.MusicSection;
-import com.tvdashboard.main.PictureSection;
-import com.tvdashboard.main.VideoSection;
 import com.tvdashboard.model.Music;
 import com.tvdashboard.model.Picture_BLL;
 import com.tvdashboard.model.Video;
+import com.tvdashboard.music.MusicSection;
+import com.tvdashboard.pictures.PictureSection;
+import com.tvdashboard.videos.VideoSection;
 
 import android.content.Context;
 import android.os.Environment;
