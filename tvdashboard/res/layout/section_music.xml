@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.orient.orientlauncher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/musicbg" >
+    
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp" >
+
+        <LinearLayout
+            android:id="@+id/LinearLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:divider="@android:color/transparent" >
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+    
+    <!-- **************************** Layout for Right Add Source Menu ******************************* -->
+    
+    <include
+        android:id="@+id/AddSourceLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_weight="0"
+        layout="@layout/add_source" />
+
+    <!-- **************************************************************************************** -->
+
+    <RelativeLayout
+        android:id="@+id/PieControlLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg" >
+
+        <com.digitalaria.gama.wheel.Wheel
+            android:id="@+id/wheel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-65dp"
+            android:nextFocusLeft="@id/openLeft"
+            android:nextFocusRight="@id/openLeft"
+            android:nextFocusUp="@id/wheel"
+            android:nextFocusDown="@id/wheel"
+            android:soundEffectsEnabled="true"
+            android:focusable="true" >  
+        </com.digitalaria.gama.wheel.Wheel>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/PieControlLayoutHandle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/openLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="?android:selectableItemBackground"
+            android:src="@drawable/dial_inside" >
+        </ImageButton>
+    </RelativeLayout>
+
+</RelativeLayout>

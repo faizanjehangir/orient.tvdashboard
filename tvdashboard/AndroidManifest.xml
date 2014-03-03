@@ -19,23 +19,23 @@
         <activity
             android:name="com.tvdashboard.main.MainDashboard"
             android:screenOrientation="landscape" > 
-                           
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.tvdashboard.videos.VideoSection"
             android:windowSoftInputMode="adjustNothing|stateHidden"
             android:screenOrientation="landscape" >
-			<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+			
         </activity>
         
         <activity
             android:name="com.tvdashboard.apps.AppSection"
             android:windowSoftInputMode="adjustNothing|stateHidden"
             android:screenOrientation="landscape" >
-
+			
         </activity>
         
         <activity
@@ -52,13 +52,25 @@
         </activity>
         
         <activity
-            android:name="com.tvdashboard.videos.TVShows" >
+            android:name="com.tvdashboard.videos.TabTVShows" >
         </activity>
         <activity
-            android:name="com.tvdashboard.videos.Movies" >
+            android:name="com.tvdashboard.videos.TabMovies" >
         </activity>
         <activity
-            android:name="com.tvdashboard.videos.MusicVideos" >
+            android:name="com.tvdashboard.videos.TabMusicVideos" >
+        </activity>
+        <activity
+            android:name="com.tvdashboard.pictures.TabAlbums" >
+        </activity>
+        <activity
+            android:name="com.tvdashboard.pictures.TabPhotos" >
+        </activity>
+        <activity
+            android:name="com.tvdashboard.music.TabMixes" >
+        </activity>
+        <activity
+            android:name="com.tvdashboard.music.TabMusic" >
         </activity>
 
     </application>

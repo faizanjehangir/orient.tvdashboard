@@ -54,6 +54,7 @@ import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
 import com.tvdashboard.apps.AppSection;
 import com.tvdashboard.database.R;
+import com.tvdashboard.helper.DatabaseHelper;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
 import com.tvdashboard.main.SelectedDirectoryListFragment;
@@ -99,14 +100,15 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
     	getSupportActionBar().setDisplayShowTitleEnabled(false);
     	getSupportActionBar().setIcon(R.drawable.text_videostitle);
     	getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
-		setContentView(R.layout.videos_section);
+		setContentView(R.layout.section_videos);
+		
+		context = this.getApplicationContext();
 		
 		Media_source m = null;
         m = m.Videos;		
         txtAlbumName = (EditText)findViewById(R.id.text_source_name);
 		Source mSource = new Source(Media_source.Videos, context);
 		
-		context = this.getApplicationContext();
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
         layoutDirectory = (LinearLayout)findViewById(R.id.DirectoryLayout);
@@ -115,6 +117,7 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
         btnReturn = (ImageButton) findViewById(R.id.returnBtn);
         btnBrowse = (ImageButton)findViewById(R.id.btn_browse);
         btnSelect = (ImageButton)findViewById(R.id.okBtn);
+        btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
         browseText = (EditText)findViewById(R.id.text_browse);
         btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
@@ -123,16 +126,18 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
         
 		browseText.setText(dir);
 		layoutDirectory.setVisibility(View.GONE);
-		btnSelect.setVisibility(View.INVISIBLE);
-		
-		layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
-        layoutDialer.setEnabled(false);
-        init();
+		btnSelect.setVisibility(View.INVISIBLE);		
         
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         screenWidth = metrics.widthPixels;
         screenHeight = metrics.heightPixels;
+        
+        layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+        
+        layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
+        layoutDialer.setEnabled(false);
+        init();
 		
 //		GPSTracker gpsTracker = new GPSTracker(this);
 //        if (gpsTracker.canGetLocation())
@@ -171,21 +176,21 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
      		TabSpec tab2 = tabHost.newTabSpec("Movies");
      		TabSpec tab3 = tabHost.newTabSpec("Music Videos");
      		tab1.setIndicator("TV Shows");
-     		tab1.setContent(new Intent(this, TVShows.class));
+     		tab1.setContent(new Intent(this, TabTVShows.class));
      		tab2.setIndicator("Movies");
-     		tab2.setContent(new Intent(this, Movies.class));
+     		tab2.setContent(new Intent(this, TabMovies.class));
      		tab3.setIndicator("Music Videos");
-     		tab3.setContent(new Intent(this, MusicVideos.class));
+     		tab3.setContent(new Intent(this, TabMusicVideos.class));
      		tabHost.addTab(tab1);
      		tabHost.addTab(tab2);
      		tabHost.addTab(tab3);
      		
      		TextView x = (TextView) tabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
-     	    x.setTextSize(25);
+     	    x.setTextSize(22);
      	    x = (TextView) tabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title);
-    	    x.setTextSize(25);
+    	    x.setTextSize(22);
     	    x = (TextView) tabHost.getTabWidget().getChildAt(2).findViewById(android.R.id.title);
-     	    x.setTextSize(25);
+     	    x.setTextSize(22);
 
      		tabHost.setOnTabChangedListener(new OnTabChangeListener() {
      			public TabHost tabHost1 = tabHost;
@@ -197,109 +202,116 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
      			}
      		});
         
-        wheel.setOnKeyListener(new OnKeyListener() {			
+		wheel.setOnKeyListener(new OnKeyListener() {
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				Toast.makeText(context, "key pressed: " + String.valueOf(keyCode), Toast.LENGTH_SHORT).show();
-				
-				
+				Toast.makeText(context,
+						"key pressed: " + String.valueOf(keyCode),
+						Toast.LENGTH_SHORT).show();
+
 				if (keyCode == 19) // UP key pressed
 				{
 					if (event.getAction() == KeyEvent.ACTION_UP)
-					wheel.previousItem();
-				}
-				else if (keyCode == 20) // DOWN key pressed
+						wheel.previousItem();
+				} else if (keyCode == 20) // DOWN key pressed
 				{
 					if (event.getAction() == KeyEvent.ACTION_UP)
-					wheel.nextItem();
-				}
-				else if (keyCode == 66)
-				{
+						wheel.nextItem();
+				} else if (keyCode == 66) {
 					if (event.getAction() == KeyEvent.ACTION_UP)
-						switch (wheel.getSelectedItem())
-						{
+						switch (wheel.getSelectedItem()) {
 						case 1:
-							Intent intent = new Intent(context, VideoSection.class);
+							Intent intent = new Intent(context,
+									VideoSection.class);
 							startActivity(intent);
-							
+
 							break;
-							
+
 						case 2:
-							Intent intent1 = new Intent(context, MusicSection.class);
+							Intent intent1 = new Intent(context,
+									MusicSection.class);
 							startActivity(intent1);
-							
+
 							break;
-							
+
 						case 3:
-							Intent intent2 = new Intent(context, PictureSection.class);
+							Intent intent2 = new Intent(context,
+									PictureSection.class);
 							startActivity(intent2);
-							
+
 							break;
-							
+
 						case 4:
-							Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+							Intent viewIntent = new Intent(
+									"android.intent.action.VIEW", Uri
+											.parse("http://www.novoda.com"));
 							startActivity(viewIntent);
-							
+
 							break;
-							
-						case 5: 
-							startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
-								
+
+						case 5:
+							startActivityForResult(new Intent(
+									android.provider.Settings.ACTION_SETTINGS),
+									0);
+
 							break;
-								
+
 						case 0:
-							Intent intent3 = new Intent(context, AppSection.class);
+							Intent intent3 = new Intent(context,
+									AppSection.class);
 							startActivity(intent3);
-							
+
 							break;
 						}
 				}
 				return false;
 			}
 		});
-        
-        wheel.setOnItemClickListener(new OnItemClickListener() {
+
+		wheel.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(WheelAdapter<?> parent, View view,
 					int position, long id) {
-				switch (position)
-				{
+				switch (position) {
 				case 1:
 					Intent intent = new Intent(context, VideoSection.class);
 					startActivity(intent);
-					
+
 					break;
-					
+
 				case 2:
 					Intent intent1 = new Intent(context, MusicSection.class);
 					startActivity(intent1);
-					
+
 					break;
-					
+
 				case 3:
 					Intent intent2 = new Intent(context, PictureSection.class);
 					startActivity(intent2);
-					
+
 					break;
-					
+
 				case 4:
-					Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+					Intent viewIntent = new Intent(
+							"android.intent.action.VIEW", Uri
+									.parse("http://www.novoda.com"));
 					startActivity(viewIntent);
-					
+
 					break;
-					
-				case 5: 
-					startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
-						
+
+				case 5:
+					startActivityForResult(new Intent(
+							android.provider.Settings.ACTION_SETTINGS), 0);
+
 					break;
-						
+
 				case 0:
 					Intent intent3 = new Intent(context, AppSection.class);
 					startActivity(intent3);
-					
+
 					break;
-				}				
+				}
 			}
 		});
         
@@ -408,6 +420,7 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 				layoutDirectory.setVisibility(View.VISIBLE);
 				btnSelect.setVisibility(View.VISIBLE);
 				initializeDirectory();
+				SelectedDirectoryListFragment.calledBy = "VideoSection";
 			}
 		});
         
@@ -444,7 +457,8 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 						if (file[i].getName().endsWith(".vlc")
 								|| file[i].getName().endsWith(".mp4")
 								|| file[i].getName().endsWith(".mvx")
-								|| file[i].getName().endsWith(".flv")) {
+								|| file[i].getName().endsWith(".flv")
+								|| file[i].getName().endsWith(".mkv")) {
 							Video vid = new Video();
 							vid.setFav(false);
 							vid.setIsactive(true);
@@ -477,7 +491,7 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
     	.setIcon(R.drawable.network)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
-        menu.add("Â°C")
+        menu.add("°C")
     	.setIcon(R.drawable.weather1)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
@@ -579,10 +593,8 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 			if (weather.iconData != null && weather.iconData.length > 0) {
 				Bitmap img = BitmapFactory.decodeByteArray(weather.iconData, 0, weather.iconData.length); 
 				menu.getItem(2).setIcon(new BitmapDrawable(img));
-			}
-			
-			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "Â°C		");
-
+			}			
+			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "°C		");
 		}
     }
 

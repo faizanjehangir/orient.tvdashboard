@@ -66,7 +66,7 @@ public class SelectedDirectoryListFragment extends Fragment {
 					{
 						file = new File(file, allFiles.get(position).getTitle());
 						if(calledBy=="PictureSection"){
-							PictureSection.browseText.setText(file.getAbsolutePath());
+//							PictureSection.browseText.setText(file.getAbsolutePath());
 						}
 						else if(calledBy=="VideoSection"){
 							VideoSection.browseText.setText(file.getAbsolutePath());

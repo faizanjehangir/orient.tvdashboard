@@ -63,8 +63,8 @@ public class AppSection extends SherlockFragmentActivity {
 	public static Weather weather;
 	public static  String weatherParam="";
 	
-    ImageButton appSettings;
-    ImageButton downloadApp;
+//    ImageButton appSettings;
+//    ImageButton downloadApp;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class AppSection extends SherlockFragmentActivity {
         requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
     	getSupportActionBar().setDisplayShowTitleEnabled(false);
     	getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
-		setContentView(R.layout.app_section);
+		setContentView(R.layout.section_app);
 		
 		context = this.getApplicationContext();
 		wheel = (Wheel) findViewById(R.id.wheel);
@@ -84,63 +84,64 @@ public class AppSection extends SherlockFragmentActivity {
         isExpandedLeft = true;
         layoutDialer.setEnabled(false);
         init();
+        layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
         
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         screenWidth = metrics.widthPixels;
         screenHeight = metrics.heightPixels;
         
-        GPSTracker gpsTracker = new GPSTracker(this);
-        if (gpsTracker.canGetLocation())
-		{
-        	String country = gpsTracker.getCountryName(this);
-        	String city = gpsTracker.getLocality(this);
-        	weatherParam = city+","+country;
-		}
-        else
-		{
-			gpsTracker.showSettingsAlert();
-		}
+//        GPSTracker gpsTracker = new GPSTracker(this);
+//        if (gpsTracker.canGetLocation())
+//		{
+//        	String country = gpsTracker.getCountryName(this);
+//        	String city = gpsTracker.getLocality(this);
+//        	weatherParam = city+","+country;
+//		}
+//        else
+//		{
+//			gpsTracker.showSettingsAlert();
+//		}
         
 // *********************** Timer Thread ***************************** //        
         
-        Thread myThread = null;
-        Runnable myRunnableThread = new CountDownRunner();
-        myThread= new Thread(myRunnableThread);
-        myThread.start();
+//        Thread myThread = null;
+//        Runnable myRunnableThread = new CountDownRunner();
+//        myThread= new Thread(myRunnableThread);
+//        myThread.start();
         
 // *********************** Weather Api ****************************** //
         
-        if (weatherParam != "")
-        {
-        	new JSONWeatherTask().execute(weatherParam);
-        }
+//        if (weatherParam != "")
+//        {
+//        	new JSONWeatherTask().execute(weatherParam);
+//        }
         
 // ****************************************************************** //	
         
         
-        downloadApp.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
-				try {
-				    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-				} catch (android.content.ActivityNotFoundException anfe) {
-				    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-				}
-			}
-		});
-        
-        appSettings.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				startActivityForResult(new Intent(android.provider.Settings.ACTION_APPLICATION_SETTINGS), 0);
-			}
-		});
+//        downloadApp.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+//				try {
+//				    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+//				} catch (android.content.ActivityNotFoundException anfe) {
+//				    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+//				}
+//			}
+//		});
+//        
+//        appSettings.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View arg0) {
+//				// TODO Auto-generated method stub
+//				startActivityForResult(new Intent(android.provider.Settings.ACTION_APPLICATION_SETTINGS), 0);
+//			}
+//		});
         
         wheel.setOnKeyListener(new OnKeyListener() {			
 			@Override
@@ -318,7 +319,6 @@ public class AppSection extends SherlockFragmentActivity {
 	
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-//		Toast.makeText(context, menu.getItem(2).getTitle(), Toast.LENGTH_SHORT).show();
 		this.menu = menu;
 		return super.onPrepareOptionsMenu(menu);
 	}
@@ -400,8 +400,7 @@ public class AppSection extends SherlockFragmentActivity {
 			if (weather.iconData != null && weather.iconData.length > 0) {
 				Bitmap img = BitmapFactory.decodeByteArray(weather.iconData, 0, weather.iconData.length); 
 				menu.getItem(2).setIcon(new BitmapDrawable(img));
-			}
-			
+			}			
 			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "°C		");
 
 		}

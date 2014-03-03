@@ -82,7 +82,7 @@ public class MainDashboard extends SherlockFragmentActivity {
 	private int screenWidth, screenHeigt;
 	private boolean isExpandedLeft;
 	RelativeLayout layoutDialer;
-	Context context;
+	private static Context context;
 	public static String dir="";
 	private Wheel wheel;
     private Resources res;
@@ -122,7 +122,7 @@ public class MainDashboard extends SherlockFragmentActivity {
         requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
     	getSupportActionBar().setDisplayShowTitleEnabled(false);
     	getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
-		setContentView(R.layout.main);
+		setContentView(R.layout.section_dashboard);
 		
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
@@ -140,17 +140,7 @@ public class MainDashboard extends SherlockFragmentActivity {
         screenWidth = metrics.widthPixels;
         screenHeigt = metrics.heightPixels;
         
-        GPSTracker gpsTracker = new GPSTracker(this);
-        if (gpsTracker.canGetLocation())
-		{
-        	String country = gpsTracker.getCountryName(this);
-        	String city = gpsTracker.getLocality(this);
-        	weatherParam = city+","+country;
-		}
-        else
-		{
-			gpsTracker.showSettingsAlert();
-		}
+        
         
 // *********************** Timer Thread ***************************** //        
         
@@ -161,10 +151,7 @@ public class MainDashboard extends SherlockFragmentActivity {
         
 // *********************** Weather Api ****************************** //
         
-        if (weatherParam != "")
-        {
-        	new JSONWeatherTask().execute(weatherParam);
-        }
+//        new getLocation().execute();
         
 // ****************************************************************** //   
         
@@ -528,7 +515,7 @@ public class MainDashboard extends SherlockFragmentActivity {
     	.setIcon(R.drawable.network)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
-        menu.add("Â°C")
+        menu.add("°C")
     	.setIcon(R.drawable.weather1)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
@@ -759,21 +746,47 @@ public class MainDashboard extends SherlockFragmentActivity {
 
 			if (weather.iconData != null && weather.iconData.length > 0) {
 				Bitmap img = BitmapFactory.decodeByteArray(weather.iconData, 0, weather.iconData.length); 
-//				imgView.setImageBitmap(img);
 				menu.getItem(2).setIcon(new BitmapDrawable(img));
 			}
 			
-			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "Â°C		");
-//			cityText.setText(weather.location.getCity() + "," + weather.location.getCountry());
-//			condDescr.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getDescr() + ")");
-//			temp.setText("" + Math.round((weather.temperature.getTemp() - 273.15)) + "ï¿½C");
-//			hum.setText("" + weather.currentCondition.getHumidity() + "%");
-//			press.setText("" + weather.currentCondition.getPressure() + " hPa");
-//			windSpeed.setText("" + weather.wind.getSpeed() + " mps");
-//			windDeg.setText("" + weather.wind.getDeg() + "ï¿½");
+			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "°C		");
 
 		}
     }
+    
+	public class getLocation extends AsyncTask<Void, Void, Boolean>
+	{
+		GPSTracker gpsTracker;
+		@Override
+		protected Boolean doInBackground(Void... params) {		
+			gpsTracker = new GPSTracker(context);
+	        if (gpsTracker.canGetLocation())
+			{
+	        	String country = gpsTracker.getCountryName(context);
+	        	String city = gpsTracker.getLocality(context);
+	        	weatherParam = city+","+country;
+	        	return true;
+			}
+	        else
+			{
+//				gpsTracker.showSettingsAlert();
+	        	return false;
+			}
+		}
+
+		@Override
+		protected void onPostExecute(Boolean result) {
+			super.onPostExecute(result);
+			if (result == true)
+	        {
+	        	new JSONWeatherTask().execute(weatherParam);
+	        }
+			else
+			{
+				gpsTracker.showSettingsAlert();
+			}
+		}		
+	}
 	
     
 

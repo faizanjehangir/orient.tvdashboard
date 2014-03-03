@@ -31,7 +31,7 @@ public class RecentVideosFragment extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.recent_videos_fragment_layout, container, false);
+		View view = inflater.inflate(R.layout.fragment_recent_videos_layout, container, false);
 		return view;
 	}	
 	

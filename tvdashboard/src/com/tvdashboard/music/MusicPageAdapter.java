@@ -1,4 +1,4 @@
-package com.tvdashboard.videos;
+package com.tvdashboard.music;
 import java.util.List;
 
 import com.viewpagerindicator.IconPagerAdapter;
@@ -7,17 +7,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-public class VideosPageAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
+public class MusicPageAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
     private List<Fragment> fragments;
 
-    public VideosPageAdapter(FragmentManager fm, List<Fragment> fragments) {
+    public MusicPageAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
         this.fragments = fragments;
     }
 
     @Override
     public Fragment getItem(int position) {
-    	
         return this.fragments.get(position);
     }
 
@@ -28,7 +27,7 @@ public class VideosPageAdapter extends FragmentPagerAdapter implements IconPager
 
 	@Override
 	public int getIconResId(int index) {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 }

@@ -40,13 +40,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	// Common column names
 
-	private static final String KEY_ID = "id";
-	private static final String KEY_FAV = "fav";
-	private static final String KEY_ACTIVE = "active";
+	private static final String KEY_ID = "key_id";
+	private static final String KEY_FAV = "key_fav";
+	private static final String KEY_ACTIVE = "key_isactive";
 
 	// MUSIC Table - column names
 
-	private static final String KEY_MUSIC_PATH = "path";
+	private static final String KEY_MUSIC_PATH = "key_path";
 	private static final String KEY_MUSIC_ALBUM = "is_album";
 	private static final String KEY_MUSIC_NAME = "music_name";
 
@@ -54,15 +54,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	// PICTURE Table - column names
 
-	private static final String KEY_PICTURE_PATH = "path";
-	private static final String KEY_PICTURE_ALBUM = "is_album";
-	private static final String KEY_PICTURE_NAME = "picture_name";
+	private static final String KEY_PICTURE_PATH = "key_path";
+	private static final String KEY_PICTURE_ALBUM = "key_isalbum";
+	private static final String KEY_PICTURE_NAME = "key_source_name";
 
 	// VIDEO Table - column names
 
-	private static final String KEY_VIDEO_PATH = "path";
-	private static final String KEY_VIDEO_SUBCAT_ID = "subcat_id";
-	private static final String KEY_VIDEO_NAME = "video_name";
+	private static final String KEY_VIDEO_PATH = "key_path";
+	private static final String KEY_VIDEO_SUBCAT_ID = "key_subcat";
+	private static final String KEY_VIDEO_NAME = "key_source_name";
+	private static final String KEY_TIMESTAMP = "key_timestamp";
 
 
 	// Table Create Statements
@@ -162,9 +163,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		{
 			query="insert into table_video (key_fav, key_path, key_source_name, key_subcat ,  key_isactive, key_timestamp) VALUES ('" + video.get(i).isFav() + "','" + video.get(i).getPath() + "','" + video.get(i).getSourcename() +"','"  + video.get(i).getSub_cat() + "','" + Boolean.toString( video.get(i).isIsactive()) + "','"+now.toString()+"');";
 			db.execSQL(query);
-		}
-		
-		
+		}		
 		
 	}
 
@@ -544,11 +543,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 		return lstMusic;
 	}
-
-
-
-
-
 
 
 	// closing database
