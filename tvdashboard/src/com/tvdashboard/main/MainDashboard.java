@@ -2,7 +2,9 @@ package com.tvdashboard.main;
 
 import java.lang.reflect.Field;
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.json.JSONException;
 
@@ -34,8 +36,11 @@ import com.tvos.common.vo.*;
 import com.tvos.common.vo.TvOsType.EnumInputSource;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
+import com.tvdashboard.videos.FragmentTVShowsMain;
 import com.tvdashboard.videos.VideoSection;
 import com.tvdashboard.viewpageradapters.DashboardViewpagerAdapter;
+
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
 import android.net.Uri;
@@ -111,7 +116,8 @@ public class MainDashboard extends SherlockFragmentActivity {
 	public static String currTime;
 	public static Weather weather;
 	
-	DashboardViewpagerAdapter mAdapter;
+	DashboardPageAdapter mAdapter;
+	List<Fragment> fragments;
     ViewPager mPager;
     PageIndicator mIndicator;
 	
@@ -154,6 +160,42 @@ public class MainDashboard extends SherlockFragmentActivity {
 //        new getLocation().execute();
         
 // ****************************************************************** //   
+        
+        fragments = getFragments(); 
+        mAdapter = new DashboardPageAdapter(getSupportFragmentManager(), fragments);
+        mPager = (ViewPager)findViewById(R.id.pager);
+        mPager.setPageMargin(-150);
+        mPager.setHorizontalFadingEdgeEnabled(true);
+//        mPager.setFadingEdgeLength(30);
+        mPager.setAdapter(mAdapter);
+        mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
+        mIndicator.setViewPager(mPager);
+        
+        try {
+			Field mScroller;
+			mScroller = ViewPager.class.getDeclaredField("mScroller");
+			mScroller.setAccessible(true);
+			Interpolator sInterpolator = null;
+			FixedSpeedScroller scroller = new FixedSpeedScroller(
+					mPager.getContext(), sInterpolator);
+			// scroller.setFixedDuration(5000);
+			mScroller.set(mPager, scroller);
+		} catch (NoSuchFieldException e) {
+		} catch (IllegalArgumentException e) {
+		} catch (IllegalAccessException e) {
+		}
+        
+        mPager.setPageTransformer(false, new ViewPager.PageTransformer(){
+			@Override
+			public void transformPage(View page, float position) {				
+				
+				final float normalizedposition = Math.abs(Math.abs(position) - 1);
+//			    page.setScaleX(normalizedposition / 2 + 0.5f);
+//			    page.setScaleY(normalizedposition / 2 + 0.5f);
+			    page.setAlpha(normalizedposition);				
+//				page.setRotationY(position * -30);				
+			}        	
+        });
         
         wheel.setOnKeyListener(new OnKeyListener() {			
 			@Override
@@ -351,40 +393,7 @@ public class MainDashboard extends SherlockFragmentActivity {
 //		
 //		t.commit();
         
-        mAdapter = new DashboardViewpagerAdapter(getSupportFragmentManager());
-        mPager = (ViewPager)findViewById(R.id.pager);
-        mPager.setPageMargin(-400);
-        mPager.setHorizontalFadingEdgeEnabled(true);
-//        mPager.setFadingEdgeLength(30);
-        mPager.setAdapter(mAdapter);
-        mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
-        mIndicator.setViewPager(mPager);
-        
-        try {
-			Field mScroller;
-			mScroller = ViewPager.class.getDeclaredField("mScroller");
-			mScroller.setAccessible(true);
-			Interpolator sInterpolator = null;
-			FixedSpeedScroller scroller = new FixedSpeedScroller(
-					mPager.getContext(), sInterpolator);
-			// scroller.setFixedDuration(5000);
-			mScroller.set(mPager, scroller);
-		} catch (NoSuchFieldException e) {
-		} catch (IllegalArgumentException e) {
-		} catch (IllegalAccessException e) {
-		}
-        
-        mPager.setPageTransformer(false, new ViewPager.PageTransformer(){
-			@Override
-			public void transformPage(View page, float position) {				
-				
-				final float normalizedposition = Math.abs(Math.abs(position) - 1);
-			    page.setScaleX(normalizedposition / 2 + 0.5f);
-			    page.setScaleY(normalizedposition / 2 + 0.5f);
-			    page.setAlpha(normalizedposition);				
-//				page.setRotationY(position * -30);				
-			}        	
-        });	        
+        	        
         
         
         
@@ -551,6 +560,23 @@ public class MainDashboard extends SherlockFragmentActivity {
 		}
 		return ret;
 	}	
+	
+	private List<Fragment> getFragments(){
+        List<Fragment> fList = new ArrayList<Fragment>();
+
+        FragmentTvGuide f1 = FragmentTvGuide.newInstance();
+        FragmentFavorites f2 = FragmentFavorites.newInstance();
+        FragmentRecentVideos f3 = FragmentRecentVideos.newInstance();
+        FragmentRecentMusic f4 = FragmentRecentMusic.newInstance();
+        FragmentRecentPictures f5 = FragmentRecentPictures.newInstance();
+        fList.add(f1);
+        fList.add(f2);
+        fList.add(f3);
+        fList.add(f4);
+        fList.add(f5);
+
+        return fList;
+    }
 	
 //	public class InitializeDialer extends AsyncTask<Void, Void, Void>
 //	{

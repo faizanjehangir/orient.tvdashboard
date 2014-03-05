@@ -4,10 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.tvdashboard.main.FavoritesFragment;
-import com.tvdashboard.main.RecentMusicFragment;
-import com.tvdashboard.main.RecentPicturesFragment;
-import com.tvdashboard.main.RecentVideosFragment;
+import com.tvdashboard.main.FragmentFavorites;
+import com.tvdashboard.main.FragmentRecentMusic;
+import com.tvdashboard.main.FragmentRecentPictures;
+import com.tvdashboard.main.FragmentRecentVideos;
 import com.viewpagerindicator.IconPagerAdapter;
 
 public class DashboardViewpagerAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
@@ -18,21 +18,21 @@ public class DashboardViewpagerAdapter extends FragmentPagerAdapter implements I
 
     @Override
     public Fragment getItem(int position) {
-    	if (position == 0)
+    	if (position == 1)
     	{
-    		return FavoritesFragment.newInstance();
-    	}
-    	else if (position == 1)
-    	{
-    		return RecentVideosFragment.newInstance();
+    		return FragmentFavorites.newInstance();
     	}
     	else if (position == 2)
     	{
-    		return RecentMusicFragment.newInstance();
+    		return FragmentRecentVideos.newInstance();
     	}
     	else if (position == 3)
     	{
-    		return RecentPicturesFragment.newInstance();
+    		return FragmentRecentMusic.newInstance();
+    	}
+    	else if (position == 4)
+    	{
+    		return FragmentRecentPictures.newInstance();
     	}
     	
     	return null;
@@ -40,7 +40,7 @@ public class DashboardViewpagerAdapter extends FragmentPagerAdapter implements I
 
     @Override
     public int getCount() {
-        return 4;
+        return 5;
     }
 
 //    @Override

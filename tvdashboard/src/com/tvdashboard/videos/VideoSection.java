@@ -58,6 +58,7 @@ import com.tvdashboard.helper.DatabaseHelper;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
 import com.tvdashboard.main.SelectedDirectoryListFragment;
+import com.tvdashboard.main.XmlParser;
 import com.tvdashboard.model.Video;
 import com.tvdashboard.music.MusicSection;
 import com.tvdashboard.pictures.PictureSection;
@@ -126,7 +127,7 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
         
 		browseText.setText(dir);
 		layoutDirectory.setVisibility(View.GONE);
-		btnSelect.setVisibility(View.INVISIBLE);		
+		btnSelect.setVisibility(View.INVISIBLE);					
         
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -439,7 +440,7 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 			public void onClick(View v) {
 
 				/* Source.selectStuff(m); */
-
+				ArrayList<String> ext = XmlParser.parseXml(context, "Videos");
 				String path = browseText.getText().toString();
 				/* Log.d("Files", "Path: " + path); */
 				File f = new File(path);
@@ -454,19 +455,37 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 						/* getpicfile(file[i]); */
 
 					} else {
-						if (file[i].getName().endsWith(".vlc")
-								|| file[i].getName().endsWith(".mp4")
-								|| file[i].getName().endsWith(".mvx")
-								|| file[i].getName().endsWith(".flv")
-								|| file[i].getName().endsWith(".mkv")) {
-							Video vid = new Video();
-							vid.setFav(false);
-							vid.setIsactive(true);
-							vid.setSub_cat("movies");
-							vid.setPath(file[i].getPath());
-							vid.setSourcename(txtAlbumName.getText().toString());
-							pics.add(vid);
+						
+						for (int k = 0; k < ext.size(); k++)
+						{
+							if (file[i].getName().endsWith("." + ext.get(k).toLowerCase()))
+							{
+								Video vid = new Video();
+								vid.setFav(false);
+								vid.setIsactive(true);
+								vid.setSub_cat("movies");
+								vid.setPath(file[i].getPath());
+								vid.setSourcename(txtAlbumName.getText().toString());
+								pics.add(vid);
+								
+								break;
+							}
+							
 						}
+						
+//						if (file[i].getName().endsWith(".vlc")
+//								|| file[i].getName().endsWith(".mp4")
+//								|| file[i].getName().endsWith(".mvx")
+//								|| file[i].getName().endsWith(".flv")
+//								|| file[i].getName().endsWith(".mkv")) {
+//							Video vid = new Video();
+//							vid.setFav(false);
+//							vid.setIsactive(true);
+//							vid.setSub_cat("movies");
+//							vid.setPath(file[i].getPath());
+//							vid.setSourcename(txtAlbumName.getText().toString());
+//							pics.add(vid);
+//						}
 					}
 					/* Log.d("Files", "FileName:" + file[i].getName()); */
 				}

@@ -17,109 +17,119 @@
 
     <LinearLayout
         android:id="@+id/LayoutMain"
-        android:layout_width="800dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/FragmentTitle"
-        android:layout_centerInParent="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="110dp"
         android:orientation="horizontal"
-        android:weightSum="3" >
+        android:weightSum="5" >
 
         <LinearLayout
-            android:id="@+id/LayoutLeftContent"
+            android:id="@+id/LayoutContent01"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:weightSum="6"
             android:layout_marginRight="7dp"
-            android:orientation="vertical" >
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="6" >
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginBottom="7dp"
                 android:layout_weight="4"
-                android:layout_marginBottom="7dp" >
+                android:orientation="vertical"
+                android:weightSum="2" >
 
-                <ImageButton
-                    android:id="@+id/image1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/movie1" />
-
-                <ImageView
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
-                    android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
 
-                <TextView
+                    <ImageButton
+                        android:id="@+id/image1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
+                    
+                    <ImageView
+                        android:id="@+id/imageCategory1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:paddingRight="10dp"
+                        android:src="@drawable/app_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:text="" />
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:text="" />
-            </RelativeLayout>
-            
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie4" />
+                    
+                    <ImageButton
+                        android:id="@+id/imageHover2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <ImageView
+                        android:id="@+id/imageCategory2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:paddingRight="10dp"
+                        android:src="@drawable/app_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:text="" />
+                </RelativeLayout>
+            </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="2" >
-
-                <ImageButton
-                    android:id="@+id/image2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/movie2" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
-                    android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:text="" />
-            </RelativeLayout>
-            
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LayoutMiddleContent"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:weightSum="6"
-            android:layout_marginRight="7dp"
-            android:orientation="vertical" >
-            
-            <LinearLayout 
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="vertical"
-                android:layout_weight="4"
-                android:weightSum="2"
-                android:layout_marginBottom="7dp">
-            
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginBottom="7dp" >
 
                 <ImageButton
                     android:id="@+id/image3"
@@ -128,9 +138,19 @@
                     android:adjustViewBounds="true"
                     android:background="@null"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/movie3" />
+                    android:src="@drawable/movie5" />
+                
+                <ImageButton
+                        android:id="@+id/imageHover3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
 
                 <ImageView
+                    android:id="@+id/imageCategory3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -146,11 +166,22 @@
                     android:layout_alignParentRight="true"
                     android:text="" />
             </RelativeLayout>
-            
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayoutContent02"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="7dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="6" >
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="1" >
+                android:layout_marginBottom="7dp"
+                android:layout_weight="4" >
 
                 <ImageButton
                     android:id="@+id/image4"
@@ -159,9 +190,19 @@
                     android:adjustViewBounds="true"
                     android:background="@null"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/movie4" />
+                    android:src="@drawable/movie1" />
+                
+                <ImageButton
+                        android:id="@+id/imageHover4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
 
                 <ImageView
+                    android:id="@+id/imageCategory4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -177,9 +218,7 @@
                     android:layout_alignParentRight="true"
                     android:text="" />
             </RelativeLayout>
-            
-            </LinearLayout>
-            
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
@@ -192,52 +231,19 @@
                     android:adjustViewBounds="true"
                     android:background="@null"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/movie5" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
-                    android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:text="" />
-            </RelativeLayout>            
-            
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LayoutRightContent"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:weightSum="6"
-            android:layout_marginRight="7dp"
-            android:orientation="vertical" >  
-            
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:layout_marginBottom="7dp" >
-
+                    android:src="@drawable/movie2" />
+                
                 <ImageButton
-                    android:id="@+id/image6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/movie7" />
+                        android:id="@+id/imageHover5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
 
                 <ImageView
+                    android:id="@+id/imageCategory5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -253,22 +259,134 @@
                     android:layout_alignParentRight="true"
                     android:text="" />
             </RelativeLayout>
-            
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayoutContent03"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="7dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="6" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="7dp"
+                android:layout_weight="4"
+                android:orientation="vertical"
+                android:weightSum="2" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+                    
+                    <ImageButton
+                        android:id="@+id/imageHover6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <ImageView
+                        android:id="@+id/imageCategory6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:paddingRight="10dp"
+                        android:src="@drawable/app_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:text="" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie4" />
+                    
+                    <ImageButton
+                        android:id="@+id/imageHover7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <ImageView
+                        android:id="@+id/imageCategory7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:paddingRight="10dp"
+                        android:src="@drawable/app_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:text="" />
+                </RelativeLayout>
+            </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="2" >
 
                 <ImageButton
-                    android:id="@+id/image7"
+                    android:id="@+id/image8"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="@null"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/movie2" />
+                    android:src="@drawable/movie5" />
+                
+                <ImageButton
+                        android:id="@+id/imageHover8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
 
                 <ImageView
+                    android:id="@+id/imageCategory8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -284,7 +402,191 @@
                     android:layout_alignParentRight="true"
                     android:text="" />
             </RelativeLayout>
-                        
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayoutContent04"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="7dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="6" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginBottom="7dp"
+                android:layout_weight="1.965" >
+
+                <ImageButton
+                    android:id="@+id/image9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/movie2" />
+                
+                <ImageButton
+                        android:id="@+id/imageHover9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
+
+                <ImageView
+                    android:id="@+id/imageCategory9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/app_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:text="" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="4.035" >
+
+                <ImageButton
+                    android:id="@+id/image10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/movie1" />
+                
+                <ImageButton
+                        android:id="@+id/imageHover10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
+
+                <ImageView
+                    android:id="@+id/imageCategory10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/app_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:text="" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayoutContent05"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="6" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginBottom="7dp"
+                android:layout_weight="4" >
+
+                <ImageButton
+                    android:id="@+id/image11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/movie1" />
+                
+                <ImageButton
+                        android:id="@+id/imageHover11"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
+
+                <ImageView
+                    android:id="@+id/imageCategory11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/app_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:text="" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2" >
+
+                <ImageButton
+                    android:id="@+id/image12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/movie2" />
+                
+                <ImageButton
+                        android:id="@+id/imageHover12"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tile_selector_style" />
+
+                <ImageView
+                    android:id="@+id/imageCategory12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/app_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:text="" />
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>    
 

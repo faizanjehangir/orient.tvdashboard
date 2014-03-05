@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class RecentPicturesFragment extends Fragment{
+public class FragmentRecentPictures extends Fragment{
 	
-	public static RecentPicturesFragment newInstance() {
-		RecentPicturesFragment fragment = new RecentPicturesFragment();
+	public static FragmentRecentPictures newInstance() {
+		FragmentRecentPictures fragment = new FragmentRecentPictures();
 
         return fragment;
     }

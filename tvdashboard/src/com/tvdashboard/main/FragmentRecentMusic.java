@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class RecentMusicFragment extends Fragment{
+public class FragmentRecentMusic extends Fragment{
 	
-	public static RecentMusicFragment newInstance() {
-		RecentMusicFragment fragment = new RecentMusicFragment();
+	public static FragmentRecentMusic newInstance() {
+		FragmentRecentMusic fragment = new FragmentRecentMusic();
 
         return fragment;
     }
