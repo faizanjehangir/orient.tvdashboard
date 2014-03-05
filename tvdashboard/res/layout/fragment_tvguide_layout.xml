@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/LayoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="110dp"
+        android:orientation="horizontal"
+        android:weightSum="5" >
+
+        <LinearLayout
+            android:id="@+id/LayoutContent01"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="7dp"
+            android:layout_weight="2"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayoutContent02"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="7dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:weightSum="2" >
+
+            <LinearLayout
+                android:id="@+id/LayoutContentSub01"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="3" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageView
+                        android:id="@+id/ChannelLogo01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="10dp" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowDuration01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Duration"
+                        android:singleLine="true" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar01"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageView
+                        android:id="@+id/ChannelLogo02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="10dp" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowDuration02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Duration"
+                        android:singleLine="true" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar02"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageView
+                        android:id="@+id/ChannelLogo03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="10dp" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowDuration03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Duration"
+                        android:singleLine="true" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar03"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LayoutContentSub02"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="3" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageView
+                        android:id="@+id/ChannelLogo04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="10dp" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowDuration04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Duration"
+                        android:singleLine="true" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar04"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageView
+                        android:id="@+id/ChannelLogo05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="10dp" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowDuration05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Duration"
+                        android:singleLine="true" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar05"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageView
+                        android:id="@+id/ChannelLogo06"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="10dp" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle06"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowDuration06"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Duration"
+                        android:singleLine="true" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar06"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayoutContent03"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="3" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginBottom="7dp"
+                android:layout_weight="1" >
+
+                <ImageButton
+                    android:id="@+id/image7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/movie3" />
+
+                <ImageView
+                    android:id="@+id/ChannelLogo07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="10dp" />
+
+                <TextView
+                    android:id="@+id/ShowTitle07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="20dp"
+                    android:hint="Show Title"
+                    android:singleLine="true" />
+
+                <ImageButton
+                    android:id="@+id/imageHover7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tile_selector_style" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginBottom="7dp"
+                android:layout_weight="1" >
+
+                <ImageButton
+                    android:id="@+id/image8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/movie3" />
+
+                <ImageView
+                    android:id="@+id/ChannelLogo08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="10dp" />
+
+                <TextView
+                    android:id="@+id/ShowTitle08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="20dp"
+                    android:hint="Show Title"
+                    android:singleLine="true" />
+
+                <ImageButton
+                    android:id="@+id/imageHover8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tile_selector_style" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+                <ImageButton
+                    android:id="@+id/image9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/movie3" />
+
+                <ImageView
+                    android:id="@+id/ChannelLogo09"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="10dp" />
+
+                <TextView
+                    android:id="@+id/ShowTitle09"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="20dp"
+                    android:hint="Show Title"
+                    android:singleLine="true" />
+
+                <ImageButton
+                    android:id="@+id/imageHover9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tile_selector_style" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

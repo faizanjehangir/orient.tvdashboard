@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Media>
+	<Videos>
+		<Extension>MP4</Extension>
+		<Extension>WEBM</Extension>
+		<Extension>3GP</Extension>
+		<Extension>FLV</Extension>
+		<Extension>MKV</Extension>
+		<Extension>AVI</Extension>
+		<Extension>MOV</Extension>
+		<Extension>WMA</Extension>
+		<Extension>WMV</Extension>
+		<Extension>RM</Extension>
+	</Videos>
+	<Music>
+		<Extension>MP3</Extension>
+		<Extension>3GP</Extension>
+		<Extension>MP4</Extension>
+		<Extension>M4A</Extension>
+		<Extension>AAC</Extension>
+		<Extension>WAV</Extension>
+		<Extension>TS</Extension>
+		<Extension>FLAC</Extension>
+		<Extension>OGG</Extension>
+		<Extension>MID</Extension>
+		<Extension>XMF</Extension>
+		<Extension>MXMF</Extension>
+		<Extension>RTTTL</Extension>
+		<Extension>RTX</Extension>
+		<Extension>OTA</Extension>
+		<Extension>IMY</Extension>	
+	</Music>
+</Media>
