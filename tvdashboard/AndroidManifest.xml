@@ -19,16 +19,16 @@
         <activity
             android:name="com.tvdashboard.main.MainDashboard"
             android:screenOrientation="landscape" > 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         <activity
             android:name="com.tvdashboard.videos.VideoSection"
             android:windowSoftInputMode="adjustNothing|stateHidden"
             android:screenOrientation="landscape" >
-			
+			<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         
         <activity
@@ -55,6 +55,9 @@
             android:name="com.tvdashboard.videos.TabTVShows" >
         </activity>
         <activity
+            android:name="com.tvdashboard.videos.TabFileExplorer" >
+        </activity>
+        <activity
             android:name="com.tvdashboard.videos.TabMovies" >
         </activity>
         <activity
@@ -71,6 +74,15 @@
         </activity>
         <activity
             android:name="com.tvdashboard.music.TabMusic" >
+        </activity>
+        <activity
+            android:name="com.tvdashboard.pictures.SectionAlbumPicturesActivity" >
+        </activity>
+        <activity
+            android:name="com.tvdashboard.pictures.AlbumPictures" >
+        </activity>
+        <activity
+            android:name="com.tvdashboard.pictures.AlbumPicturesFragment" >
         </activity>
 
     </application>

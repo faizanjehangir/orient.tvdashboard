@@ -15,5 +15,10 @@
     <string name="city">City : </string>
     <string name="postalCode">Postal Code : </string>
     <string name="addressLine">Address Line : </string>
+    
+    <string name="thumbWidth">200</string>
+    <string name="thumbHeight">170</string>
+    <string name="thumbquality">90</string>
+    <string name="ImageQuality">300</string>
 
 </resources>

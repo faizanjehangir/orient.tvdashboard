@@ -47,9 +47,9 @@ public class FragmentPhotosMain extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_tab_photos_layout, container, false);
+		View view = inflater.inflate(R.layout.fragment_photos_main_layout, container, false);
 		layoutContent01 = (LinearLayout)view.findViewById(R.id.LayoutContent01);
-		layoutOptions = (LinearLayout)view.findViewById(R.id.PhotosOptions);
+		/*layoutOptions = (LinearLayout)view.findViewById(R.id.PhotosOptions);*/
 		return view;
 	}	
 	

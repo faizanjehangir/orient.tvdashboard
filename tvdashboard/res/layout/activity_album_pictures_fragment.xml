@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/albumRelativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/thumbnailRelMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         >
+
+        <GridLayout
+            android:id="@+id/glPhotos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="83dp"
+            android:layout_marginRight="83dp"
+            android:layout_marginTop="70dp"
+            android:focusable="true" >
+        </GridLayout>
+
+        <RelativeLayout
+            android:id="@+id/expandImagebackground"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#000000"
+            android:visibility="invisible" >
+
+            <ImageView
+                android:id="@+id/expanded_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible" />
+
+            <RelativeLayout
+                android:id="@+id/buttonsPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" >
+
+                <Button
+                    android:id="@+id/btnplay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ssplay" />
+
+                <Button
+                    android:id="@+id/btnprev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/ssprev"
+                    android:nextFocusRight="@id/btnplay" />
+
+                <Button
+                    android:id="@+id/btnnext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/ssnext"
+                    android:nextFocusLeft="@id/btnplay" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

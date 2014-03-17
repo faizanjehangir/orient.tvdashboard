@@ -30,13 +30,17 @@ import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabSpec;
 
@@ -57,6 +61,7 @@ import com.tvdashboard.database.R;
 import com.tvdashboard.helper.DatabaseHelper;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
+import com.tvdashboard.main.CustomOnItemSelectedListener;
 import com.tvdashboard.main.SelectedDirectoryListFragment;
 import com.tvdashboard.main.XmlParser;
 import com.tvdashboard.model.Video;
@@ -92,6 +97,8 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
     private static String currTime;
 	private static Weather weather;
 	private static  String weatherParam="";
+	private static Spinner videoSource;
+	private static String source;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +129,7 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
         browseText = (EditText)findViewById(R.id.text_browse);
         btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
+        videoSource = (Spinner)findViewById(R.id.spinner_source);
         
 		fragment = new SelectedDirectoryListFragment();
         
@@ -134,11 +142,14 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
         screenWidth = metrics.widthPixels;
         screenHeight = metrics.heightPixels;
         
-        layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+//        layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
         
         layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
         layoutDialer.setEnabled(false);
         init();
+        
+        initVideoCategoriesSpinner();
+        addListenerOnSpinnerItemSelection();
 		
 //		GPSTracker gpsTracker = new GPSTracker(this);
 //        if (gpsTracker.canGetLocation())
@@ -176,15 +187,19 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
      		TabSpec tab1 = tabHost.newTabSpec("TV Shows");
      		TabSpec tab2 = tabHost.newTabSpec("Movies");
      		TabSpec tab3 = tabHost.newTabSpec("Music Videos");
+     		TabSpec tab4 = tabHost.newTabSpec("File Explorer");
      		tab1.setIndicator("TV Shows");
      		tab1.setContent(new Intent(this, TabTVShows.class));
      		tab2.setIndicator("Movies");
      		tab2.setContent(new Intent(this, TabMovies.class));
      		tab3.setIndicator("Music Videos");
      		tab3.setContent(new Intent(this, TabMusicVideos.class));
+     		tab4.setIndicator("File Explorer");
+     		tab4.setContent(new Intent(this, TabFileExplorer.class));
      		tabHost.addTab(tab1);
      		tabHost.addTab(tab2);
      		tabHost.addTab(tab3);
+     		tabHost.addTab(tab4);
      		
      		TextView x = (TextView) tabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
      	    x.setTextSize(22);
@@ -192,6 +207,8 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
     	    x.setTextSize(22);
     	    x = (TextView) tabHost.getTabWidget().getChildAt(2).findViewById(android.R.id.title);
      	    x.setTextSize(22);
+     	    x = (TextView) tabHost.getTabWidget().getChildAt(3).findViewById(android.R.id.title);
+    	    x.setTextSize(22);
 
      		tabHost.setOnTabChangedListener(new OnTabChangeListener() {
      			public TabHost tabHost1 = tabHost;
@@ -463,7 +480,7 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 								Video vid = new Video();
 								vid.setFav(false);
 								vid.setIsactive(true);
-								vid.setSub_cat("movies");
+								vid.setSub_cat(source);
 								vid.setPath(file[i].getPath());
 								vid.setSourcename(txtAlbumName.getText().toString());
 								pics.add(vid);
@@ -472,20 +489,6 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 							}
 							
 						}
-						
-//						if (file[i].getName().endsWith(".vlc")
-//								|| file[i].getName().endsWith(".mp4")
-//								|| file[i].getName().endsWith(".mvx")
-//								|| file[i].getName().endsWith(".flv")
-//								|| file[i].getName().endsWith(".mkv")) {
-//							Video vid = new Video();
-//							vid.setFav(false);
-//							vid.setIsactive(true);
-//							vid.setSub_cat("movies");
-//							vid.setPath(file[i].getPath());
-//							vid.setSourcename(txtAlbumName.getText().toString());
-//							pics.add(vid);
-//						}
 					}
 					/* Log.d("Files", "FileName:" + file[i].getName()); */
 				}
@@ -620,6 +623,36 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 	@Override
 	public void onTabChanged(String tabId) {
 		
+	}
+	
+	public void addListenerOnSpinnerItemSelection() {
+		videoSource = (Spinner) findViewById(R.id.spinner_source);
+		videoSource.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+	  }
+	
+	public void initVideoCategoriesSpinner()
+	{
+		List<String> videoCategories = new ArrayList<String>();
+		videoCategories.add("TV Shows");
+		videoCategories.add("Movies");
+		videoCategories.add("Music Videos");
+
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, videoCategories);
+		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		videoSource.setAdapter(dataAdapter);
+	}
+	
+	class CustomOnItemSelectedListener implements OnItemSelectedListener {
+
+		public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+			source = parent.getItemAtPosition(pos).toString();
+		}
+
+		@Override
+		public void onNothingSelected(AdapterView<?> arg0) {
+			
+		}
+
 	}
 
 }

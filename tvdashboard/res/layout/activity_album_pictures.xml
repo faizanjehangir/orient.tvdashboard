@@ -1,0 +1,109 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.orient.orientlauncher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pictures_bg" >
+    
+    <RelativeLayout
+                android:id="@+id/expandImagebackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#000000"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/expanded_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="invisible" />
+
+                <RelativeLayout
+                    android:id="@+id/buttonsPanel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" >
+                    
+                    <Button
+                        android:id="@+id/btnplay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ssplay" />
+
+                    <Button
+                        android:id="@+id/btnprev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusRight="@id/btnplay"
+                        android:layout_alignParentLeft="true"                       
+                        android:background="@drawable/ssprev" />                
+
+                    <Button
+                        android:id="@+id/btnnext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:nextFocusLeft="@id/btnplay"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/ssnext" />
+                </RelativeLayout>
+            </RelativeLayout>
+            
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+    
+    <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="15dip" />
+
+    <RelativeLayout
+        android:id="@+id/PieControlLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg" >
+
+        <com.digitalaria.gama.wheel.Wheel
+            android:id="@+id/wheel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-65dp"
+            android:nextFocusLeft="@+id/openLeft"
+            android:nextFocusRight="@+id/openLeft"
+            android:nextFocusUp="@id/wheel"
+            android:nextFocusDown="@id/wheel"
+            android:soundEffectsEnabled="true"
+            android:focusable="true" >  
+        </com.digitalaria.gama.wheel.Wheel>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/PieControlLayoutHandle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/openLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="?android:selectableItemBackground"
+            android:src="@drawable/dial_inside" >
+        </ImageButton>
+    </RelativeLayout>
+
+</RelativeLayout>
+    
+    
+

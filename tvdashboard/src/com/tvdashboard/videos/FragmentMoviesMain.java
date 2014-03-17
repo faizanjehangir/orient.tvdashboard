@@ -1,5 +1,8 @@
 package com.tvdashboard.videos;
 
+import java.util.List;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,11 +11,15 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.tvdashboard.database.R;
+import com.tvdashboard.helper.DatabaseHelper;
+import com.tvdashboard.model.Video;
 
 public class FragmentMoviesMain extends Fragment{
 	
 	public static LinearLayout layoutContent01;
 	public static LinearLayout layoutOptions;
+	private DatabaseHelper dbHelper;
+	public static List<Video> allVideos;
 	
 	public static FragmentMoviesMain newInstance(String num) {
 		FragmentMoviesMain fragment = new FragmentMoviesMain();
@@ -52,6 +59,34 @@ public class FragmentMoviesMain extends Fragment{
 		layoutOptions = (LinearLayout)view.findViewById(R.id.VideosOptions);
 		return view;
 	}	
+	
+	public class getAllMovies extends AsyncTask<Void, Void, Boolean>
+	{
+		@Override
+		protected Boolean doInBackground(Void... params) {
+			
+			try 
+			{
+				allVideos = dbHelper.getAllVideosByCategory("Movies");
+				return true;
+			}
+			catch (Exception e)
+			{
+				return false;
+			}
+		}
+
+		@Override
+		protected void onPostExecute(Boolean result) {			
+			super.onPostExecute(result);
+			
+			if (result)
+			{
+				
+			}
+			
+		}		
+	}
 	
 
 }

@@ -6,6 +6,7 @@ import com.viewpagerindicator.IconPagerAdapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.ViewGroup;
 
 public class PicturesPageAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
     private List<Fragment> fragments;
@@ -30,4 +31,9 @@ public class PicturesPageAdapter extends FragmentPagerAdapter implements IconPag
 
 		return 0;
 	}
+	
+	@Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        /*Log.d(TAG, "destroy!");*/
+    }
 }

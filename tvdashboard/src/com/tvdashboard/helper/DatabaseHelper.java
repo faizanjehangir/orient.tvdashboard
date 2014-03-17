@@ -26,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String LOG = "DatabaseHelper";
 
 	// Database Version
-	private static final int DATABASE_VERSION = 15;
+	private static final int DATABASE_VERSION = 1;
 
 	// Database Name
 
@@ -146,8 +146,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		now.setToNow();
 		for(int i=0;i<music.size();i++)
 		{
-			query="insert into table_music (key_fav, key_path, key_source_name, key_isalbum ,  key_isactive, key_timestamp) VALUES ('" + music.get(i).isFav() + "','" + music.get(i).getPath() + "','" + music.get(i).getSourcename() +"','"  + Boolean.toString( music.get(i).isIsalbum()) + "','" + Boolean.toString( music.get(i).isIsactive()) + "','"+now.toString()+"');";
-			db.execSQL(query);
+			ContentValues cv = new ContentValues();
+			cv.put(KEY_FAV, music.get(i).isFav());
+			cv.put(KEY_MUSIC_PATH, music.get(i).getPath());
+			cv.put(KEY_MUSIC_NAME, music.get(i).getSourcename());
+			cv.put(KEY_MUSIC_ALBUM, music.get(i).isIsalbum());
+			cv.put(KEY_ACTIVE, music.get(i).isIsactive());
+			cv.put(KEY_TIMESTAMP, now.toString());
+			
+			int rows = db.update(TABLE_MUSIC, cv, KEY_MUSIC_PATH + " = '" + music.get(i).getPath() + "'", null);			
+			if (rows == 0)
+			{
+				query="insert into table_music (key_fav, key_path, key_source_name, key_isalbum ,  key_isactive, key_timestamp) VALUES ('" + music.get(i).isFav() + "','" + music.get(i).getPath() + "','" + music.get(i).getSourcename() +"','"  + Boolean.toString( music.get(i).isIsalbum()) + "','" + Boolean.toString( music.get(i).isIsactive()) + "','"+now.toString()+"');";
+				db.execSQL(query);
+			}
 		}
 		
 		
@@ -160,12 +172,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		Time now = new Time();
 		now.setToNow();
 		for(int i=0;i<video.size();i++)
-		{
-			query="insert into table_video (key_fav, key_path, key_source_name, key_subcat ,  key_isactive, key_timestamp) VALUES ('" + video.get(i).isFav() + "','" + video.get(i).getPath() + "','" + video.get(i).getSourcename() +"','"  + video.get(i).getSub_cat() + "','" + Boolean.toString( video.get(i).isIsactive()) + "','"+now.toString()+"');";
-			db.execSQL(query);
+		{			
+			ContentValues cv = new ContentValues();
+			cv.put(KEY_FAV, video.get(i).isFav());
+			cv.put(KEY_VIDEO_SUBCAT_ID, video.get(i).getSub_cat());
+			cv.put(KEY_VIDEO_PATH, video.get(i).getPath());
+			cv.put(KEY_VIDEO_NAME, video.get(i).getSourcename());
+			cv.put(KEY_ACTIVE, video.get(i).isIsactive());
+			cv.put(KEY_TIMESTAMP, now.toString());
+			
+			int rows = db.update(TABLE_VIDEO, cv, KEY_VIDEO_PATH + " = '" + video.get(i).getPath() + "'", null);			
+			if (rows == 0)
+			{
+				query = "insert into "+ TABLE_VIDEO +" ("+ KEY_FAV +", "+ KEY_VIDEO_PATH +", "+ KEY_VIDEO_NAME +", "+ KEY_VIDEO_SUBCAT_ID +" , "+ KEY_ACTIVE +", key_timestamp) VALUES ('" + video.get(i).isFav() + "','" + video.get(i).getPath() + "','" + video.get(i).getSourcename() +"','"  + video.get(i).getSub_cat() + "','" + Boolean.toString( video.get(i).isIsactive()) + "','"+now.toString()+"')";
+				db.execSQL(query);
+			}
 		}		
 		
 	}
+	
+//	public ContentValues initValues (List<String> param, List<String> values)
+//	{
+//		ContentValues cv = new ContentValues();
+//		for (int i = 0; i < param.size(); i++)
+//		{
+//			cv.put(param.get(i), values.get(i));
+//		}
+//		return cv;
+//	}
 
 	public void addpictures(Picture_BLL item, int is_album, int active) {
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -199,7 +233,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	 * */
 	public List<Video> getAllVideos() {
 		List<Video> lstVideo = new ArrayList<Video>();
-		String selectQuery = "SELECT  * FROM " + "table_video";
+		String selectQuery = "SELECT * FROM " + TABLE_VIDEO;
 
 		Log.e(LOG, selectQuery);
 
@@ -221,6 +255,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			} while (c.moveToNext());
 		}
 
+		c.close();
+		closeDB();
 		return lstVideo;
 	}
 
@@ -232,9 +268,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public List<Video> getAllVideosByCategory(String category) {
 		List<Video> lstVideo = new ArrayList<Video>();
 
-		String selectQuery = "SELECT  * FROM " + TABLE_VIDEO + 
-				" WHERE " + TABLE_VIDEO + "." + "key_subcat" + 
-				" = " + category;
+		String selectQuery = "SELECT * FROM " + TABLE_VIDEO + 
+				" WHERE " + TABLE_VIDEO + "." + KEY_VIDEO_SUBCAT_ID + 
+				" = '" + category + "'";
 
 		Log.e(LOG, selectQuery);
 
@@ -254,8 +290,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				// adding to video list
 				lstVideo.add(video);
 			} while (c.moveToNext());
+			c.close();
+			closeDB();
 		}
-
+		
 		return lstVideo;
 	}
 
