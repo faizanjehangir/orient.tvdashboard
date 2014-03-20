@@ -7,84 +7,85 @@
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/orient_logo" >
+        
         <activity
             android:name="com.tvdashboard.main.MainDashboard"
-            android:screenOrientation="landscape" > 
-            
-        </activity>
-        <activity
-            android:name="com.tvdashboard.videos.VideoSection"
-            android:windowSoftInputMode="adjustNothing|stateHidden"
             android:screenOrientation="landscape" >
-			<intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.tvdashboard.channelsetup.SectionChannelSetup"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustNothing|stateHidden" >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         
         <activity
+            android:name="com.tvdashboard.videos.VideoSection"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustNothing|stateHidden" >
+        </activity>
+        
+        <activity
             android:name="com.tvdashboard.apps.AppSection"
-            android:windowSoftInputMode="adjustNothing|stateHidden"
-            android:screenOrientation="landscape" >
-			
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustNothing|stateHidden" >
         </activity>
         
         <activity
             android:name="com.tvdashboard.music.MusicSection"
-            android:windowSoftInputMode="adjustNothing|stateHidden"
-            android:screenOrientation="landscape" >
-
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustNothing|stateHidden" >
         </activity>
         
         <activity
             android:name="com.tvdashboard.pictures.PictureSection"
-            android:windowSoftInputMode="adjustNothing|stateHidden"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustNothing|stateHidden" >
         </activity>
         
-        <activity
-            android:name="com.tvdashboard.videos.TabTVShows" >
+        <activity android:name="com.tvdashboard.channelsetup.TabNowShowing" >
         </activity>
-        <activity
-            android:name="com.tvdashboard.videos.TabFileExplorer" >
+        <activity android:name="com.tvdashboard.channelsetup.TabComingUp" >
         </activity>
-        <activity
-            android:name="com.tvdashboard.videos.TabMovies" >
+        <activity android:name="com.tvdashboard.channelsetup.TabTvGuide" >
         </activity>
-        <activity
-            android:name="com.tvdashboard.videos.TabMusicVideos" >
+        <activity android:name="com.tvdashboard.videos.TabTVShows" >
         </activity>
-        <activity
-            android:name="com.tvdashboard.pictures.TabAlbums" >
+        <activity android:name="com.tvdashboard.videos.TabFileExplorer" >
         </activity>
-        <activity
-            android:name="com.tvdashboard.pictures.TabPhotos" >
+        <activity android:name="com.tvdashboard.videos.TabMovies" >
         </activity>
-        <activity
-            android:name="com.tvdashboard.music.TabMixes" >
+        <activity android:name="com.tvdashboard.videos.TabMusicVideos" >
         </activity>
-        <activity
-            android:name="com.tvdashboard.music.TabMusic" >
+        <activity android:name="com.tvdashboard.pictures.TabAlbums" >
         </activity>
-        <activity
-            android:name="com.tvdashboard.pictures.SectionAlbumPicturesActivity" >
+        <activity android:name="com.tvdashboard.pictures.TabPhotos" >
         </activity>
-        <activity
-            android:name="com.tvdashboard.pictures.AlbumPictures" >
+        <activity android:name="com.tvdashboard.music.TabMixes" >
         </activity>
-        <activity
-            android:name="com.tvdashboard.pictures.AlbumPicturesFragment" >
+        <activity android:name="com.tvdashboard.music.TabMusic" >
         </activity>
-
+        <activity android:name="com.tvdashboard.pictures.SectionAlbumPicturesActivity" >
+        </activity>
+        <activity android:name="com.tvdashboard.pictures.AlbumPictures" >
+        </activity>
+        <activity android:name="com.tvdashboard.pictures.AlbumPicturesFragment" >
+        </activity>
+        
     </application>
 
 </manifest>

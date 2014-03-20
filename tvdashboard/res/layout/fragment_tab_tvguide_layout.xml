@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null" >
+
+    <LinearLayout
+        android:id="@+id/MainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="30dp"
+        android:weightSum="2" >
+
+        <LinearLayout
+            android:id="@+id/ListviewLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="7dp"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ContentLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="3" >
+
+            <LinearLayout
+                android:id="@+id/ContentColumn01"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="3" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <TextView
+                        android:id="@+id/ShowTime1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Time"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/ShowTime1"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <TextView
+                        android:id="@+id/ShowTime2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Time"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/ShowTime2"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <TextView
+                        android:id="@+id/ShowTime3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Time"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/ShowTime3"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ContentColumn02"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="3" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <TextView
+                        android:id="@+id/ShowTime4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Time"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/ShowTime4"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <TextView
+                        android:id="@+id/ShowTime5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Time"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/ShowTime5"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <TextView
+                        android:id="@+id/ShowTime6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Time"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/ShowTime6"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ContentColumn03"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="3" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <TextView
+                        android:id="@+id/ShowTime7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Time"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/ShowTime7"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <TextView
+                        android:id="@+id/ShowTime8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Time"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/ShowTime8"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <ImageButton
+                        android:id="@+id/image9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movie3" />
+
+                    <ImageButton
+                        android:id="@+id/imageHover9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tile_selector_style" />
+
+                    <TextView
+                        android:id="@+id/ShowTime9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Time"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/ShowTitle9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/ShowTime9"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        android:hint="Show Title"
+                        android:singleLine="true" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
