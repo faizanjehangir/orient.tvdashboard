@@ -22,6 +22,7 @@ import com.orient.menu.animations.CollapseAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.SampleList;
 import com.tvdashboard.apps.AppSection;
+import com.tvdashboard.channelsetup.SectionChannelSetup;
 import com.tvdashboard.database.R;
 import com.tvdashboard.music.MusicSection;
 import com.tvdashboard.pictures.PictureSection;
@@ -93,7 +94,8 @@ public class MainDashboard extends SherlockFragmentActivity {
     private Resources res;
     private int[] icons = {
     		R.drawable.apps, R.drawable.videos, R.drawable.music,
-    		R.drawable.pictures, R.drawable.browser, R.drawable.settings };
+    		R.drawable.pictures, R.drawable.browser, R.drawable.settings,
+    		R.drawable.plus};
     
     int panel_height;
 	int panel_width;
@@ -300,6 +302,13 @@ public class MainDashboard extends SherlockFragmentActivity {
 					Intent intent3 = new Intent(context, AppSection.class);
 					startActivity(intent3);
 					
+					break;
+					
+				case 6:
+					Intent intent6 = new Intent(context,
+							SectionChannelSetup.class);
+					startActivity(intent6);
+
 					break;
 				}				
 			}
@@ -524,7 +533,7 @@ public class MainDashboard extends SherlockFragmentActivity {
     	.setIcon(R.drawable.network)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
-        menu.add("°C")
+        menu.add("ï¿½C")
     	.setIcon(R.drawable.weather1)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
@@ -775,7 +784,7 @@ public class MainDashboard extends SherlockFragmentActivity {
 				menu.getItem(2).setIcon(new BitmapDrawable(img));
 			}
 			
-			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "°C		");
+			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "ï¿½C		");
 
 		}
     }

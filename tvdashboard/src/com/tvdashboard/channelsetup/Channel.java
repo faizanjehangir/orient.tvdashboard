@@ -1,18 +1,19 @@
 package com.tvdashboard.channelsetup;
 
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 
-public class ListModel {
+public class Channel {
 
 	private String channelNum;
 	private String channelName;
-	private ImageView channelIcon;	
+	private Bitmap channelIcon;	
 	
-	public ListModel() {
+	public Channel() {
 	}
 	
-	public ListModel(String channelNum, String channelName,
-			ImageView channelIcon) {
+	public Channel(String channelNum, String channelName,
+			Bitmap channelIcon) {
 		super();
 		this.channelNum = channelNum;
 		this.channelName = channelName;
@@ -30,10 +31,10 @@ public class ListModel {
 	public void setChannelName(String channelName) {
 		this.channelName = channelName;
 	}
-	public ImageView getChannelIcon() {
+	public Bitmap getChannelIcon() {
 		return channelIcon;
 	}
-	public void setChannelIcon(ImageView channelIcon) {
+	public void setChannelIcon(Bitmap channelIcon) {
 		this.channelIcon = channelIcon;
 	}
 	

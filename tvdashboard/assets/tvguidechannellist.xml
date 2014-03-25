@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tvchannels>
+    <region value="india">
+        <channel>
+            <name>mtv</name>
+            <number>0</number>
+            <icon>mtv_us.png</icon>
+        </channel>
+        <channel>
+            <name>hbo</name>
+            <number>1</number>
+            <icon>HBO_logo.png</icon>
+        </channel>
+        <channel>
+            <name>star-world</name>
+            <number>2</number>
+            <icon>star_world_in.png</icon>
+        </channel>
+    </region>
+</tvchannels>

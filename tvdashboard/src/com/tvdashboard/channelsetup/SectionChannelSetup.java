@@ -103,11 +103,11 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
 		
 		context = this.getApplicationContext();
 		
-		Media_source m = null;
-        m = m.Videos;		
-        txtAlbumName = (EditText)findViewById(R.id.text_source_name);
-		Source mSource = new Source(Media_source.Videos, context);
-		
+//		Media_source m = null;
+//        m = m.Videos;		
+//        txtAlbumName = (EditText)findViewById(R.id.text_source_name);
+//		Source mSource = new Source(Media_source.Videos, context);
+//		
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
         layoutDirectory = (LinearLayout)findViewById(R.id.DirectoryLayout);
@@ -370,7 +370,7 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
     	.setIcon(R.drawable.network)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
-        menu.add("°C")
+        menu.add("ï¿½C")
     	.setIcon(R.drawable.weather1)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
@@ -465,7 +465,7 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
 				Bitmap img = BitmapFactory.decodeByteArray(weather.iconData, 0, weather.iconData.length); 
 				menu.getItem(2).setIcon(new BitmapDrawable(img));
 			}			
-			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "°C		");
+			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "ï¿½C		");
 		}
     }
 

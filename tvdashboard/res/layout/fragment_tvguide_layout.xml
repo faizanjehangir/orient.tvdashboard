@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent" >    
 
     <LinearLayout
         android:id="@+id/LayoutMain"
@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="60dp"
         android:orientation="horizontal"
         android:weightSum="5" >
 
@@ -19,7 +19,79 @@
             android:layout_height="match_parent"
             android:layout_marginRight="7dp"
             android:layout_weight="2"
+            android:weightSum="6.04"
             android:orientation="vertical" >
+            
+            <TextView 
+    			android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:textSize="28sp"
+        		android:text="On TV"
+        		android:layout_weight="0.04"/>            
+            
+            <LinearLayout 
+                android:id="@+id/LayoutTv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:orientation="horizontal">
+                
+                <ImageView 
+                    android:id="@+id/TvStream"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#000000"/>
+                
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:id="@+id/LayoutSource"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                
+                <LinearLayout 
+                    android:id="@+id/Options"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp">
+                    
+                    <ImageButton 
+                        android:id="@+id/SourceTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="7dp"
+                        android:background="@null"
+                        android:src="@drawable/tv_btn_style"/>
+                    
+                    <ImageButton 
+                        android:id="@+id/SourceTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="7dp"
+                        android:background="@null"
+                        android:src="@drawable/hdmi1_btn_style"/>
+                    
+                    <ImageButton 
+                        android:id="@+id/SourceTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="7dp"
+                        android:background="@null"
+                        android:src="@drawable/hdmi2_btn_style"/>
+                </LinearLayout>
+                
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:id="@+id/LayoutAdds"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+                </LinearLayout>
+            
         </LinearLayout>
 
         <LinearLayout
@@ -38,10 +110,17 @@
                 android:layout_marginRight="7dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:weightSum="3" >
+                android:weightSum="3.04" >
+                
+                <TextView 
+    			android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:textSize="28sp"
+        		android:text="Now Playing"
+        		android:layout_weight="0.04"/>
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginBottom="7dp"
                     android:layout_weight="1" >
@@ -52,43 +131,45 @@
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
                         android:background="@null"
-                        android:scaleType="centerCrop"
+                        android:scaleType="fitXY"
                         android:src="@drawable/movie3" />
 
                     <ImageView
                         android:id="@+id/ChannelLogo01"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:layout_margin="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp" />
 
                     <TextView
                         android:id="@+id/ShowTitle01"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="18sp"
                         android:hint="Show Title"
-                        android:singleLine="true" />
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
 
                     <TextView
                         android:id="@+id/ShowDuration01"
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginRight="0dp"
+                        android:textSize="18sp"
                         android:hint="Show Duration"
-                        android:singleLine="true" />
-
-                    <ProgressBar
-                        android:id="@+id/progressBar01"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true" />
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
 
                     <ImageButton
                         android:id="@+id/imageHover1"
@@ -98,10 +179,18 @@
                         android:background="@null"
                         android:scaleType="fitXY"
                         android:src="@drawable/tile_selector_style" />
+                    
+                    <ProgressBar
+                        android:id="@+id/progressBar01"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="0dp" />         
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginBottom="7dp"
                     android:layout_weight="1" >
@@ -112,43 +201,45 @@
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
                         android:background="@null"
-                        android:scaleType="centerCrop"
+                        android:scaleType="fitXY"
                         android:src="@drawable/movie3" />
 
                     <ImageView
                         android:id="@+id/ChannelLogo02"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:layout_margin="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp" />
 
                     <TextView
                         android:id="@+id/ShowTitle02"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="18sp"
                         android:hint="Show Title"
-                        android:singleLine="true" />
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
 
                     <TextView
                         android:id="@+id/ShowDuration02"
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="18sp"
                         android:hint="Show Duration"
-                        android:singleLine="true" />
-
-                    <ProgressBar
-                        android:id="@+id/progressBar02"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true" />
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
 
                     <ImageButton
                         android:id="@+id/imageHover2"
@@ -158,10 +249,19 @@
                         android:background="@null"
                         android:scaleType="fitXY"
                         android:src="@drawable/tile_selector_style" />
+                    
+                    <ProgressBar
+                        android:id="@+id/progressBar02"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="0dp" />
+                    
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1" >
 
@@ -171,44 +271,46 @@
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
                         android:background="@null"
-                        android:scaleType="centerCrop"
+                        android:scaleType="fitXY"
                         android:src="@drawable/movie3" />
 
                     <ImageView
                         android:id="@+id/ChannelLogo03"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:layout_margin="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp" />
 
                     <TextView
                         android:id="@+id/ShowTitle03"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="18sp"
                         android:hint="Show Title"
-                        android:singleLine="true" />
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
 
                     <TextView
                         android:id="@+id/ShowDuration03"
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="18sp"
                         android:hint="Show Duration"
-                        android:singleLine="true" />
-
-                    <ProgressBar
-                        android:id="@+id/progressBar03"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true" />
-
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
+                    
                     <ImageButton
                         android:id="@+id/imageHover3"
                         android:layout_width="match_parent"
@@ -217,6 +319,15 @@
                         android:background="@null"
                         android:scaleType="fitXY"
                         android:src="@drawable/tile_selector_style" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar03"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="0dp" />
+                    
                 </RelativeLayout>
             </LinearLayout>
 
@@ -226,10 +337,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:weightSum="3" >
+                android:weightSum="3.04" >        
+                
+                <TextView 
+    			android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:textSize="28sp"
+        		android:layout_weight="0.04"/>  
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginBottom="7dp"
                     android:layout_weight="1" >
@@ -240,44 +357,46 @@
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
                         android:background="@null"
-                        android:scaleType="centerCrop"
+                        android:scaleType="fitXY"
                         android:src="@drawable/movie3" />
 
                     <ImageView
                         android:id="@+id/ChannelLogo04"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:layout_margin="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp" />
 
                     <TextView
                         android:id="@+id/ShowTitle04"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="18sp"
                         android:hint="Show Title"
-                        android:singleLine="true" />
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
 
                     <TextView
                         android:id="@+id/ShowDuration04"
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="18sp"
                         android:hint="Show Duration"
-                        android:singleLine="true" />
-
-                    <ProgressBar
-                        android:id="@+id/progressBar04"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true" />
-
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
+                    
                     <ImageButton
                         android:id="@+id/imageHover4"
                         android:layout_width="match_parent"
@@ -286,10 +405,19 @@
                         android:background="@null"
                         android:scaleType="fitXY"
                         android:src="@drawable/tile_selector_style" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar04"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="0dp" />
+                    
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginBottom="7dp"
                     android:layout_weight="1" >
@@ -300,45 +428,47 @@
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
                         android:background="@null"
-                        android:scaleType="centerCrop"
+                        android:scaleType="fitXY"
                         android:src="@drawable/movie3" />
 
                     <ImageView
                         android:id="@+id/ChannelLogo05"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:layout_margin="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp" />
 
                     <TextView
                         android:id="@+id/ShowTitle05"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="18sp"
                         android:hint="Show Title"
-                        android:singleLine="true" />
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
 
                     <TextView
                         android:id="@+id/ShowDuration05"
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="18sp"
                         android:hint="Show Duration"
-                        android:singleLine="true" />
-
-                    <ProgressBar
-                        android:id="@+id/progressBar05"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true" />
-
-                    <ImageButton
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
+                    
+                     <ImageButton
                         android:id="@+id/imageHover5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -346,10 +476,19 @@
                         android:background="@null"
                         android:scaleType="fitXY"
                         android:src="@drawable/tile_selector_style" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar05"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="0dp" />
+                   
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1" >
 
@@ -359,44 +498,46 @@
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
                         android:background="@null"
-                        android:scaleType="centerCrop"
+                        android:scaleType="fitXY"
                         android:src="@drawable/movie3" />
 
                     <ImageView
                         android:id="@+id/ChannelLogo06"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:layout_margin="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp" />
 
                     <TextView
                         android:id="@+id/ShowTitle06"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="18sp"
                         android:hint="Show Title"
-                        android:singleLine="true" />
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
 
                     <TextView
                         android:id="@+id/ShowDuration06"
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:textSize="18sp"
                         android:hint="Show Duration"
-                        android:singleLine="true" />
-
-                    <ProgressBar
-                        android:id="@+id/progressBar06"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true" />
-
+                        android:singleLine="true" 
+        				android:ellipsize="marquee"
+        				android:marqueeRepeatLimit ="marquee_forever" />
+                    
                     <ImageButton
                         android:id="@+id/imageHover6"
                         android:layout_width="match_parent"
@@ -405,6 +546,15 @@
                         android:background="@null"
                         android:scaleType="fitXY"
                         android:src="@drawable/tile_selector_style" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar06"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="0dp" />
+                    
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
@@ -415,10 +565,17 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:weightSum="3" >
+            android:weightSum="3.04" >
+            
+            <TextView 
+    			android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:textSize="28sp"
+        		android:text="Coming Up"
+        		android:layout_weight="0.04"/>
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginBottom="7dp"
                 android:layout_weight="1" >
@@ -434,21 +591,26 @@
 
                 <ImageView
                     android:id="@+id/ChannelLogo07"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:layout_margin="10dp" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp" />
 
                 <TextView
                     android:id="@+id/ShowTitle07"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_margin="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:textSize="18sp"
                     android:hint="Show Title"
-                    android:singleLine="true" />
+                    android:singleLine="true" 
+        			android:ellipsize="marquee"
+        			android:marqueeRepeatLimit ="marquee_forever" />
 
                 <ImageButton
                     android:id="@+id/imageHover7"
@@ -461,7 +623,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginBottom="7dp"
                 android:layout_weight="1" >
@@ -477,21 +639,26 @@
 
                 <ImageView
                     android:id="@+id/ChannelLogo08"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:layout_margin="10dp" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp" />
 
                 <TextView
                     android:id="@+id/ShowTitle08"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_margin="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:textSize="18sp"
                     android:hint="Show Title"
-                    android:singleLine="true" />
+                    android:singleLine="true" 
+        			android:ellipsize="marquee"
+        			android:marqueeRepeatLimit ="marquee_forever" />
 
                 <ImageButton
                     android:id="@+id/imageHover8"
@@ -504,7 +671,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1" >
 
@@ -519,21 +686,26 @@
 
                 <ImageView
                     android:id="@+id/ChannelLogo09"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:layout_margin="10dp" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp" />
 
                 <TextView
                     android:id="@+id/ShowTitle09"
-                    android:layout_width="wrap_content"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_margin="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:textSize="18sp"
                     android:hint="Show Title"
-                    android:singleLine="true" />
+                    android:singleLine="true" 
+        			android:ellipsize="marquee"
+        			android:marqueeRepeatLimit ="marquee_forever" />
 
                 <ImageButton
                     android:id="@+id/imageHover9"
