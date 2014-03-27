@@ -60,7 +60,7 @@ public class ScheduleManager implements IScheduleManager {
 		ScheduleManager.nowPlayingMedia = new HashMap<Show, ChannelSchedule>();
 		ScheduleManager.upComingMedia = new HashMap<Show, ChannelSchedule>();
 		ScheduleManager.channelData = new HashMap<ChannelSchedule, Channel>();
-		}
+	}
 
 	@Override
 	public Show getNowPlayingScheduleByChannel(ChannelSchedule channel) {
@@ -77,8 +77,7 @@ public class ScheduleManager implements IScheduleManager {
 	@Override
 	public void getAllChannelSchedule() {
 		// TODO Auto-generated method stub
-		channels = channelManager
-				.getAllChannelsByRegion("india");
+		channels = channelManager.getAllChannelsByRegion("india");
 		schedules = new HashMap<ChannelSchedule, List<Show>>();
 		final ObjectMapper mapper = new ObjectMapper(); // can reuse, share //
 														// globally
@@ -87,7 +86,8 @@ public class ScheduleManager implements IScheduleManager {
 			AsyncInvokeURLTask task = null;
 			try {
 				final int index = i;
-				task = new AsyncInvokeURLTask(channels.get(i).getChannelName(), context,
+				task = new AsyncInvokeURLTask(channels.get(i).getChannelName(),
+						context,
 						new AsyncInvokeURLTask.OnPostExecuteListener() {
 							@Override
 							public void onPostExecute(String result) {
@@ -115,8 +115,9 @@ public class ScheduleManager implements IScheduleManager {
 									}
 									schedules.put(schedule,
 											schedule.getListOfShows());
-									ScheduleManager.channelData.put(schedule, channels.get(index));
-									
+									ScheduleManager.channelData.put(schedule,
+											channels.get(index));
+
 									numberOfPendingRequests--;
 									if (numberOfPendingRequests == 0) {
 
@@ -256,17 +257,19 @@ public class ScheduleManager implements IScheduleManager {
 			FragmentTvGuide.btnImagesNowPlaying[i]
 					.setImageBitmap(ScheduleManager.bmpImages
 							.get(mShowNowPlaying));
-			FragmentTvGuide.showTitleNowPlaying[i]
-					.setText(mShowNowPlaying.getShowTitle());
+			FragmentTvGuide.showTitleNowPlaying[i].setText(mShowNowPlaying
+					.getShowTitle());
 			int minutes = ScheduleManager.getShowRunningTime(mShowNowPlaying);
 			FragmentTvGuide.showDuration[i].setText("+"
 					+ String.valueOf(minutes));
-			
-			//set channel logo
-			//get schedule from show
-			ChannelSchedule sch = ScheduleManager.nowPlayingMedia.get(mShowNowPlaying);
+
+			// set channel logo
+			// get schedule from show
+			ChannelSchedule sch = ScheduleManager.nowPlayingMedia
+					.get(mShowNowPlaying);
 			Channel ch = ScheduleManager.channelData.get(sch);
-			FragmentTvGuide.imgIconsNowPlaying[i].setImageBitmap(ch.getChannelIcon());
+			FragmentTvGuide.imgIconsNowPlaying[i].setImageBitmap(ch
+					.getChannelIcon());
 		}
 	}
 
@@ -281,29 +284,31 @@ public class ScheduleManager implements IScheduleManager {
 			FragmentTvGuide.btnImagesUpComing[i]
 					.setImageBitmap(ScheduleManager.bmpImages
 							.get(mShowUpComing));
-			FragmentTvGuide.showTitleUpComing[i]
-					.setText(mShowUpComing.getShowTitle());
-			
-			//set channel logo
-			//get schedule from show
-			ChannelSchedule sch = ScheduleManager.upComingMedia.get(mShowUpComing);
+			FragmentTvGuide.showTitleUpComing[i].setText(mShowUpComing
+					.getShowTitle());
+
+			// set channel logo
+			// get schedule from show
+			ChannelSchedule sch = ScheduleManager.upComingMedia
+					.get(mShowUpComing);
 			Channel ch = ScheduleManager.channelData.get(sch);
-			FragmentTvGuide.imgIconsUpComing[i].setImageBitmap(ch.getChannelIcon());
+			FragmentTvGuide.imgIconsUpComing[i].setImageBitmap(ch
+					.getChannelIcon());
 		}
 	}
-	
-	public static List<Show> GetAllUpComingShows(List<Show> shows){
+
+	public static List<Show> GetAllUpComingShows(List<Show> shows) {
 		Show nowPlayingShow = getNowPlayingShow(shows);
 		int index = shows.indexOf(nowPlayingShow);
 		List<Show> upComingShows = new ArrayList<Show>();
-		
-		if (index > -1){
+
+		if (index > -1) {
 			index++;
-			for (; index < shows.size(); ++index){
+			for (; index < shows.size(); ++index) {
 				upComingShows.add(shows.get(index));
 			}
 		}
-		
+
 		return upComingShows;
 	}
 
@@ -313,12 +318,13 @@ public class ScheduleManager implements IScheduleManager {
 		DisplayUpComing();
 
 		// execute nowplaying async task
-		new UpdateMediaTask(FragmentTvGuide.btnImagesNowPlaying,
+		new UpdateMediaTask(FragmentTvGuide.GetParentActivity(), FragmentTvGuide.btnImagesNowPlaying,
 				FragmentTvGuide.btnImagesUpComing,
 				ScheduleManager.nowPlayingMedia, ScheduleManager.upComingMedia,
-				FragmentTvGuide.showDuration, FragmentTvGuide.showTitleNowPlaying,
-				FragmentTvGuide.showTitleUpComing,
-				FragmentTvGuide.progBar).execute();
+				FragmentTvGuide.showDuration,
+				FragmentTvGuide.showTitleNowPlaying,
+				FragmentTvGuide.showTitleUpComing, FragmentTvGuide.progBar)
+				.execute();
 	}
 
 	public static int getCurrentPlayingShowStatus(Show show) {

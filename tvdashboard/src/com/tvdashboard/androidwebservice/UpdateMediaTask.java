@@ -9,6 +9,7 @@ import java.util.Map;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tvdashboard.main.FragmentTvGuide;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -32,8 +33,9 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 	ChannelSchedule newSchedule;
 	Show newShow;
 	HashMap<Show, ChannelSchedule> newScheduleAdded;
+	Activity currActivity;
 
-	public UpdateMediaTask(ImageButton[] nowPlayingViews,
+	public UpdateMediaTask(Activity currActivity, ImageButton[] nowPlayingViews,
 			ImageButton[] btnUpComing,
 			HashMap<Show, ChannelSchedule> nowPlayingMediaSet,
 			HashMap<Show, ChannelSchedule> upComingMediaSet,
@@ -49,6 +51,7 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 		this.showTitleUpComing = showTitleUpComing;
 		this.showDuration = showDuration;
 		this.newScheduleAdded = new HashMap<Show, ChannelSchedule>();
+		this.currActivity = currActivity;
 	}
 
 	@Override
@@ -92,7 +95,7 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 				this.newScheduleAdded.put(this.newShow, this.newSchedule);
 
 				final int index = i;
-				FragmentTvGuide.GetParentActivity().runOnUiThread(
+				this.currActivity.runOnUiThread(
 						new Runnable() {
 							@Override
 							public void run() {
@@ -149,7 +152,7 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 				this.newScheduleAdded.put(this.newShow, this.newSchedule);
 
 				final int index = i;
-				FragmentTvGuide.GetParentActivity().runOnUiThread(
+				this.currActivity.runOnUiThread(
 						new Runnable() {
 							@Override
 							public void run() {
@@ -194,6 +197,8 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 		// TODO Auto-generated method stub
 
 		super.onPostExecute(result);
+		
+		Log.v("task ended", "ended");
 	}
 
 	@Override

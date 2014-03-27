@@ -155,6 +155,16 @@ public class FragmentTvGuide extends Fragment{
 	public static Activity GetParentActivity(){
 		return (Activity) context;
 	}
+
+	@Override
+	public void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		ScheduleManager.isScheduleRunning = false;
+	}
+
+	
+	
 	
 
 }
