@@ -23,11 +23,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -108,111 +104,62 @@ public class CustomListAdapter extends BaseAdapter implements OnClickListener {
 
 		@Override
 		public void onClick(View arg0) {
-
+			
 			ScheduleManager.isScheduleRunning = false;
 
 			Toast.makeText(activity, String.valueOf(mPosition),
 					Toast.LENGTH_SHORT).show();
-			// get now playing media
+			//get now playing media
 			Channel ch = data.get(mPosition);
 			ChannelSchedule chSchedule = null;
-			// get channel schedule
+			//get channel schedule
 			Iterator itChannels = ScheduleManager.channelData.entrySet()
 					.iterator();
-			while (itChannels.hasNext()) {
-				Map.Entry mEntry = (Map.Entry) itChannels.next();
+	    	while (itChannels.hasNext()){
+	    		Map.Entry mEntry = (Map.Entry) itChannels.next();
 				Channel mChannel = (Channel) mEntry.getValue();
-				// check for the channel name selected
-				if (mChannel.getChannelName().equals(ch.getChannelName())) {
-					// get schedule of the selected channel
+				//check for the channel name selected
+				if (mChannel.getChannelName().equals(ch.getChannelName())){
+					//get schedule of the selected channel
 					chSchedule = (ChannelSchedule) mEntry.getKey();
 					break;
 				}
-			}
-
-			// for (int index = 0; index < FragmentTvGuideMain.upComingSize;
-			// ++index)
-			// FragmentTvGuideMain.rlImages[index].setVisibility(View.GONE);
-
-			// get list of shows from the schedule if not null
-			if (chSchedule != null) {
-				List<Show> shows = ScheduleManager.schedules.get(chSchedule);
-				// get now playing and all upcoming shows
-				Show nowPlaying = ScheduleManager.getNowPlayingShow(shows);
-				// ImageLoader.getInstance().displayImage(nowPlaying.getShowThumb(),
-				// FragmentTvGuideMain.imgBtnNowPlaying[0]);
-				// FragmentTvGuideMain.txtNowPlayingTitle[0].setText(nowPlaying.getShowTitle());
-				// FragmentTvGuideMain.rlImages[0].setVisibility(View.VISIBLE);
-
-				List<GVShow> lstGVShow = new ArrayList<GVShow>();
-				GVShow gvShow = new GVShow();
-				gvShow.setShowImage(nowPlaying.getShowThumb());
-				gvShow.setShowName(nowPlaying.getShowTitle());
-				lstGVShow.add(gvShow);
-
-				List<Show> upComingShows = ScheduleManager
-						.GetAllUpComingShows(shows);
-				// display upcoming details:
-				for (int j = 0; j < upComingShows.size(); ++j) {
-					// ImageLoader.getInstance().displayImage(upComingShows.get(i).getShowThumb(),
-					// FragmentTvGuideMain.imgBtnUpComing[i]);
-					// FragmentTvGuideMain.txtUpComingTitle[i].setText(upComingShows.get(i).getShowTitle());
-					// FragmentTvGuideMain.rlImages[j].setVisibility(View.VISIBLE);
-					GVShow gvObj = new GVShow();
-					gvObj.setShowImage(upComingShows.get(j).getShowThumb());
-					gvObj.setShowName(upComingShows.get(j).getShowTitle());
-					lstGVShow.add(gvObj);
-				}
-				FragmentTvGuideMain.gridView.setAdapter(new GridViewAdapter(
-						FragmentTvGuideMain.context.getApplicationContext(),
-						lstGVShow));
-
-				int gvSize = upComingShows.size();
-				TextView[] txtNowPlayingTitle = new TextView[1];
-				ImageButton[] imgBtnNowPlaying = new ImageButton[1];
-				TextView[] txtNowPlayingDuration = new TextView[1];
-				ProgressBar[] prgBar = new ProgressBar[1];
-				
-//				imgBtnNowPlaying[0] = FragmentTvGuideMain.viewHolder.get(0).getImage();
-//				txtNowPlayingTitle[0] = FragmentTvGuideMain.viewHolder.get(0).getShowTitle();
-				
-//				View rlNowPlaying = FragmentTvGuideMain.gridView
-//						.getChildAt(0);
-//				imgBtnNowPlaying[0] = (ImageButton) ((ViewGroup) rlNowPlaying).getChildAt(0);
-				
-				
-//				txtNowPlayingTitle[0] = (TextView) rlNowPlaying.getChildAt(2);
-//				txtNowPlayingDuration[0] = (TextView) rlNowPlaying
-//						.getChildAt(3);
-//				prgBar[0] = (ProgressBar) rlNowPlaying.getChildAt(4);
-//
-//				TextView[] txtUpComingTitle = new TextView[gvSize];
-//				ImageButton[] imgBtnUpComing = new ImageButton[gvSize];
-//
-//				for (int i = 1; i < gvSize; ++i) {
-//					RelativeLayout rl = (RelativeLayout) FragmentTvGuideMain.gridView
-//							.getChildAt(i);
-//					imgBtnUpComing[i - 1] = (ImageButton) rl.getChildAt(0);
-//					txtUpComingTitle[i - 1] = (TextView) rl.getChildAt(2);
-//				}
-//
-//				// txtNowPlayingTitle[0] = (TextView)
-//				// FragmentTvGuideMain.gridView.getChildAt(index)
-//
-//				HashMap<Show, ChannelSchedule> nowPlayingSet = new HashMap<Show, ChannelSchedule>();
-//				HashMap<Show, ChannelSchedule> upComingSet = new HashMap<Show, ChannelSchedule>();
-//				nowPlayingSet.put(nowPlaying, chSchedule);
-//				upComingSet.put(upComingShows.get(0), chSchedule);
-//
-//				// start the scheduler
-//				ScheduleManager.isScheduleRunning = true;
-//
-//				// execute nowplaying async task
-//				new UpdateMediaTask(FragmentTvGuideMain.GetParentActivity(),
-//						imgBtnNowPlaying, imgBtnUpComing, nowPlayingSet,
-//						upComingSet, txtNowPlayingDuration, txtNowPlayingTitle,
-//						txtUpComingTitle, prgBar).execute();
-			}
+	    	}     
+	    	for (int index = 0; index < FragmentTvGuideMain.upComingSize; ++index)
+	    		FragmentTvGuideMain.rlImages[index].setVisibility(View.GONE);
+	  
+	    	//get list of shows from the schedule if not null
+	    	if (chSchedule != null){
+	    		List<Show> shows = ScheduleManager.schedules.get(chSchedule);
+	    		//get now playing and all upcoming shows
+	    		Show nowPlaying = ScheduleManager.getNowPlayingShow(shows); 		
+	    		ImageLoader.getInstance().displayImage(nowPlaying.getShowThumb(), FragmentTvGuideMain.imgBtnNowPlaying[0]);
+	    		FragmentTvGuideMain.txtNowPlayingTitle[0].setText(nowPlaying.getShowTitle());
+	    		FragmentTvGuideMain.rlImages[0].setVisibility(View.VISIBLE);
+	    		
+	    		List<Show> upComingShows = ScheduleManager.GetAllUpComingShows(shows);
+	    		//display upcoming details:
+	    		for (int i = 0, j = 1; i < upComingShows.size(); ++i, ++j){
+	    			ImageLoader.getInstance().displayImage(upComingShows.get(i).getShowThumb(), FragmentTvGuideMain.imgBtnUpComing[i]);
+	    			FragmentTvGuideMain.txtUpComingTitle[i].setText(upComingShows.get(i).getShowTitle());
+	    			FragmentTvGuideMain.rlImages[j].setVisibility(View.VISIBLE);
+	    		}
+	    		HashMap<Show, ChannelSchedule> nowPlayingSet = new HashMap<Show, ChannelSchedule>();
+	    		HashMap<Show, ChannelSchedule> upComingSet = new HashMap<Show, ChannelSchedule>();
+	    		nowPlayingSet.put(nowPlaying, chSchedule);
+	    		upComingSet.put(upComingShows.get(0), chSchedule);
+	    		
+	    		//start the scheduler
+	    		ScheduleManager.isScheduleRunning = true;
+	    		
+	    		// execute nowplaying async task
+	    		new UpdateMediaTask(FragmentTvGuideMain.GetParentActivity(), FragmentTvGuideMain.imgBtnNowPlaying,
+	    				FragmentTvGuideMain.imgBtnUpComing,
+	    				nowPlayingSet, upComingSet,
+	    				FragmentTvGuideMain.txtShowDuration, FragmentTvGuideMain.txtNowPlayingTitle,
+	    				FragmentTvGuideMain.txtUpComingTitle,
+	    				FragmentTvGuideMain.progBarNowPlaying).execute();
+	    	}
 		}
 	}
 
