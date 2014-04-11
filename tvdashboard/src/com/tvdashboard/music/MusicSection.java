@@ -171,18 +171,30 @@ public class MusicSection extends SherlockFragmentActivity {
  		LocalActivityManager mLocalActivityManager = new LocalActivityManager(this, false);
  	    mLocalActivityManager.dispatchCreate(savedInstanceState);
  	    tabHost.setup(mLocalActivityManager);
- 		TabSpec tab1 = tabHost.newTabSpec("Mixes");
- 		TabSpec tab2 = tabHost.newTabSpec("Music");
- 		tab1.setIndicator("Mixes");
- 		tab1.setContent(new Intent(this, TabMixes.class));
- 		tab2.setIndicator("Music");
- 		tab2.setContent(new Intent(this, TabMusic.class));
+ 		TabSpec tab1 = tabHost.newTabSpec("Artist");
+ 		TabSpec tab2 = tabHost.newTabSpec("Album");
+ 		TabSpec tab3 = tabHost.newTabSpec("Genre");
+ 		TabSpec tab4 = tabHost.newTabSpec("File Manager");
+ 		tab1.setIndicator("Artist");
+ 		tab1.setContent(new Intent(this, TabArtist.class));
+ 		tab2.setIndicator("Album");
+ 		tab2.setContent(new Intent(this, TabAlbum.class));
+ 		tab3.setIndicator("Genre");
+ 		tab3.setContent(new Intent(this, TabAlbum.class));
+ 		tab4.setIndicator("File Manager");
+ 		tab4.setContent(new Intent(this, TabAlbum.class));
  		tabHost.addTab(tab1);
  		tabHost.addTab(tab2);
+ 		tabHost.addTab(tab3);
+ 		tabHost.addTab(tab4);
  		
  		TextView x = (TextView) tabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
  	    x.setTextSize(22);
  	    x = (TextView) tabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title);
+	    x.setTextSize(22);
+	    x = (TextView) tabHost.getTabWidget().getChildAt(2).findViewById(android.R.id.title);
+	    x.setTextSize(22);
+	    x = (TextView) tabHost.getTabWidget().getChildAt(3).findViewById(android.R.id.title);
 	    x.setTextSize(22);
 
  		tabHost.setOnTabChangedListener(new OnTabChangeListener() {

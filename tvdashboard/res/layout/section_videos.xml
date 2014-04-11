@@ -31,34 +31,7 @@
         </LinearLayout>
     </TabHost>
     
-<!--     <LinearLayout  -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:layout_width="wrap_content" -->
-<!--         android:orientation="vertical" -->
-<!--         android:layout_marginTop="157dp" -->
-<!--         android:layout_marginLeft="97dp"> -->
-        
-<!--         <ImageButton  -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:layout_marginBottom="4dp" -->
-<!--             android:background="@null" -->
-<!--             android:src="@drawable/tile_recent_style"/> -->
-        
-<!--         <ImageButton  -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:layout_marginBottom="4dp" -->
-<!--             android:background="@null" -->
-<!--             android:src="@drawable/tile_videos_style"/> -->
-        
-<!--         <ImageButton  -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:background="@null" -->
-<!--             android:src="@drawable/tile_favorite_style"/> -->
-        
-<!--     </LinearLayout> -->
+
 
 
     <!-- **************************** Layout for Right Add Source Menu ******************************* -->
@@ -69,7 +42,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_weight="0"
-        layout="@layout/add_source" />
+        layout="@layout/add_source_videos" />
 
     <!-- **************************************************************************************** -->
 

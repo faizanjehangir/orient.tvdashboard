@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Interpolator;
 
@@ -87,5 +88,12 @@ public class TabNowShowing extends FragmentActivity implements OnPageChangeListe
 
         return fList;
     }
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		AsyncUpdateNowshowing.isNowShowingRunning = false;
+		super.onStop();
+	}
 
 }

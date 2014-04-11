@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,12 +20,18 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.tvdashboard.channelsetup.Channel;
+import com.tvdashboard.channelsetup.FragmentTvGuideMain;
+import com.tvdashboard.database.R;
 import com.tvdashboard.main.FragmentTvGuide;
+import com.tvdashboard.utility.CombinedImageLoadingListener;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Handler;
 import android.text.format.Time;
 import android.util.Log;
@@ -46,9 +53,13 @@ public class ScheduleManager implements IScheduleManager {
 	public static volatile boolean isScheduleRunning = true;
 
 	public static volatile HashMap<Show, ChannelSchedule> nowPlayingMedia = null;
-	public static volatile HashMap<Show, ChannelSchedule> upComingMedia = null;
+	public static volatile LinkedHashMap<Show, ChannelSchedule> upComingMedia = null;
 	public static volatile HashMap<ChannelSchedule, Channel> channelData = null;
 	public static volatile ArrayList<Channel> channels = null;
+
+	public static HashMap<ChannelSchedule, Channel> chData = null;
+	private static int numTasks;
+	public static boolean asyncWorker;
 
 	public ScheduleManager(Context context, ImageLoader imageLoader) {
 		ScheduleManager.context = context;
@@ -58,7 +69,7 @@ public class ScheduleManager implements IScheduleManager {
 		this.showDuration = new HashMap<Show, Long>();
 
 		ScheduleManager.nowPlayingMedia = new HashMap<Show, ChannelSchedule>();
-		ScheduleManager.upComingMedia = new HashMap<Show, ChannelSchedule>();
+		ScheduleManager.upComingMedia = new LinkedHashMap<Show, ChannelSchedule>();
 		ScheduleManager.channelData = new HashMap<ChannelSchedule, Channel>();
 	}
 
@@ -87,7 +98,7 @@ public class ScheduleManager implements IScheduleManager {
 			try {
 				final int index = i;
 				task = new AsyncInvokeURLTask(channels.get(i).getChannelName(),
-						context,
+						context, null,
 						new AsyncInvokeURLTask.OnPostExecuteListener() {
 							@Override
 							public void onPostExecute(String result) {
@@ -318,13 +329,14 @@ public class ScheduleManager implements IScheduleManager {
 		DisplayUpComing();
 
 		// execute nowplaying async task
-		new UpdateMediaTask(FragmentTvGuide.GetParentActivity(), FragmentTvGuide.btnImagesNowPlaying,
+		new UpdateMediaTask(FragmentTvGuide.GetParentActivity(),
+				FragmentTvGuide.btnImagesNowPlaying,
 				FragmentTvGuide.btnImagesUpComing,
 				ScheduleManager.nowPlayingMedia, ScheduleManager.upComingMedia,
 				FragmentTvGuide.showDuration,
 				FragmentTvGuide.showTitleNowPlaying,
-				FragmentTvGuide.showTitleUpComing, FragmentTvGuide.progBar)
-				.execute();
+				FragmentTvGuide.showTitleUpComing, FragmentTvGuide.progBar,
+				false).execute();
 	}
 
 	public static int getCurrentPlayingShowStatus(Show show) {
@@ -353,5 +365,134 @@ public class ScheduleManager implements IScheduleManager {
 	public static void setBmpImages(HashMap<Show, Bitmap> bmpImages) {
 		ScheduleManager.bmpImages = bmpImages;
 	}
+
+//	public static void getScheduleByDate(String date, final Channel ch) {
+//		ChannelManager channelManager = new ChannelManager(
+//				ScheduleManager.context);
+//		// final ArrayList<Channel> channels = channelManager
+//		// .getAllChannelsByRegion("india");
+//		chData = new HashMap<ChannelSchedule, Channel>();
+//		final ObjectMapper mapper = new ObjectMapper(); // can reuse, share //
+//
+//		// numTasks = channels.size();
+//		asyncWorker = true;
+//		// for (int i = 0; i < channels.size(); ++i) {
+//		AsyncInvokeURLTask task = null;
+//		try {
+//			// final int index = i;
+//			task = new AsyncInvokeURLTask(ch.getChannelName(), context, date,
+//					new AsyncInvokeURLTask.OnPostExecuteListener() {
+//						@Override
+//						public void onPostExecute(String result) {
+//							try {
+//								ChannelSchedule schedule = mapper.readValue(
+//										result, ChannelSchedule.class);
+//								chData.put(schedule, ch);
+//								// numTasks--;
+//								// if (numTasks == 0) {
+//								Iterator itChannels = ScheduleManager.chData
+//										.entrySet().iterator();
+//								ChannelSchedule chSchedule = null;
+//								while (itChannels.hasNext()) {
+//									Map.Entry mEntry = (Map.Entry) itChannels
+//											.next();
+//									Channel mChannel = (Channel) mEntry
+//											.getValue();
+//									// check for the channel name
+//									// selected
+//									if (mChannel.getChannelName().equals(
+//											ch.getChannelName())) {
+//										// get schedule of the selected
+//										// channel
+//										chSchedule = (ChannelSchedule) mEntry
+//												.getKey();
+//										FragmentTvGuideMain.selectedChannel = ch
+//												.getChannelName();
+//										break;
+//									}
+//								}
+//
+//								// start a progress bar
+//								ScheduleManager.prgDiag = new ProgressDialog(
+//										FragmentTvGuideMain.context);
+//								ScheduleManager.prgDiag
+//										.setTitle("Processing...");
+//								ScheduleManager.prgDiag
+//										.setMessage("Please wait.");
+//								ScheduleManager.prgDiag.setCancelable(false);
+//								ScheduleManager.prgDiag.setIndeterminate(true);
+//								ImageLoadingListener listener = null;
+//								if (chSchedule.getListOfShows().size() > FragmentTvGuideMain.upComingSize)
+//									listener = new CombinedImageLoadingListener(
+//											FragmentTvGuideMain.upComingSize,
+//											ScheduleManager.prgDiag);
+//								else
+//									listener = new CombinedImageLoadingListener(
+//											chSchedule.getListOfShows().size(),
+//											ScheduleManager.prgDiag);
+//								ScheduleManager.prgDiag.show();
+//
+//								ImageLoader
+//										.getInstance()
+//										.displayImage(
+//												chSchedule.getListOfShows()
+//														.get(0).getShowThumb(),
+//												FragmentTvGuideMain.imgBtnNowPlaying[0],
+//												listener);
+//								FragmentTvGuideMain.txtNowPlayingTitle[0]
+//										.setText(chSchedule.getListOfShows()
+//												.get(0).getShowTitle());
+//								FragmentTvGuideMain.txtShowDuration[0]
+//										.setText(chSchedule.getListOfShows()
+//												.get(0).getShowTime());
+//								FragmentTvGuideMain.rlImages[0]
+//										.setVisibility(View.VISIBLE);
+//								FragmentTvGuideMain.progBarNowPlaying[0]
+//										.setVisibility(View.GONE);
+//
+//								for (int j = 1, i = 0; j < FragmentTvGuideMain.upComingSize
+//										&& j < chSchedule.getListOfShows()
+//												.size(); ++j, ++i) {
+//									ImageLoader
+//											.getInstance()
+//											.displayImage(
+//													chSchedule.getListOfShows()
+//															.get(j)
+//															.getShowThumb(),
+//													FragmentTvGuideMain.imgBtnUpComing[i],
+//													listener);
+//									FragmentTvGuideMain.txtUpComingTitle[i]
+//											.setText(chSchedule
+//													.getListOfShows().get(j)
+//													.getShowTitle());
+//									FragmentTvGuideMain.txtShowDuration[j]
+//											.setText(chSchedule
+//													.getListOfShows().get(j)
+//													.getShowTime());
+//									FragmentTvGuideMain.rlImages[j]
+//											.setVisibility(View.VISIBLE);
+//								}
+//							} catch (JsonParseException e) {
+//								// TODO Auto-generated catch block
+//								e.printStackTrace();
+//							} catch (JsonMappingException e) {
+//								// TODO Auto-generated catch block
+//								e.printStackTrace();
+//							} catch (IOException e) {
+//								// TODO Auto-generated catch block
+//								e.printStackTrace();
+//							}
+//						}
+//					});
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+//			task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+//		} else {
+//			task.execute();
+//		}
+//	}
 
 }

@@ -9,13 +9,13 @@ import android.widget.LinearLayout;
 
 import com.tvdashboard.database.R;
 
-public class FragmentMixesMain extends Fragment{
+public class FragmentAlbumMain extends Fragment{
 	
 	public static LinearLayout layoutContent01;
 	public static LinearLayout layoutOptions;
 	
-	public static FragmentMixesMain newInstance(String num) {
-		FragmentMixesMain fragment = new FragmentMixesMain();
+	public static FragmentAlbumMain newInstance(String num) {
+		FragmentAlbumMain fragment = new FragmentAlbumMain();
 
 		Bundle b = new Bundle();
         b.putString("fragment#", num);
@@ -37,11 +37,17 @@ public class FragmentMixesMain extends Fragment{
 		}
 		super.onActivityCreated(savedInstanceState);
 	}
-	
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_tab_mixes_layout, container, false);
+		View view = inflater.inflate(R.layout.fragment_tab_album_layout, container, false);
 		layoutContent01 = (LinearLayout)view.findViewById(R.id.LayoutContent01);
 		layoutOptions = (LinearLayout)view.findViewById(R.id.MusicOptions);
 		return view;

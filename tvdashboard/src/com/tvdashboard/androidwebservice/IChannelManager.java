@@ -10,5 +10,4 @@ public interface IChannelManager {
 	
 	public ArrayList<Channel> getAllChannels();
 	public ArrayList<Channel> getAllChannelsByRegion(String region);
-
 }

@@ -3,16 +3,20 @@ package com.tvdashboard.androidwebservice;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.android.internal.telephony.DataConnectionTracker.TxRxSum;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tvdashboard.main.FragmentTvGuide;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -26,7 +30,7 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 	TextView[] showTitleUpComing;
 	TextView[] showDuration;
 	HashMap<Show, ChannelSchedule> nowPlayingMediaSet;
-	HashMap<Show, ChannelSchedule> upComingMediaSet;
+	LinkedHashMap<Show, ChannelSchedule> upComingMediaSet;
 	Integer[] mProgressStatus;
 	static volatile int currentProgressBarIndex;
 	boolean newShowAdded = false;
@@ -34,13 +38,14 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 	Show newShow;
 	HashMap<Show, ChannelSchedule> newScheduleAdded;
 	Activity currActivity;
+	boolean isTvGuide;
 
-	public UpdateMediaTask(Activity currActivity, ImageButton[] nowPlayingViews,
-			ImageButton[] btnUpComing,
+	public UpdateMediaTask(Activity currActivity,
+			ImageButton[] nowPlayingViews, ImageButton[] btnUpComing,
 			HashMap<Show, ChannelSchedule> nowPlayingMediaSet,
-			HashMap<Show, ChannelSchedule> upComingMediaSet,
+			LinkedHashMap<Show, ChannelSchedule> upComingMediaSet,
 			TextView[] showDuration, TextView[] showTitleNowPlaying,
-			TextView[] showTitleUpComing, ProgressBar[] progBarArray) {
+			TextView[] showTitleUpComing, ProgressBar[] progBarArray, boolean isTvGuide) {
 		this.btnImgNowPlaying = nowPlayingViews;
 		this.btnImgUpComing = btnUpComing;
 		this.nowPlayingMediaSet = nowPlayingMediaSet;
@@ -52,6 +57,7 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 		this.showDuration = showDuration;
 		this.newScheduleAdded = new HashMap<Show, ChannelSchedule>();
 		this.currActivity = currActivity;
+		this.isTvGuide = isTvGuide;
 	}
 
 	@Override
@@ -63,7 +69,7 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 			UpdateUpComingMedia();
 			// sleep 1 second to show the progress
 			try {
-				Thread.sleep(20000);
+				Thread.sleep(5000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -95,25 +101,23 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 				this.newScheduleAdded.put(this.newShow, this.newSchedule);
 
 				final int index = i;
-				this.currActivity.runOnUiThread(
-						new Runnable() {
-							@Override
-							public void run() {
-								// TODO Auto-generated method stub
-								ImageLoader iLoader = ImageLoader.getInstance();
-								try {
-									iLoader.displayImage(
-											newShow.getShowThumb(),
-											btnImgUpComing[index]);
-									showTitleUpComing[index].setText(newShow
-											.getShowTitle());
-								} catch (Exception e) {
-									Log.e("Error", "image download error");
-									Log.e("Error", e.getMessage());
-									e.printStackTrace();
-								}
-							}
-						});
+				this.currActivity.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						ImageLoader iLoader = ImageLoader.getInstance();
+						try {
+							iLoader.displayImage(newShow.getShowThumb(),
+									btnImgUpComing[index]);
+							showTitleUpComing[index].setText(newShow
+									.getShowTitle());
+						} catch (Exception e) {
+							Log.e("Error", "image download error");
+							Log.e("Error", e.getMessage());
+							e.printStackTrace();
+						}
+					}
+				});
 				this.newShowAdded = true;
 			}
 		}
@@ -127,8 +131,44 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 			}
 			// reset temp new schedules
 			this.newScheduleAdded = new HashMap<Show, ChannelSchedule>();
+
+			if (isTvGuide) {
+				// update details on the rest of the upcoming tiles
+				UpdateUpComingShows(this.newShow);
+			}
+
 			newShowAdded = false;
 		}
+	}
+
+	private void UpdateUpComingShows(Show show) {
+		Iterator iterator = upComingMediaSet.entrySet().iterator();
+		// set images on now playing
+		int i = 0;
+		while (iterator.hasNext()) {
+			++i;
+			Map.Entry mEntry = (Map.Entry) iterator.next();
+			Show mShowUpComing = (Show) mEntry.getKey();
+			if (mShowUpComing.getShowTitle().equals(show.getShowTitle()) &&
+					mShowUpComing.getShowTime().equals(show.getShowTime())){
+				break;
+			}
+		}
+		while (iterator.hasNext()){
+			final int index = i;
+			this.currActivity.runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					btnImgUpComing[index].setImageDrawable((btnImgUpComing[index+1].getDrawable()));
+					showTitleUpComing[index].setText(showTitleUpComing[index+1].getText());
+					showDuration[index].setText(showDuration[index+1].getText());
+					
+				}
+			});		
+			iterator.next();
+			++i;
+			btnImgUpComing[i].setVisibility(View.GONE);
+		}			
 	}
 
 	private void UpdateNowPlayingMedia() {
@@ -152,26 +192,24 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 				this.newScheduleAdded.put(this.newShow, this.newSchedule);
 
 				final int index = i;
-				this.currActivity.runOnUiThread(
-						new Runnable() {
-							@Override
-							public void run() {
-								// TODO Auto-generated method stub
-								ImageLoader iLoader = ImageLoader.getInstance();
-								try {
-									iLoader.displayImage(
-											newShow.getShowThumb(),
-											btnImgNowPlaying[index]);
-									showTitleNowPlaying[index].setText(newShow
-											.getShowTitle());
-								} catch (Exception e) {
-									Log.e("Error", "image download error");
-									Log.e("Error", e.getMessage());
-									e.printStackTrace();
-								}
-							}
-						});
-				mProgressStatus[i] = 0;
+				this.currActivity.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						ImageLoader iLoader = ImageLoader.getInstance();
+						try {
+							iLoader.displayImage(newShow.getShowThumb(),
+									btnImgNowPlaying[index]);
+							showTitleNowPlaying[index].setText(newShow
+									.getShowTitle());
+						} catch (Exception e) {
+							Log.e("Error", "image download error");
+							Log.e("Error", e.getMessage());
+							e.printStackTrace();
+						}
+					}
+				});
+				mProgressStatus[index] = 0;
 				this.newShowAdded = true;
 			}
 			// Update the progress bar
@@ -197,7 +235,7 @@ public class UpdateMediaTask extends AsyncTask<String, Integer, Integer> {
 		// TODO Auto-generated method stub
 
 		super.onPostExecute(result);
-		
+
 		Log.v("task ended", "ended");
 	}
 

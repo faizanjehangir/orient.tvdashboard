@@ -18,14 +18,14 @@ import android.widget.Toast;
 
 public class XmlParser {
 
-	public static ArrayList<String> parseXml(Context context, String category) {
+	public static ArrayList<String> parseXml(Context context, String fileName, String category) {
 		ArrayList<String> data = new ArrayList<String>();
 
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			AssetManager assetManager = context.getAssets();
-			InputStream inputStream = assetManager.open("Extensions.xml");
+			InputStream inputStream = assetManager.open(fileName);
 			Document doc = db.parse(inputStream);
 			doc.getDocumentElement().normalize();
 

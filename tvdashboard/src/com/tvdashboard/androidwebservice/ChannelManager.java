@@ -1,6 +1,7 @@
 package com.tvdashboard.androidwebservice;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.tvdashboard.channelsetup.Channel;
 import com.tvdashboard.utility.Preferences;
@@ -34,4 +35,13 @@ public class ChannelManager implements IChannelManager {
 		while(xmlManager.parsingComplete);
 		return xmlManager.getChannelListByRegion(region);
 	}
+	
+	public List<String> getAllRegions()
+	 {
+	  List<String> regions = new ArrayList<String>();
+	  xmlManager = new XMLChannelManager(context, Preferences.CHANNEL_LIST_FILENAME);
+	  xmlManager.fetchXML();
+	  while(xmlManager.parsingComplete);
+	  return xmlManager.getAllRegions();
+	 }
 }

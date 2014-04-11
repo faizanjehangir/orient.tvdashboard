@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_panel"
+    android:orientation="vertical"
+    android:paddingLeft="140dp"
+    android:paddingTop="70dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="SELECT REGION"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <AutoCompleteTextView
+                android:id="@+id/Text_Select_Region"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="11dp"
+            	android:singleLine="true"
+            	android:textColor="#6d6d6d"
+                android:background="@drawable/addsource_edittext_style"
+                android:layout_margin="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="SELECT CHANNEL"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <AutoCompleteTextView
+                android:id="@+id/Text_Select_Channel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="11dp"
+            	android:singleLine="true"
+            	android:textColor="#6d6d6d"
+                android:background="@drawable/addsource_edittext_style"
+                android:layout_margin="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="SELECT CHANNEL NUMBER"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <AutoCompleteTextView
+                android:id="@+id/Text_Select_Channel_Number"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="11dp"
+            	android:singleLine="true"
+            	android:textColor="#6d6d6d"
+                android:background="@drawable/addsource_edittext_style"
+                android:layout_margin="10dp" />
+        </LinearLayout>
+
+        <!-- <CheckBox -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:text="Add to Dashboard" -->
+        <!-- android:layout_margin="15dp"/> -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp" >
+
+            <ImageButton
+                android:id="@+id/OkBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/ok_btn_style" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,9 +1,11 @@
 package com.tvdashboard.androidwebservice;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -44,6 +46,17 @@ public class XMLChannelManager {
 		}
 		return allChannels;
 	}
+	
+	public List<String> getAllRegions()
+	 {
+	  List<String> regions = new ArrayList<String>();
+	  regions.add("All");
+	  ArrayList<Channel> allChannels = new ArrayList<Channel>();
+	  for (String key : this.channelListData.keySet()) {
+	   regions.add(key);
+	  }
+	  return regions;
+	 }
 
 	public void parseXMLAndStoreIt(XmlPullParser myParser) {
 		int event;
@@ -104,15 +117,38 @@ public class XMLChannelManager {
 	}
 
 	private Bitmap getChannelIcon(String imageName) {
-		File file = new File(Environment.getExternalStorageDirectory()
-				+ Preferences.CHANNEL_ICONS_FOLDER);
-		File imageList[] = file.listFiles();
-
-		for (int i = 0; i < imageList.length; i++) {
-			Log.e("Image: " + i + ": path", imageList[i].getAbsolutePath());
-			if (imageList[i].getName().equals(imageName))
-				return BitmapFactory.decodeFile(imageList[i].getAbsolutePath());
+//		File file = new File(Environment.getExternalStorageDirectory()
+//				+ Preferences.CHANNEL_ICONS_FOLDER);
+        String fileList[] = null;
+		try {
+			fileList = this.context.getAssets().list(Preferences.CHANNEL_ICONS_FOLDER);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+
+		if (fileList != null) {
+			for (int i = 0; i < fileList.length; i++) {
+				Log.d("", fileList[i]);
+				if (fileList[i].equals(imageName)){
+					InputStream bitmap = null;
+					try {
+						bitmap = this.context.getAssets().open(Preferences.CHANNEL_ICONS_FOLDER + "/" + imageName);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					return BitmapFactory.decodeStream(bitmap);
+				}
+			}
+		}
+//		File imageList[] = file.listFiles();
+//
+//		for (int i = 0; i < imageList.length; i++) {
+//			Log.e("Image: " + i + ": path", imageList[i].getAbsolutePath());
+//			if (imageList[i].getName().equals(imageName))
+//				return BitmapFactory.decodeFile(imageList[i].getAbsolutePath());
+//		}
 		return null;
 	}
 

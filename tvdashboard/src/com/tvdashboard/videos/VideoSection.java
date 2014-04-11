@@ -456,44 +456,44 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 			@Override
 			public void onClick(View v) {
 
-				/* Source.selectStuff(m); */
-				ArrayList<String> ext = XmlParser.parseXml(context, "Videos");
-				String path = browseText.getText().toString();
-				/* Log.d("Files", "Path: " + path); */
-				File f = new File(path);
-				File file[] = f.listFiles();
-				/* Log.d("Files", "Size: "+ file.length); */
-				String filenames = "";
-
-				List<Video> pics = new ArrayList<Video>();
-				for (int i = 0; i < file.length; i++) {
-					if (file[i].isDirectory()) {
-						/* fileList.add(listFile[i]); */
-						/* getpicfile(file[i]); */
-
-					} else {
-						
-						for (int k = 0; k < ext.size(); k++)
-						{
-							if (file[i].getName().endsWith("." + ext.get(k).toLowerCase()))
-							{
-								Video vid = new Video();
-								vid.setFav(false);
-								vid.setIsactive(true);
-								vid.setSub_cat(source);
-								vid.setPath(file[i].getPath());
-								vid.setSourcename(txtAlbumName.getText().toString());
-								pics.add(vid);
-								
-								break;
-							}
-							
-						}
-					}
-					/* Log.d("Files", "FileName:" + file[i].getName()); */
-				}
-				Source mSource = new Source(Media_source.Picture, context);
-				mSource.insertVideoList(pics);
+//				/* Source.selectStuff(m); */
+//				ArrayList<String> ext = XmlParser.parseXml(context, "Videos");
+//				String path = browseText.getText().toString();
+//				/* Log.d("Files", "Path: " + path); */
+//				File f = new File(path);
+//				File file[] = f.listFiles();
+//				/* Log.d("Files", "Size: "+ file.length); */
+//				String filenames = "";
+//
+//				List<Video> pics = new ArrayList<Video>();
+//				for (int i = 0; i < file.length; i++) {
+//					if (file[i].isDirectory()) {
+//						/* fileList.add(listFile[i]); */
+//						/* getpicfile(file[i]); */
+//
+//					} else {
+//						
+//						for (int k = 0; k < ext.size(); k++)
+//						{
+//							if (file[i].getName().endsWith("." + ext.get(k).toLowerCase()))
+//							{
+//								Video vid = new Video();
+//								vid.setFav(false);
+//								vid.setIsactive(true);
+//								vid.setSub_cat(source);
+//								vid.setPath(file[i].getPath());
+//								vid.setSourcename(txtAlbumName.getText().toString());
+//								pics.add(vid);
+//								
+//								break;
+//							}
+//							
+//						}
+//					}
+//					/* Log.d("Files", "FileName:" + file[i].getName()); */
+//				}
+//				Source mSource = new Source(Media_source.Picture, context);
+//				mSource.insertVideoList(pics);
 			}
 		});
         
@@ -513,7 +513,7 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
     	.setIcon(R.drawable.network)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
-        menu.add("°C")
+        menu.add("ï¿½C")
     	.setIcon(R.drawable.weather1)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
@@ -616,7 +616,7 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 				Bitmap img = BitmapFactory.decodeByteArray(weather.iconData, 0, weather.iconData.length); 
 				menu.getItem(2).setIcon(new BitmapDrawable(img));
 			}			
-			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "°C		");
+			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "ï¿½C		");
 		}
     }
 

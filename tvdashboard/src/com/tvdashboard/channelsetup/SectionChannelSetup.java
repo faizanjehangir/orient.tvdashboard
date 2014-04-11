@@ -16,6 +16,7 @@ import com.digitalaria.gama.wheel.WheelAdapter;
 import com.digitalaria.gama.wheel.WheelAdapter.OnItemClickListener;
 import com.orient.menu.animations.CollapseAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationLTR;
+import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
 import com.tvdashboard.apps.AppSection;
 import com.tvdashboard.database.R;
@@ -45,6 +46,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -68,104 +70,82 @@ import android.widget.TabHost.TabSpec;
 public class SectionChannelSetup extends SherlockFragmentActivity implements OnTabChangeListener {
 
 	public static TabHost tabHost;
-	public static int tabCounter=0;
-	
-	public static Context context;
-	private LinearLayout layoutRightMenu,layoutDirectory;
-	private RelativeLayout layoutDialer;
-	private ImageButton btnOpenleftmenu/*,btnOpenRightMenu,btnSelect, btnReturn, btnAddSource, btnBrowse*/;
-	public static EditText browseText,txtAlbumName;
-	private int screenWidth, screenHeight;
-	private boolean isExpandedLeft,isExpandedRight;
-	private Wheel wheel;
-	private Resources res;
-	public static String dir="";
-	SelectedDirectoryListFragment fragment;
-    private int[] icons = {
-    		R.drawable.apps, R.drawable.videos, R.drawable.music,
-    		R.drawable.pictures, R.drawable.browser, R.drawable.settings };    
-    private static Menu menu;
-    private static String currTime;
-	private static Weather weather;
-	private static  String weatherParam="";
-	private static Spinner videoSource;
-	private static String source;
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setTheme(SampleList.THEME);
-        requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
-    	getSupportActionBar().setDisplayShowTitleEnabled(false);
-    	//getSupportActionBar().setIcon(R.drawable.text_videostitle);
-    	getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
-		setContentView(R.layout.section_channel_setup);
-		
-		context = this.getApplicationContext();
-		
-//		Media_source m = null;
-//        m = m.Videos;		
-//        txtAlbumName = (EditText)findViewById(R.id.text_source_name);
-//		Source mSource = new Source(Media_source.Videos, context);
-//		
-		wheel = (Wheel) findViewById(R.id.wheel);
-		res = getApplicationContext().getResources();
-        layoutDirectory = (LinearLayout)findViewById(R.id.DirectoryLayout);
-        layoutRightMenu = (LinearLayout) findViewById(R.id.AddSourceLayout);
-//        btnOpenRightMenu = (ImageButton) findViewById(R.id.AddSource);
-//        btnReturn = (ImageButton) findViewById(R.id.returnBtn);
-//        btnBrowse = (ImageButton)findViewById(R.id.btn_browse);
-//        btnSelect = (ImageButton)findViewById(R.id.okBtn);
-//        btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
-        browseText = (EditText)findViewById(R.id.text_browse);
-        btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
-        layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
-        videoSource = (Spinner)findViewById(R.id.spinner_source);
-        
-		fragment = new SelectedDirectoryListFragment();
-        
-		browseText.setText(dir);
-		layoutDirectory.setVisibility(View.GONE);
-//		btnSelect.setVisibility(View.INVISIBLE);					
-        
-        DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        screenWidth = metrics.widthPixels;
-        screenHeight = metrics.heightPixels;
-        
-//        layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
-        
-        layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
-        layoutDialer.setEnabled(false);
-        init();
-		
-//		GPSTracker gpsTracker = new GPSTracker(this);
-//        if (gpsTracker.canGetLocation())
-//		{
-//        	String country = gpsTracker.getCountryName(this);
-//        	String city = gpsTracker.getLocality(this);
-//        	weatherParam = city+","+country;
-//		}
-//        else
-//		{
-//			gpsTracker.showSettingsAlert();
-//		}
-//        
-//// *********************** Timer Thread ***************************** //        
-//        
-//        Thread myThread = null;
-//        Runnable myRunnableThread = new CountDownRunner();
-//        myThread= new Thread(myRunnableThread);
-//        myThread.start();
-//        
-//// *********************** Weather Api ****************************** //
-//        
-//        if (weatherParam != "")
-//        {
-//        	new JSONWeatherTask().execute(weatherParam);
-//        }
-        
-// ****************************************************************** //
+	 public static int tabCounter=0;
+	 
+	 public static Context context;
+	 private LinearLayout layoutRightMenu;
+	 private RelativeLayout layoutDialer;
+	 private ImageButton btnOpenleftmenu/*,btnOpenRightMenu,btnSelect*/;
+	 private int screenWidth, screenHeight;
+	 private boolean isExpandedLeft,isExpandedRight;
+	 private Wheel wheel;
+	 private Resources res;
+	    private int[] icons = {
+	      R.drawable.apps, R.drawable.videos, R.drawable.music,
+	      R.drawable.pictures, R.drawable.browser, R.drawable.settings };    
+	    private static Menu menu;
+	    private static String currTime;
+	 private static Weather weather;
+	 private static  String weatherParam="";
+	 
+	 @Override
+	 protected void onCreate(Bundle savedInstanceState) {
+	  super.onCreate(savedInstanceState);
+	  setTheme(SampleList.THEME);
+	        requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
+	     getSupportActionBar().setDisplayShowTitleEnabled(false);
+	     //getSupportActionBar().setIcon(R.drawable.text_videostitle);
+	     getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
+	  setContentView(R.layout.section_channel_setup);
+	  
+	  context = this.getApplicationContext();
+	//  
+	  wheel = (Wheel) findViewById(R.id.wheel);
+	  res = getApplicationContext().getResources();
+	        layoutRightMenu = (LinearLayout) findViewById(R.id.ChannelManagerLayout);
+//	        btnOpenRightMenu = (ImageButton) findViewById(R.id.AddSource);
+//	        btnSelect = (ImageButton)findViewById(R.id.okBtn);
+	        btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
+	        layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);  
+	        
+	        DisplayMetrics metrics = new DisplayMetrics();
+	        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+	        screenWidth = metrics.widthPixels;
+	        screenHeight = metrics.heightPixels;
+	        
+//	        layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+	        
+	        layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
+	        layoutDialer.setEnabled(false);
+	        init();
+	  
+	//  GPSTracker gpsTracker = new GPSTracker(this);
+//	        if (gpsTracker.canGetLocation())
+	//  {
+//	         String country = gpsTracker.getCountryName(this);
+//	         String city = gpsTracker.getLocality(this);
+//	         weatherParam = city+","+country;
+	//  }
+//	        else
+	//  {
+	//   gpsTracker.showSettingsAlert();
+	//  }
+//	        
+	//// *********************** Timer Thread ***************************** //        
+//	        
+//	        Thread myThread = null;
+//	        Runnable myRunnableThread = new CountDownRunner();
+//	        myThread= new Thread(myRunnableThread);
+//	        myThread.start();
+//	        
+	//// *********************** Weather Api ****************************** //
+//	        
+//	        if (weatherParam != "")
+//	        {
+//	         new JSONWeatherTask().execute(weatherParam);
+//	        }
+	        
+	// ****************************************************************** //
 
         
      		tabHost = (TabHost) findViewById(android.R.id.tabhost);
@@ -199,6 +179,7 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
      			public void onTabChanged(String tabId) {
      				int pos = this.tabHost1.getCurrentTab();
      				this.tabHost1.setCurrentTab(pos);
+     				Log.v("tab click", tabId);   				
      			}
      		});
         
@@ -471,6 +452,8 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
 
 	@Override
 	public void onTabChanged(String tabId) {
-		
+		Log.v("tab id", tabId);
 	}
+	
+	
 }

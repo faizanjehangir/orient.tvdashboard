@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlImage"
+    android:layout_width="wrap_content"
+    android:layout_height="200dp"
+    android:paddingBottom="7dp"
+    android:paddingRight="7dp" >
+
+    <ImageButton
+        android:id="@+id/image"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/movie3" />
+
+    <ImageButton
+        android:id="@+id/imageHover"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/tile_selector_style" />
+
+    <ImageView
+        android:id="@+id/ChannelLogo"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/ShowTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:hint="Show Title"
+        android:paddingBottom="40dp"
+        android:paddingRight="20dp"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/ShowTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:hint="Show Time"
+        android:paddingBottom="20dp"
+        android:paddingRight="20dp"
+        android:singleLine="true" />
+
+</RelativeLayout>

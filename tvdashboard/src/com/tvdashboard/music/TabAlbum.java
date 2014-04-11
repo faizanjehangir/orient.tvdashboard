@@ -9,6 +9,7 @@ import com.tvdashboard.main.FixedSpeedScroller;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -16,10 +17,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.animation.Interpolator;
+import android.widget.TabHost;
+import android.widget.TabHost.OnTabChangeListener;
 
-public class TabMixes extends FragmentActivity implements OnPageChangeListener {
+public class TabAlbum extends FragmentActivity implements OnPageChangeListener {
 
-    MusicPageAdapter pageAdapter;
+	MusicPageAdapter pageAdapter;
     private ViewPager mViewPager;
     PageIndicator mIndicator;
     int fragmentCounter=0;
@@ -32,9 +35,9 @@ public class TabMixes extends FragmentActivity implements OnPageChangeListener {
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setPageMargin(-150);
         List<Fragment> fragments = getFragments();
-        pageAdapter = new MusicPageAdapter(getSupportFragmentManager(), fragments);
+        pageAdapter = new MusicPageAdapter(getSupportFragmentManager(), fragments);        
         mViewPager.setAdapter(pageAdapter);
-        mViewPager.setOnPageChangeListener(TabMixes.this);
+        mViewPager.setOnPageChangeListener(TabAlbum.this);
         mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
         mIndicator.setViewPager(mViewPager);
         
@@ -68,7 +71,7 @@ public class TabMixes extends FragmentActivity implements OnPageChangeListener {
     @Override
     public void onPageScrollStateChanged(int arg0) {
     }
-
+    
     @Override
     public void onPageScrolled(int arg0, float arg1, int arg2) {
         int pos = this.mViewPager.getCurrentItem();
@@ -81,12 +84,15 @@ public class TabMixes extends FragmentActivity implements OnPageChangeListener {
     private List<Fragment> getFragments(){
         List<Fragment> fList = new ArrayList<Fragment>();
 
-        FragmentMixesMain f1 = FragmentMixesMain.newInstance(String.valueOf(fragmentCounter));
+        FragmentAlbumMain f1 = FragmentAlbumMain.newInstance(String.valueOf(fragmentCounter));
         fragmentCounter++;
-        FragmentMixesMain f2 = FragmentMixesMain.newInstance(String.valueOf(fragmentCounter));
+        FragmentAlbumMain f2 = FragmentAlbumMain.newInstance(String.valueOf(fragmentCounter));
+        fragmentCounter++;
+        FragmentAlbumMain f3 = FragmentAlbumMain.newInstance(String.valueOf(fragmentCounter));
         fragmentCounter++;
         fList.add(f1);
         fList.add(f2);
+        fList.add(f3);
 
         return fList;
     }

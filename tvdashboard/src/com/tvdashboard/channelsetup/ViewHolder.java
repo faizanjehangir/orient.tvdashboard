@@ -9,14 +9,11 @@ public class ViewHolder {
 	private TextView showTitle;
 	private TextView showDuration;
 	private ImageButton image;
-	private ProgressBar pb;
 	public ViewHolder(TextView showTitle, TextView showDuration,
-			ImageButton image, ProgressBar pb) {
-		super();
+			ImageButton image) {
 		this.showTitle = showTitle;
 		this.showDuration = showDuration;
 		this.image = image;
-		this.pb = pb;
 	}
 	public TextView getShowTitle() {
 		return showTitle;
@@ -36,13 +33,5 @@ public class ViewHolder {
 	public void setImage(ImageButton image) {
 		this.image = image;
 	}
-	public ProgressBar getPb() {
-		return pb;
-	}
-	public void setPb(ProgressBar pb) {
-		this.pb = pb;
-	}
-	
-	
 
 }

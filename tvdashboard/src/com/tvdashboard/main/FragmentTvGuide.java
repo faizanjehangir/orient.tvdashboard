@@ -161,6 +161,11 @@ public class FragmentTvGuide extends Fragment{
 		// TODO Auto-generated method stub
 		super.onStop();
 		ScheduleManager.isScheduleRunning = false;
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	

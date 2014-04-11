@@ -27,6 +27,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -38,20 +39,32 @@ public class AsyncInvokeURLTask extends AsyncTask<Void, Void, String> {
 	private String mParams;
 	private OnPostExecuteListener mPostExecuteListener = null;
 	private Context context;
+	private String chDate;
 
 	public static interface OnPostExecuteListener {
 		void onPostExecute(String result);
 	}
 
-	AsyncInvokeURLTask(String params, Context context,
-			OnPostExecuteListener postExecuteListener) throws Exception {
+	AsyncInvokeURLTask(String params, Context context, String date,
+			OnPostExecuteListener postExecuteListener)
+			throws Exception {
 
+		this.chDate = date;
 		this.context = context;
 		mParams = params;
 		mPostExecuteListener = postExecuteListener;
 		if (mPostExecuteListener == null)
 			throw new Exception("Param cannot be null.");
 	}
+	
+	
+
+	@Override
+	protected void onPreExecute() {
+		// TODO Auto-generated method stub
+	}
+
+
 
 	@Override
 	protected String doInBackground(Void... params) {
@@ -86,11 +99,16 @@ public class AsyncInvokeURLTask extends AsyncTask<Void, Void, String> {
 	}
 
 	public String ConstructHTTPGetParams(String url) {
-		String todayAsString = new SimpleDateFormat("ddMMyyyy")
-				.format(new Date());
+		String todayAsString = null;
 
-		url = url + "?channel=" + mParams + "&date=" + todayAsString;
+		if (chDate == null) {
+			todayAsString = new SimpleDateFormat("ddMMyyyy").format(new Date());
+			url = url + "?channel=" + mParams + "&date=" + todayAsString;
+		}
 
+		else{
+			url = url + "?channel=" + mParams + "&date=" + chDate;
+		}
 		return url;
 	}
 
@@ -108,10 +126,14 @@ public class AsyncInvokeURLTask extends AsyncTask<Void, Void, String> {
 		}
 	}
 
-	private String ReadFile(String jsonString){
+	private String ReadFile(String jsonString) {
 		String todayAsString = new SimpleDateFormat("ddMMyyyy")
-		.format(new Date());
-		String fileName = mParams + "-" + todayAsString + ".json";
+				.format(new Date());
+		String fileName;
+		if (chDate != null)
+			fileName = mParams + "-" + chDate + ".json";
+		else
+			fileName = mParams + "-" + todayAsString + ".json";
 		FileInputStream fIn = null;
 		try {
 			fIn = context.openFileInput(fileName);
@@ -119,35 +141,39 @@ public class AsyncInvokeURLTask extends AsyncTask<Void, Void, String> {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-        InputStreamReader isr = new InputStreamReader(fIn);
+		InputStreamReader isr = new InputStreamReader(fIn);
 
-        /* Prepare a char-Array that will
-         * hold the chars we read back in. */
-        char[] inputBuffer = new char[jsonString.length()];
+		/*
+		 * Prepare a char-Array that will hold the chars we read back in.
+		 */
+		char[] inputBuffer = new char[jsonString.length()];
 
-        // Fill the Buffer with data from the file
-        try {
+		// Fill the Buffer with data from the file
+		try {
 			isr.read(inputBuffer);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-        // Transform the chars to a String
-       return new String(inputBuffer);
+		// Transform the chars to a String
+		return new String(inputBuffer);
 
-        // Check if we read back the same chars that we had written out
+		// Check if we read back the same chars that we had written out
 
-        //Log.v("File Reading stuff", readString);
 	}
-	
+
 	private void CreateJSONSchedule(JSONObject result) {
 		FileOutputStream fOut = null;
 		String todayAsString = new SimpleDateFormat("ddMMyyyy")
-		.format(new Date());
-		String fileName = mParams + "-" + todayAsString + ".json";
+				.format(new Date());
+		String fileName = null;
+		if (chDate != null)
+			fileName = mParams + "-" + chDate + ".json";
+		else
+			fileName = mParams + "-" + todayAsString + ".json";
 		File file = context.getFileStreamPath(fileName);
-		if(!file.exists()){
+		if (!file.exists()) {
 			try {
 				fOut = context.openFileOutput(fileName,
 						context.MODE_WORLD_READABLE);
@@ -175,12 +201,10 @@ public class AsyncInvokeURLTask extends AsyncTask<Void, Void, String> {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		else{
+		} else {
 			Log.v("error", "file already exists");
 		}
-		
-		
+
 	}
 
 	private static String convertStreamToString(InputStream is) {

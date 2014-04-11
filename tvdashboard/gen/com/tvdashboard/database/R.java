@@ -1298,242 +1298,287 @@ containing a value of this type.
         public static final int addsource_on=0x7f020075;
         public static final int addsourceoff=0x7f020076;
         public static final int addsourceon=0x7f020077;
-        public static final int app1=0x7f020078;
-        public static final int app2=0x7f020079;
-        public static final int app3=0x7f02007a;
-        public static final int app4=0x7f02007b;
-        public static final int app5=0x7f02007c;
-        public static final int app_icon=0x7f02007d;
-        public static final int app_settings=0x7f02007e;
-        public static final int appbg=0x7f02007f;
-        public static final int appicon=0x7f020080;
-        public static final int appoverlay=0x7f020081;
-        public static final int apps=0x7f020082;
-        public static final int appsettings00=0x7f020083;
-        public static final int appsettings01=0x7f020084;
-        public static final int appsettings02=0x7f020085;
-        public static final int appsettingsoff=0x7f020086;
-        public static final int appsettingson=0x7f020087;
-        public static final int apptext=0x7f020088;
-        public static final int back=0x7f020089;
-        public static final int bg=0x7f02008a;
-        public static final int bg_panel=0x7f02008b;
-        public static final int browse_btn_style=0x7f02008c;
-        public static final int browse_off=0x7f02008d;
-        public static final int browse_on=0x7f02008e;
-        public static final int browser=0x7f02008f;
-        public static final int dashboard=0x7f020090;
-        public static final int dashboard_bg=0x7f020091;
-        public static final int dashboard_bgoverlay=0x7f020092;
-        public static final int dial_inside=0x7f020093;
-        public static final int download_app=0x7f020094;
-        public static final int downloadappoff=0x7f020095;
-        public static final int downloadappon=0x7f020096;
-        public static final int downloadapps00=0x7f020097;
-        public static final int downloadapps01=0x7f020098;
-        public static final int downloadapps02=0x7f020099;
-        public static final int fav=0x7f02009a;
-        public static final int favorites00=0x7f02009b;
-        public static final int favorites01=0x7f02009c;
-        public static final int favorites02=0x7f02009d;
-        public static final int folder=0x7f02009e;
-        public static final int glow=0x7f02009f;
-        public static final int go=0x7f0200a0;
-        public static final int goto_fav_btn_style=0x7f0200a1;
-        public static final int goto_favs=0x7f0200a2;
-        public static final int goto_favs01=0x7f0200a3;
-        public static final int goto_music=0x7f0200a4;
-        public static final int goto_music01=0x7f0200a5;
-        public static final int goto_music_btn_style=0x7f0200a6;
-        public static final int goto_pictures=0x7f0200a7;
-        public static final int goto_pictures01=0x7f0200a8;
-        public static final int goto_pictures_btn_style=0x7f0200a9;
-        public static final int goto_videos=0x7f0200aa;
-        public static final int goto_videos01=0x7f0200ab;
-        public static final int goto_videos_btn_style=0x7f0200ac;
-        public static final int hdmi1_btn_style=0x7f0200ad;
-        public static final int hdmi1_off=0x7f0200ae;
-        public static final int hdmi1_on=0x7f0200af;
-        public static final int hdmi1off=0x7f0200b0;
-        public static final int hdmi1on=0x7f0200b1;
-        public static final int hdmi2_btn_style=0x7f0200b2;
-        public static final int hdmi2_off=0x7f0200b3;
-        public static final int hdmi2_on=0x7f0200b4;
-        public static final int hdmi2off=0x7f0200b5;
-        public static final int hdmi2on=0x7f0200b6;
-        public static final int ic_compose=0x7f0200b7;
-        public static final int ic_compose_inverse=0x7f0200b8;
-        public static final int ic_launcher=0x7f0200b9;
-        public static final int ic_refresh=0x7f0200ba;
-        public static final int ic_refresh_inverse=0x7f0200bb;
-        public static final int ic_search=0x7f0200bc;
-        public static final int ic_search_inverse=0x7f0200bd;
-        public static final int ic_title_share_default=0x7f0200be;
-        public static final int largetile=0x7f0200bf;
-        public static final int layout_border=0x7f0200c0;
-        public static final int mediumtile=0x7f0200c1;
-        public static final int menu_in=0x7f0200c2;
-        public static final int movie=0x7f0200c3;
-        public static final int movie1=0x7f0200c4;
-        public static final int movie10=0x7f0200c5;
-        public static final int movie2=0x7f0200c6;
-        public static final int movie3=0x7f0200c7;
-        public static final int movie4=0x7f0200c8;
-        public static final int movie5=0x7f0200c9;
-        public static final int movie6=0x7f0200ca;
-        public static final int movie7=0x7f0200cb;
-        public static final int movie8=0x7f0200cc;
-        public static final int movie9=0x7f0200cd;
-        public static final int movie_icon=0x7f0200ce;
-        public static final int movieicon=0x7f0200cf;
-        public static final int movies_btn_style=0x7f0200d0;
-        public static final int movies_off=0x7f0200d1;
-        public static final int movies_on=0x7f0200d2;
-        public static final int music=0x7f0200d3;
-        public static final int music00=0x7f0200d4;
-        public static final int music01=0x7f0200d5;
-        public static final int music02=0x7f0200d6;
-        public static final int music1=0x7f0200d7;
-        public static final int music2=0x7f0200d8;
-        public static final int music3=0x7f0200d9;
-        public static final int music4=0x7f0200da;
-        public static final int music5=0x7f0200db;
-        public static final int music_icon=0x7f0200dc;
-        public static final int music_videos_btn_style=0x7f0200dd;
-        public static final int musicbg=0x7f0200de;
-        public static final int musicicon=0x7f0200df;
-        public static final int musicoverlay=0x7f0200e0;
-        public static final int musicvideo_icon=0x7f0200e1;
-        public static final int musicvideoicon=0x7f0200e2;
-        public static final int musicvideos_off=0x7f0200e3;
-        public static final int musicvideos_on=0x7f0200e4;
-        public static final int network=0x7f0200e5;
-        public static final int ok_btn_style=0x7f0200e6;
-        public static final int ok_off=0x7f0200e7;
-        public static final int ok_on=0x7f0200e8;
-        public static final int orient_logo=0x7f0200e9;
-        public static final int pic1=0x7f0200ea;
-        public static final int pic2=0x7f0200eb;
-        public static final int pic3=0x7f0200ec;
-        public static final int pic4=0x7f0200ed;
-        public static final int pic5=0x7f0200ee;
-        public static final int pic6=0x7f0200ef;
-        public static final int pictures=0x7f0200f0;
-        public static final int pictures_bg=0x7f0200f1;
-        public static final int pictures_icon=0x7f0200f2;
-        public static final int picturesicon=0x7f0200f3;
-        public static final int recent=0x7f0200f4;
-        public static final int recent00=0x7f0200f5;
-        public static final int recent01=0x7f0200f6;
-        public static final int recent02=0x7f0200f7;
-        public static final int recentmusic=0x7f0200f8;
-        public static final int recentpictures=0x7f0200f9;
-        public static final int return_btn_style=0x7f0200fa;
-        public static final int return_off=0x7f0200fb;
-        public static final int return_on=0x7f0200fc;
-        public static final int selectlarge=0x7f0200fd;
-        public static final int selectmedium=0x7f0200fe;
-        public static final int selector_tv=0x7f0200ff;
-        public static final int selectsmall=0x7f020100;
-        public static final int settings=0x7f020101;
-        public static final int smalltile=0x7f020102;
-        public static final int test_xhdpi=0x7f020103;
-        public static final int text_favorites=0x7f020104;
-        public static final int text_musictitle=0x7f020105;
-        public static final int text_ontv=0x7f020106;
-        public static final int text_picturestitle=0x7f020107;
-        public static final int text_recentmusic=0x7f020108;
-        public static final int text_recentpictures=0x7f020109;
-        public static final int text_recentvideos=0x7f02010a;
-        public static final int text_step1=0x7f02010b;
-        public static final int text_step2=0x7f02010c;
-        public static final int text_step3=0x7f02010d;
-        public static final int text_videostitle=0x7f02010e;
-        public static final int tile_favorite_style=0x7f02010f;
-        public static final int tile_music_style=0x7f020110;
-        public static final int tile_recent_style=0x7f020111;
-        public static final int tile_selector_style=0x7f020112;
-        public static final int tile_videos_style=0x7f020113;
-        public static final int tv=0x7f020114;
-        public static final int tv1=0x7f020115;
-        public static final int tv_btn_style=0x7f020116;
-        public static final int tv_off=0x7f020117;
-        public static final int tv_on=0x7f020118;
-        public static final int tv_shows_btn_style=0x7f020119;
-        public static final int tvshow_icon=0x7f02011a;
-        public static final int tvshowicon=0x7f02011b;
-        public static final int tvshows_off=0x7f02011c;
-        public static final int tvshows_on=0x7f02011d;
-        public static final int usb_off=0x7f02011e;
-        public static final int usb_on=0x7f02011f;
-        public static final int usboff=0x7f020120;
-        public static final int usbon=0x7f020121;
-        public static final int video_addsource_btn_style=0x7f020122;
-        public static final int video_addsource_off=0x7f020123;
-        public static final int video_addsource_on=0x7f020124;
-        public static final int video_bg=0x7f020125;
-        public static final int video_bgoverlay=0x7f020126;
-        public static final int videos=0x7f020127;
-        public static final int videos00=0x7f020128;
-        public static final int videos01=0x7f020129;
-        public static final int videos02=0x7f02012a;
-        public static final int vpi__tab_indicator=0x7f02012b;
-        public static final int vpi__tab_selected_focused_holo=0x7f02012c;
-        public static final int vpi__tab_selected_holo=0x7f02012d;
-        public static final int vpi__tab_selected_pressed_holo=0x7f02012e;
-        public static final int vpi__tab_unselected_focused_holo=0x7f02012f;
-        public static final int vpi__tab_unselected_holo=0x7f020130;
-        public static final int vpi__tab_unselected_pressed_holo=0x7f020131;
-        public static final int weather1=0x7f020132;
+        public static final int album=0x7f020078;
+        public static final int albumon=0x7f020079;
+        public static final int app1=0x7f02007a;
+        public static final int app2=0x7f02007b;
+        public static final int app3=0x7f02007c;
+        public static final int app4=0x7f02007d;
+        public static final int app5=0x7f02007e;
+        public static final int app_icon=0x7f02007f;
+        public static final int app_settings=0x7f020080;
+        public static final int appbg=0x7f020081;
+        public static final int appicon=0x7f020082;
+        public static final int appoverlay=0x7f020083;
+        public static final int apps=0x7f020084;
+        public static final int appsettings00=0x7f020085;
+        public static final int appsettings01=0x7f020086;
+        public static final int appsettings02=0x7f020087;
+        public static final int appsettingsoff=0x7f020088;
+        public static final int appsettingson=0x7f020089;
+        public static final int apptext=0x7f02008a;
+        public static final int back=0x7f02008b;
+        public static final int bg=0x7f02008c;
+        public static final int bg_panel=0x7f02008d;
+        public static final int browse_btn_style=0x7f02008e;
+        public static final int browse_off=0x7f02008f;
+        public static final int browse_on=0x7f020090;
+        public static final int browser=0x7f020091;
+        public static final int dashboard=0x7f020092;
+        public static final int dashboard_bg=0x7f020093;
+        public static final int dashboard_bgoverlay=0x7f020094;
+        public static final int dial_inside=0x7f020095;
+        public static final int download_app=0x7f020096;
+        public static final int downloadappoff=0x7f020097;
+        public static final int downloadappon=0x7f020098;
+        public static final int downloadapps00=0x7f020099;
+        public static final int downloadapps01=0x7f02009a;
+        public static final int downloadapps02=0x7f02009b;
+        public static final int dropdown_arrow=0x7f02009c;
+        public static final int dropdown_arrow_new=0x7f02009d;
+        public static final int fav=0x7f02009e;
+        public static final int favorites00=0x7f02009f;
+        public static final int favorites01=0x7f0200a0;
+        public static final int favorites02=0x7f0200a1;
+        public static final int fbicon=0x7f0200a2;
+        public static final int folder=0x7f0200a3;
+        public static final int glow=0x7f0200a4;
+        public static final int go=0x7f0200a5;
+        public static final int goto_fav_btn_style=0x7f0200a6;
+        public static final int goto_favs=0x7f0200a7;
+        public static final int goto_favs01=0x7f0200a8;
+        public static final int goto_music=0x7f0200a9;
+        public static final int goto_music01=0x7f0200aa;
+        public static final int goto_music_btn_style=0x7f0200ab;
+        public static final int goto_pictures=0x7f0200ac;
+        public static final int goto_pictures01=0x7f0200ad;
+        public static final int goto_pictures_btn_style=0x7f0200ae;
+        public static final int goto_videos=0x7f0200af;
+        public static final int goto_videos01=0x7f0200b0;
+        public static final int goto_videos_btn_style=0x7f0200b1;
+        public static final int hdmi1_btn_style=0x7f0200b2;
+        public static final int hdmi1_off=0x7f0200b3;
+        public static final int hdmi1_on=0x7f0200b4;
+        public static final int hdmi1off=0x7f0200b5;
+        public static final int hdmi1on=0x7f0200b6;
+        public static final int hdmi2_btn_style=0x7f0200b7;
+        public static final int hdmi2_off=0x7f0200b8;
+        public static final int hdmi2_on=0x7f0200b9;
+        public static final int hdmi2off=0x7f0200ba;
+        public static final int hdmi2on=0x7f0200bb;
+        public static final int ic_compose=0x7f0200bc;
+        public static final int ic_compose_inverse=0x7f0200bd;
+        public static final int ic_launcher=0x7f0200be;
+        public static final int ic_refresh=0x7f0200bf;
+        public static final int ic_refresh_inverse=0x7f0200c0;
+        public static final int ic_search=0x7f0200c1;
+        public static final int ic_search_inverse=0x7f0200c2;
+        public static final int ic_title_share_default=0x7f0200c3;
+        public static final int largetile=0x7f0200c4;
+        public static final int layout_border=0x7f0200c5;
+        public static final int mediumtile=0x7f0200c6;
+        public static final int menu_in=0x7f0200c7;
+        public static final int movie=0x7f0200c8;
+        public static final int movie1=0x7f0200c9;
+        public static final int movie10=0x7f0200ca;
+        public static final int movie2=0x7f0200cb;
+        public static final int movie3=0x7f0200cc;
+        public static final int movie4=0x7f0200cd;
+        public static final int movie5=0x7f0200ce;
+        public static final int movie6=0x7f0200cf;
+        public static final int movie7=0x7f0200d0;
+        public static final int movie8=0x7f0200d1;
+        public static final int movie9=0x7f0200d2;
+        public static final int movie_icon=0x7f0200d3;
+        public static final int movieicon=0x7f0200d4;
+        public static final int movies_btn_style=0x7f0200d5;
+        public static final int movies_off=0x7f0200d6;
+        public static final int movies_on=0x7f0200d7;
+        public static final int music=0x7f0200d8;
+        public static final int music00=0x7f0200d9;
+        public static final int music01=0x7f0200da;
+        public static final int music02=0x7f0200db;
+        public static final int music1=0x7f0200dc;
+        public static final int music2=0x7f0200dd;
+        public static final int music3=0x7f0200de;
+        public static final int music4=0x7f0200df;
+        public static final int music5=0x7f0200e0;
+        public static final int music_icon=0x7f0200e1;
+        public static final int music_videos_btn_style=0x7f0200e2;
+        public static final int musicbg=0x7f0200e3;
+        public static final int musicicon=0x7f0200e4;
+        public static final int musicoverlay=0x7f0200e5;
+        public static final int musicvideo_icon=0x7f0200e6;
+        public static final int musicvideoicon=0x7f0200e7;
+        public static final int musicvideos_off=0x7f0200e8;
+        public static final int musicvideos_on=0x7f0200e9;
+        public static final int network=0x7f0200ea;
+        public static final int next00=0x7f0200eb;
+        public static final int next01=0x7f0200ec;
+        public static final int noimage=0x7f0200ed;
+        public static final int ok_btn_style=0x7f0200ee;
+        public static final int ok_off=0x7f0200ef;
+        public static final int ok_on=0x7f0200f0;
+        public static final int orient_logo=0x7f0200f1;
+        public static final int pause00=0x7f0200f2;
+        public static final int pause01=0x7f0200f3;
+        public static final int photo=0x7f0200f4;
+        public static final int pic1=0x7f0200f5;
+        public static final int pic2=0x7f0200f6;
+        public static final int pic3=0x7f0200f7;
+        public static final int pic4=0x7f0200f8;
+        public static final int pic5=0x7f0200f9;
+        public static final int pic6=0x7f0200fa;
+        public static final int pictures=0x7f0200fb;
+        public static final int pictures_bg=0x7f0200fc;
+        public static final int pictures_bg_trans2=0x7f0200fd;
+        public static final int pictures_icon=0x7f0200fe;
+        public static final int picturesicon=0x7f0200ff;
+        public static final int play00=0x7f020100;
+        public static final int play01=0x7f020101;
+        public static final int plus=0x7f020102;
+        public static final int prev00=0x7f020103;
+        public static final int prev01=0x7f020104;
+        public static final int recent=0x7f020105;
+        public static final int recent00=0x7f020106;
+        public static final int recent01=0x7f020107;
+        public static final int recent02=0x7f020108;
+        public static final int recentmusic=0x7f020109;
+        public static final int recentpictures=0x7f02010a;
+        public static final int return_btn_style=0x7f02010b;
+        public static final int return_off=0x7f02010c;
+        public static final int return_on=0x7f02010d;
+        public static final int selectlarge=0x7f02010e;
+        public static final int selectmedium=0x7f02010f;
+        public static final int selector_tv=0x7f020110;
+        public static final int selectsmall=0x7f020111;
+        public static final int settings=0x7f020112;
+        public static final int smalltile=0x7f020113;
+        public static final int ssnext=0x7f020114;
+        public static final int sspause=0x7f020115;
+        public static final int ssplay=0x7f020116;
+        public static final int ssprev=0x7f020117;
+        public static final int test_xhdpi=0x7f020118;
+        public static final int text_favorites=0x7f020119;
+        public static final int text_musictitle=0x7f02011a;
+        public static final int text_ontv=0x7f02011b;
+        public static final int text_picturestitle=0x7f02011c;
+        public static final int text_recentmusic=0x7f02011d;
+        public static final int text_recentpictures=0x7f02011e;
+        public static final int text_recentvideos=0x7f02011f;
+        public static final int text_step1=0x7f020120;
+        public static final int text_step2=0x7f020121;
+        public static final int text_step3=0x7f020122;
+        public static final int text_videostitle=0x7f020123;
+        public static final int thumb=0x7f020124;
+        public static final int tile_favorite_style=0x7f020125;
+        public static final int tile_music_style=0x7f020126;
+        public static final int tile_recent_style=0x7f020127;
+        public static final int tile_selector_style=0x7f020128;
+        public static final int tile_videos_style=0x7f020129;
+        public static final int tv=0x7f02012a;
+        public static final int tv1=0x7f02012b;
+        public static final int tv_btn_style=0x7f02012c;
+        public static final int tv_off=0x7f02012d;
+        public static final int tv_on=0x7f02012e;
+        public static final int tv_shows_btn_style=0x7f02012f;
+        public static final int tvshow_icon=0x7f020130;
+        public static final int tvshowicon=0x7f020131;
+        public static final int tvshows_off=0x7f020132;
+        public static final int tvshows_on=0x7f020133;
+        public static final int usb_off=0x7f020134;
+        public static final int usb_on=0x7f020135;
+        public static final int usboff=0x7f020136;
+        public static final int usbon=0x7f020137;
+        public static final int video_addsource_btn_style=0x7f020138;
+        public static final int video_addsource_off=0x7f020139;
+        public static final int video_addsource_on=0x7f02013a;
+        public static final int video_bg=0x7f02013b;
+        public static final int video_bgoverlay=0x7f02013c;
+        public static final int videos=0x7f02013d;
+        public static final int videos00=0x7f02013e;
+        public static final int videos01=0x7f02013f;
+        public static final int videos02=0x7f020140;
+        public static final int vpi__tab_indicator=0x7f020141;
+        public static final int vpi__tab_selected_focused_holo=0x7f020142;
+        public static final int vpi__tab_selected_holo=0x7f020143;
+        public static final int vpi__tab_selected_pressed_holo=0x7f020144;
+        public static final int vpi__tab_unselected_focused_holo=0x7f020145;
+        public static final int vpi__tab_unselected_holo=0x7f020146;
+        public static final int vpi__tab_unselected_pressed_holo=0x7f020147;
+        public static final int weather1=0x7f020148;
     }
     public static final class id {
-        public static final int AddSourceLayout=0x7f0500ab;
-        public static final int BtnFavorite=0x7f050078;
-        public static final int BtnMusic=0x7f050077;
-        public static final int BtnRecent=0x7f050076;
-        public static final int BtnVideos=0x7f05007a;
-        public static final int ChannelLogo01=0x7f05007c;
-        public static final int ChannelLogo02=0x7f050080;
-        public static final int ChannelLogo03=0x7f050084;
-        public static final int ChannelLogo04=0x7f050089;
-        public static final int ChannelLogo05=0x7f05008d;
-        public static final int ChannelLogo06=0x7f050091;
-        public static final int ChannelLogo07=0x7f050095;
-        public static final int ChannelLogo08=0x7f050097;
-        public static final int ChannelLogo09=0x7f050099;
-        public static final int ContentFragmentLayout=0x7f05009f;
-        public static final int DirectoryLayout=0x7f05003e;
-        public static final int FragmentTitle=0x7f050073;
-        public static final int LayoutContent01=0x7f05004a;
-        public static final int LayoutContent02=0x7f050054;
-        public static final int LayoutContent03=0x7f05005b;
-        public static final int LayoutContent04=0x7f050065;
-        public static final int LayoutContent05=0x7f05006c;
-        public static final int LayoutContentSub01=0x7f05007b;
-        public static final int LayoutContentSub02=0x7f050088;
-        public static final int LayoutMain=0x7f050049;
-        public static final int LinearLayout01=0x7f0500aa;
-        public static final int MusicOptions=0x7f050075;
-        public static final int OptionsLayout=0x7f0500a1;
-        public static final int PhotosOptions=0x7f050074;
-        public static final int PieControlLayout=0x7f0500a4;
-        public static final int PieControlLayoutHandle=0x7f0500a6;
-        public static final int ShowDuration01=0x7f05007e;
-        public static final int ShowDuration02=0x7f050082;
-        public static final int ShowDuration03=0x7f050086;
-        public static final int ShowDuration04=0x7f05008b;
-        public static final int ShowDuration05=0x7f05008f;
-        public static final int ShowDuration06=0x7f050093;
-        public static final int ShowTitle01=0x7f05007d;
-        public static final int ShowTitle02=0x7f050081;
-        public static final int ShowTitle03=0x7f050085;
-        public static final int ShowTitle04=0x7f05008a;
-        public static final int ShowTitle05=0x7f05008e;
-        public static final int ShowTitle06=0x7f050092;
-        public static final int ShowTitle07=0x7f050096;
-        public static final int ShowTitle08=0x7f050098;
-        public static final int ShowTitle09=0x7f05009a;
-        public static final int VideosOptions=0x7f050079;
+        public static final int AddSourceLayout=0x7f0500d8;
+        public static final int BtnFavorite=0x7f050096;
+        public static final int BtnMusic=0x7f050095;
+        public static final int BtnRecent=0x7f050094;
+        public static final int BtnVideos=0x7f050099;
+        public static final int ChannelIcon=0x7f050056;
+        public static final int ChannelLogo=0x7f0500cb;
+        public static final int ChannelLogo01=0x7f0500a6;
+        public static final int ChannelLogo02=0x7f0500aa;
+        public static final int ChannelLogo03=0x7f0500ae;
+        public static final int ChannelLogo04=0x7f0500b3;
+        public static final int ChannelLogo05=0x7f0500b7;
+        public static final int ChannelLogo06=0x7f0500bb;
+        public static final int ChannelLogo07=0x7f0500bf;
+        public static final int ChannelLogo08=0x7f0500c1;
+        public static final int ChannelLogo09=0x7f0500c3;
+        public static final int ChannelManagerLayout=0x7f0500d6;
+        public static final int ChannelNum=0x7f050054;
+        public static final int ChannelTitle=0x7f050055;
+        public static final int ContentFragmentLayout=0x7f0500d0;
+        public static final int DirectoryLayout=0x7f05004d;
+        public static final int FragmentTitle=0x7f05008e;
+        public static final int LayoutAdds=0x7f0500a4;
+        public static final int LayoutContent01=0x7f050065;
+        public static final int LayoutContent02=0x7f05006f;
+        public static final int LayoutContent03=0x7f050076;
+        public static final int LayoutContent04=0x7f050080;
+        public static final int LayoutContent05=0x7f050087;
+        public static final int LayoutContentSub01=0x7f0500a5;
+        public static final int LayoutContentSub02=0x7f0500b2;
+        public static final int LayoutLeftContent=0x7f050090;
+        public static final int LayoutMain=0x7f050064;
+        public static final int LayoutMiddleContent=0x7f050091;
+        public static final int LayoutRightContent=0x7f050092;
+        public static final int LayoutSource=0x7f0500a1;
+        public static final int LayoutTv=0x7f05009f;
+        public static final int LinearLayout01=0x7f0500d5;
+        public static final int ListviewLayout=0x7f05009b;
+        public static final int MainLayout=0x7f05009a;
+        public static final int MusicOptions=0x7f050093;
+        public static final int OkBtn=0x7f05005a;
+        public static final int Options=0x7f0500a2;
+        public static final int OptionsLayout=0x7f0500d2;
+        public static final int PhotosOptions=0x7f050097;
+        public static final int PieControlLayout=0x7f050043;
+        public static final int PieControlLayoutHandle=0x7f050046;
+        public static final int ShowDuration01=0x7f0500a8;
+        public static final int ShowDuration02=0x7f0500ac;
+        public static final int ShowDuration03=0x7f0500b0;
+        public static final int ShowDuration04=0x7f0500b5;
+        public static final int ShowDuration05=0x7f0500b9;
+        public static final int ShowDuration06=0x7f0500bd;
+        public static final int ShowTime=0x7f0500cd;
+        public static final int ShowTitle=0x7f0500cc;
+        public static final int ShowTitle01=0x7f0500a7;
+        public static final int ShowTitle02=0x7f0500ab;
+        public static final int ShowTitle03=0x7f0500af;
+        public static final int ShowTitle04=0x7f0500b4;
+        public static final int ShowTitle05=0x7f0500b8;
+        public static final int ShowTitle06=0x7f0500bc;
+        public static final int ShowTitle07=0x7f0500c0;
+        public static final int ShowTitle08=0x7f0500c2;
+        public static final int ShowTitle09=0x7f0500c4;
+        public static final int SourceTv=0x7f0500a3;
+        public static final int Spinner_Region=0x7f05009d;
+        public static final int Text_Select_Channel=0x7f050058;
+        public static final int Text_Select_Channel_Number=0x7f050059;
+        public static final int Text_Select_Region=0x7f050057;
+        public static final int TvStream=0x7f0500a0;
+        public static final int VideosOptions=0x7f05008f;
         public static final int abs__action_bar=0x7f050029;
         public static final int abs__action_bar_container=0x7f050028;
         public static final int abs__action_bar_subtitle=0x7f05001a;
@@ -1573,94 +1618,116 @@ containing a value of this type.
         public static final int abs__textButton=0x7f05001c;
         public static final int abs__title=0x7f050024;
         public static final int abs__up=0x7f050010;
-        public static final int action_settings=0x7f0500ae;
-        public static final int add=0x7f05009b;
-        public static final int apps_grid=0x7f0500a0;
+        public static final int action_settings=0x7f0500db;
+        public static final int add=0x7f0500c5;
+        public static final int albumMainGrid=0x7f050060;
+        public static final int albumName=0x7f050062;
+        public static final int albumRelativeLayout=0x7f050047;
+        public static final int apps_grid=0x7f0500d1;
         public static final int bottom=0x7f050003;
         public static final int bottomToTop=0x7f050016;
-        public static final int btnChoose=0x7f050045;
-        public static final int btn_add_source=0x7f050044;
-        public static final int btn_browse=0x7f05003c;
-        public static final int directoryFragment=0x7f05003f;
-        public static final int directoryList=0x7f0500ac;
+        public static final int btnChoose=0x7f05005b;
+        public static final int btn_add_source=0x7f050052;
+        public static final int btn_browse=0x7f05004b;
+        public static final int btnnext=0x7f050040;
+        public static final int btnplay=0x7f05003e;
+        public static final int btnprev=0x7f05003f;
+        public static final int buttonsPanel=0x7f05003d;
+        public static final int datepicker=0x7f05009c;
+        public static final int directoryFragment=0x7f05004e;
+        public static final int directoryList=0x7f0500d9;
         public static final int disableHome=0x7f05000e;
-        public static final int download_app=0x7f0500a2;
+        public static final int download_app=0x7f0500d3;
         public static final int edit_query=0x7f05002f;
+        public static final int expandImagebackground=0x7f05003b;
+        public static final int expanded_image=0x7f05003c;
+        public static final int glPhotos=0x7f050049;
+        public static final int gridView=0x7f050098;
         public static final int homeAsUp=0x7f05000b;
-        public static final int icon=0x7f050047;
-        public static final int image1=0x7f05004b;
-        public static final int image10=0x7f050069;
-        public static final int image11=0x7f05006d;
-        public static final int image12=0x7f050070;
-        public static final int image2=0x7f05004e;
-        public static final int image3=0x7f050051;
-        public static final int image4=0x7f050055;
-        public static final int image5=0x7f050058;
-        public static final int image6=0x7f05005c;
-        public static final int image7=0x7f05005f;
-        public static final int image8=0x7f050062;
-        public static final int image9=0x7f050066;
-        public static final int imageCategory1=0x7f05004d;
-        public static final int imageCategory10=0x7f05006b;
-        public static final int imageCategory11=0x7f05006f;
-        public static final int imageCategory12=0x7f050072;
-        public static final int imageCategory2=0x7f050050;
-        public static final int imageCategory3=0x7f050053;
-        public static final int imageCategory4=0x7f050057;
-        public static final int imageCategory5=0x7f05005a;
-        public static final int imageCategory6=0x7f05005e;
-        public static final int imageCategory7=0x7f050061;
-        public static final int imageCategory8=0x7f050064;
-        public static final int imageCategory9=0x7f050068;
-        public static final int imageHover1=0x7f05004c;
-        public static final int imageHover10=0x7f05006a;
-        public static final int imageHover11=0x7f05006e;
-        public static final int imageHover12=0x7f050071;
-        public static final int imageHover2=0x7f05004f;
-        public static final int imageHover3=0x7f050052;
-        public static final int imageHover4=0x7f050056;
-        public static final int imageHover5=0x7f050059;
-        public static final int imageHover6=0x7f05005d;
-        public static final int imageHover7=0x7f050060;
-        public static final int imageHover8=0x7f050063;
-        public static final int imageHover9=0x7f050067;
-        public static final int indicator=0x7f0500a9;
-        public static final int lblListItem=0x7f050046;
+        public static final int icon=0x7f05005d;
+        public static final int image=0x7f0500c9;
+        public static final int image1=0x7f050066;
+        public static final int image10=0x7f050084;
+        public static final int image11=0x7f050088;
+        public static final int image12=0x7f05008b;
+        public static final int image2=0x7f050069;
+        public static final int image3=0x7f05006c;
+        public static final int image4=0x7f050070;
+        public static final int image5=0x7f050073;
+        public static final int image6=0x7f050077;
+        public static final int image7=0x7f05007a;
+        public static final int image8=0x7f05007d;
+        public static final int image9=0x7f050081;
+        public static final int imageCategory1=0x7f050068;
+        public static final int imageCategory10=0x7f050086;
+        public static final int imageCategory11=0x7f05008a;
+        public static final int imageCategory12=0x7f05008d;
+        public static final int imageCategory2=0x7f05006b;
+        public static final int imageCategory3=0x7f05006e;
+        public static final int imageCategory4=0x7f050072;
+        public static final int imageCategory5=0x7f050075;
+        public static final int imageCategory6=0x7f050079;
+        public static final int imageCategory7=0x7f05007c;
+        public static final int imageCategory8=0x7f05007f;
+        public static final int imageCategory9=0x7f050083;
+        public static final int imageHover=0x7f0500ca;
+        public static final int imageHover1=0x7f050067;
+        public static final int imageHover10=0x7f050085;
+        public static final int imageHover11=0x7f050089;
+        public static final int imageHover12=0x7f05008c;
+        public static final int imageHover2=0x7f05006a;
+        public static final int imageHover3=0x7f05006d;
+        public static final int imageHover4=0x7f050071;
+        public static final int imageHover5=0x7f050074;
+        public static final int imageHover6=0x7f050078;
+        public static final int imageHover7=0x7f05007b;
+        public static final int imageHover8=0x7f05007e;
+        public static final int imageHover9=0x7f050082;
+        public static final int indicator=0x7f050042;
+        public static final int lblListItem=0x7f05005c;
         public static final int leftToRight=0x7f050017;
+        public static final int list=0x7f05009e;
         public static final int listMode=0x7f050007;
-        public static final int main_layout=0x7f05009d;
+        public static final int main_layout=0x7f0500c7;
+        public static final int name=0x7f0500da;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050006;
-        public static final int okBtn=0x7f050040;
-        public static final int openLeft=0x7f0500a7;
-        public static final int pager=0x7f0500a8;
-        public static final int progressBar01=0x7f05007f;
-        public static final int progressBar02=0x7f050083;
-        public static final int progressBar03=0x7f050087;
-        public static final int progressBar04=0x7f05008c;
-        public static final int progressBar05=0x7f050090;
-        public static final int progressBar06=0x7f050094;
-        public static final int remove=0x7f05009c;
-        public static final int returnBtn=0x7f05003b;
+        public static final int okBtn=0x7f05004f;
+        public static final int openLeft=0x7f050045;
+        public static final int pager=0x7f0500d7;
+        public static final int pictureType=0x7f05005f;
+        public static final int progressBar=0x7f0500ce;
+        public static final int progressBar01=0x7f0500a9;
+        public static final int progressBar02=0x7f0500ad;
+        public static final int progressBar03=0x7f0500b1;
+        public static final int progressBar04=0x7f0500b6;
+        public static final int progressBar05=0x7f0500ba;
+        public static final int progressBar06=0x7f0500be;
+        public static final int remove=0x7f0500c6;
+        public static final int returnBtn=0x7f05004a;
         public static final int rightToLeft=0x7f050015;
-        public static final int settings_app=0x7f0500a3;
+        public static final int rlImage=0x7f0500c8;
+        public static final int settings_app=0x7f0500d4;
         public static final int showCustom=0x7f05000d;
         public static final int showHome=0x7f05000a;
         public static final int showTitle=0x7f05000c;
-        public static final int spinner_database=0x7f050043;
-        public static final int spinner_source=0x7f050042;
+        public static final int spinner_database=0x7f050053;
+        public static final int spinner_source=0x7f050051;
         public static final int tabMode=0x7f050008;
-        public static final int text=0x7f05009e;
-        public static final int text_browse=0x7f05003d;
-        public static final int text_source_name=0x7f050041;
-        public static final int title=0x7f050048;
+        public static final int text=0x7f0500cf;
+        public static final int text_browse=0x7f05004c;
+        public static final int text_source_name=0x7f050050;
+        public static final int thumbnailGrid=0x7f050063;
+        public static final int thumbnailRelInnerLayout=0x7f050061;
+        public static final int thumbnailRelMainLayout=0x7f050048;
+        public static final int title=0x7f05005e;
         public static final int top=0x7f050004;
         public static final int topToBottom=0x7f050018;
         public static final int triangle=0x7f050001;
         public static final int underline=0x7f050002;
         public static final int useLogo=0x7f050009;
-        public static final int viewpager=0x7f0500ad;
-        public static final int wheel=0x7f0500a5;
+        public static final int viewpager=0x7f050041;
+        public static final int wheel=0x7f050044;
         public static final int wrap_content=0x7f050005;
     }
     public static final class integer {
@@ -1693,48 +1760,71 @@ containing a value of this type.
         public static final int abs__search_dropdown_item_icons_2line=0x7f030012;
         public static final int abs__search_view=0x7f030013;
         public static final int abs__simple_dropdown_hint=0x7f030014;
-        public static final int add_source=0x7f030015;
-        public static final int chooser_list=0x7f030016;
-        public static final int collapsible_edittext=0x7f030017;
-        public static final int dir_list_item=0x7f030018;
-        public static final int dir_list_row=0x7f030019;
-        public static final int fragment_favorites_layout=0x7f03001a;
-        public static final int fragment_recent_music_layout=0x7f03001b;
-        public static final int fragment_recent_pictures_layout=0x7f03001c;
-        public static final int fragment_recent_videos_layout=0x7f03001d;
-        public static final int fragment_tab_albums_layout=0x7f03001e;
-        public static final int fragment_tab_mixes_layout=0x7f03001f;
-        public static final int fragment_tab_movies_layout=0x7f030020;
-        public static final int fragment_tab_music_layout=0x7f030021;
-        public static final int fragment_tab_musicvideos_layout=0x7f030022;
-        public static final int fragment_tab_photos_layout=0x7f030023;
-        public static final int fragment_tab_tvshows_layout=0x7f030024;
-        public static final int fragment_tvguide_layout=0x7f030025;
-        public static final int fragment_widget=0x7f030026;
-        public static final int list_item=0x7f030027;
-        public static final int list_item_icon_text=0x7f030028;
-        public static final int section_app=0x7f030029;
-        public static final int section_dashboard=0x7f03002a;
-        public static final int section_music=0x7f03002b;
-        public static final int section_picture=0x7f03002c;
-        public static final int section_videos=0x7f03002d;
-        public static final int selected_dir=0x7f03002e;
-        public static final int sherlock_spinner_dropdown_item=0x7f03002f;
-        public static final int sherlock_spinner_item=0x7f030030;
-        public static final int tab_music_layout=0x7f030031;
-        public static final int tab_pictures_layout=0x7f030032;
-        public static final int tab_videos_layout=0x7f030033;
+        public static final int activity_album_pictures=0x7f030015;
+        public static final int activity_album_pictures_fragment=0x7f030016;
+        public static final int add_source_music=0x7f030017;
+        public static final int add_source_videos=0x7f030018;
+        public static final int channelsetup_list_row=0x7f030019;
+        public static final int channelsetup_manager=0x7f03001a;
+        public static final int chooser_list=0x7f03001b;
+        public static final int collapsible_edittext=0x7f03001c;
+        public static final int dir_list_item=0x7f03001d;
+        public static final int dir_list_row=0x7f03001e;
+        public static final int fragment_albums_main_layout=0x7f03001f;
+        public static final int fragment_favorites_layout=0x7f030020;
+        public static final int fragment_photos_main_layout=0x7f030021;
+        public static final int fragment_recent_music_layout=0x7f030022;
+        public static final int fragment_recent_pictures_layout=0x7f030023;
+        public static final int fragment_recent_videos_layout=0x7f030024;
+        public static final int fragment_tab_album_layout=0x7f030025;
+        public static final int fragment_tab_albums_layout=0x7f030026;
+        public static final int fragment_tab_artist_layout=0x7f030027;
+        public static final int fragment_tab_comingup_layout=0x7f030028;
+        public static final int fragment_tab_genre_layout=0x7f030029;
+        public static final int fragment_tab_movies_layout=0x7f03002a;
+        public static final int fragment_tab_music_filemanager_layout=0x7f03002b;
+        public static final int fragment_tab_musicvideos_layout=0x7f03002c;
+        public static final int fragment_tab_nowshowing_layout=0x7f03002d;
+        public static final int fragment_tab_photos_layout=0x7f03002e;
+        public static final int fragment_tab_tvguide_layout=0x7f03002f;
+        public static final int fragment_tab_tvshows_layout=0x7f030030;
+        public static final int fragment_tab_videos_filemanager_layout=0x7f030031;
+        public static final int fragment_tvguide_layout=0x7f030032;
+        public static final int fragment_widget=0x7f030033;
+        public static final int gridview_nowshowing=0x7f030034;
+        public static final int gridview_tvguide=0x7f030035;
+        public static final int gridview_upcoming=0x7f030036;
+        public static final int list_item=0x7f030037;
+        public static final int list_item_icon_text=0x7f030038;
+        public static final int section_album_pictures=0x7f030039;
+        public static final int section_app=0x7f03003a;
+        public static final int section_channel_setup=0x7f03003b;
+        public static final int section_dashboard=0x7f03003c;
+        public static final int section_music=0x7f03003d;
+        public static final int section_picture=0x7f03003e;
+        public static final int section_videos=0x7f03003f;
+        public static final int selected_dir=0x7f030040;
+        public static final int sherlock_spinner_dropdown_item=0x7f030041;
+        public static final int sherlock_spinner_item=0x7f030042;
+        public static final int spinner_region_row=0x7f030043;
+        public static final int tab_channel_setup=0x7f030044;
+        public static final int tab_music_layout=0x7f030045;
+        public static final int tab_pictures_layout=0x7f030046;
+        public static final int tab_videos_layout=0x7f030047;
     }
     public static final class menu {
         public static final int app_section=0x7f0c0000;
         public static final int main=0x7f0c0001;
         public static final int music_section=0x7f0c0002;
         public static final int picture_section=0x7f0c0003;
-        public static final int videos_section=0x7f0c0004;
+        public static final int section_album_pictures=0x7f0c0004;
+        public static final int section_channel_setup=0x7f0c0005;
+        public static final int videos_section=0x7f0c0006;
     }
     public static final class string {
         public static final int GPSAlertDialogMessage=0x7f0b0010;
         public static final int GPSAlertDialogTitle=0x7f0b000f;
+        public static final int ImageQuality=0x7f0b001c;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abs__action_bar_home_description=0x7f0b0000;
@@ -1780,10 +1870,15 @@ containing a value of this type.
         public static final int cancel=0x7f0b0012;
         public static final int city=0x7f0b0016;
         public static final int country=0x7f0b0015;
+        public static final int hello_world=0x7f0b001e;
         public static final int latitude=0x7f0b0013;
         public static final int longitude=0x7f0b0014;
         public static final int postalCode=0x7f0b0017;
         public static final int settings=0x7f0b0011;
+        public static final int thumbHeight=0x7f0b001a;
+        public static final int thumbWidth=0x7f0b0019;
+        public static final int thumbquality=0x7f0b001b;
+        public static final int title_activity_section_channel_setup=0x7f0b001d;
     }
     public static final class style {
         /** 
@@ -1913,8 +2008,8 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #CirclePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_android_orientation android:orientation}</code></td><td> Orientation of the indicator.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_android_background com.tvdashboard.database:android_background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_android_orientation com.tvdashboard.database:android_orientation}</code></td><td> Orientation of the indicator.</td></tr>
            <tr><td><code>{@link #CirclePageIndicator_centered com.tvdashboard.database:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
            <tr><td><code>{@link #CirclePageIndicator_fillColor com.tvdashboard.database:fillColor}</code></td><td> Color of the filled circle that represents the current page.</td></tr>
            <tr><td><code>{@link #CirclePageIndicator_pageColor com.tvdashboard.database:pageColor}</code></td><td> Color of the filled circles that represents pages.</td></tr>
@@ -1942,18 +2037,16 @@ containing a value of this type.
           <p>
           @attr description
            View background 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#background}.
-          @attr name android:background
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_background}.
+          @attr name android:android_background
         */
         public static final int CirclePageIndicator_android_background = 1;
         /**
           <p>
           @attr description
            Orientation of the indicator. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#orientation}.
-          @attr name android:orientation
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_orientation}.
+          @attr name android:android_orientation
         */
         public static final int CirclePageIndicator_android_orientation = 0;
         /**
@@ -1969,7 +2062,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:centered
+          @attr name android:centered
         */
         public static final int CirclePageIndicator_centered = 2;
         /**
@@ -1986,7 +2079,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:fillColor
+          @attr name android:fillColor
         */
         public static final int CirclePageIndicator_fillColor = 4;
         /**
@@ -2003,7 +2096,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:pageColor
+          @attr name android:pageColor
         */
         public static final int CirclePageIndicator_pageColor = 5;
         /**
@@ -2021,7 +2114,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:radius
+          @attr name android:radius
         */
         public static final int CirclePageIndicator_radius = 6;
         /**
@@ -2037,7 +2130,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:snap
+          @attr name android:snap
         */
         public static final int CirclePageIndicator_snap = 7;
         /**
@@ -2054,7 +2147,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:strokeColor
+          @attr name android:strokeColor
         */
         public static final int CirclePageIndicator_strokeColor = 8;
         /**
@@ -2072,7 +2165,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:strokeWidth
+          @attr name android:strokeWidth
         */
         public static final int CirclePageIndicator_strokeWidth = 3;
         /** Attributes that can be used with a LinePageIndicator.
@@ -2081,7 +2174,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #LinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #LinePageIndicator_android_background com.tvdashboard.database:android_background}</code></td><td> View background </td></tr>
            <tr><td><code>{@link #LinePageIndicator_centered com.tvdashboard.database:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
            <tr><td><code>{@link #LinePageIndicator_gapWidth com.tvdashboard.database:gapWidth}</code></td><td> Width of the gap between each indicator line.</td></tr>
            <tr><td><code>{@link #LinePageIndicator_lineWidth com.tvdashboard.database:lineWidth}</code></td><td> Width of each indicator line.</td></tr>
@@ -2105,9 +2198,8 @@ containing a value of this type.
           <p>
           @attr description
            View background 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#background}.
-          @attr name android:background
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_background}.
+          @attr name android:android_background
         */
         public static final int LinePageIndicator_android_background = 0;
         /**
@@ -2123,7 +2215,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:centered
+          @attr name android:centered
         */
         public static final int LinePageIndicator_centered = 1;
         /**
@@ -2141,7 +2233,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:gapWidth
+          @attr name android:gapWidth
         */
         public static final int LinePageIndicator_gapWidth = 6;
         /**
@@ -2159,7 +2251,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:lineWidth
+          @attr name android:lineWidth
         */
         public static final int LinePageIndicator_lineWidth = 5;
         /**
@@ -2176,7 +2268,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:selectedColor
+          @attr name android:selectedColor
         */
         public static final int LinePageIndicator_selectedColor = 2;
         /**
@@ -2194,7 +2286,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:strokeWidth
+          @attr name android:strokeWidth
         */
         public static final int LinePageIndicator_strokeWidth = 3;
         /**
@@ -2211,7 +2303,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:unselectedColor
+          @attr name android:unselectedColor
         */
         public static final int LinePageIndicator_unselectedColor = 4;
         /**  Attributes used to style the Action Bar. 
@@ -2279,7 +2371,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:background
+          @attr name android:background
         */
         public static final int SherlockActionBar_background = 2;
         /**
@@ -2293,7 +2385,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:backgroundSplit
+          @attr name android:backgroundSplit
         */
         public static final int SherlockActionBar_backgroundSplit = 3;
         /**
@@ -2307,7 +2399,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:backgroundStacked
+          @attr name android:backgroundStacked
         */
         public static final int SherlockActionBar_backgroundStacked = 12;
         /**
@@ -2319,7 +2411,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:customNavigationLayout
+          @attr name android:customNavigationLayout
         */
         public static final int SherlockActionBar_customNavigationLayout = 13;
         /**
@@ -2342,7 +2434,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>disableHome</code></td><td>0x20</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:displayOptions
+          @attr name android:displayOptions
         */
         public static final int SherlockActionBar_displayOptions = 7;
         /**
@@ -2354,7 +2446,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:divider
+          @attr name android:divider
         */
         public static final int SherlockActionBar_divider = 5;
         /**
@@ -2372,7 +2464,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:height
+          @attr name android:height
         */
         public static final int SherlockActionBar_height = 4;
         /**
@@ -2384,7 +2476,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:homeLayout
+          @attr name android:homeLayout
         */
         public static final int SherlockActionBar_homeLayout = 14;
         /**
@@ -2396,7 +2488,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:icon
+          @attr name android:icon
         */
         public static final int SherlockActionBar_icon = 10;
         /**
@@ -2408,7 +2500,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:indeterminateProgressStyle
+          @attr name android:indeterminateProgressStyle
         */
         public static final int SherlockActionBar_indeterminateProgressStyle = 16;
         /**
@@ -2427,7 +2519,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:itemPadding
+          @attr name android:itemPadding
         */
         public static final int SherlockActionBar_itemPadding = 18;
         /**
@@ -2439,7 +2531,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:logo
+          @attr name android:logo
         */
         public static final int SherlockActionBar_logo = 11;
         /**
@@ -2459,7 +2551,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>tabMode</code></td><td>2</td><td> The action bar will use a series of horizontal tabs for navigation. </td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:navigationMode
+          @attr name android:navigationMode
         */
         public static final int SherlockActionBar_navigationMode = 6;
         /**
@@ -2477,7 +2569,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:progressBarPadding
+          @attr name android:progressBarPadding
         */
         public static final int SherlockActionBar_progressBarPadding = 17;
         /**
@@ -2489,7 +2581,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:progressBarStyle
+          @attr name android:progressBarStyle
         */
         public static final int SherlockActionBar_progressBarStyle = 15;
         /**
@@ -2505,7 +2597,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:subtitle
+          @attr name android:subtitle
         */
         public static final int SherlockActionBar_subtitle = 9;
         /**
@@ -2517,7 +2609,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:subtitleTextStyle
+          @attr name android:subtitleTextStyle
         */
         public static final int SherlockActionBar_subtitleTextStyle = 1;
         /**
@@ -2533,7 +2625,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:title
+          @attr name android:title
         */
         public static final int SherlockActionBar_title = 8;
         /**
@@ -2545,7 +2637,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:titleTextStyle
+          @attr name android:titleTextStyle
         */
         public static final int SherlockActionBar_titleTextStyle = 0;
         /** Attributes that can be used with a SherlockActionMenuItemView.
@@ -2554,7 +2646,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockActionMenuItemView_android_minWidth android:minWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActionMenuItemView_android_minWidth com.tvdashboard.database:android_minWidth}</code></td><td></td></tr>
            </table>
            @see #SherlockActionMenuItemView_android_minWidth
          */
@@ -2562,9 +2654,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x0101013f
         };
         /**
-          <p>This symbol is the offset where the {@link android.R.attr#minWidth}
+          <p>This symbol is the offset where the {@link com.tvdashboard.database.R.attr#android_minWidth}
           attribute's value can be found in the {@link #SherlockActionMenuItemView} array.
-          @attr name android:minWidth
+          @attr name android:android_minWidth
         */
         public static final int SherlockActionMenuItemView_android_minWidth = 0;
         /** Attributes that can be used with a SherlockActionMode.
@@ -2600,7 +2692,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:background
+          @attr name android:background
         */
         public static final int SherlockActionMode_background = 2;
         /**
@@ -2614,7 +2706,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:backgroundSplit
+          @attr name android:backgroundSplit
         */
         public static final int SherlockActionMode_backgroundSplit = 3;
         /**
@@ -2632,7 +2724,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:height
+          @attr name android:height
         */
         public static final int SherlockActionMode_height = 4;
         /**
@@ -2644,7 +2736,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:subtitleTextStyle
+          @attr name android:subtitleTextStyle
         */
         public static final int SherlockActionMode_subtitleTextStyle = 1;
         /**
@@ -2656,7 +2748,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:titleTextStyle
+          @attr name android:titleTextStyle
         */
         public static final int SherlockActionMode_titleTextStyle = 0;
         /** Attributes that can be used with a SherlockActivityChooserView.
@@ -2665,7 +2757,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockActivityChooserView_android_background android:background}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockActivityChooserView_android_background com.tvdashboard.database:android_background}</code></td><td></td></tr>
            <tr><td><code>{@link #SherlockActivityChooserView_expandActivityOverflowButtonDrawable com.tvdashboard.database:expandActivityOverflowButtonDrawable}</code></td><td> The drawable to show in the button for expanding the activities overflow popup.</td></tr>
            <tr><td><code>{@link #SherlockActivityChooserView_initialActivityCount com.tvdashboard.database:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
            </table>
@@ -2677,9 +2769,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x010100d4, 0x7f01007d, 0x7f01007e
         };
         /**
-          <p>This symbol is the offset where the {@link android.R.attr#background}
+          <p>This symbol is the offset where the {@link com.tvdashboard.database.R.attr#android_background}
           attribute's value can be found in the {@link #SherlockActivityChooserView} array.
-          @attr name android:background
+          @attr name android:android_background
         */
         public static final int SherlockActivityChooserView_android_background = 0;
         /**
@@ -2696,7 +2788,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:expandActivityOverflowButtonDrawable
+          @attr name android:expandActivityOverflowButtonDrawable
         */
         public static final int SherlockActivityChooserView_expandActivityOverflowButtonDrawable = 2;
         /**
@@ -2712,7 +2804,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:initialActivityCount
+          @attr name android:initialActivityCount
         */
         public static final int SherlockActivityChooserView_initialActivityCount = 1;
         /**  Base attributes that are available to all groups. 
@@ -2721,12 +2813,12 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_checkableBehavior android:checkableBehavior}</code></td><td> Whether the items are capable of displaying a check mark.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_enabled android:enabled}</code></td><td> Whether the items are enabled.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_id android:id}</code></td><td> The ID of the group.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_menuCategory android:menuCategory}</code></td><td> The category applied to all items within this group.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_orderInCategory android:orderInCategory}</code></td><td> The order within the category applied to all items within this group.</td></tr>
-           <tr><td><code>{@link #SherlockMenuGroup_android_visible android:visible}</code></td><td> Whether the items are shown/visible.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_checkableBehavior com.tvdashboard.database:android_checkableBehavior}</code></td><td> Whether the items are capable of displaying a check mark.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_enabled com.tvdashboard.database:android_enabled}</code></td><td> Whether the items are enabled.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_id com.tvdashboard.database:android_id}</code></td><td> The ID of the group.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_menuCategory com.tvdashboard.database:android_menuCategory}</code></td><td> The category applied to all items within this group.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_orderInCategory com.tvdashboard.database:android_orderInCategory}</code></td><td> The order within the category applied to all items within this group.</td></tr>
+           <tr><td><code>{@link #SherlockMenuGroup_android_visible com.tvdashboard.database:android_visible}</code></td><td> Whether the items are shown/visible.</td></tr>
            </table>
            @see #SherlockMenuGroup_android_checkableBehavior
            @see #SherlockMenuGroup_android_enabled
@@ -2743,27 +2835,24 @@ containing a value of this type.
           <p>
           @attr description
            Whether the items are capable of displaying a check mark. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#checkableBehavior}.
-          @attr name android:checkableBehavior
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_checkableBehavior}.
+          @attr name android:android_checkableBehavior
         */
         public static final int SherlockMenuGroup_android_checkableBehavior = 5;
         /**
           <p>
           @attr description
            Whether the items are enabled. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#enabled}.
-          @attr name android:enabled
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_enabled}.
+          @attr name android:android_enabled
         */
         public static final int SherlockMenuGroup_android_enabled = 0;
         /**
           <p>
           @attr description
            The ID of the group. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#id}.
-          @attr name android:id
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_id}.
+          @attr name android:android_id
         */
         public static final int SherlockMenuGroup_android_id = 1;
         /**
@@ -2771,9 +2860,8 @@ containing a value of this type.
           @attr description
            The category applied to all items within this group.
              (This will be or'ed with the orderInCategory attribute.) 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#menuCategory}.
-          @attr name android:menuCategory
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_menuCategory}.
+          @attr name android:android_menuCategory
         */
         public static final int SherlockMenuGroup_android_menuCategory = 3;
         /**
@@ -2781,18 +2869,16 @@ containing a value of this type.
           @attr description
            The order within the category applied to all items within this group.
              (This will be or'ed with the category attribute.) 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#orderInCategory}.
-          @attr name android:orderInCategory
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_orderInCategory}.
+          @attr name android:android_orderInCategory
         */
         public static final int SherlockMenuGroup_android_orderInCategory = 4;
         /**
           <p>
           @attr description
            Whether the items are shown/visible. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#visible}.
-          @attr name android:visible
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_visible}.
+          @attr name android:android_visible
         */
         public static final int SherlockMenuGroup_android_visible = 2;
         /**  Base attributes that are available to all Item objects. 
@@ -2801,26 +2887,26 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_actionLayout android:actionLayout}</code></td><td> An optional layout to be used as an action view.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_actionProviderClass android:actionProviderClass}</code></td><td> The name of an optional ActionProvider class to instantiate an action view
+           <tr><td><code>{@link #SherlockMenuItem_android_actionLayout com.tvdashboard.database:android_actionLayout}</code></td><td> An optional layout to be used as an action view.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_actionProviderClass com.tvdashboard.database:android_actionProviderClass}</code></td><td> The name of an optional ActionProvider class to instantiate an action view
              and perform operations such as default action for that menu item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_actionViewClass android:actionViewClass}</code></td><td> The name of an optional View class to instantiate and use as an
+           <tr><td><code>{@link #SherlockMenuItem_android_actionViewClass com.tvdashboard.database:android_actionViewClass}</code></td><td> The name of an optional View class to instantiate and use as an
              action view.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_alphabeticShortcut android:alphabeticShortcut}</code></td><td> The alphabetic shortcut key.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_checkable android:checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_checked android:checked}</code></td><td> Whether the item is checked.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_enabled android:enabled}</code></td><td> Whether the item is enabled.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_icon android:icon}</code></td><td> The icon associated with this item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_id android:id}</code></td><td> The ID of the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_menuCategory android:menuCategory}</code></td><td> The category applied to the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_numericShortcut android:numericShortcut}</code></td><td> The numeric shortcut key.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_onClick android:onClick}</code></td><td> Name of a method on the Context used to inflate the menu that will be
+           <tr><td><code>{@link #SherlockMenuItem_android_alphabeticShortcut com.tvdashboard.database:android_alphabeticShortcut}</code></td><td> The alphabetic shortcut key.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_checkable com.tvdashboard.database:android_checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_checked com.tvdashboard.database:android_checked}</code></td><td> Whether the item is checked.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_enabled com.tvdashboard.database:android_enabled}</code></td><td> Whether the item is enabled.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_icon com.tvdashboard.database:android_icon}</code></td><td> The icon associated with this item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_id com.tvdashboard.database:android_id}</code></td><td> The ID of the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_menuCategory com.tvdashboard.database:android_menuCategory}</code></td><td> The category applied to the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_numericShortcut com.tvdashboard.database:android_numericShortcut}</code></td><td> The numeric shortcut key.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_onClick com.tvdashboard.database:android_onClick}</code></td><td> Name of a method on the Context used to inflate the menu that will be
              called when the item is clicked.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_orderInCategory android:orderInCategory}</code></td><td> The order within the category applied to the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_showAsAction android:showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_title android:title}</code></td><td> The title associated with the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_titleCondensed android:titleCondensed}</code></td><td> The condensed title associated with the item.</td></tr>
-           <tr><td><code>{@link #SherlockMenuItem_android_visible android:visible}</code></td><td> Whether the item is shown/visible.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_orderInCategory com.tvdashboard.database:android_orderInCategory}</code></td><td> The order within the category applied to the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_showAsAction com.tvdashboard.database:android_showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_title com.tvdashboard.database:android_title}</code></td><td> The title associated with the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_titleCondensed com.tvdashboard.database:android_titleCondensed}</code></td><td> The condensed title associated with the item.</td></tr>
+           <tr><td><code>{@link #SherlockMenuItem_android_visible com.tvdashboard.database:android_visible}</code></td><td> Whether the item is shown/visible.</td></tr>
            </table>
            @see #SherlockMenuItem_android_actionLayout
            @see #SherlockMenuItem_android_actionProviderClass
@@ -2853,9 +2939,8 @@ containing a value of this type.
            An optional layout to be used as an action view.
              See {@link android.view.MenuItem#setActionView(android.view.View)}
              for more info. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#actionLayout}.
-          @attr name android:actionLayout
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_actionLayout}.
+          @attr name android:android_actionLayout
         */
         public static final int SherlockMenuItem_android_actionLayout = 14;
         /**
@@ -2865,9 +2950,8 @@ containing a value of this type.
              and perform operations such as default action for that menu item.
              See {@link android.view.MenuItem#setActionProvider(android.view.ActionProvider)}
              for more info. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#actionProviderClass}.
-          @attr name android:actionProviderClass
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_actionProviderClass}.
+          @attr name android:android_actionProviderClass
         */
         public static final int SherlockMenuItem_android_actionProviderClass = 16;
         /**
@@ -2876,9 +2960,8 @@ containing a value of this type.
            The name of an optional View class to instantiate and use as an
              action view. See {@link android.view.MenuItem#setActionView(android.view.View)}
              for more info. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#actionViewClass}.
-          @attr name android:actionViewClass
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_actionViewClass}.
+          @attr name android:android_actionViewClass
         */
         public static final int SherlockMenuItem_android_actionViewClass = 15;
         /**
@@ -2886,18 +2969,16 @@ containing a value of this type.
           @attr description
            The alphabetic shortcut key.  This is the shortcut when using a keyboard
              with alphabetic keys. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#alphabeticShortcut}.
-          @attr name android:alphabeticShortcut
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_alphabeticShortcut}.
+          @attr name android:android_alphabeticShortcut
         */
         public static final int SherlockMenuItem_android_alphabeticShortcut = 9;
         /**
           <p>
           @attr description
            Whether the item is capable of displaying a check mark. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#checkable}.
-          @attr name android:checkable
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_checkable}.
+          @attr name android:android_checkable
         */
         public static final int SherlockMenuItem_android_checkable = 11;
         /**
@@ -2905,18 +2986,16 @@ containing a value of this type.
           @attr description
            Whether the item is checked.  Note that you must first have enabled checking with
              the checkable attribute or else the check mark will not appear. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#checked}.
-          @attr name android:checked
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_checked}.
+          @attr name android:android_checked
         */
         public static final int SherlockMenuItem_android_checked = 3;
         /**
           <p>
           @attr description
            Whether the item is enabled. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#enabled}.
-          @attr name android:enabled
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_enabled}.
+          @attr name android:android_enabled
         */
         public static final int SherlockMenuItem_android_enabled = 1;
         /**
@@ -2924,18 +3003,16 @@ containing a value of this type.
           @attr description
            The icon associated with this item.  This icon will not always be shown, so
              the title should be sufficient in describing this item. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#icon}.
-          @attr name android:icon
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_icon}.
+          @attr name android:android_icon
         */
         public static final int SherlockMenuItem_android_icon = 0;
         /**
           <p>
           @attr description
            The ID of the item. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#id}.
-          @attr name android:id
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_id}.
+          @attr name android:android_id
         */
         public static final int SherlockMenuItem_android_id = 2;
         /**
@@ -2943,9 +3020,8 @@ containing a value of this type.
           @attr description
            The category applied to the item.
              (This will be or'ed with the orderInCategory attribute.) 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#menuCategory}.
-          @attr name android:menuCategory
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_menuCategory}.
+          @attr name android:android_menuCategory
         */
         public static final int SherlockMenuItem_android_menuCategory = 5;
         /**
@@ -2953,9 +3029,8 @@ containing a value of this type.
           @attr description
            The numeric shortcut key.  This is the shortcut when using a numeric (e.g., 12-key)
              keyboard. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#numericShortcut}.
-          @attr name android:numericShortcut
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_numericShortcut}.
+          @attr name android:android_numericShortcut
         */
         public static final int SherlockMenuItem_android_numericShortcut = 10;
         /**
@@ -2963,9 +3038,8 @@ containing a value of this type.
           @attr description
            Name of a method on the Context used to inflate the menu that will be
              called when the item is clicked. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#onClick}.
-          @attr name android:onClick
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_onClick}.
+          @attr name android:android_onClick
         */
         public static final int SherlockMenuItem_android_onClick = 12;
         /**
@@ -2973,27 +3047,24 @@ containing a value of this type.
           @attr description
            The order within the category applied to the item.
              (This will be or'ed with the category attribute.) 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#orderInCategory}.
-          @attr name android:orderInCategory
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_orderInCategory}.
+          @attr name android:android_orderInCategory
         */
         public static final int SherlockMenuItem_android_orderInCategory = 6;
         /**
           <p>
           @attr description
            How this item should display in the Action Bar, if present. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#showAsAction}.
-          @attr name android:showAsAction
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_showAsAction}.
+          @attr name android:android_showAsAction
         */
         public static final int SherlockMenuItem_android_showAsAction = 13;
         /**
           <p>
           @attr description
            The title associated with the item. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#title}.
-          @attr name android:title
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_title}.
+          @attr name android:android_title
         */
         public static final int SherlockMenuItem_android_title = 7;
         /**
@@ -3001,18 +3072,16 @@ containing a value of this type.
           @attr description
            The condensed title associated with the item.  This is used in situations where the
              normal title may be too long to be displayed. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#titleCondensed}.
-          @attr name android:titleCondensed
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_titleCondensed}.
+          @attr name android:android_titleCondensed
         */
         public static final int SherlockMenuItem_android_titleCondensed = 8;
         /**
           <p>
           @attr description
            Whether the item is shown/visible. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#visible}.
-          @attr name android:visible
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_visible}.
+          @attr name android:android_visible
         */
         public static final int SherlockMenuItem_android_visible = 4;
         /** Attributes that can be used with a SherlockMenuView.
@@ -3054,7 +3123,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:headerBackground
+          @attr name android:headerBackground
         */
         public static final int SherlockMenuView_headerBackground = 3;
         /**
@@ -3066,7 +3135,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:horizontalDivider
+          @attr name android:horizontalDivider
         */
         public static final int SherlockMenuView_horizontalDivider = 1;
         /**
@@ -3080,7 +3149,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:itemBackground
+          @attr name android:itemBackground
         */
         public static final int SherlockMenuView_itemBackground = 4;
         /**
@@ -3096,7 +3165,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:itemIconDisabledAlpha
+          @attr name android:itemIconDisabledAlpha
         */
         public static final int SherlockMenuView_itemIconDisabledAlpha = 6;
         /**
@@ -3108,7 +3177,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:itemTextAppearance
+          @attr name android:itemTextAppearance
         */
         public static final int SherlockMenuView_itemTextAppearance = 0;
         /**
@@ -3124,7 +3193,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:preserveIconSpacing
+          @attr name android:preserveIconSpacing
         */
         public static final int SherlockMenuView_preserveIconSpacing = 7;
         /**
@@ -3136,7 +3205,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:verticalDivider
+          @attr name android:verticalDivider
         */
         public static final int SherlockMenuView_verticalDivider = 2;
         /**
@@ -3148,7 +3217,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:windowAnimationStyle
+          @attr name android:windowAnimationStyle
         */
         public static final int SherlockMenuView_windowAnimationStyle = 5;
         /** Attributes that can be used with a SherlockSearchView.
@@ -3157,9 +3226,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockSearchView_android_imeOptions android:imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
-           <tr><td><code>{@link #SherlockSearchView_android_inputType android:inputType}</code></td><td> The input type to set on the query text field.</td></tr>
-           <tr><td><code>{@link #SherlockSearchView_android_maxWidth android:maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
+           <tr><td><code>{@link #SherlockSearchView_android_imeOptions com.tvdashboard.database:android_imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
+           <tr><td><code>{@link #SherlockSearchView_android_inputType com.tvdashboard.database:android_inputType}</code></td><td> The input type to set on the query text field.</td></tr>
+           <tr><td><code>{@link #SherlockSearchView_android_maxWidth com.tvdashboard.database:android_maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
            <tr><td><code>{@link #SherlockSearchView_iconifiedByDefault com.tvdashboard.database:iconifiedByDefault}</code></td><td> The default state of the SearchView.</td></tr>
            <tr><td><code>{@link #SherlockSearchView_queryHint com.tvdashboard.database:queryHint}</code></td><td> An optional query hint string to be displayed in the empty query field.</td></tr>
            </table>
@@ -3177,27 +3246,24 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>
           @attr description
            The IME options to set on the query text field. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#imeOptions}.
-          @attr name android:imeOptions
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_imeOptions}.
+          @attr name android:android_imeOptions
         */
         public static final int SherlockSearchView_android_imeOptions = 2;
         /**
           <p>
           @attr description
            The input type to set on the query text field. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#inputType}.
-          @attr name android:inputType
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_inputType}.
+          @attr name android:android_inputType
         */
         public static final int SherlockSearchView_android_inputType = 1;
         /**
           <p>
           @attr description
            An optional maximum width of the SearchView. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#maxWidth}.
-          @attr name android:maxWidth
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_maxWidth}.
+          @attr name android:android_maxWidth
         */
         public static final int SherlockSearchView_android_maxWidth = 0;
         /**
@@ -3214,7 +3280,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:iconifiedByDefault
+          @attr name android:iconifiedByDefault
         */
         public static final int SherlockSearchView_iconifiedByDefault = 3;
         /**
@@ -3230,7 +3296,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:queryHint
+          @attr name android:queryHint
         */
         public static final int SherlockSearchView_queryHint = 4;
         /** Attributes that can be used with a SherlockSpinner.
@@ -3239,17 +3305,17 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownHorizontalOffset android:dropDownHorizontalOffset}</code></td><td> Horizontal offset from the spinner widget for positioning the dropdown
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownHorizontalOffset com.tvdashboard.database:android_dropDownHorizontalOffset}</code></td><td> Horizontal offset from the spinner widget for positioning the dropdown
              in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownSelector android:dropDownSelector}</code></td><td> List selector to use for spinnerMode="dropdown" display.</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownVerticalOffset android:dropDownVerticalOffset}</code></td><td> Vertical offset from the spinner widget for positioning the dropdown in
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownSelector com.tvdashboard.database:android_dropDownSelector}</code></td><td> List selector to use for spinnerMode="dropdown" display.</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownVerticalOffset com.tvdashboard.database:android_dropDownVerticalOffset}</code></td><td> Vertical offset from the spinner widget for positioning the dropdown in
              spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_dropDownWidth android:dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_gravity android:gravity}</code></td><td> Gravity setting for positioning the currently selected item.</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_popupBackground android:popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_popupPromptView android:popupPromptView}</code></td><td> Reference to a layout to use for displaying a prompt in the dropdown for
+           <tr><td><code>{@link #SherlockSpinner_android_dropDownWidth com.tvdashboard.database:android_dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_gravity com.tvdashboard.database:android_gravity}</code></td><td> Gravity setting for positioning the currently selected item.</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_popupBackground com.tvdashboard.database:android_popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_popupPromptView com.tvdashboard.database:android_popupPromptView}</code></td><td> Reference to a layout to use for displaying a prompt in the dropdown for
              spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #SherlockSpinner_android_prompt android:prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
+           <tr><td><code>{@link #SherlockSpinner_android_prompt com.tvdashboard.database:android_prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
            </table>
            @see #SherlockSpinner_android_dropDownHorizontalOffset
            @see #SherlockSpinner_android_dropDownSelector
@@ -3269,18 +3335,16 @@ containing a value of this type.
           @attr description
            Horizontal offset from the spinner widget for positioning the dropdown
              in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownHorizontalOffset}.
-          @attr name android:dropDownHorizontalOffset
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_dropDownHorizontalOffset}.
+          @attr name android:android_dropDownHorizontalOffset
         */
         public static final int SherlockSpinner_android_dropDownHorizontalOffset = 5;
         /**
           <p>
           @attr description
            List selector to use for spinnerMode="dropdown" display. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownSelector}.
-          @attr name android:dropDownSelector
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_dropDownSelector}.
+          @attr name android:android_dropDownSelector
         */
         public static final int SherlockSpinner_android_dropDownSelector = 1;
         /**
@@ -3288,36 +3352,32 @@ containing a value of this type.
           @attr description
            Vertical offset from the spinner widget for positioning the dropdown in
              spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownVerticalOffset}.
-          @attr name android:dropDownVerticalOffset
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_dropDownVerticalOffset}.
+          @attr name android:android_dropDownVerticalOffset
         */
         public static final int SherlockSpinner_android_dropDownVerticalOffset = 6;
         /**
           <p>
           @attr description
            Width of the dropdown in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownWidth}.
-          @attr name android:dropDownWidth
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_dropDownWidth}.
+          @attr name android:android_dropDownWidth
         */
         public static final int SherlockSpinner_android_dropDownWidth = 4;
         /**
           <p>
           @attr description
            Gravity setting for positioning the currently selected item. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#gravity}.
-          @attr name android:gravity
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_gravity}.
+          @attr name android:android_gravity
         */
         public static final int SherlockSpinner_android_gravity = 0;
         /**
           <p>
           @attr description
            Background drawable to use for the dropdown in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#popupBackground}.
-          @attr name android:popupBackground
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_popupBackground}.
+          @attr name android:android_popupBackground
         */
         public static final int SherlockSpinner_android_popupBackground = 2;
         /**
@@ -3327,16 +3387,15 @@ containing a value of this type.
              spinnerMode="dropdown". This layout must contain a TextView with the id
              @android:id/text1 to be populated with the prompt text. 
           <p>This is a private symbol.
-          @attr name android:popupPromptView
+          @attr name android:android_popupPromptView
         */
         public static final int SherlockSpinner_android_popupPromptView = 7;
         /**
           <p>
           @attr description
            The prompt to display when the spinner's dialog is shown. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#prompt}.
-          @attr name android:prompt
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_prompt}.
+          @attr name android:android_prompt
         */
         public static final int SherlockSpinner_android_prompt = 3;
         /** Attributes that can be used with a SherlockTheme.
@@ -3513,7 +3572,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionBarDivider
+          @attr name android:actionBarDivider
         */
         public static final int SherlockTheme_actionBarDivider = 8;
         /**
@@ -3525,7 +3584,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionBarItemBackground
+          @attr name android:actionBarItemBackground
         */
         public static final int SherlockTheme_actionBarItemBackground = 9;
         /**
@@ -3552,7 +3611,7 @@ containing a value of this type.
 <tr><td><code>wrap_content</code></td><td>0</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionBarSize
+          @attr name android:actionBarSize
         */
         public static final int SherlockTheme_actionBarSize = 7;
         /**
@@ -3567,7 +3626,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionBarSplitStyle
+          @attr name android:actionBarSplitStyle
         */
         public static final int SherlockTheme_actionBarSplitStyle = 5;
         /**
@@ -3579,7 +3638,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionBarStyle
+          @attr name android:actionBarStyle
         */
         public static final int SherlockTheme_actionBarStyle = 4;
         /**
@@ -3589,7 +3648,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:actionBarTabBarStyle
+          @attr name android:actionBarTabBarStyle
         */
         public static final int SherlockTheme_actionBarTabBarStyle = 1;
         /**
@@ -3601,7 +3660,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionBarTabStyle
+          @attr name android:actionBarTabStyle
         */
         public static final int SherlockTheme_actionBarTabStyle = 0;
         /**
@@ -3611,7 +3670,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:actionBarTabTextStyle
+          @attr name android:actionBarTabTextStyle
         */
         public static final int SherlockTheme_actionBarTabTextStyle = 2;
         /**
@@ -3629,7 +3688,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionBarWidgetTheme
+          @attr name android:actionBarWidgetTheme
         */
         public static final int SherlockTheme_actionBarWidgetTheme = 6;
         /**
@@ -3639,7 +3698,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:actionButtonStyle
+          @attr name android:actionButtonStyle
         */
         public static final int SherlockTheme_actionButtonStyle = 52;
         /**
@@ -3649,7 +3708,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:actionDropDownStyle
+          @attr name android:actionDropDownStyle
         */
         public static final int SherlockTheme_actionDropDownStyle = 51;
         /**
@@ -3662,7 +3721,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionMenuTextAppearance
+          @attr name android:actionMenuTextAppearance
         */
         public static final int SherlockTheme_actionMenuTextAppearance = 10;
         /**
@@ -3676,7 +3735,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionMenuTextColor
+          @attr name android:actionMenuTextColor
         */
         public static final int SherlockTheme_actionMenuTextColor = 11;
         /**
@@ -3688,7 +3747,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionModeBackground
+          @attr name android:actionModeBackground
         */
         public static final int SherlockTheme_actionModeBackground = 14;
         /**
@@ -3698,7 +3757,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:actionModeCloseButtonStyle
+          @attr name android:actionModeCloseButtonStyle
         */
         public static final int SherlockTheme_actionModeCloseButtonStyle = 13;
         /**
@@ -3710,7 +3769,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionModeCloseDrawable
+          @attr name android:actionModeCloseDrawable
         */
         public static final int SherlockTheme_actionModeCloseDrawable = 16;
         /**
@@ -3722,7 +3781,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionModePopupWindowStyle
+          @attr name android:actionModePopupWindowStyle
         */
         public static final int SherlockTheme_actionModePopupWindowStyle = 18;
         /**
@@ -3734,7 +3793,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionModeShareDrawable
+          @attr name android:actionModeShareDrawable
         */
         public static final int SherlockTheme_actionModeShareDrawable = 17;
         /**
@@ -3746,7 +3805,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:actionModeSplitBackground
+          @attr name android:actionModeSplitBackground
         */
         public static final int SherlockTheme_actionModeSplitBackground = 15;
         /**
@@ -3756,7 +3815,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:actionModeStyle
+          @attr name android:actionModeStyle
         */
         public static final int SherlockTheme_actionModeStyle = 12;
         /**
@@ -3766,7 +3825,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:actionOverflowButtonStyle
+          @attr name android:actionOverflowButtonStyle
         */
         public static final int SherlockTheme_actionOverflowButtonStyle = 3;
         /**
@@ -3776,7 +3835,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:actionSpinnerItemStyle
+          @attr name android:actionSpinnerItemStyle
         */
         public static final int SherlockTheme_actionSpinnerItemStyle = 57;
         /**
@@ -3788,7 +3847,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:activatedBackgroundIndicator
+          @attr name android:activatedBackgroundIndicator
         */
         public static final int SherlockTheme_activatedBackgroundIndicator = 65;
         /**
@@ -3800,7 +3859,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:activityChooserViewStyle
+          @attr name android:activityChooserViewStyle
         */
         public static final int SherlockTheme_activityChooserViewStyle = 64;
         /**
@@ -3812,7 +3871,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:buttonStyleSmall
+          @attr name android:buttonStyleSmall
         */
         public static final int SherlockTheme_buttonStyleSmall = 19;
         /**
@@ -3824,7 +3883,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:dividerVertical
+          @attr name android:dividerVertical
         */
         public static final int SherlockTheme_dividerVertical = 50;
         /**
@@ -3834,7 +3893,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:dropDownHintAppearance
+          @attr name android:dropDownHintAppearance
         */
         public static final int SherlockTheme_dropDownHintAppearance = 66;
         /**
@@ -3844,7 +3903,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:dropDownListViewStyle
+          @attr name android:dropDownListViewStyle
         */
         public static final int SherlockTheme_dropDownListViewStyle = 54;
         /**
@@ -3860,7 +3919,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:dropdownListPreferredItemHeight
+          @attr name android:dropdownListPreferredItemHeight
         */
         public static final int SherlockTheme_dropdownListPreferredItemHeight = 56;
         /**
@@ -3870,7 +3929,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:homeAsUpIndicator
+          @attr name android:homeAsUpIndicator
         */
         public static final int SherlockTheme_homeAsUpIndicator = 53;
         /**
@@ -3880,7 +3939,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:listPopupWindowStyle
+          @attr name android:listPopupWindowStyle
         */
         public static final int SherlockTheme_listPopupWindowStyle = 63;
         /**
@@ -3898,7 +3957,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:listPreferredItemHeightSmall
+          @attr name android:listPreferredItemHeightSmall
         */
         public static final int SherlockTheme_listPreferredItemHeightSmall = 44;
         /**
@@ -3916,7 +3975,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:listPreferredItemPaddingLeft
+          @attr name android:listPreferredItemPaddingLeft
         */
         public static final int SherlockTheme_listPreferredItemPaddingLeft = 45;
         /**
@@ -3934,7 +3993,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:listPreferredItemPaddingRight
+          @attr name android:listPreferredItemPaddingRight
         */
         public static final int SherlockTheme_listPreferredItemPaddingRight = 46;
         /**
@@ -3944,7 +4003,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:popupMenuStyle
+          @attr name android:popupMenuStyle
         */
         public static final int SherlockTheme_popupMenuStyle = 55;
         /**
@@ -3956,7 +4015,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:searchAutoCompleteTextView
+          @attr name android:searchAutoCompleteTextView
         */
         public static final int SherlockTheme_searchAutoCompleteTextView = 30;
         /**
@@ -3968,7 +4027,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:searchDropdownBackground
+          @attr name android:searchDropdownBackground
         */
         public static final int SherlockTheme_searchDropdownBackground = 31;
         /**
@@ -3986,7 +4045,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:searchResultListItemHeight
+          @attr name android:searchResultListItemHeight
         */
         public static final int SherlockTheme_searchResultListItemHeight = 41;
         /**
@@ -3998,7 +4057,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:searchViewCloseIcon
+          @attr name android:searchViewCloseIcon
         */
         public static final int SherlockTheme_searchViewCloseIcon = 32;
         /**
@@ -4010,7 +4069,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:searchViewEditQuery
+          @attr name android:searchViewEditQuery
         */
         public static final int SherlockTheme_searchViewEditQuery = 36;
         /**
@@ -4022,7 +4081,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:searchViewEditQueryBackground
+          @attr name android:searchViewEditQueryBackground
         */
         public static final int SherlockTheme_searchViewEditQueryBackground = 37;
         /**
@@ -4034,7 +4093,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:searchViewGoIcon
+          @attr name android:searchViewGoIcon
         */
         public static final int SherlockTheme_searchViewGoIcon = 33;
         /**
@@ -4046,7 +4105,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:searchViewSearchIcon
+          @attr name android:searchViewSearchIcon
         */
         public static final int SherlockTheme_searchViewSearchIcon = 34;
         /**
@@ -4058,7 +4117,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:searchViewTextField
+          @attr name android:searchViewTextField
         */
         public static final int SherlockTheme_searchViewTextField = 38;
         /**
@@ -4070,7 +4129,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:searchViewTextFieldRight
+          @attr name android:searchViewTextFieldRight
         */
         public static final int SherlockTheme_searchViewTextFieldRight = 39;
         /**
@@ -4082,7 +4141,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:searchViewVoiceIcon
+          @attr name android:searchViewVoiceIcon
         */
         public static final int SherlockTheme_searchViewVoiceIcon = 35;
         /**
@@ -4094,7 +4153,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:selectableItemBackground
+          @attr name android:selectableItemBackground
         */
         public static final int SherlockTheme_selectableItemBackground = 20;
         /**
@@ -4104,7 +4163,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:spinnerDropDownItemStyle
+          @attr name android:spinnerDropDownItemStyle
         */
         public static final int SherlockTheme_spinnerDropDownItemStyle = 29;
         /**
@@ -4114,7 +4173,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.tvdashboard.database:spinnerItemStyle
+          @attr name android:spinnerItemStyle
         */
         public static final int SherlockTheme_spinnerItemStyle = 28;
         /**
@@ -4126,7 +4185,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:textAppearanceLargePopupMenu
+          @attr name android:textAppearanceLargePopupMenu
         */
         public static final int SherlockTheme_textAppearanceLargePopupMenu = 22;
         /**
@@ -4138,7 +4197,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:textAppearanceListItemSmall
+          @attr name android:textAppearanceListItemSmall
         */
         public static final int SherlockTheme_textAppearanceListItemSmall = 47;
         /**
@@ -4150,7 +4209,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:textAppearanceSearchResultSubtitle
+          @attr name android:textAppearanceSearchResultSubtitle
         */
         public static final int SherlockTheme_textAppearanceSearchResultSubtitle = 43;
         /**
@@ -4162,7 +4221,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:textAppearanceSearchResultTitle
+          @attr name android:textAppearanceSearchResultTitle
         */
         public static final int SherlockTheme_textAppearanceSearchResultTitle = 42;
         /**
@@ -4174,7 +4233,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:textAppearanceSmall
+          @attr name android:textAppearanceSmall
         */
         public static final int SherlockTheme_textAppearanceSmall = 24;
         /**
@@ -4186,7 +4245,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:textAppearanceSmallPopupMenu
+          @attr name android:textAppearanceSmallPopupMenu
         */
         public static final int SherlockTheme_textAppearanceSmallPopupMenu = 23;
         /**
@@ -4201,7 +4260,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:textColorPrimary
+          @attr name android:textColorPrimary
         */
         public static final int SherlockTheme_textColorPrimary = 25;
         /**
@@ -4216,7 +4275,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:textColorPrimaryDisableOnly
+          @attr name android:textColorPrimaryDisableOnly
         */
         public static final int SherlockTheme_textColorPrimaryDisableOnly = 26;
         /**
@@ -4231,7 +4290,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:textColorPrimaryInverse
+          @attr name android:textColorPrimaryInverse
         */
         public static final int SherlockTheme_textColorPrimaryInverse = 27;
         /**
@@ -4245,7 +4304,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:textColorSearchUrl
+          @attr name android:textColorSearchUrl
         */
         public static final int SherlockTheme_textColorSearchUrl = 40;
         /**
@@ -4259,7 +4318,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:windowActionBar
+          @attr name android:windowActionBar
         */
         public static final int SherlockTheme_windowActionBar = 59;
         /**
@@ -4273,7 +4332,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:windowActionBarOverlay
+          @attr name android:windowActionBarOverlay
         */
         public static final int SherlockTheme_windowActionBarOverlay = 60;
         /**
@@ -4287,7 +4346,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:windowActionModeOverlay
+          @attr name android:windowActionModeOverlay
         */
         public static final int SherlockTheme_windowActionModeOverlay = 61;
         /**
@@ -4300,7 +4359,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:windowContentOverlay
+          @attr name android:windowContentOverlay
         */
         public static final int SherlockTheme_windowContentOverlay = 21;
         /**
@@ -4316,7 +4375,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:windowMinWidthMajor
+          @attr name android:windowMinWidthMajor
         */
         public static final int SherlockTheme_windowMinWidthMajor = 48;
         /**
@@ -4332,7 +4391,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:windowMinWidthMinor
+          @attr name android:windowMinWidthMinor
         */
         public static final int SherlockTheme_windowMinWidthMinor = 49;
         /**
@@ -4346,7 +4405,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:windowNoTitle
+          @attr name android:windowNoTitle
         */
         public static final int SherlockTheme_windowNoTitle = 58;
         /**
@@ -4360,7 +4419,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:windowSplitActionBar
+          @attr name android:windowSplitActionBar
         */
         public static final int SherlockTheme_windowSplitActionBar = 62;
         /** Attributes that can be used with a SherlockView.
@@ -4369,7 +4428,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SherlockView_android_focusable android:focusable}</code></td><td></td></tr>
+           <tr><td><code>{@link #SherlockView_android_focusable com.tvdashboard.database:android_focusable}</code></td><td></td></tr>
            </table>
            @see #SherlockView_android_focusable
          */
@@ -4377,9 +4436,9 @@ containing a value of this type.
             0x010100da
         };
         /**
-          <p>This symbol is the offset where the {@link android.R.attr#focusable}
+          <p>This symbol is the offset where the {@link com.tvdashboard.database.R.attr#android_focusable}
           attribute's value can be found in the {@link #SherlockView} array.
-          @attr name android:focusable
+          @attr name android:android_focusable
         */
         public static final int SherlockView_android_focusable = 0;
         /** Attributes that can be used with a TitlePageIndicator.
@@ -4388,9 +4447,9 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #TitlePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_android_textColor android:textColor}</code></td><td> Color of regular titles.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_android_textSize android:textSize}</code></td><td> Size of title text.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_background com.tvdashboard.database:android_background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textColor com.tvdashboard.database:android_textColor}</code></td><td> Color of regular titles.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textSize com.tvdashboard.database:android_textSize}</code></td><td> Size of title text.</td></tr>
            <tr><td><code>{@link #TitlePageIndicator_clipPadding com.tvdashboard.database:clipPadding}</code></td><td> Screen edge padding.</td></tr>
            <tr><td><code>{@link #TitlePageIndicator_footerColor com.tvdashboard.database:footerColor}</code></td><td> Color of the footer line and indicator.</td></tr>
            <tr><td><code>{@link #TitlePageIndicator_footerIndicatorHeight com.tvdashboard.database:footerIndicatorHeight}</code></td><td> Height of the indicator above the footer line.</td></tr>
@@ -4430,27 +4489,24 @@ containing a value of this type.
           <p>
           @attr description
            View background 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#background}.
-          @attr name android:background
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_background}.
+          @attr name android:android_background
         */
         public static final int TitlePageIndicator_android_background = 2;
         /**
           <p>
           @attr description
            Color of regular titles. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#textColor}.
-          @attr name android:textColor
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_textColor}.
+          @attr name android:android_textColor
         */
         public static final int TitlePageIndicator_android_textColor = 1;
         /**
           <p>
           @attr description
            Size of title text. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#textSize}.
-          @attr name android:textSize
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_textSize}.
+          @attr name android:android_textSize
         */
         public static final int TitlePageIndicator_android_textSize = 0;
         /**
@@ -4468,7 +4524,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:clipPadding
+          @attr name android:clipPadding
         */
         public static final int TitlePageIndicator_clipPadding = 4;
         /**
@@ -4485,7 +4541,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:footerColor
+          @attr name android:footerColor
         */
         public static final int TitlePageIndicator_footerColor = 5;
         /**
@@ -4503,7 +4559,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:footerIndicatorHeight
+          @attr name android:footerIndicatorHeight
         */
         public static final int TitlePageIndicator_footerIndicatorHeight = 8;
         /**
@@ -4523,7 +4579,7 @@ containing a value of this type.
 <tr><td><code>underline</code></td><td>2</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:footerIndicatorStyle
+          @attr name android:footerIndicatorStyle
         */
         public static final int TitlePageIndicator_footerIndicatorStyle = 7;
         /**
@@ -4541,7 +4597,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:footerIndicatorUnderlinePadding
+          @attr name android:footerIndicatorUnderlinePadding
         */
         public static final int TitlePageIndicator_footerIndicatorUnderlinePadding = 9;
         /**
@@ -4559,7 +4615,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:footerLineHeight
+          @attr name android:footerLineHeight
         */
         public static final int TitlePageIndicator_footerLineHeight = 6;
         /**
@@ -4577,7 +4633,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:footerPadding
+          @attr name android:footerPadding
         */
         public static final int TitlePageIndicator_footerPadding = 10;
         /**
@@ -4596,7 +4652,7 @@ containing a value of this type.
 <tr><td><code>top</code></td><td>1</td><td></td></tr>
 </table>
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:linePosition
+          @attr name android:linePosition
         */
         public static final int TitlePageIndicator_linePosition = 11;
         /**
@@ -4612,7 +4668,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:selectedBold
+          @attr name android:selectedBold
         */
         public static final int TitlePageIndicator_selectedBold = 12;
         /**
@@ -4629,7 +4685,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:selectedColor
+          @attr name android:selectedColor
         */
         public static final int TitlePageIndicator_selectedColor = 3;
         /**
@@ -4647,7 +4703,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:titlePadding
+          @attr name android:titlePadding
         */
         public static final int TitlePageIndicator_titlePadding = 13;
         /**
@@ -4665,7 +4721,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:topPadding
+          @attr name android:topPadding
         */
         public static final int TitlePageIndicator_topPadding = 14;
         /** Attributes that can be used with a UnderlinePageIndicator.
@@ -4674,7 +4730,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #UnderlinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_android_background com.tvdashboard.database:android_background}</code></td><td> View background </td></tr>
            <tr><td><code>{@link #UnderlinePageIndicator_fadeDelay com.tvdashboard.database:fadeDelay}</code></td><td> Length of the delay to fade the indicator.</td></tr>
            <tr><td><code>{@link #UnderlinePageIndicator_fadeLength com.tvdashboard.database:fadeLength}</code></td><td> Length of the indicator fade to transparent.</td></tr>
            <tr><td><code>{@link #UnderlinePageIndicator_fades com.tvdashboard.database:fades}</code></td><td> Whether or not the selected indicator fades.</td></tr>
@@ -4694,9 +4750,8 @@ containing a value of this type.
           <p>
           @attr description
            View background 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#background}.
-          @attr name android:background
+          <p>This corresponds to the global attribute          resource symbol {@link com.tvdashboard.database.R.attr#android_background}.
+          @attr name android:android_background
         */
         public static final int UnderlinePageIndicator_android_background = 0;
         /**
@@ -4712,7 +4767,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:fadeDelay
+          @attr name android:fadeDelay
         */
         public static final int UnderlinePageIndicator_fadeDelay = 3;
         /**
@@ -4728,7 +4783,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:fadeLength
+          @attr name android:fadeLength
         */
         public static final int UnderlinePageIndicator_fadeLength = 4;
         /**
@@ -4744,7 +4799,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:fades
+          @attr name android:fades
         */
         public static final int UnderlinePageIndicator_fades = 2;
         /**
@@ -4761,7 +4816,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:selectedColor
+          @attr name android:selectedColor
         */
         public static final int UnderlinePageIndicator_selectedColor = 1;
         /** Attributes that can be used with a ViewPagerIndicator.
@@ -4797,7 +4852,7 @@ containing a value of this type.
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:vpiCirclePageIndicatorStyle
+          @attr name android:vpiCirclePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiCirclePageIndicatorStyle = 0;
         /**
@@ -4809,7 +4864,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:vpiIconPageIndicatorStyle
+          @attr name android:vpiIconPageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiIconPageIndicatorStyle = 1;
         /**
@@ -4821,7 +4876,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:vpiLinePageIndicatorStyle
+          @attr name android:vpiLinePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiLinePageIndicatorStyle = 2;
         /**
@@ -4833,7 +4888,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:vpiTabPageIndicatorStyle
+          @attr name android:vpiTabPageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiTabPageIndicatorStyle = 4;
         /**
@@ -4845,7 +4900,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:vpiTitlePageIndicatorStyle
+          @attr name android:vpiTitlePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiTitlePageIndicatorStyle = 3;
         /**
@@ -4857,7 +4912,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:vpiUnderlinePageIndicatorStyle
+          @attr name android:vpiUnderlinePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = 5;
         /** Attributes that can be used with a Wheel.
@@ -4890,7 +4945,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:item_selected_index
+          @attr name android:item_selected_index
         */
         public static final int Wheel_item_selected_index = 3;
         /**
@@ -4906,7 +4961,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:items
+          @attr name android:items
         */
         public static final int Wheel_items = 2;
         /**
@@ -4922,7 +4977,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
           <p>This is a private symbol.
-          @attr name com.tvdashboard.database:wheel_diameter
+          @attr name android:wheel_diameter
         */
         public static final int Wheel_wheel_diameter = 1;
         /**
@@ -4936,7 +4991,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.tvdashboard.database:wheel_rotation_duration
+          @attr name android:wheel_rotation_duration
         */
         public static final int Wheel_wheel_rotation_duration = 0;
     };
