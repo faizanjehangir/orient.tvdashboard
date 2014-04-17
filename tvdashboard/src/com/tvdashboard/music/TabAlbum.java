@@ -5,10 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.tvdashboard.database.R;
+import com.tvdashboard.helper.DatabaseHelper;
 import com.tvdashboard.main.FixedSpeedScroller;
+import com.tvdashboard.music.manager.MusicAlbums;
+import com.tvdashboard.videos.FragmentTVShowsMain;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,12 +31,25 @@ public class TabAlbum extends FragmentActivity implements OnPageChangeListener {
 	MusicPageAdapter pageAdapter;
     private ViewPager mViewPager;
     PageIndicator mIndicator;
+    public static MusicAlbums allAlbums;
+    private DatabaseHelper db;
+    private Context context;
+    public static int numOfPages;
     int fragmentCounter=0;
+    
+    public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
+    private ProgressDialog mProgressDialog;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_music_layout);
+        
+        context = this.getApplicationContext();
+        db = new DatabaseHelper(context);
+        
+        allAlbums = db.getAllMusicAlbums();
+        numOfPages = (int)Math.ceil(allAlbums.getAlbum().size()/(float)MusicSection.totalItems);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setPageMargin(-150);
@@ -66,6 +85,8 @@ public class TabAlbum extends FragmentActivity implements OnPageChangeListener {
 //				page.setRotationY(position * -30);				
 			}        	
         });
+        
+        
     }
 
     @Override
@@ -83,16 +104,13 @@ public class TabAlbum extends FragmentActivity implements OnPageChangeListener {
 
     private List<Fragment> getFragments(){
         List<Fragment> fList = new ArrayList<Fragment>();
-
-        FragmentAlbumMain f1 = FragmentAlbumMain.newInstance(String.valueOf(fragmentCounter));
-        fragmentCounter++;
-        FragmentAlbumMain f2 = FragmentAlbumMain.newInstance(String.valueOf(fragmentCounter));
-        fragmentCounter++;
-        FragmentAlbumMain f3 = FragmentAlbumMain.newInstance(String.valueOf(fragmentCounter));
-        fragmentCounter++;
-        fList.add(f1);
-        fList.add(f2);
-        fList.add(f3);
+        FragmentAlbumMain [] f = new FragmentAlbumMain[numOfPages];
+        for (int i=0; i<numOfPages; i++)
+        {
+        	f[i] = new FragmentAlbumMain().newInstance(String.valueOf(fragmentCounter));
+        	fragmentCounter++;
+        	fList.add(f[i]);
+        }
 
         return fList;
     }

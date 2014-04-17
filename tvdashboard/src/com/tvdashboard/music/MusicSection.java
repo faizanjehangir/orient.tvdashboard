@@ -55,7 +55,11 @@ import com.tvdashboard.database.R;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
 import com.tvdashboard.main.SelectedDirectoryListFragment;
+import com.tvdashboard.main.XmlParser;
+import com.tvdashboard.model.TrackDummy;
+import com.tvdashboard.music.manager.MusicController;
 import com.tvdashboard.pictures.PictureSection;
+import com.tvdashboard.utility.FileScanner;
 import com.tvdashboard.videos.VideoSection;
 import com.tvdashboard.weather.Weather;
 import com.tvdashboard.weather.WeatherHttpClient;
@@ -65,11 +69,12 @@ public class MusicSection extends SherlockFragmentActivity {
 	
 	public static TabHost tabHost;
 	public static int tabCounter=0;
+	public static final int totalItems = 12;
 
 	public static Context context;
 	private LinearLayout layoutRightMenu,layoutDirectory;
 	private RelativeLayout layoutDialer;
-	private ImageButton btnOpenleftmenu,/*btnOpenRightMenu,*/btnSelect, btnReturn, /*btnAddSource,*/btnBrowse;
+	private ImageButton btnOpenleftmenu,/*btnOpenRightMenu,*/btnSelect, btnReturn, btnAddSource,btnBrowse;
 	public static EditText browseText,txtAlbumName;
 	private int screenWidth, screenHeight;
 	private boolean isExpandedLeft,isExpandedRight;
@@ -85,6 +90,7 @@ public class MusicSection extends SherlockFragmentActivity {
     public static String currTime;
 	public static Weather weather;
 	public static  String weatherParam="";
+	FileScanner fileScanner;
     
 	
 	@Override
@@ -98,14 +104,9 @@ public class MusicSection extends SherlockFragmentActivity {
 		setContentView(R.layout.section_music);
 		
 		context = this.getApplicationContext();
-		
-		Media_source m = null;
-        m = m.Music;
-		
+		fileScanner = new FileScanner(context);
         
-        // check which basic category has been selected
-        
-//        this.context = this.getApplicationContext();
+//      this.context = this.getApplicationContext();
 		Source mSource = new Source(Media_source.Music, context);
 		/*mSource.selectStuff(m);*/
 		
@@ -121,14 +122,15 @@ public class MusicSection extends SherlockFragmentActivity {
         browseText = (EditText)findViewById(R.id.text_browse);
         btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
-//        btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
+        btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
         fragment = new SelectedDirectoryListFragment();
         fragment.introduce("MusicSection");
 		browseText.setText(dir);
 		layoutDirectory.setVisibility(View.GONE);
 		btnSelect.setVisibility(View.INVISIBLE);
 		
-        isExpandedLeft = true;
+		
+		
         layoutDialer.setEnabled(false);
         init();
         layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
@@ -137,6 +139,8 @@ public class MusicSection extends SherlockFragmentActivity {
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         screenWidth = metrics.widthPixels;
         screenHeight = metrics.heightPixels;
+        
+//        layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
 		
 		/*GPSTracker gpsTracker = new GPSTracker(this);
         if (gpsTracker.canGetLocation())
@@ -180,9 +184,9 @@ public class MusicSection extends SherlockFragmentActivity {
  		tab2.setIndicator("Album");
  		tab2.setContent(new Intent(this, TabAlbum.class));
  		tab3.setIndicator("Genre");
- 		tab3.setContent(new Intent(this, TabAlbum.class));
+ 		tab3.setContent(new Intent(this, TabGenre.class));
  		tab4.setIndicator("File Manager");
- 		tab4.setContent(new Intent(this, TabAlbum.class));
+ 		tab4.setContent(new Intent(this, TabMusicFileManager.class));
  		tabHost.addTab(tab1);
  		tabHost.addTab(tab2);
  		tabHost.addTab(tab3);
@@ -425,49 +429,20 @@ public class MusicSection extends SherlockFragmentActivity {
 			}
 		});
         
-//        btnAddSource.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				
-//				
-//				/*Source.selectStuff(m);*/
-//				
-//				String path = browseText.getText().toString();
-//			    /*Log.d("Files", "Path: " + path);*/
-//			    File f = new File(path);        
-//			    File file[] = f.listFiles();
-//			    /*Log.d("Files", "Size: "+ file.length);*/
-//			    String filenames = "";
-//			    
-//			    List<Music> pics = new ArrayList<Music>();
-//			    for (int i=0; i < file.length; i++)
-//			    {
-//			    	if (file[i].isDirectory()) {
-//	                    /*fileList.add(listFile[i]);*/
-//	                    /*getpicfile(file[i]);*/
-//	 
-//	                } else {
-//	                    if (file[i].getName().endsWith(".mp3")
-//	                            || file[i].getName().endsWith(".mav")
-//	                            || file[i].getName().endsWith(".gsm")
-//	                            )
-//	                    {
-//	                    	Music music = new Music();
-//	    			    	music.setFav(false);
-//	    			    	music.setIsactive(true);
-//	    			    	music.setIsalbum(true);
-//	    			    	music.setPath(file[i].getPath());
-//	    			    	music.setSourcename(txtAlbumName.getText().toString());
-//	    			    	pics.add(music);
-//	                    }
-//	                }
-//			        /*Log.d("Files", "FileName:" + file[i].getName());*/
-//			    }
-//			    Source mSource = new Source(Media_source.Picture, context);
-//			    mSource.insertMusicList(pics);
-//			}
-//		});
+        btnAddSource.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				String path = browseText.getText().toString();
+				ArrayList<String> regExp = XmlParser.parseXml(context,"RegExp.xml", "Music");
+				ArrayList<String> extensions = XmlParser.parseXml(context,"Extensions.xml", "Music");
+				List<TrackDummy> files = fileScanner.listFiles(path,extensions, regExp);
+//				new MusicController(files.get(0)).execute();
+				MusicController musicController = new MusicController(files, context);
+								
+			}
+		});
         
         btnSelect.setOnClickListener(new OnClickListener() {
 			

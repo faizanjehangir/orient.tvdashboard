@@ -22,9 +22,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.animation.Interpolator;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 public class TabTVShows extends FragmentActivity implements OnPageChangeListener {
 
@@ -111,7 +108,7 @@ public class TabTVShows extends FragmentActivity implements OnPageChangeListener
 		@Override
 		protected Boolean doInBackground(Void... params) {
 			
-			try 
+			try
 			{
 				allTvShows = dbHelper.getAllVideosByCategory("TV Shows");
 				return true;
@@ -136,7 +133,7 @@ public class TabTVShows extends FragmentActivity implements OnPageChangeListener
 				
 				mViewPager = (ViewPager) findViewById(R.id.viewpager);
 		        mViewPager.setPageMargin(-150);
-		        fragments = getFragments(numOfPages);       
+		        fragments = getFragments(numOfPages);
 		        pageAdapter = new VideosPageAdapter(getSupportFragmentManager(), fragments);
 		        mViewPager.setAdapter(pageAdapter);
 		        mViewPager.setOnPageChangeListener(TabTVShows.this);
@@ -152,11 +149,11 @@ public class TabTVShows extends FragmentActivity implements OnPageChangeListener
 							mViewPager.getContext(), sInterpolator);
 					// scroller.setFixedDuration(5000);
 					mScroller.set(mViewPager, scroller);
-				} 
+				}
 				catch (NoSuchFieldException e) {
-				} 
+				}
 				catch (IllegalArgumentException e) {
-				} 
+				}
 				catch (IllegalAccessException e) {
 				}
 		        

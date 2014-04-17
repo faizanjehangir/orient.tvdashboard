@@ -17,7 +17,5 @@
     <string name="thumbHeight">170</string>
     <string name="thumbquality">90</string>
     <string name="ImageQuality">300</string>
-    <string name="title_activity_section_channel_setup">SectionChannelSetup</string>
-    <string name="hello_world">Hello world!</string>
 
 </resources>

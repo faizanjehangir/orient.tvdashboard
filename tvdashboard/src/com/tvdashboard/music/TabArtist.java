@@ -5,10 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.tvdashboard.database.R;
+import com.tvdashboard.helper.DatabaseHelper;
 import com.tvdashboard.main.FixedSpeedScroller;
+import com.tvdashboard.music.manager.MusicAlbums;
+import com.tvdashboard.music.manager.MusicArtist;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -22,12 +27,25 @@ public class TabArtist extends FragmentActivity implements OnPageChangeListener 
     MusicPageAdapter pageAdapter;
     private ViewPager mViewPager;
     PageIndicator mIndicator;
+    public static MusicArtist allArtists;
+    private DatabaseHelper db;
+    private Context context;
     int fragmentCounter=0;
+    public static int numOfPages;
+    
+    public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
+    private ProgressDialog mProgressDialog;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_music_layout);
+        
+        context = this.getApplicationContext();
+        db = new DatabaseHelper(context);
+        
+        allArtists = db.getAllMusicArtists();
+        numOfPages = (int)Math.ceil(allArtists.getArtists().size()/(float)MusicSection.totalItems);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setPageMargin(-150);
@@ -80,13 +98,13 @@ public class TabArtist extends FragmentActivity implements OnPageChangeListener 
 
     private List<Fragment> getFragments(){
         List<Fragment> fList = new ArrayList<Fragment>();
-
-        FragmentArtistMain f1 = FragmentArtistMain.newInstance(String.valueOf(fragmentCounter));
-        fragmentCounter++;
-        FragmentArtistMain f2 = FragmentArtistMain.newInstance(String.valueOf(fragmentCounter));
-        fragmentCounter++;
-        fList.add(f1);
-        fList.add(f2);
+        FragmentArtistMain [] f = new FragmentArtistMain[numOfPages];
+        for (int i=0; i<numOfPages; i++)
+        {
+        	f[i] = new FragmentArtistMain().newInstance(String.valueOf(fragmentCounter));
+        	fragmentCounter++;
+        	fList.add(f[i]);
+        }
 
         return fList;
     }

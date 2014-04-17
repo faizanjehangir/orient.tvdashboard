@@ -81,7 +81,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LayoutContent01"
+            android:id="@+id/LayoutContent1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="7dp"
@@ -98,10 +98,12 @@
                 android:weightSum="2" >
 
                 <RelativeLayout
+                    android:id="@+id/rl1"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginBottom="7dp"
-                    android:layout_weight="1" >
+                    android:layout_weight="1"
+                    android:visibility="invisible" >
 
                     <ImageButton
                         android:id="@+id/image1"
@@ -109,16 +111,17 @@
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
                         android:background="@null"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/movie3" />
+                        android:scaleType="centerCrop" />
 
                     <ImageButton
                         android:id="@+id/imageHover1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
                         android:background="@null"
+                        android:scaleType="fitXY"
                         android:src="@drawable/tile_selector_style" />
-                    
+
                     <ImageView
                         android:id="@+id/imageCategory1"
                         android:layout_width="wrap_content"
@@ -127,20 +130,27 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
                         android:paddingRight="10dp"
-                        android:src="@drawable/app_icon" />
+                        android:src="@drawable/music_icon" />
 
                     <TextView
+                        android:id="@+id/txtName1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:text="" />
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textSize="20dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rl2"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1" >
+                    android:layout_weight="1"
+                    android:visibility="invisible" >
 
                     <ImageButton
                         android:id="@+id/image2"
@@ -148,14 +158,15 @@
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
                         android:background="@null"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/movie4" />
-                    
+                        android:scaleType="centerCrop" />
+
                     <ImageButton
                         android:id="@+id/imageHover2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
                         android:background="@null"
+                        android:scaleType="fitXY"
                         android:src="@drawable/tile_selector_style" />
 
                     <ImageView
@@ -166,21 +177,28 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
                         android:paddingRight="10dp"
-                        android:src="@drawable/app_icon" />
+                        android:src="@drawable/music_icon" />
 
                     <TextView
+                        android:id="@+id/txtName2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:text="" />
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textSize="20dp" />
                 </RelativeLayout>
             </LinearLayout>
 
             <RelativeLayout
+                android:id="@+id/rl3"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="2" >
+                android:layout_weight="2"
+                android:visibility="invisible" >
 
                 <ImageButton
                     android:id="@+id/image3"
@@ -188,15 +206,16 @@
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/movie5" />
-                
+                    android:scaleType="centerCrop" />
+
                 <ImageButton
-                        android:id="@+id/imageHover3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:src="@drawable/tile_selector_style" />
+                    android:id="@+id/imageHover3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tile_selector_style" />
 
                 <ImageView
                     android:id="@+id/imageCategory3"
@@ -206,19 +225,24 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
                     android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
+                    android:src="@drawable/music_icon" />
 
                 <TextView
+                    android:id="@+id/txtName3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:text="" />
+                    android:paddingBottom="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="20dp" />
             </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LayoutContent02"
+            android:id="@+id/LayoutContent2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="7dp"
@@ -227,10 +251,12 @@
             android:weightSum="6" >
 
             <RelativeLayout
+                android:id="@+id/rl4"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginBottom="7dp"
-                android:layout_weight="4" >
+                android:layout_weight="4"
+                android:visibility="invisible" >
 
                 <ImageButton
                     android:id="@+id/image4"
@@ -238,15 +264,16 @@
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/movie1" />
-                
-                <ImageButton
-                        android:id="@+id/imageHover4"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:src="@drawable/tile_selector_style" />
+                    android:scaleType="centerCrop" />
+
+<!--                 <ImageButton -->
+<!--                     android:id="@+id/imageHover4" -->
+<!--                     android:layout_width="match_parent" -->
+<!--                     android:layout_height="match_parent" -->
+<!--                     android:adjustViewBounds="true" -->
+<!--                     android:background="@null" -->
+<!--                     android:scaleType="fitXY" -->
+<!--                     android:src="@drawable/tile_selector_style" /> -->
 
                 <ImageView
                     android:id="@+id/imageCategory4"
@@ -256,20 +283,27 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
                     android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
+                    android:src="@drawable/music_icon" />
 
                 <TextView
+                    android:id="@+id/txtName4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:text="" />
+                    android:paddingBottom="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="20dp" />
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl5"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="2" >
+                android:layout_weight="2"
+                android:visibility="invisible" >
 
                 <ImageButton
                     android:id="@+id/image5"
@@ -277,15 +311,16 @@
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/movie2" />
-                
-                <ImageButton
-                        android:id="@+id/imageHover5"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:src="@drawable/tile_selector_style" />
+                    android:scaleType="centerCrop" />
+
+<!--                 <ImageButton -->
+<!--                     android:id="@+id/imageHover5" -->
+<!--                     android:layout_width="match_parent" -->
+<!--                     android:layout_height="match_parent" -->
+<!--                     android:adjustViewBounds="true" -->
+<!--                     android:background="@null" -->
+<!--                     android:scaleType="fitXY" -->
+<!--                     android:src="@drawable/tile_selector_style" /> -->
 
                 <ImageView
                     android:id="@+id/imageCategory5"
@@ -295,19 +330,24 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
                     android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
+                    android:src="@drawable/music_icon" />
 
                 <TextView
+                    android:id="@+id/txtName5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:text="" />
+                    android:paddingBottom="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="20dp" />
             </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LayoutContent03"
+            android:id="@+id/LayoutContent3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="7dp"
@@ -324,10 +364,12 @@
                 android:weightSum="2" >
 
                 <RelativeLayout
+                    android:id="@+id/rl6"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginBottom="7dp"
-                    android:layout_weight="1" >
+                    android:layout_weight="1"
+                    android:visibility="invisible" >
 
                     <ImageButton
                         android:id="@+id/image6"
@@ -335,14 +377,15 @@
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
                         android:background="@null"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/movie3" />
-                    
+                        android:scaleType="centerCrop" />
+
                     <ImageButton
                         android:id="@+id/imageHover6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
                         android:background="@null"
+                        android:scaleType="fitXY"
                         android:src="@drawable/tile_selector_style" />
 
                     <ImageView
@@ -353,20 +396,27 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
                         android:paddingRight="10dp"
-                        android:src="@drawable/app_icon" />
+                        android:src="@drawable/music_icon" />
 
                     <TextView
+                        android:id="@+id/txtName6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:text="" />
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textSize="20dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rl7"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1" >
+                    android:layout_weight="1"
+                    android:visibility="invisible" >
 
                     <ImageButton
                         android:id="@+id/image7"
@@ -374,14 +424,15 @@
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
                         android:background="@null"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/movie4" />
-                    
+                        android:scaleType="centerCrop" />
+
                     <ImageButton
                         android:id="@+id/imageHover7"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
                         android:background="@null"
+                        android:scaleType="fitXY"
                         android:src="@drawable/tile_selector_style" />
 
                     <ImageView
@@ -392,21 +443,28 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
                         android:paddingRight="10dp"
-                        android:src="@drawable/app_icon" />
+                        android:src="@drawable/music_icon" />
 
                     <TextView
+                        android:id="@+id/txtName7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:text="" />
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textSize="20dp" />
                 </RelativeLayout>
             </LinearLayout>
 
             <RelativeLayout
+                android:id="@+id/rl8"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="2" >
+                android:layout_weight="2"
+                android:visibility="invisible" >
 
                 <ImageButton
                     android:id="@+id/image8"
@@ -414,15 +472,16 @@
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/movie5" />
-                
+                    android:scaleType="centerCrop" />
+
                 <ImageButton
-                        android:id="@+id/imageHover8"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:src="@drawable/tile_selector_style" />
+                    android:id="@+id/imageHover8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tile_selector_style" />
 
                 <ImageView
                     android:id="@+id/imageCategory8"
@@ -432,19 +491,24 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
                     android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
+                    android:src="@drawable/music_icon" />
 
                 <TextView
+                    android:id="@+id/txtName8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:text="" />
+                    android:paddingBottom="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="20dp" />
             </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LayoutContent04"
+            android:id="@+id/LayoutContent4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="7dp"
@@ -453,10 +517,12 @@
             android:weightSum="6" >
 
             <RelativeLayout
+                android:id="@+id/rl9"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginBottom="7dp"
-                android:layout_weight="1.965" >
+                android:layout_weight="1.965"
+                android:visibility="invisible" >
 
                 <ImageButton
                     android:id="@+id/image9"
@@ -464,15 +530,16 @@
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/movie2" />
-                
+                    android:scaleType="centerCrop" />
+
                 <ImageButton
-                        android:id="@+id/imageHover9"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:src="@drawable/tile_selector_style" />
+                    android:id="@+id/imageHover9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tile_selector_style" />
 
                 <ImageView
                     android:id="@+id/imageCategory9"
@@ -482,20 +549,27 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
                     android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
+                    android:src="@drawable/music_icon" />
 
                 <TextView
+                    android:id="@+id/txtName9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:text="" />
+                    android:paddingBottom="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="20dp" />
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl10"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="4.035" >
+                android:layout_weight="4.035"
+                android:visibility="invisible" >
 
                 <ImageButton
                     android:id="@+id/image10"
@@ -503,15 +577,16 @@
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/movie1" />
-                
+                    android:scaleType="centerCrop" />
+
                 <ImageButton
-                        android:id="@+id/imageHover10"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:src="@drawable/tile_selector_style" />
+                    android:id="@+id/imageHover10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tile_selector_style" />
 
                 <ImageView
                     android:id="@+id/imageCategory10"
@@ -521,19 +596,24 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
                     android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
+                    android:src="@drawable/music_icon" />
 
                 <TextView
+                    android:id="@+id/txtName10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:text="" />
+                    android:paddingBottom="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="20dp" />
             </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LayoutContent05"
+            android:id="@+id/LayoutContent5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -541,10 +621,12 @@
             android:weightSum="6" >
 
             <RelativeLayout
+                android:id="@+id/rl11"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginBottom="7dp"
-                android:layout_weight="4" >
+                android:layout_weight="4"
+                android:visibility="invisible" >
 
                 <ImageButton
                     android:id="@+id/image11"
@@ -552,15 +634,16 @@
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/movie1" />
-                
+                    android:scaleType="centerCrop" />
+
                 <ImageButton
-                        android:id="@+id/imageHover11"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:src="@drawable/tile_selector_style" />
+                    android:id="@+id/imageHover11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tile_selector_style" />
 
                 <ImageView
                     android:id="@+id/imageCategory11"
@@ -570,20 +653,27 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
                     android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
+                    android:src="@drawable/music_icon" />
 
                 <TextView
+                    android:id="@+id/txtName11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:text="" />
+                    android:paddingBottom="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="20dp" />
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl12"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="2" >
+                android:layout_weight="2"
+                android:visibility="invisible" >
 
                 <ImageButton
                     android:id="@+id/image12"
@@ -591,15 +681,16 @@
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/movie2" />
-                
+                    android:scaleType="centerCrop" />
+
                 <ImageButton
-                        android:id="@+id/imageHover12"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:src="@drawable/tile_selector_style" />
+                    android:id="@+id/imageHover12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tile_selector_style" />
 
                 <ImageView
                     android:id="@+id/imageCategory12"
@@ -609,14 +700,19 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
                     android:paddingRight="10dp"
-                    android:src="@drawable/app_icon" />
+                    android:src="@drawable/music_icon" />
 
                 <TextView
+                    android:id="@+id/txtName12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
-                    android:text="" />
+                    android:paddingBottom="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textSize="20dp" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

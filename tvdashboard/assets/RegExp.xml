@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Media>
+	<Videos>
+	</Videos>
+	<Music>
+    	<regExp>(?:[A-Za-z].*)</regExp>
+	</Music>
+</Media>

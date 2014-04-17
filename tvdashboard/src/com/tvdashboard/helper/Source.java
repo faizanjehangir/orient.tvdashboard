@@ -4,10 +4,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tvdashboard.model.Music;
+//import com.tvdashboard.model.Music;
 import com.tvdashboard.model.Picture_BLL;
 import com.tvdashboard.model.Video;
 import com.tvdashboard.music.MusicSection;
+import com.tvdashboard.music.manager.MusicAlbums;
+import com.tvdashboard.music.manager.MusicArtist;
+import com.tvdashboard.music.manager.MusicTracks;
 import com.tvdashboard.pictures.PictureSection;
 import com.tvdashboard.videos.VideoSection;
 
@@ -22,29 +25,25 @@ public class Source {
     public static Media_source mSource;
     public static Picture_BLL pictures;
     public static Video videos;
-    public static Music music;
-    public static DatabaseHelper db;
+//    public static Music music;
+    public DatabaseHelper db;
     private static Context context;
     
     public Source(Media_source mSource, Context context2) {
 		// TODO Auto-generated constructor stub
     	this.mSource = mSource;
 		this.context=context2;
+		db = new DatabaseHelper(context);
+		root = new File(Environment.getExternalStorageDirectory()
+              .getAbsolutePath());
 	}
 
-	public static void main(String[] args){
-       
-    	
-    	
-    	db = new DatabaseHelper(context);
-		root = new File(Environment.getExternalStorageDirectory()
-                .getAbsolutePath());
-       
-		pictures = new Picture_BLL();
-		videos = new Video();
-		music = new Music();
-    	selectStuff(mSource);
-    }
+//	public static void main(String[] args){      
+//		pictures = new Picture_BLL();
+//		videos = new Video();
+////		music = new Music();
+//    	selectStuff(mSource);
+//    }
 
 	public void insertPictureList(List<Picture_BLL> pics){
 		context = PictureSection.context;
@@ -52,10 +51,19 @@ public class Source {
 		db.addpicturelist(pics);
 	}
 	
-	public void insertMusicList(List<Music> music){
+	
+	public void insertMusicAlbum(MusicAlbums albums, int isFav, int isActive)
+	{
 		context = MusicSection.context;
 		db = new DatabaseHelper(context);
-		db.addmusiclist(music);
+		db.addMusicAlbum(albums, isFav, isActive);
+	}
+	
+	public void insertMusicArtist(MusicArtist artists, int isFav, int isActive)
+	{
+		context = MusicSection.context;
+		db = new DatabaseHelper(context);
+		db.addMusicArtist(artists, isFav, isActive);
 	}
 	
 	public void insertVideoList(List<Video> video){
@@ -65,7 +73,8 @@ public class Source {
 	}
 	
 	public static void selectStuff(Media_source m) {
-
+		DatabaseHelper db;
+		
 	    switch(m) {
 
 	        case Picture:
@@ -129,7 +138,7 @@ public class Source {
 	        case Music:
 	            //Do audio stuff
 	        	context = MusicSection.context;
-	        	db = new DatabaseHelper(context);
+	        /*	db = new DatabaseHelper(context);
 	        	root = new File(Environment.getExternalStorageDirectory()
 	                    .getAbsolutePath());
 	           
@@ -144,7 +153,7 @@ public class Source {
 	                
 	                db.addmusic(music, 1,1);
 	            }
-	            break;
+	            break;*/
 
 	        default:
 	            break;

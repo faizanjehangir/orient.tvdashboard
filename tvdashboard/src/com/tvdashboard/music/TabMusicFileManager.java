@@ -17,7 +17,7 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.animation.Interpolator;
 
-public class TabFileManager extends FragmentActivity implements OnPageChangeListener {
+public class TabMusicFileManager extends FragmentActivity implements OnPageChangeListener {
 
     MusicPageAdapter pageAdapter;
     private ViewPager mViewPager;
@@ -34,7 +34,7 @@ public class TabFileManager extends FragmentActivity implements OnPageChangeList
         List<Fragment> fragments = getFragments();
         pageAdapter = new MusicPageAdapter(getSupportFragmentManager(), fragments);
         mViewPager.setAdapter(pageAdapter);
-        mViewPager.setOnPageChangeListener(TabFileManager.this);
+        mViewPager.setOnPageChangeListener(TabMusicFileManager.this);
         mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
         mIndicator.setViewPager(mViewPager);
         

@@ -11,9 +11,6 @@ import com.tvdashboard.database.R;
 
 public class FragmentFileManager extends Fragment{
 	
-	public static LinearLayout layoutContent01;
-	public static LinearLayout layoutOptions;
-	
 	public static FragmentFileManager newInstance(String num) {
 		FragmentFileManager fragment = new FragmentFileManager();
 
@@ -27,14 +24,6 @@ public class FragmentFileManager extends Fragment{
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		String num = getArguments().getString("fragment#");
-		if (num.equals("0"))
-		{
-			layoutContent01.setVisibility(View.GONE);
-		}
-		else
-		{
-			layoutOptions.setVisibility(View.GONE);
-		}
 		super.onActivityCreated(savedInstanceState);
 	}
 	
@@ -42,8 +31,6 @@ public class FragmentFileManager extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_tab_music_filemanager_layout, container, false);
-		layoutContent01 = (LinearLayout)view.findViewById(R.id.LayoutContent01);
-		layoutOptions = (LinearLayout)view.findViewById(R.id.MusicOptions);
 		return view;
 	}	
 	
