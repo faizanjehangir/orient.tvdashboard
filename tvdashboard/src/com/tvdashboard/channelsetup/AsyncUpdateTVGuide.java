@@ -14,7 +14,7 @@ public class AsyncUpdateTVGuide extends AsyncTask<Void, String, Void> {
 
 	private UpdateTVGuideAdapter tvGuideTaskAdapter;
 	private Show nowPlayingShow;
-	public static boolean isNowShowingRunning = false;
+	public static boolean isTVGuideRunning = false;
 	private ChannelSchedule showSchedule;
 	private Show newShow = null;
 	private boolean showComplete = false;
@@ -24,14 +24,15 @@ public class AsyncUpdateTVGuide extends AsyncTask<Void, String, Void> {
 			Show nowPlayingShow, ChannelSchedule showSchedule) {
 		tvGuideTaskAdapter = adapter;
 		this.nowPlayingShow = nowPlayingShow;
-		isNowShowingRunning = true;
+		isTVGuideRunning = true;
 		this.showSchedule = showSchedule;
 	}
 
 	@Override
 	protected Void doInBackground(Void... arg0) {
+		this.tvGuideTaskAdapter.setUpdateNowPlayingBool(true);
 		// TODO Auto-generated method stub
-		while (isNowShowingRunning) {
+		while (isTVGuideRunning) {
 			String[] showArr = new String[1];
 			// get current show duration
 			int prog = ScheduleManager
@@ -49,7 +50,7 @@ public class AsyncUpdateTVGuide extends AsyncTask<Void, String, Void> {
 			showArr[0] = String.valueOf(prog);
 			publishProgress(showArr);
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(10000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -68,15 +69,13 @@ public class AsyncUpdateTVGuide extends AsyncTask<Void, String, Void> {
 	protected void onProgressUpdate(String... values) {
 		// TODO Auto-generated method stub
 		if (this.showComplete) {
-			tvGuideTaskAdapter.updateNowPlaying(this.nowPlayingShow);
-			tvGuideTaskAdapter.updateUpcoming(this.upcomingShows);
-			tvGuideTaskAdapter.setUpdateFlag(false);
-			this.showComplete = false;
+			tvGuideTaskAdapter.setUpdateNowPlayingBool(false);
+			tvGuideTaskAdapter.updateShows(this.nowPlayingShow, this.upcomingShows);
+			this.showComplete = false;			
 		}
-		else{
-			this.tvGuideTaskAdapter.setUpdateFlag(true);
-		}
-		tvGuideTaskAdapter.setProgress(Integer.valueOf(values[0]));
+		else
+			tvGuideTaskAdapter.setUpdateNowPlayingBool(true);
+		tvGuideTaskAdapter.updateNowPlayingProgress(Integer.valueOf(values[0]));
 		tvGuideTaskAdapter.notifyDataSetChanged();
 		super.onProgressUpdate(values);
 	}

@@ -5,7 +5,6 @@ import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import org.json.JSONException;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -14,6 +13,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.digitalaria.gama.wheel.Wheel;
 import com.digitalaria.gama.wheel.WheelAdapter;
 import com.digitalaria.gama.wheel.WheelAdapter.OnItemClickListener;
+
 import com.orient.menu.animations.CollapseAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationRTL;
@@ -55,6 +55,8 @@ import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -71,9 +73,12 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
 
 	public static TabHost tabHost;
 	 public static int tabCounter=0;
-	 
 	 public static Context context;
-	 private LinearLayout layoutRightMenu;
+	 public static LinearLayout layoutChannelManager;
+	 public static AutoCompleteTextView selectRegion;
+	 public static AutoCompleteTextView selectChannel;
+	 public static AutoCompleteTextView selectChannelNumber;
+	 public static ImageButton btnChannelManagerOK;
 	 private RelativeLayout layoutDialer;
 	 private ImageButton btnOpenleftmenu/*,btnOpenRightMenu,btnSelect*/;
 	 private int screenWidth, screenHeight;
@@ -102,7 +107,11 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
 	//  
 	  wheel = (Wheel) findViewById(R.id.wheel);
 	  res = getApplicationContext().getResources();
-	        layoutRightMenu = (LinearLayout) findViewById(R.id.ChannelManagerLayout);
+	  layoutChannelManager = (LinearLayout) findViewById(R.id.ChannelManagerLayout);
+	  selectRegion = (AutoCompleteTextView) findViewById(R.id.Text_Select_Region);
+	  selectChannel = (AutoCompleteTextView) findViewById(R.id.Text_Select_Channel);
+	  selectChannelNumber = (AutoCompleteTextView) findViewById(R.id.Text_Select_Channel_Number);
+	  btnChannelManagerOK = (ImageButton) findViewById(R.id.OkBtn);
 //	        btnOpenRightMenu = (ImageButton) findViewById(R.id.AddSource);
 //	        btnSelect = (ImageButton)findViewById(R.id.okBtn);
 	        btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
@@ -361,8 +370,14 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
         return true;
 	}    
 	
-	
-	
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		AsyncUpdateNowshowing.isNowShowingRunning = false;
+		AsyncUpdateTVGuide.isTVGuideRunning = false;
+		super.onStop();
+	}
+
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		this.menu = menu;
@@ -451,9 +466,9 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
     }
 
 	@Override
-	public void onTabChanged(String tabId) {
-		Log.v("tab id", tabId);
+	public void onTabChanged(String arg0) {
+		// TODO Auto-generated method stub
+		
 	}
-	
 	
 }

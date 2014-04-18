@@ -42,7 +42,7 @@ public class FragmentComingUpMain extends Fragment {
 		// setlistdata
 		setListData();
 		gvUpcoming = (GridView) getActivity().findViewById(R.id.gridView);
-		imageAdapter = new UpcomingAdapter(getActivity(), this.upComingShows, this.channelList);
+		imageAdapter = new UpcomingAdapter(getActivity(), this.upComingShows, this.channelList, false);
 		gvUpcoming.setAdapter(imageAdapter);
 	}
 
