@@ -7,24 +7,14 @@
     android:paddingLeft="140dp"
     android:paddingTop="70dp" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp" >
-
-        <ImageButton
-            android:id="@+id/returnBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/return_btn_style" />
-    </RelativeLayout>
-
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:background="@drawable/text_step1" />
+        android:text="SELECT SOURCE"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -58,15 +48,15 @@
 
     <LinearLayout
         android:id="@+id/DirectoryLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp" >
 
         <fragment
             android:id="@+id/directoryFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            class="com.tvdashboard.main.SelectedDirectoryListFragment" />
+            android:layout_height="wrap_content"
+            class="com.tvdashboard.main.FragmentSelectedDirectoryList" />
     </LinearLayout>
 
     <RelativeLayout
@@ -104,11 +94,14 @@
                 android:singleLine="true"
                 android:textColor="#6d6d6d" />
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:background="@drawable/text_step2" />
+                android:text="SELECT CATEGORY"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spinner_source"
@@ -117,11 +110,14 @@
                 android:layout_margin="15dp"
                 android:hint="DEFINE SOURCE" />
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:background="@drawable/text_step3" />
+                android:text="SELECT SCRAPPER"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spinner_database"
@@ -130,16 +126,31 @@
                 android:layout_margin="15dp" />
 
             <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp" >
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-                <ImageButton
-                    android:id="@+id/btn_add_source"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:background="@drawable/addsource_btn_style" />
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:id="@+id/returnBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/return_btn_style" />
+
+                    <ImageButton
+                        android:id="@+id/btn_add_source"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/addsource_btn_style" />
+                </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

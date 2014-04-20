@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="-65dp"
+            android:layout_marginLeft="-80dp"
             android:nextFocusLeft="@id/openLeft"
             android:nextFocusRight="@id/openLeft"
             android:nextFocusUp="@id/wheel"

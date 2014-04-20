@@ -71,7 +71,7 @@ import com.tvdashboard.database.R.style;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
 import com.tvdashboard.main.FixedSpeedScroller;
-import com.tvdashboard.main.SelectedDirectoryListFragment;
+import com.tvdashboard.main.FragmentSelectedDirectoryList;
 import com.tvdashboard.model.Picture_BLL;
 import com.tvdashboard.music.MusicSection;
 import com.tvdashboard.videos.TabMovies;
@@ -98,8 +98,9 @@ public class AlbumPictures extends SherlockFragmentActivity {
 	private Wheel wheel;
 	private Resources res;
 	private int[] icons = {
-			R.drawable.apps, R.drawable.videos, R.drawable.music,
-			R.drawable.pictures, R.drawable.browser, R.drawable.settings };
+    		R.drawable.apps_off, R.drawable.videos_off, R.drawable.music_off,
+    		R.drawable.photos_off, R.drawable.browse_off, R.drawable.settings_off,
+    		R.drawable.addsource_off};
 
 	public static Menu menu;
 	public static String currTime;
@@ -490,12 +491,12 @@ public class AlbumPictures extends SherlockFragmentActivity {
 
 	private void initializeDirectory()
 	{
-		SelectedDirectoryListFragment fragment = (SelectedDirectoryListFragment) getFragmentManager()
+		FragmentSelectedDirectoryList fragment = (FragmentSelectedDirectoryList) getFragmentManager()
 				.findFragmentById(R.id.directoryFragment);
 		File file = new File (Environment.getExternalStorageDirectory().toString());
-		SelectedDirectoryListFragment.file = new File(Environment.getExternalStorageDirectory().toString());
+		FragmentSelectedDirectoryList.file = new File(Environment.getExternalStorageDirectory().toString());
 		fragment.refresh();
-		SelectedDirectoryListFragment.view.setVisibility(View.VISIBLE);
+		FragmentSelectedDirectoryList.view.setVisibility(View.VISIBLE);
 	}
 
 	public void doWork() {

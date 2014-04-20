@@ -52,10 +52,12 @@ import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
 import com.tvdashboard.apps.AppSection;
+import com.tvdashboard.channelsetup.SectionChannelSetup;
 import com.tvdashboard.database.R;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
-import com.tvdashboard.main.SelectedDirectoryListFragment;
+import com.tvdashboard.main.MainDashboard;
+import com.tvdashboard.main.FragmentSelectedDirectoryList;
 import com.tvdashboard.model.Picture_BLL;
 import com.tvdashboard.music.MusicSection;
 import com.tvdashboard.videos.TabMovies;
@@ -81,9 +83,9 @@ public class PictureSection extends SherlockFragmentActivity {
 	private boolean isExpandedLeft;
 	private Wheel wheel;
 	private Resources res;
-    private int[] icons = {
-    		R.drawable.apps, R.drawable.videos, R.drawable.music,
-    		R.drawable.pictures, R.drawable.browser, R.drawable.settings };
+	private int[] icons = {
+			R.drawable.home_off, R.drawable.channelsetup_off, R.drawable.videos_off, R.drawable.music_off,
+			R.drawable.apps_off, R.drawable.internet_off, R.drawable.settings_off};
     
     public static Menu menu;
     public static String currTime;
@@ -194,41 +196,45 @@ public class PictureSection extends SherlockFragmentActivity {
 				}
 				else if (keyCode == 66)
 				{
+					Intent intent;
 					if (event.getAction() == KeyEvent.ACTION_UP)
 						switch (wheel.getSelectedItem())
 						{
-						case 1:
-							Intent intent = new Intent(context, VideoSection.class);
-							startActivity(intent);
+						case 0:
+							intent = new Intent(context, MainDashboard.class);
+							startActivity(intent);							
+							break;
 							
+						case 1:
+							intent = new Intent(context, SectionChannelSetup.class);
+							startActivity(intent);							
 							break;
 							
 						case 2:
-							Intent intent1 = new Intent(context, MusicSection.class);
-							startActivity(intent1);
-							
+							intent = new Intent(context, VideoSection.class);
+							startActivity(intent);							
 							break;
 							
 						case 3:
-							Intent intent2 = new Intent(context, PictureSection.class);
-							startActivity(intent2);
-							
+							intent = new Intent(context, MusicSection.class);
+							startActivity(intent);
 							break;
-							
+								
 						case 4:
-							Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
-							startActivity(viewIntent);
-							
+							intent = new Intent(context, AppSection.class);
+							startActivity(intent);							
 							break;
 							
-						case 5: 
-							startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
-								
+						case 5:
+							intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+							startActivity(intent);														
 							break;
-								
-						case 0:
-							Intent intent3 = new Intent(context, AppSection.class);
-							startActivity(intent3);
+							
+						case 6:
+							startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);													
+							break;
+							
+						case 7:
 							
 							break;
 						}
@@ -242,40 +248,44 @@ public class PictureSection extends SherlockFragmentActivity {
 			@Override
 			public void onItemClick(WheelAdapter<?> parent, View view,
 					int position, long id) {
+				Intent intent;
 				switch (position)
 				{
-				case 1:
-					Intent intent = new Intent(context, VideoSection.class);
-					startActivity(intent);
+				case 0:
+					intent = new Intent(context, MainDashboard.class);
+					startActivity(intent);							
+					break;
 					
+				case 1:
+					intent = new Intent(context, SectionChannelSetup.class);
+					startActivity(intent);							
 					break;
 					
 				case 2:
-					Intent intent1 = new Intent(context, MusicSection.class);
-					startActivity(intent1);
-					
+					intent = new Intent(context, VideoSection.class);
+					startActivity(intent);							
 					break;
 					
 				case 3:
-					Intent intent2 = new Intent(context, PictureSection.class);
-					startActivity(intent2);
-					
+					intent = new Intent(context, MusicSection.class);
+					startActivity(intent);
 					break;
-					
+						
 				case 4:
-					Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
-					startActivity(viewIntent);
-					
+					intent = new Intent(context, AppSection.class);
+					startActivity(intent);							
 					break;
 					
-				case 5: 
-					startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
-						
+				case 5:
+					intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+					startActivity(intent);														
 					break;
-						
-				case 0:
-					Intent intent3 = new Intent(context, AppSection.class);
-					startActivity(intent3);
+					
+				case 6:
+					startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);													
+					break;
+					
+				case 7:
 					
 					break;
 				}				
@@ -375,12 +385,12 @@ public class PictureSection extends SherlockFragmentActivity {
 	
 	private void initializeDirectory()
 	{
-		SelectedDirectoryListFragment fragment = (SelectedDirectoryListFragment) getFragmentManager()
+		FragmentSelectedDirectoryList fragment = (FragmentSelectedDirectoryList) getFragmentManager()
                 .findFragmentById(R.id.directoryFragment);
 		File file = new File (Environment.getExternalStorageDirectory().toString());
-		SelectedDirectoryListFragment.file = new File(Environment.getExternalStorageDirectory().toString());
+		FragmentSelectedDirectoryList.file = new File(Environment.getExternalStorageDirectory().toString());
 		fragment.refresh();
-		SelectedDirectoryListFragment.view.setVisibility(View.VISIBLE);
+		FragmentSelectedDirectoryList.view.setVisibility(View.VISIBLE);
 	}
 	
 	public void doWork() {

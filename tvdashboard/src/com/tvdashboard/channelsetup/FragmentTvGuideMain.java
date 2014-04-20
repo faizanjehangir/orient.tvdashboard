@@ -61,8 +61,6 @@ public class FragmentTvGuideMain extends Fragment {
 	View view;
 	private static Button txtDate;
 	static final int DATE_DIALOG_ID = 999;
-
-	private ImageButton imgBtn;
 	public static String selectedChannel = null;
 	static String selectedDate;
 	public static boolean dateChanged = false;
@@ -139,28 +137,11 @@ public class FragmentTvGuideMain extends Fragment {
 				res);
 		list.setAdapter(adapter);
 
-		this.imgBtn = (ImageButton) getActivity().findViewById(R.id.OkBtn);
-
 		DisplayMetrics metrics = new DisplayMetrics();
 		getActivity().getWindowManager().getDefaultDisplay()
 				.getMetrics(metrics);
 		final int screenWidth = metrics.widthPixels;
 		final int screenHeight = metrics.heightPixels;
-
-		this.imgBtn.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				SectionChannelSetup.layoutChannelManager
-						.startAnimation(new ExpandAnimationRTL(
-								SectionChannelSetup.layoutChannelManager,
-								(int) (screenWidth), (int) (screenWidth * 0.5),
-								3, screenWidth));
-				getActivity().getWindow().setSoftInputMode(
-						WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-			}
-		});
 
 		setChannelManager();
 

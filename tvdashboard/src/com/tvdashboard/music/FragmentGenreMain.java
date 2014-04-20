@@ -85,6 +85,7 @@ public class FragmentGenreMain extends Fragment implements OnClickListener{
 		}
 		for (int i = (fragmentNum * MusicSection.totalItems); i< TabGenre.listGenre.size();i++,j++)
 		{
+			images[j].setImageResource(R.drawable.sound);
 //			imageLoader.displayImage(TabAlbum.allAlbums.getAlbum().get(i).getStrAlbumThumb()+"/preview", images[j]);
 			rl[j].setVisibility(View.VISIBLE);
 			txtName[j].setText(TabGenre.listGenre.get(i));		

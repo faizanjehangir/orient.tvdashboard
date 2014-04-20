@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.orient.menu.animations.CollapseAnimationRTL;
 import com.tvdashboard.database.R;
 import com.tvdashboard.helper.DatabaseHelper;
 import com.tvdashboard.main.FixedSpeedScroller;
@@ -17,6 +18,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
@@ -24,13 +26,14 @@ import android.view.animation.Interpolator;
 
 public class TabArtist extends FragmentActivity implements OnPageChangeListener {
 
-    MusicPageAdapter pageAdapter;
-    private ViewPager mViewPager;
-    PageIndicator mIndicator;
+    public static MusicPageAdapter pageAdapter;
+    public static  ViewPager mViewPager;
+    public static PageIndicator mIndicator;
     public static MusicArtist allArtists;
-    private DatabaseHelper db;
-    private Context context;
-    int fragmentCounter=0;
+    public static  DatabaseHelper db;
+    public static  Context context;
+    public static FragmentManager fm;
+    public static int fragmentCounter=0;
     public static int numOfPages;
     
     public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
@@ -43,15 +46,17 @@ public class TabArtist extends FragmentActivity implements OnPageChangeListener 
         
         context = this.getApplicationContext();
         db = new DatabaseHelper(context);
+        fm = getSupportFragmentManager();
         
-        allArtists = db.getAllMusicArtists();
-        numOfPages = (int)Math.ceil(allArtists.getArtists().size()/(float)MusicSection.totalItems);
+//        allArtists = db.getAllMusicArtists();
+//        numOfPages = (int)Math.ceil(allArtists.getArtists().size()/(float)MusicSection.totalItems);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setPageMargin(-150);
-        List<Fragment> fragments = getFragments();
-        pageAdapter = new MusicPageAdapter(getSupportFragmentManager(), fragments);
-        mViewPager.setAdapter(pageAdapter);
+//        List<Fragment> fragments = getFragments();
+//        pageAdapter = new MusicPageAdapter(getSupportFragmentManager(), fragments);
+//        mViewPager.setAdapter(pageAdapter);
+        refresh();
         mViewPager.setOnPageChangeListener(TabArtist.this);
         mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
         mIndicator.setViewPager(mViewPager);
@@ -95,8 +100,20 @@ public class TabArtist extends FragmentActivity implements OnPageChangeListener 
     @Override
         public void onPageSelected(int arg0) {
     }
+    
+    @Override
+	public void onBackPressed() {
+    	if (MusicSection.isExpandedRight) {
+    		MusicSection.isExpandedRight = false;
+    		MusicSection.layoutRightMenu.startAnimation(new CollapseAnimationRTL(MusicSection.layoutRightMenu, (int)(MusicSection.screenWidth*0.5),(int)(MusicSection.screenWidth), 3, MusicSection.screenWidth));
+		}
+    	else
+    	{
+    		super.onBackPressed();
+		}
+	}
 
-    private List<Fragment> getFragments(){
+    private static List<Fragment> getFragments(){
         List<Fragment> fList = new ArrayList<Fragment>();
         FragmentArtistMain [] f = new FragmentArtistMain[numOfPages];
         for (int i=0; i<numOfPages; i++)
@@ -107,6 +124,16 @@ public class TabArtist extends FragmentActivity implements OnPageChangeListener 
         }
 
         return fList;
+    }
+    
+    public static void refresh ()
+    {
+    	allArtists = db.getAllMusicArtists();
+        numOfPages = (int)Math.ceil(allArtists.getArtists().size()/(float)MusicSection.totalItems);
+        List<Fragment> fragments = getFragments();
+        pageAdapter = new MusicPageAdapter(fm, fragments);
+        mViewPager.setAdapter(pageAdapter);
+        pageAdapter.notifyDataSetChanged();
     }
 
 }

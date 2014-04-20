@@ -30,6 +30,10 @@ import com.tvdashboard.helper.DatabaseHelper;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
 import com.tvdashboard.model.TrackDummy;
+import com.tvdashboard.music.MusicSection;
+import com.tvdashboard.music.TabAlbum;
+import com.tvdashboard.music.TabArtist;
+import com.tvdashboard.music.TabGenre;
 import com.tvdashboard.utility.Preferences;
 
 public class MusicController {
@@ -67,10 +71,7 @@ public class MusicController {
 
 		@Override
 		protected String doInBackground(Void... params) {
-			// TODO Auto-generated method stub
-//			MusicTracks allT = db.getAllMusicTracks();
-//			MusicAlbums allAl = db.getAllMusicAlbums();
-//			MusicArtist allAr = db.getAllMusicArtists();
+			
 			for (int i = 0; i < files.size(); i++) {				
 				musicObj = encodeParameters(files.get(i));
 				String result = "";
@@ -129,15 +130,15 @@ public class MusicController {
 		}
 
 		@Override
-		protected void onPostExecute(String result) {
-			// TODO Auto-generated method stub
+		protected void onPostExecute(String result) {			
 			super.onPostExecute(result);
+			if (MusicSection.selectedIndex == 0)
+				TabArtist.refresh();
+			if (MusicSection.selectedIndex == 1)
+				TabAlbum.refresh();
+			if (MusicSection.selectedIndex == 2)
+				TabGenre.refresh();
 		}
-
-//		private String ConstructHTTPGetParams(String trackUrl) {
-//
-//			return trackUrl + Preferences.MUSIC_THEAUDIODB_APIKEY+ "/searchtrack.php?s=" + this.musicObj.getArtist() + "&t="	+ musicObj.getTrackName();
-//		}
 
 	}
 	

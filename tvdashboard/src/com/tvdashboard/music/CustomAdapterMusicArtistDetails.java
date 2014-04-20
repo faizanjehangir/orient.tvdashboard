@@ -89,8 +89,8 @@ public class CustomAdapterMusicArtistDetails extends BaseAdapter implements OnCl
          
         @Override
         public void onClick(View arg0) {   
-          MusicAlbumDetails albumDetails = (MusicAlbumDetails)activity;
-          albumDetails.onItemClick(mPosition);
+          MusicArtistDetails artistDetails = (MusicArtistDetails)activity;
+          artistDetails.onItemClick(mPosition);
         }               
     }  
 	

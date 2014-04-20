@@ -93,9 +93,8 @@ public class MainDashboard extends SherlockFragmentActivity {
 	private Wheel wheel;
     private Resources res;
     private int[] icons = {
-    		R.drawable.apps, R.drawable.videos, R.drawable.music,
-    		R.drawable.pictures, R.drawable.browser, R.drawable.settings,
-    		R.drawable.plus};
+    		R.drawable.channelsetup_off, R.drawable.videos_off, R.drawable.music_off,
+    		R.drawable.photos_off,R.drawable.apps_off, R.drawable.internet_off, R.drawable.settings_off};
     
     int panel_height;
 	int panel_width;
@@ -202,9 +201,7 @@ public class MainDashboard extends SherlockFragmentActivity {
         wheel.setOnKeyListener(new OnKeyListener() {			
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				Toast.makeText(context, "key pressed: " + String.valueOf(keyCode), Toast.LENGTH_SHORT).show();
-				
-				
+				Toast.makeText(context, "key pressed: " + String.valueOf(keyCode), Toast.LENGTH_SHORT).show();			
 				if (keyCode == 19) // UP key pressed
 				{
 					if (event.getAction() == KeyEvent.ACTION_UP)
@@ -217,42 +214,43 @@ public class MainDashboard extends SherlockFragmentActivity {
 				}
 				else if (keyCode == 66)
 				{
+					Intent intent;
 					if (event.getAction() == KeyEvent.ACTION_UP)
 						switch (wheel.getSelectedItem())
 						{
-						case 1:
-							Intent intent = new Intent(context, VideoSection.class);
-							startActivity(intent);
 							
+						case 0:
+							intent = new Intent(context, SectionChannelSetup.class);
+							startActivity(intent);							
+							break;
+							
+						case 1:
+							intent = new Intent(context, VideoSection.class);
+							startActivity(intent);							
 							break;
 							
 						case 2:
-							Intent intent1 = new Intent(context, MusicSection.class);
-							startActivity(intent1);
-							
+							intent = new Intent(context, MusicSection.class);
+							startActivity(intent);
 							break;
 							
-						case 3:
-							Intent intent2 = new Intent(context, PictureSection.class);
-							startActivity(intent2);
-							
+						case 3: 
+							intent = new Intent(context, PictureSection.class);
+							startActivity(intent);								
 							break;
-							
+								
 						case 4:
-							Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
-							startActivity(viewIntent);
-							
+							intent = new Intent(context, AppSection.class);
+							startActivity(intent);							
 							break;
 							
-						case 5: 
-							startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
-								
+						case 5:
+							intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+							startActivity(intent);														
 							break;
-								
-						case 0:
-							Intent intent3 = new Intent(context, AppSection.class);
-							startActivity(intent3);
 							
+						case 6:
+							startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);													
 							break;
 						}
 				}
@@ -264,51 +262,43 @@ public class MainDashboard extends SherlockFragmentActivity {
 
 			@Override
 			public void onItemClick(WheelAdapter<?> parent, View view,
-					int position, long id) {
-				
+					int position, long id) {				
 				Toast.makeText(context, "item clicked: " + position, Toast.LENGTH_SHORT).show();
+				Intent intent;
 				switch (position)
 				{
-				case 1:
-					Intent intent = new Intent(context, VideoSection.class);
-					startActivity(intent);
+				case 0:
+					intent = new Intent(context, SectionChannelSetup.class);
+					startActivity(intent);							
+					break;
 					
+				case 1:
+					intent = new Intent(context, VideoSection.class);
+					startActivity(intent);							
 					break;
 					
 				case 2:
-					Intent intent1 = new Intent(context, MusicSection.class);
-					startActivity(intent1);
-					
+					intent = new Intent(context, MusicSection.class);
+					startActivity(intent);
 					break;
 					
-				case 3:
-					Intent intent2 = new Intent(context, PictureSection.class);
-					startActivity(intent2);
-					
+				case 3: 
+					intent = new Intent(context, PictureSection.class);
+					startActivity(intent);								
 					break;
-					
+						
 				case 4:
-					Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
-					startActivity(viewIntent);
-					
+					intent = new Intent(context, AppSection.class);
+					startActivity(intent);							
 					break;
 					
-				case 5: 
-					startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
-						
-					break;
-						
-				case 0:
-					Intent intent3 = new Intent(context, AppSection.class);
-					startActivity(intent3);
-					
+				case 5:
+					intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+					startActivity(intent);														
 					break;
 					
 				case 6:
-					Intent intent6 = new Intent(context,
-							SectionChannelSetup.class);
-					startActivity(intent6);
-
+					startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);													
 					break;
 				}				
 			}

@@ -7,24 +7,14 @@
     android:paddingLeft="140dp"
     android:paddingTop="70dp" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp" >
-
-        <ImageButton
-            android:id="@+id/returnBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/return_btn_style" />
-    </RelativeLayout>
-
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:background="@drawable/text_step1" />
+        android:text="SELECT SOURCE"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -58,15 +48,15 @@
 
     <LinearLayout
         android:id="@+id/DirectoryLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp" >
 
         <fragment
             android:id="@+id/directoryFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            class="com.tvdashboard.main.SelectedDirectoryListFragment" />
+            android:layout_height="wrap_content"
+            class="com.tvdashboard.main.FragmentSelectedDirectoryList" />
     </LinearLayout>
 
     <RelativeLayout
@@ -82,47 +72,64 @@
             android:background="@drawable/ok_btn_style" />
     </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/text_source_name"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_margin="15dp"
+            android:background="@drawable/addsource_edittext_style"
+            android:hint="NAME SOURCE"
+            android:padding="11dp"
+            android:singleLine="true"
+            android:textColor="#6d6d6d" />
 
-            <EditText
-                android:id="@+id/text_source_name"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@drawable/addsource_edittext_style"
-                android:hint="NAME SOURCE"
-                android:padding="11dp"
-                android:singleLine="true"
-                android:textColor="#6d6d6d" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="SELECT SCRAPPER"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
-            <ImageView
+        <Spinner
+            android:id="@+id/spinner_source"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@drawable/text_step2" />
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal" >
 
-            <Spinner
-                android:id="@+id/spinner_source"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:hint="DEFINE SOURCE" />          
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp" >
+                <ImageButton
+                    android:id="@+id/returnBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/return_btn_style" />
 
                 <ImageButton
                     android:id="@+id/btn_add_source"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
                     android:background="@drawable/addsource_btn_style" />
-            </RelativeLayout>
-        </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

@@ -15,6 +15,7 @@ import com.digitalaria.gama.wheel.WheelAdapter;
 import com.digitalaria.gama.wheel.WheelAdapter.OnItemClickListener;
 
 import com.orient.menu.animations.CollapseAnimationLTR;
+import com.orient.menu.animations.CollapseAnimationRTL;
 import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
@@ -24,7 +25,8 @@ import com.tvdashboard.database.R.layout;
 import com.tvdashboard.database.R.menu;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
-import com.tvdashboard.main.SelectedDirectoryListFragment;
+import com.tvdashboard.main.MainDashboard;
+import com.tvdashboard.main.FragmentSelectedDirectoryList;
 import com.tvdashboard.music.MusicSection;
 import com.tvdashboard.pictures.PictureSection;
 import com.tvdashboard.videos.VideoSection;
@@ -74,22 +76,25 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
 	public static TabHost tabHost;
 	 public static int tabCounter=0;
 	 public static Context context;
-	 public static LinearLayout layoutChannelManager;
+	 private static LinearLayout layoutChannelManager;
 	 public static AutoCompleteTextView selectRegion;
 	 public static AutoCompleteTextView selectChannel;
 	 public static AutoCompleteTextView selectChannelNumber;
 	 public static ImageButton btnChannelManagerOK;
 	 private RelativeLayout layoutDialer;
-	 private ImageButton btnOpenleftmenu/*,btnOpenRightMenu,btnSelect*/;
+	 private ImageButton btnOpenleftmenu/*,btnSelect*/;
 	 private int screenWidth, screenHeight;
 	 private boolean isExpandedLeft,isExpandedRight;
 	 private Wheel wheel;
 	 private Resources res;
-	    private int[] icons = {
-	      R.drawable.apps, R.drawable.videos, R.drawable.music,
-	      R.drawable.pictures, R.drawable.browser, R.drawable.settings };    
-	    private static Menu menu;
-	    private static String currTime;
+	 
+	 private int[] icons = {
+				R.drawable.home_off, R.drawable.videos_off, R.drawable.music_off,
+	    		R.drawable.photos_off,R.drawable.apps_off, R.drawable.internet_off, R.drawable.settings_off,
+	    		R.drawable.add_off};
+	 
+	 private static Menu menu;
+	 private static String currTime;
 	 private static Weather weather;
 	 private static  String weatherParam="";
 	 
@@ -122,8 +127,6 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
 	        screenWidth = metrics.widthPixels;
 	        screenHeight = metrics.heightPixels;
 	        
-//	        layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
-	        
 	        layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
 	        layoutDialer.setEnabled(false);
 	        init();
@@ -140,13 +143,13 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
 	//   gpsTracker.showSettingsAlert();
 	//  }
 //	        
-	//// *********************** Timer Thread ***************************** //        
-//	        
-//	        Thread myThread = null;
-//	        Runnable myRunnableThread = new CountDownRunner();
-//	        myThread= new Thread(myRunnableThread);
-//	        myThread.start();
-//	        
+	// *********************** Timer Thread ***************************** //        
+	        
+	        Thread myThread = null;
+	        Runnable myRunnableThread = new CountDownRunner();
+	        myThread= new Thread(myRunnableThread);
+	        myThread.start();
+	        
 	//// *********************** Weather Api ****************************** //
 //	        
 //	        if (weatherParam != "")
@@ -192,114 +195,126 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
      			}
      		});
         
-		wheel.setOnKeyListener(new OnKeyListener() {
-			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				Toast.makeText(context,
-						"key pressed: " + String.valueOf(keyCode),
-						Toast.LENGTH_SHORT).show();
-
-				if (keyCode == 19) // UP key pressed
-				{
-					if (event.getAction() == KeyEvent.ACTION_UP)
-						wheel.previousItem();
-				} else if (keyCode == 20) // DOWN key pressed
-				{
-					if (event.getAction() == KeyEvent.ACTION_UP)
-						wheel.nextItem();
-				} else if (keyCode == 66) {
-					if (event.getAction() == KeyEvent.ACTION_UP)
-						switch (wheel.getSelectedItem()) {
-						case 1:
-							Intent intent = new Intent(context,
-									VideoSection.class);
-							startActivity(intent);
-
-							break;
-
-						case 2:
-							Intent intent1 = new Intent(context,
-									MusicSection.class);
-							startActivity(intent1);
-
-							break;
-
-						case 3:
-							Intent intent2 = new Intent(context,
-									PictureSection.class);
-							startActivity(intent2);
-
-							break;
-
-						case 4:
-							Intent viewIntent = new Intent(
-									"android.intent.action.VIEW", Uri
-											.parse("http://www.novoda.com"));
-							startActivity(viewIntent);
-
-							break;
-
-						case 5:
-							startActivityForResult(new Intent(
-									android.provider.Settings.ACTION_SETTINGS),
-									0);
-
-							break;
-
-						case 0:
-							Intent intent3 = new Intent(context,
-									AppSection.class);
-							startActivity(intent3);
-
-							break;
-						}
-				}
-				return false;
-			}
-		});
+     		wheel.setOnKeyListener(new OnKeyListener() {			
+    			@Override
+    			public boolean onKey(View v, int keyCode, KeyEvent event) {
+    				Toast.makeText(context, "key pressed: " + String.valueOf(keyCode), Toast.LENGTH_SHORT).show();			
+    				if (keyCode == 19) // UP key pressed
+    				{
+    					if (event.getAction() == KeyEvent.ACTION_UP)
+    					wheel.previousItem();
+    				}
+    				else if (keyCode == 20) // DOWN key pressed
+    				{
+    					if (event.getAction() == KeyEvent.ACTION_UP)
+    					wheel.nextItem();
+    				}
+    				else if (keyCode == 66)
+    				{
+    					Intent intent;
+    					if (event.getAction() == KeyEvent.ACTION_UP)
+    						switch (wheel.getSelectedItem())
+    						{
+    						case 0:
+    							intent = new Intent(context, MainDashboard.class);
+    							startActivity(intent);							
+    							break;    							
+    						
+    							
+    						case 1:
+    							intent = new Intent(context, VideoSection.class);
+    							startActivity(intent);							
+    							break;
+    							
+    						case 2:
+    							intent = new Intent(context, MusicSection.class);
+    							startActivity(intent);
+    							break;
+    							
+    						case 3: 
+    							intent = new Intent(context, PictureSection.class);
+    							startActivity(intent);								
+    							break;
+    								
+    						case 4:
+    							intent = new Intent(context, AppSection.class);
+    							startActivity(intent);							
+    							break;
+    							
+    						case 5:
+    							intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+    							startActivity(intent);														
+    							break;
+    							
+    						case 6:
+    							startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);													
+    							break;
+    							
+    						case 7:
+    							if (isExpandedRight) {
+    			        			isExpandedRight = false;
+    			        			layoutChannelManager.startAnimation(new CollapseAnimationRTL(layoutChannelManager, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
+    			        		}else {
+    			            		isExpandedRight= true;
+    			            		layoutChannelManager.startAnimation(new ExpandAnimationRTL(layoutChannelManager, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+    			        		}
+    							break;
+    						}
+    				}
+    				return false;
+    			}
+    		});
 
 		wheel.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(WheelAdapter<?> parent, View view,
 					int position, long id) {
+				Intent intent;
 				switch (position) {
-				case 1:
-					Intent intent = new Intent(context, VideoSection.class);
-					startActivity(intent);
-
-					break;
-
-				case 2:
-					Intent intent1 = new Intent(context, MusicSection.class);
-					startActivity(intent1);
-
-					break;
-
-				case 3:
-					Intent intent2 = new Intent(context, PictureSection.class);
-					startActivity(intent2);
-
-					break;
-
-				case 4:
-					Intent viewIntent = new Intent(
-							"android.intent.action.VIEW", Uri
-									.parse("http://www.novoda.com"));
-					startActivity(viewIntent);
-
-					break;
-
-				case 5:
-					startActivityForResult(new Intent(
-							android.provider.Settings.ACTION_SETTINGS), 0);
-
-					break;
-
 				case 0:
-					Intent intent3 = new Intent(context, AppSection.class);
-					startActivity(intent3);
-
+					intent = new Intent(context, MainDashboard.class);
+					startActivity(intent);							
+					break;    							
+				
+					
+				case 1:
+					intent = new Intent(context, VideoSection.class);
+					startActivity(intent);							
+					break;
+					
+				case 2:
+					intent = new Intent(context, MusicSection.class);
+					startActivity(intent);
+					break;
+					
+				case 3: 
+					intent = new Intent(context, PictureSection.class);
+					startActivity(intent);								
+					break;
+						
+				case 4:
+					intent = new Intent(context, AppSection.class);
+					startActivity(intent);							
+					break;
+					
+				case 5:
+					intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+					startActivity(intent);														
+					break;
+					
+				case 6:
+					startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);													
+					break;
+					
+				case 7:
+					if (isExpandedRight) {
+	        			isExpandedRight = false;
+	        			layoutChannelManager.startAnimation(new CollapseAnimationRTL(layoutChannelManager, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
+	        		}else {
+	            		isExpandedRight= true;
+	            		layoutChannelManager.startAnimation(new ExpandAnimationRTL(layoutChannelManager, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+	        		}
 					break;
 				}
 			}

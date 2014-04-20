@@ -4,11 +4,14 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.orient.menu.animations.CollapseAnimationRTL;
 import com.tvdashboard.database.R;
 import com.tvdashboard.helper.DatabaseHelper;
 import com.tvdashboard.main.FixedSpeedScroller;
 import com.tvdashboard.music.manager.MusicAlbums;
 import com.tvdashboard.videos.FragmentTVShowsMain;
+import com.tvdashboard.videos.TabMovies;
+import com.tvdashboard.videos.VideosPageAdapter;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 
@@ -16,9 +19,12 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
@@ -28,17 +34,18 @@ import android.widget.TabHost.OnTabChangeListener;
 
 public class TabAlbum extends FragmentActivity implements OnPageChangeListener {
 
-	MusicPageAdapter pageAdapter;
-    private ViewPager mViewPager;
-    PageIndicator mIndicator;
+	public static MusicPageAdapter pageAdapter;
+    public static ViewPager mViewPager;
+    public static PageIndicator mIndicator;
     public static MusicAlbums allAlbums;
-    private DatabaseHelper db;
-    private Context context;
+    public static DatabaseHelper db;
+    public static Context context;
     public static int numOfPages;
-    int fragmentCounter=0;
+    public static int fragmentCounter=0;
+    public static FragmentManager fm;
     
     public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
-    private ProgressDialog mProgressDialog;
+    private static ProgressDialog mProgressDialog;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,15 +54,17 @@ public class TabAlbum extends FragmentActivity implements OnPageChangeListener {
         
         context = this.getApplicationContext();
         db = new DatabaseHelper(context);
+        fm = getSupportFragmentManager();
         
-        allAlbums = db.getAllMusicAlbums();
-        numOfPages = (int)Math.ceil(allAlbums.getAlbum().size()/(float)MusicSection.totalItems);
+//        allAlbums = db.getAllMusicAlbums();
+//        numOfPages = (int)Math.ceil(allAlbums.getAlbum().size()/(float)MusicSection.totalItems);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setPageMargin(-150);
-        List<Fragment> fragments = getFragments();
-        pageAdapter = new MusicPageAdapter(getSupportFragmentManager(), fragments);        
-        mViewPager.setAdapter(pageAdapter);
+//        List<Fragment> fragments = getFragments();        
+//        pageAdapter = new MusicPageAdapter(fm, fragments);        
+//        mViewPager.setAdapter(pageAdapter);
+        refresh();
         mViewPager.setOnPageChangeListener(TabAlbum.this);
         mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
         mIndicator.setViewPager(mViewPager);
@@ -94,6 +103,21 @@ public class TabAlbum extends FragmentActivity implements OnPageChangeListener {
     }
     
     @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+        case DIALOG_DOWNLOAD_PROGRESS:
+            mProgressDialog = new ProgressDialog(this.getApplicationContext());
+            mProgressDialog.setMessage("Initializing ...");
+            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.show();
+            return mProgressDialog;
+        default:
+        return null;
+        }
+    }
+    
+    @Override
     public void onPageScrolled(int arg0, float arg1, int arg2) {
         int pos = this.mViewPager.getCurrentItem();
     }
@@ -102,7 +126,19 @@ public class TabAlbum extends FragmentActivity implements OnPageChangeListener {
         public void onPageSelected(int arg0) {
     }
 
-    private List<Fragment> getFragments(){
+    @Override
+	public void onBackPressed() {
+    	if (MusicSection.isExpandedRight) {
+    		MusicSection.isExpandedRight = false;
+    		MusicSection.layoutRightMenu.startAnimation(new CollapseAnimationRTL(MusicSection.layoutRightMenu, (int)(MusicSection.screenWidth*0.5),(int)(MusicSection.screenWidth), 3, MusicSection.screenWidth));
+		}
+    	else
+    	{
+    		super.onBackPressed();
+		}
+	}
+    
+    private static List<Fragment> getFragments(){
         List<Fragment> fList = new ArrayList<Fragment>();
         FragmentAlbumMain [] f = new FragmentAlbumMain[numOfPages];
         for (int i=0; i<numOfPages; i++)
@@ -113,6 +149,17 @@ public class TabAlbum extends FragmentActivity implements OnPageChangeListener {
         }
 
         return fList;
+    }  
+    
+    public static void refresh ()
+    {
+    	
+    	allAlbums = db.getAllMusicAlbums();
+        numOfPages = (int)Math.ceil(allAlbums.getAlbum().size()/(float)MusicSection.totalItems);
+    	List<Fragment> fragments = getFragments();        
+        pageAdapter = new MusicPageAdapter(fm, fragments);        
+        mViewPager.setAdapter(pageAdapter);
+        pageAdapter.notifyDataSetChanged();
     }
 
 }

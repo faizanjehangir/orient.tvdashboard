@@ -57,12 +57,14 @@ import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
 import com.tvdashboard.apps.AppSection;
+import com.tvdashboard.channelsetup.SectionChannelSetup;
 import com.tvdashboard.database.R;
 import com.tvdashboard.helper.DatabaseHelper;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
 import com.tvdashboard.main.CustomOnItemSelectedListener;
-import com.tvdashboard.main.SelectedDirectoryListFragment;
+import com.tvdashboard.main.MainDashboard;
+import com.tvdashboard.main.FragmentSelectedDirectoryList;
 import com.tvdashboard.main.XmlParser;
 import com.tvdashboard.model.Video;
 import com.tvdashboard.music.MusicSection;
@@ -89,10 +91,11 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 	private Wheel wheel;
 	private Resources res;
 	public static String dir="";
-	SelectedDirectoryListFragment fragment;
-    private int[] icons = {
-    		R.drawable.apps, R.drawable.videos, R.drawable.music,
-    		R.drawable.pictures, R.drawable.browser, R.drawable.settings };    
+	FragmentSelectedDirectoryList fragment;
+	private int[] icons = {
+			R.drawable.home_off, R.drawable.channelsetup_off, R.drawable.music_off,
+    		R.drawable.photos_off,R.drawable.apps_off, R.drawable.internet_off, R.drawable.settings_off,
+    		R.drawable.add_off};
     private static Menu menu;
     private static String currTime;
 	private static Weather weather;
@@ -131,7 +134,7 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
         videoSource = (Spinner)findViewById(R.id.spinner_source);
         
-		fragment = new SelectedDirectoryListFragment();
+		fragment = new FragmentSelectedDirectoryList();
         
 		browseText.setText(dir);
 		layoutDirectory.setVisibility(View.GONE);
@@ -236,49 +239,51 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 					if (event.getAction() == KeyEvent.ACTION_UP)
 						wheel.nextItem();
 				} else if (keyCode == 66) {
+					Intent intent;
 					if (event.getAction() == KeyEvent.ACTION_UP)
 						switch (wheel.getSelectedItem()) {
-						case 1:
-							Intent intent = new Intent(context,
-									VideoSection.class);
-							startActivity(intent);
-
-							break;
-
-						case 2:
-							Intent intent1 = new Intent(context,
-									MusicSection.class);
-							startActivity(intent1);
-
-							break;
-
-						case 3:
-							Intent intent2 = new Intent(context,
-									PictureSection.class);
-							startActivity(intent2);
-
-							break;
-
-						case 4:
-							Intent viewIntent = new Intent(
-									"android.intent.action.VIEW", Uri
-											.parse("http://www.novoda.com"));
-							startActivity(viewIntent);
-
-							break;
-
-						case 5:
-							startActivityForResult(new Intent(
-									android.provider.Settings.ACTION_SETTINGS),
-									0);
-
-							break;
-
 						case 0:
-							Intent intent3 = new Intent(context,
-									AppSection.class);
-							startActivity(intent3);
-
+							intent = new Intent(context, MainDashboard.class);
+							startActivity(intent);							
+							break;
+							
+						case 1:
+							intent = new Intent(context, SectionChannelSetup.class);
+							startActivity(intent);							
+							break;
+							
+						case 2:
+							intent = new Intent(context, MusicSection.class);
+							startActivity(intent);
+							break;
+							
+						case 3: 
+							intent = new Intent(context, PictureSection.class);
+							startActivity(intent);								
+							break;
+								
+						case 4:
+							intent = new Intent(context, AppSection.class);
+							startActivity(intent);							
+							break;
+							
+						case 5:
+							intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+							startActivity(intent);														
+							break;
+							
+						case 6:
+							startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);													
+							break;
+							
+						case 7:
+							if (isExpandedRight) {
+			        			isExpandedRight = false;
+			        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
+			        		}else {
+			            		isExpandedRight= true;
+			            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+			        		}
 							break;
 						}
 				}
@@ -291,43 +296,50 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 			@Override
 			public void onItemClick(WheelAdapter<?> parent, View view,
 					int position, long id) {
+				Intent intent;
 				switch (position) {
-				case 1:
-					Intent intent = new Intent(context, VideoSection.class);
-					startActivity(intent);
-
-					break;
-
-				case 2:
-					Intent intent1 = new Intent(context, MusicSection.class);
-					startActivity(intent1);
-
-					break;
-
-				case 3:
-					Intent intent2 = new Intent(context, PictureSection.class);
-					startActivity(intent2);
-
-					break;
-
-				case 4:
-					Intent viewIntent = new Intent(
-							"android.intent.action.VIEW", Uri
-									.parse("http://www.novoda.com"));
-					startActivity(viewIntent);
-
-					break;
-
-				case 5:
-					startActivityForResult(new Intent(
-							android.provider.Settings.ACTION_SETTINGS), 0);
-
-					break;
-
 				case 0:
-					Intent intent3 = new Intent(context, AppSection.class);
-					startActivity(intent3);
-
+					intent = new Intent(context, MainDashboard.class);
+					startActivity(intent);							
+					break;
+					
+				case 1:
+					intent = new Intent(context, SectionChannelSetup.class);
+					startActivity(intent);							
+					break;
+					
+				case 2:
+					intent = new Intent(context, MusicSection.class);
+					startActivity(intent);
+					break;
+					
+				case 3: 
+					intent = new Intent(context, PictureSection.class);
+					startActivity(intent);								
+					break;
+						
+				case 4:
+					intent = new Intent(context, AppSection.class);
+					startActivity(intent);							
+					break;
+					
+				case 5:
+					intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+					startActivity(intent);														
+					break;
+					
+				case 6:
+					startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);													
+					break;
+					
+				case 7:
+					if (isExpandedRight) {
+	        			isExpandedRight = false;
+	        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
+	        		}else {
+	            		isExpandedRight= true;
+	            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+	        		}
 					break;
 				}
 			}
@@ -390,11 +402,11 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 			
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				SelectedDirectoryListFragment fragment = (SelectedDirectoryListFragment) getFragmentManager()
+				FragmentSelectedDirectoryList fragment = (FragmentSelectedDirectoryList) getFragmentManager()
                         .findFragmentById(R.id.directoryFragment);
 				File file = new File (browseText.getText().toString());
 				fragment.refresh();
-				SelectedDirectoryListFragment.view.setVisibility(View.VISIBLE);
+				FragmentSelectedDirectoryList.view.setVisibility(View.VISIBLE);
 			}
 
 			@Override
@@ -438,7 +450,7 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 				layoutDirectory.setVisibility(View.VISIBLE);
 				btnSelect.setVisibility(View.VISIBLE);
 				initializeDirectory();
-				SelectedDirectoryListFragment.calledBy = "VideoSection";
+				FragmentSelectedDirectoryList.calledBy = "VideoSection";
 			}
 		});
         
@@ -549,12 +561,12 @@ public class VideoSection extends SherlockFragmentActivity implements OnTabChang
 	
 	private void initializeDirectory()
 	{
-		SelectedDirectoryListFragment fragment = (SelectedDirectoryListFragment) getFragmentManager()
+		FragmentSelectedDirectoryList fragment = (FragmentSelectedDirectoryList) getFragmentManager()
                 .findFragmentById(R.id.directoryFragment);
 		File file = new File (Environment.getExternalStorageDirectory().toString());
-		SelectedDirectoryListFragment.file = new File(Environment.getExternalStorageDirectory().toString());
+		FragmentSelectedDirectoryList.file = new File(Environment.getExternalStorageDirectory().toString());
 		fragment.refresh();
-		SelectedDirectoryListFragment.view.setVisibility(View.VISIBLE);
+		FragmentSelectedDirectoryList.view.setVisibility(View.VISIBLE);
 	}
 	
 	public void doWork() {

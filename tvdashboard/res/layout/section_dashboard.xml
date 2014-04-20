@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="-65dp"
+            android:layout_marginLeft="-80dp"
             android:nextFocusUp="@id/wheel"
             android:nextFocusDown="@id/wheel"
             android:soundEffectsEnabled="true"

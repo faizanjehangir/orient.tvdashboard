@@ -3,8 +3,6 @@ package com.tvdashboard.channelsetup;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mstar.tv.service.aidl.EN_MEMBER_SERVICE_TYPE;
-import com.mstar.tv.service.interfaces.ITvServiceServer;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tvdashboard.androidwebservice.Show;
 import com.tvdashboard.database.R;
@@ -106,52 +104,52 @@ public class UpdateTVGuideAdapter extends BaseAdapter {
 					.findViewById(R.id.progressBar);
 			convertView.setTag(holder);
 
-			holder.image.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
-					Log.v("channel", channel.getChannelName());
-					ComponentName localComponentName = new ComponentName(
-							"mstar.tvsetting.ui",
-							"mstar.tvsetting.ui.RootActivity");
-
-					try {
-						TvManager
-								.setInputSource(EnumInputSource.E_INPUT_SOURCE_ATV);
-						ITvServiceServer localITvServiceServer = ITvServiceServer.Stub
-								.asInterface(ServiceManager
-										.checkService("tv_services"));
-						try {
-							localITvServiceServer.getCommonManager();
-							localITvServiceServer
-									.getChannelManager()
-									.programSel(
-											Integer.valueOf(channel
-													.getChannelNum()),
-											EN_MEMBER_SERVICE_TYPE.E_SERVICETYPE_ATV);
-						} catch (RemoteException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						Log.v("current channel", String.valueOf(TvManager
-								.getChannelManager().getCurrChannelNumber()));
-						Log.v("input source main:", TvManager
-								.getCurrentMainInputSource().toString());
-						Log.v("input source:", TvManager
-								.getCurrentInputSource().toString());
-					} catch (TvCommonException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					Intent localIntent = new Intent(
-							"android.intent.action.MAIN");
-					localIntent.addCategory("android.intent.category.LAUNCHER");
-					localIntent.setComponent(localComponentName);
-					localIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-					mContext.startActivity(localIntent);
-				}
-			});
+//			holder.image.setOnClickListener(new OnClickListener() {
+//
+//				@Override
+//				public void onClick(View arg0) {
+//					// TODO Auto-generated method stub
+//					Log.v("channel", channel.getChannelName());
+//					ComponentName localComponentName = new ComponentName(
+//							"mstar.tvsetting.ui",
+//							"mstar.tvsetting.ui.RootActivity");
+//
+//					try {
+//						TvManager
+//								.setInputSource(EnumInputSource.E_INPUT_SOURCE_ATV);
+//						ITvServiceServer localITvServiceServer = ITvServiceServer.Stub
+//								.asInterface(ServiceManager
+//										.checkService("tv_services"));
+//						try {
+//							localITvServiceServer.getCommonManager();
+//							localITvServiceServer
+//									.getChannelManager()
+//									.programSel(
+//											Integer.valueOf(channel
+//													.getChannelNum()),
+//											EN_MEMBER_SERVICE_TYPE.E_SERVICETYPE_ATV);
+//						} catch (RemoteException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//						Log.v("current channel", String.valueOf(TvManager
+//								.getChannelManager().getCurrChannelNumber()));
+//						Log.v("input source main:", TvManager
+//								.getCurrentMainInputSource().toString());
+//						Log.v("input source:", TvManager
+//								.getCurrentInputSource().toString());
+//					} catch (TvCommonException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//					Intent localIntent = new Intent(
+//							"android.intent.action.MAIN");
+//					localIntent.addCategory("android.intent.category.LAUNCHER");
+//					localIntent.setComponent(localComponentName);
+//					localIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//					mContext.startActivity(localIntent);
+//				}
+//			});
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}

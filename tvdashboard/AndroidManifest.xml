@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="14"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -20,11 +20,7 @@
         <activity
             android:name="com.tvdashboard.main.MainDashboard"
             android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         
         <activity
@@ -49,6 +45,19 @@
             android:name="com.tvdashboard.music.MusicSection"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustNothing|stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tvdashboard.music.MusicArtistDetails" >
+        </activity>
+        <activity
+            android:name="com.tvdashboard.music.MusicAlbumDetails" >
+        </activity>
+        <activity
+            android:name="com.tvdashboard.music.MusicGenreDetails" >
         </activity>
         
         <activity
@@ -75,9 +84,13 @@
         </activity>
         <activity android:name="com.tvdashboard.pictures.TabPhotos" >
         </activity>
-        <activity android:name="com.tvdashboard.music.TabMixes" >
+        <activity android:name="com.tvdashboard.music.TabArtist" >
         </activity>
-        <activity android:name="com.tvdashboard.music.TabMusic" >
+        <activity android:name="com.tvdashboard.music.TabAlbum" >
+        </activity>
+        <activity android:name="com.tvdashboard.music.TabGenre" >
+        </activity>
+        <activity android:name="com.tvdashboard.music.TabMusicFileManager" >
         </activity>
         <activity android:name="com.tvdashboard.pictures.SectionAlbumPicturesActivity" >
         </activity>

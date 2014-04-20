@@ -331,9 +331,7 @@ final class WheelBehavior extends WheelAdapter<Adapter> implements
 
 			for (int i = 0; i < len; i++) {
 				Bitmap originalImage = ((BitmapDrawable) drawables[i]).getBitmap();
-				setItemSize(Math.max(
-						getItemSize(),
-						Math.max(originalImage.getWidth(), originalImage.getHeight())));
+				setItemSize(Math.max(getItemSize(),	Math.max(originalImage.getWidth(), originalImage.getHeight())));
 				WheelItemView imgView = new WheelItemView(_context);
 				imgView.setImageBitmap(originalImage);
 				imgView.setIndex(i);

@@ -51,10 +51,12 @@ import com.orient.menu.animations.ExpandAnimationLTR;
 import com.orient.menu.animations.ExpandAnimationRTL;
 import com.orient.menu.animations.SampleList;
 import com.tvdashboard.apps.AppSection;
+import com.tvdashboard.channelsetup.SectionChannelSetup;
 import com.tvdashboard.database.R;
 import com.tvdashboard.helper.Media_source;
 import com.tvdashboard.helper.Source;
-import com.tvdashboard.main.SelectedDirectoryListFragment;
+import com.tvdashboard.main.MainDashboard;
+import com.tvdashboard.main.FragmentSelectedDirectoryList;
 import com.tvdashboard.main.XmlParser;
 import com.tvdashboard.model.TrackDummy;
 import com.tvdashboard.music.manager.MusicController;
@@ -70,21 +72,22 @@ public class MusicSection extends SherlockFragmentActivity {
 	public static TabHost tabHost;
 	public static int tabCounter=0;
 	public static final int totalItems = 12;
+	public static int selectedIndex;
 
 	public static Context context;
-	private LinearLayout layoutRightMenu,layoutDirectory;
+	public static LinearLayout layoutRightMenu,layoutDirectory;
 	private RelativeLayout layoutDialer;
 	private ImageButton btnOpenleftmenu,/*btnOpenRightMenu,*/btnSelect, btnReturn, btnAddSource,btnBrowse;
 	public static EditText browseText,txtAlbumName;
-	private int screenWidth, screenHeight;
-	private boolean isExpandedLeft,isExpandedRight;
+	public static int screenWidth, screenHeight;
+	public static boolean isExpandedLeft,isExpandedRight;
 	private Wheel wheel;
 	private Resources res;
 	public static String dir="";
-	SelectedDirectoryListFragment fragment;
-    private int[] icons = {
-    		R.drawable.apps, R.drawable.videos, R.drawable.music,
-    		R.drawable.pictures, R.drawable.browser, R.drawable.settings };
+	FragmentSelectedDirectoryList fragment;
+	private int[] icons = {
+			R.drawable.home_off, R.drawable.channelsetup_off, R.drawable.videos_off,R.drawable.photos_off,
+			R.drawable.apps_off, R.drawable.internet_off, R.drawable.settings_off,R.drawable.add_off};
     
     public static Menu menu;
     public static String currTime;
@@ -123,7 +126,7 @@ public class MusicSection extends SherlockFragmentActivity {
         btnOpenleftmenu = (ImageButton) findViewById(R.id.openLeft);
         layoutDialer = (RelativeLayout)findViewById(R.id.PieControlLayout);
         btnAddSource = (ImageButton)findViewById(R.id.btn_add_source);
-        fragment = new SelectedDirectoryListFragment();
+        fragment = new FragmentSelectedDirectoryList();
         fragment.introduce("MusicSection");
 		browseText.setText(dir);
 		layoutDirectory.setVisibility(View.GONE);
@@ -206,8 +209,14 @@ public class MusicSection extends SherlockFragmentActivity {
 
  			@Override
  			public void onTabChanged(String tabId) {
- 				int pos = this.tabHost1.getCurrentTab();
- 				this.tabHost1.setCurrentTab(pos);
+ 				selectedIndex = this.tabHost1.getCurrentTab();
+ 				this.tabHost1.setCurrentTab(selectedIndex);
+ 				if (selectedIndex == 0)
+ 					TabArtist.refresh();
+ 				if (selectedIndex == 1)
+ 					TabAlbum.refresh();
+ 				if (selectedIndex == 2)
+ 					TabGenre.refresh();
  			}
  		});
         
@@ -229,42 +238,52 @@ public class MusicSection extends SherlockFragmentActivity {
 				}
 				else if (keyCode == 66)
 				{
+					Intent intent;
 					if (event.getAction() == KeyEvent.ACTION_UP)
 						switch (wheel.getSelectedItem())
 						{
-						case 1:
-							Intent intent = new Intent(context, VideoSection.class);
-							startActivity(intent);
+						case 0:
+							intent = new Intent(context, MainDashboard.class);
+							startActivity(intent);							
+							break;
 							
+						case 1:
+							intent = new Intent(context, SectionChannelSetup.class);
+							startActivity(intent);							
 							break;
 							
 						case 2:
-							Intent intent1 = new Intent(context, MusicSection.class);
-							startActivity(intent1);
-							
+							intent = new Intent(context, VideoSection.class);
+							startActivity(intent);							
 							break;
 							
-						case 3:
-							Intent intent2 = new Intent(context, PictureSection.class);
-							startActivity(intent2);
-							
+						case 3: 
+							intent = new Intent(context, PictureSection.class);
+							startActivity(intent);								
 							break;
-							
+								
 						case 4:
-							Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
-							startActivity(viewIntent);
-							
+							intent = new Intent(context, AppSection.class);
+							startActivity(intent);							
 							break;
 							
-						case 5: 
-							startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
-								
+						case 5:
+							intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+							startActivity(intent);														
 							break;
-								
-						case 0:
-							Intent intent3 = new Intent(context, AppSection.class);
-							startActivity(intent3);
 							
+						case 6:
+							startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);													
+							break;
+							
+						case 7:
+							if (isExpandedRight) {
+			        			isExpandedRight = false;
+			        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
+			        		}else {
+			            		isExpandedRight= true;
+			            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+			        		}
 							break;
 						}
 				}
@@ -277,41 +296,51 @@ public class MusicSection extends SherlockFragmentActivity {
 			@Override
 			public void onItemClick(WheelAdapter<?> parent, View view,
 					int position, long id) {
+				Intent intent;
 				switch (position)
 				{
-				case 1:
-					Intent intent = new Intent(context, VideoSection.class);
-					startActivity(intent);
+				case 0:
+					intent = new Intent(context, MainDashboard.class);
+					startActivity(intent);							
+					break;
 					
+				case 1:
+					intent = new Intent(context, SectionChannelSetup.class);
+					startActivity(intent);							
 					break;
 					
 				case 2:
-					Intent intent1 = new Intent(context, MusicSection.class);
-					startActivity(intent1);
-					
+					intent = new Intent(context, VideoSection.class);
+					startActivity(intent);							
 					break;
 					
-				case 3:
-					Intent intent2 = new Intent(context, PictureSection.class);
-					startActivity(intent2);
-					
+				case 3: 
+					intent = new Intent(context, PictureSection.class);
+					startActivity(intent);								
 					break;
-					
+						
 				case 4:
-					Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
-					startActivity(viewIntent);
-					
+					intent = new Intent(context, AppSection.class);
+					startActivity(intent);							
 					break;
 					
-				case 5: 
-					startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
-						
+				case 5:
+					intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.novoda.com"));
+					startActivity(intent);														
 					break;
-						
-				case 0:
-					Intent intent3 = new Intent(context, AppSection.class);
-					startActivity(intent3);
 					
+				case 6:
+					startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);													
+					break;
+					
+				case 7:
+					if (isExpandedRight) {
+	        			isExpandedRight = false;
+	        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
+	        		}else {
+	            		isExpandedRight= true;
+	            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+	        		}
 					break;
 				}				
 			}
@@ -356,32 +385,18 @@ public class MusicSection extends SherlockFragmentActivity {
             		btnOpenleftmenu.setNextFocusUpId(R.id.wheel);
         		}
         	}
-        });
-        
-//        btnOpenRightMenu.setOnClickListener(new OnClickListener() {
-//        	public void onClick(View v) {
-//        		if (isExpandedRight) {
-//        			isExpandedRight = false;
-//        			layoutRightMenu.startAnimation(new CollapseAnimationRTL(layoutRightMenu, (int)(screenWidth*0.5),(int)(screenWidth), 3, screenWidth));
-//        		}else {
-//            		isExpandedRight= true;
-//            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
-//        		}
-//        		}
-//        });
-        
-        
+        });       
         
         browseText.addTextChangedListener(new TextWatcher() 
         {
 			
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				SelectedDirectoryListFragment fragment = (SelectedDirectoryListFragment) getFragmentManager()
+				FragmentSelectedDirectoryList fragment = (FragmentSelectedDirectoryList) getFragmentManager()
                         .findFragmentById(R.id.directoryFragment);
 				File file = new File (browseText.getText().toString());
 				fragment.refresh();
-				SelectedDirectoryListFragment.view.setVisibility(View.VISIBLE);
+				FragmentSelectedDirectoryList.view.setVisibility(View.VISIBLE);
 			}
 
 			@Override
@@ -425,7 +440,7 @@ public class MusicSection extends SherlockFragmentActivity {
 				layoutDirectory.setVisibility(View.VISIBLE);
 				btnSelect.setVisibility(View.VISIBLE);
 				initializeDirectory();
-				SelectedDirectoryListFragment.calledBy = "MusicSection";
+				FragmentSelectedDirectoryList.calledBy = "MusicSection";
 			}
 		});
         
@@ -438,9 +453,7 @@ public class MusicSection extends SherlockFragmentActivity {
 				ArrayList<String> regExp = XmlParser.parseXml(context,"RegExp.xml", "Music");
 				ArrayList<String> extensions = XmlParser.parseXml(context,"Extensions.xml", "Music");
 				List<TrackDummy> files = fileScanner.listFiles(path,extensions, regExp);
-//				new MusicController(files.get(0)).execute();
-				MusicController musicController = new MusicController(files, context);
-								
+				MusicController musicController = new MusicController(files, context);								
 			}
 		});
         
@@ -507,12 +520,12 @@ public class MusicSection extends SherlockFragmentActivity {
 	
 	private void initializeDirectory()
 	{
-		SelectedDirectoryListFragment fragment = (SelectedDirectoryListFragment) getFragmentManager()
+		FragmentSelectedDirectoryList fragment = (FragmentSelectedDirectoryList) getFragmentManager()
                 .findFragmentById(R.id.directoryFragment);
 		File file = new File (Environment.getExternalStorageDirectory().toString());
-		SelectedDirectoryListFragment.file = new File(Environment.getExternalStorageDirectory().toString());
+		FragmentSelectedDirectoryList.file = new File(Environment.getExternalStorageDirectory().toString());
 		fragment.refresh();
-		SelectedDirectoryListFragment.view.setVisibility(View.VISIBLE);
+		FragmentSelectedDirectoryList.view.setVisibility(View.VISIBLE);
 	}
 	
 	public void doWork() {
