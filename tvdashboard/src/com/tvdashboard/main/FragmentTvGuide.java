@@ -160,12 +160,12 @@ public class FragmentTvGuide extends Fragment{
 	public void onStop() {
 		// TODO Auto-generated method stub
 		super.onStop();
-		ScheduleManager.isScheduleRunning = false;
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		ScheduleManager.isScheduleRunning = false;
+//		try {
+//			Thread.sleep(5000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	
