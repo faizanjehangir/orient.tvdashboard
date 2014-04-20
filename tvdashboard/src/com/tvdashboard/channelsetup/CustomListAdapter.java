@@ -14,6 +14,7 @@ import com.tvdashboard.androidwebservice.ScheduleManager;
 import com.tvdashboard.androidwebservice.Show;
 import com.tvdashboard.utility.CombinedImageLoadingListener;
 import com.tvdashboard.androidwebservice.UpdateMediaTask;
+import com.tvdashboard.channelsetup.UpcomingAdapter.ViewHolder;
 import com.tvdashboard.database.R;
 import com.tvdashboard.main.FragmentTvGuide;
 
@@ -41,12 +42,9 @@ public class CustomListAdapter extends BaseAdapter implements OnClickListener {
 	/*********** Declare Used Variables *********/
 	private Activity activity;
 	private ArrayList<Channel> data;
-	private static LayoutInflater inflater = null;
+	private LayoutInflater inflater = null;
 	public Resources res;
 	Channel tempValues = null;
-	public TextView channelNum;
-	public TextView channelTitle;
-	public ImageView image;
 	int i = 0;
 
 	/************* CustomAdapter Constructor *****************/
@@ -73,29 +71,38 @@ public class CustomListAdapter extends BaseAdapter implements OnClickListener {
 		return data.size();
 	}
 
+	static class ViewHolder {
+		public TextView channelNum;
+		public TextView channelTitle;
+		public ImageView channelIcon;
+	}
+	
 	/****** Depends upon data size called for each row , Create each ListView row *****/
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		View vi = convertView;
-		if (convertView == null) {
-			/******
-			 * Inflate tabitem.xml file for each row ( Defined below )
-			 *******/
-			vi = inflater
-					.inflate(R.layout.channelsetup_list_row, parent, false);
+		ViewHolder holder = null;
+        if (convertView == null) {
+        	convertView = inflater.inflate(R.layout.listview_channelsetup, parent, false);
+            holder = new ViewHolder();
+            holder.channelIcon = (ImageView) convertView.findViewById(R.id.ChannelIcon);
+			holder.channelNum = (TextView) convertView.findViewById(R.id.ChannelNum);
+			holder.channelTitle = (TextView) convertView
+					.findViewById(R.id.ChannelTitle);
+			convertView.setTag(holder);
+		} else {
+			holder = (ViewHolder) convertView.getTag();
 		}
-
-		channelNum = (TextView) vi.findViewById(R.id.ChannelNum);
-		channelTitle = (TextView) vi.findViewById(R.id.ChannelTitle);
-		image = (ImageView) vi.findViewById(R.id.ChannelIcon);
-		channelNum.setText(data.get(position).getChannelNum());
-		channelTitle.setText(data.get(position).getChannelName());
-		image.setImageBitmap(data.get(position).getChannelIcon());
+        
+        
+        
+        holder.channelNum.setText(data.get(position).getChannelNum());
+        holder.channelTitle.setText(data.get(position).getChannelName());
+        holder.channelIcon.setImageBitmap(data.get(position).getChannelIcon());
 
 		/******** Set Item Click Listner for LayoutInflater for each row *******/
-		vi.setOnClickListener(new OnItemClickListener(position));
+        convertView.setOnClickListener(new OnItemClickListener(position));
 
-		return vi;
+		return convertView;
 	}
 
 	@Override
@@ -118,7 +125,7 @@ public class CustomListAdapter extends BaseAdapter implements OnClickListener {
 
 //			FragmentTvGuideMain.rlNowPlaying.setVisibility(View.GONE);
 			AsyncUpdateTVGuide.isTVGuideRunning = false;
-			ScheduleManager.isScheduleRunning = false;
+//			ScheduleManager.isScheduleRunning = false;
 			try {
 				Thread.sleep(5000);
 			} catch (InterruptedException e) {

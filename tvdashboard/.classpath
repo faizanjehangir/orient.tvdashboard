@@ -4,8 +4,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-	<classpathentry kind="lib" path="G:/mstar/mstar/APP/APP/TvApp/mstar_androidsdk/android.jar"/>
-	<classpathentry kind="lib" path="G:/mstar/mstar/APP/APP/TvApp/android_framework/framework.jar"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="C:/Users/Shahzeb/Desktop/android.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Shahzeb/Desktop/framework.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

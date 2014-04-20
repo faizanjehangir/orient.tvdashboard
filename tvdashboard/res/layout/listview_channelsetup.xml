@@ -7,23 +7,20 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-         >
+        android:layout_height="wrap_content"
+        android:layout_weight="2" >
 
-        <TextView
-            android:id="@+id/ChannelNum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:hint="Channel #"
-            android:layout_margin="30dp"
-            android:textSize="26sp" />
+        <ImageView
+            android:id="@+id/ChannelIcon"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
+    
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="3" >
 
         <TextView
@@ -31,21 +28,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:hint="Channel Title"
             android:layout_margin="30dp"
+            
+            android:hint="Channel Title"
             android:textSize="26sp" />
     </RelativeLayout>
 
+    
+    
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="2" >
 
-        <ImageView
-            android:id="@+id/ChannelIcon"
-            android:layout_width="100dp"
-            android:layout_height="50dp"            
-            android:layout_centerVertical="true" />
+        <TextView
+            android:id="@+id/ChannelNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            
+            android:text="Testing only baby"
+            android:layout_margin="30dp"
+            android:hint="Channel #"
+            android:textSize="26sp" />
     </RelativeLayout>
+    
+    
 
 </LinearLayout>
