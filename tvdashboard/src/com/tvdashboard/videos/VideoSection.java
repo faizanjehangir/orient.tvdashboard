@@ -91,11 +91,13 @@ public class VideoSection extends SherlockFragmentActivity {
 	public static int selectedIndex;
 
 	public static Context context;
-	public static LinearLayout layoutRightMenu,layoutDirectory;
+	public static LinearLayout layoutRightMenu/*,layoutDirectory*/;
+	public static RelativeLayout layoutDirectory;
 	private RelativeLayout layoutDialer;
 	private ImageButton btnOpenleftmenu,/*btnOpenRightMenu,*/btnSelect, btnReturn, btnAddSource,btnBrowse;
 	public static EditText browseText,txtAlbumName;
 	public static int screenWidth, screenHeight;
+	public static boolean isDirectoryOpen;
 	public static boolean isExpandedLeft,isExpandedRight;
 	private Wheel wheel;
 	private Resources res;
@@ -132,7 +134,7 @@ public class VideoSection extends SherlockFragmentActivity {
 		txtAlbumName = (EditText)findViewById(R.id.text_source_name);
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
-        layoutDirectory = (LinearLayout)findViewById(R.id.DirectoryLayout);
+        layoutDirectory = (RelativeLayout)findViewById(R.id.DirectoryLayout);
         layoutRightMenu = (LinearLayout) findViewById(R.id.AddSourceLayout);
 //        btnOpenRightMenu = (ImageButton) findViewById(R.id.AddSource);
         btnReturn = (ImageButton) findViewById(R.id.returnBtn);
@@ -300,6 +302,14 @@ public class VideoSection extends SherlockFragmentActivity {
 			            		isExpandedRight= true;
 			            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
 			        		}
+							if (isExpandedLeft) 
+			        		{
+			        			isExpandedLeft = false;
+			        			layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
+			        			btnOpenleftmenu.setNextFocusRightId(R.id.pager);
+			        			btnOpenleftmenu.setNextFocusDownId(R.id.pager);
+			        			btnOpenleftmenu.setNextFocusUpId(R.id.pager);
+			        		}
 							break;
 						}
 				}
@@ -356,6 +366,14 @@ public class VideoSection extends SherlockFragmentActivity {
 	        		}else {
 	            		isExpandedRight= true;
 	            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+	        		}
+					if (isExpandedLeft) 
+	        		{
+	        			isExpandedLeft = false;
+	        			layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
+	        			btnOpenleftmenu.setNextFocusRightId(R.id.pager);
+	        			btnOpenleftmenu.setNextFocusDownId(R.id.pager);
+	        			btnOpenleftmenu.setNextFocusUpId(R.id.pager);
 	        		}
 					break;
 				}				
@@ -453,10 +471,20 @@ public class VideoSection extends SherlockFragmentActivity {
         btnBrowse.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				layoutDirectory.setVisibility(View.VISIBLE);
-				btnSelect.setVisibility(View.VISIBLE);
-				initializeDirectory();
-				FragmentSelectedDirectoryList.calledBy = "VideoSection";
+				if (!isDirectoryOpen)
+				{
+					isDirectoryOpen = true;
+					layoutDirectory.setVisibility(View.VISIBLE);
+					btnSelect.setVisibility(View.VISIBLE);
+					initializeDirectory();
+					FragmentSelectedDirectoryList.calledBy = "VideoSection";
+				}
+				else
+				{
+					isDirectoryOpen = false;
+					layoutDirectory.setVisibility(View.GONE);
+					btnSelect.setVisibility(View.GONE);
+				}
 			}
 		});
         
@@ -499,7 +527,7 @@ public class VideoSection extends SherlockFragmentActivity {
     	.setIcon(R.drawable.network)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
-        menu.add("ï¿½C")
+        menu.add("°C")
     	.setIcon(R.drawable.weather1)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
@@ -606,7 +634,7 @@ public class VideoSection extends SherlockFragmentActivity {
 				menu.getItem(2).setIcon(new BitmapDrawable(img));
 			}
 			
-			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "ï¿½C		");
+			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "°C		");
 
 		}
     }

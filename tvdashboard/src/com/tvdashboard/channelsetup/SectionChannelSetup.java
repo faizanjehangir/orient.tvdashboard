@@ -258,6 +258,14 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
     			            		isExpandedRight= true;
     			            		layoutChannelManager.startAnimation(new ExpandAnimationRTL(layoutChannelManager, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
     			        		}
+    							if (isExpandedLeft) 
+    			        		{
+    			        			isExpandedLeft = false;
+    			        			layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
+    			        			btnOpenleftmenu.setNextFocusRightId(R.id.pager);
+    			        			btnOpenleftmenu.setNextFocusDownId(R.id.pager);
+    			        			btnOpenleftmenu.setNextFocusUpId(R.id.pager);
+    			        		}
     							break;
     						}
     				}
@@ -314,6 +322,14 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
 	        		}else {
 	            		isExpandedRight= true;
 	            		layoutChannelManager.startAnimation(new ExpandAnimationRTL(layoutChannelManager, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+	        		}
+					if (isExpandedLeft) 
+	        		{
+	        			isExpandedLeft = false;
+	        			layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
+	        			btnOpenleftmenu.setNextFocusRightId(R.id.pager);
+	        			btnOpenleftmenu.setNextFocusDownId(R.id.pager);
+	        			btnOpenleftmenu.setNextFocusUpId(R.id.pager);
 	        		}
 					break;
 				}
@@ -375,7 +391,7 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
     	.setIcon(R.drawable.network)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
-        menu.add("ï¿½C")
+        menu.add("°C")
     	.setIcon(R.drawable.weather1)
     	.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         
@@ -476,7 +492,7 @@ public class SectionChannelSetup extends SherlockFragmentActivity implements OnT
 				Bitmap img = BitmapFactory.decodeByteArray(weather.iconData, 0, weather.iconData.length); 
 				menu.getItem(2).setIcon(new BitmapDrawable(img));
 			}			
-			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "ï¿½C		");
+			menu.getItem(2).setTitle(Math.round((weather.temperature.getTemp() - 273.15)) + "°C		");
 		}
     }
 

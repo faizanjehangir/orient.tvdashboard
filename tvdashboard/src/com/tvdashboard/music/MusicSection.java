@@ -75,9 +75,11 @@ public class MusicSection extends SherlockFragmentActivity {
 	public static int selectedIndex;
 
 	public static Context context;
-	public static LinearLayout layoutRightMenu,layoutDirectory;
+	public static LinearLayout layoutRightMenu/*,layoutDirectory*/;
+	public static RelativeLayout layoutDirectory;
 	private RelativeLayout layoutDialer;
 	private ImageButton btnOpenleftmenu,/*btnOpenRightMenu,*/btnSelect, btnReturn, btnAddSource,btnBrowse;
+	public static boolean isDirectoryOpen;
 	public static EditText browseText,txtAlbumName;
 	public static int screenWidth, screenHeight;
 	public static boolean isExpandedLeft,isExpandedRight;
@@ -116,7 +118,7 @@ public class MusicSection extends SherlockFragmentActivity {
 		txtAlbumName = (EditText)findViewById(R.id.text_source_name);
 		wheel = (Wheel) findViewById(R.id.wheel);
 		res = getApplicationContext().getResources();
-        layoutDirectory = (LinearLayout)findViewById(R.id.DirectoryLayout);
+        layoutDirectory = (RelativeLayout)findViewById(R.id.DirectoryLayout);
         layoutRightMenu = (LinearLayout) findViewById(R.id.AddSourceLayout);
 //        btnOpenRightMenu = (ImageButton) findViewById(R.id.AddSource);
         btnReturn = (ImageButton) findViewById(R.id.returnBtn);
@@ -284,6 +286,14 @@ public class MusicSection extends SherlockFragmentActivity {
 			            		isExpandedRight= true;
 			            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
 			        		}
+							if (isExpandedLeft) 
+			        		{
+			        			isExpandedLeft = false;
+			        			layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
+			        			btnOpenleftmenu.setNextFocusRightId(R.id.pager);
+			        			btnOpenleftmenu.setNextFocusDownId(R.id.pager);
+			        			btnOpenleftmenu.setNextFocusUpId(R.id.pager);
+			        		}
 							break;
 						}
 				}
@@ -340,6 +350,14 @@ public class MusicSection extends SherlockFragmentActivity {
 	        		}else {
 	            		isExpandedRight= true;
 	            		layoutRightMenu.startAnimation(new ExpandAnimationRTL(layoutRightMenu, (int)(screenWidth),(int)(screenWidth*0.5), 3, screenWidth));
+	        		}
+					if (isExpandedLeft) 
+	        		{
+	        			isExpandedLeft = false;
+	        			layoutDialer.startAnimation(new CollapseAnimationLTR(layoutDialer, 0,(int)(screenWidth*1), 2));
+	        			btnOpenleftmenu.setNextFocusRightId(R.id.pager);
+	        			btnOpenleftmenu.setNextFocusDownId(R.id.pager);
+	        			btnOpenleftmenu.setNextFocusUpId(R.id.pager);
 	        		}
 					break;
 				}				
@@ -437,10 +455,20 @@ public class MusicSection extends SherlockFragmentActivity {
         btnBrowse.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				layoutDirectory.setVisibility(View.VISIBLE);
-				btnSelect.setVisibility(View.VISIBLE);
-				initializeDirectory();
-				FragmentSelectedDirectoryList.calledBy = "MusicSection";
+				if (!isDirectoryOpen)
+				{
+					isDirectoryOpen = true;
+					layoutDirectory.setVisibility(View.VISIBLE);
+					btnSelect.setVisibility(View.VISIBLE);
+					initializeDirectory();
+					FragmentSelectedDirectoryList.calledBy = "MusicSection";
+				}
+				else
+				{
+					isDirectoryOpen = false;
+					layoutDirectory.setVisibility(View.GONE);
+					btnSelect.setVisibility(View.GONE);
+				}
 			}
 		});
         

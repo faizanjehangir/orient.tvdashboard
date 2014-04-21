@@ -20,13 +20,17 @@
         <activity
             android:name="com.tvdashboard.main.MainDashboard"
             android:screenOrientation="landscape" >
-            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         
         <activity
             android:name="com.tvdashboard.channelsetup.SectionChannelSetup"
             android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustNothing|stateHidden" >       
+            android:windowSoftInputMode="stateHidden" >       
         </activity>
         
         <activity
@@ -45,11 +49,7 @@
             android:name="com.tvdashboard.music.MusicSection"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustNothing|stateHidden" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         <activity android:name="com.tvdashboard.music.MusicArtistDetails" >
         </activity>

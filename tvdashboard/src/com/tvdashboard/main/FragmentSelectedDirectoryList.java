@@ -13,7 +13,9 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -81,6 +83,17 @@ public class FragmentSelectedDirectoryList extends Fragment {
 					}
 				}
 
+			}
+		});
+		
+		lv.setOnTouchListener(new OnTouchListener() {
+		    // Setting on Touch Listener for handling the touch inside ScrollView
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// Disallow the touch request for parent scroll on touch of child view
+				 v.getParent().requestDisallowInterceptTouchEvent(true);
+				return false;
 			}
 		});
 		super.onActivityCreated(savedInstanceState);
