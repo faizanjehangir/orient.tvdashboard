@@ -52,7 +52,7 @@ public class TabMovies extends FragmentActivity implements OnPageChangeListener 
         context = this.getApplicationContext();
         dbHelper = new DatabaseHelper(context);
         allMovies = new ArrayList<Video>();
-        new getAllMovies().execute();
+//        new getAllMovies().execute();
     }
     
     @Override

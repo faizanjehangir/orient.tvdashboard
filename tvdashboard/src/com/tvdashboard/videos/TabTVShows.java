@@ -48,7 +48,7 @@ public class TabTVShows extends FragmentActivity implements OnPageChangeListener
         context = this.getApplicationContext();    
         dbHelper = new DatabaseHelper(context);
         allTvShows = new ArrayList<Video>();
-        new getAllTvShows().execute();
+//        new getAllTvShows().execute();
         
     }
     

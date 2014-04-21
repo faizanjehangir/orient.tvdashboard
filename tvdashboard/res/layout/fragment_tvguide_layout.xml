@@ -141,7 +141,8 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp" />
+                        android:layout_marginRight="5dp"
+                        android:background="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/ShowTitle01"
@@ -211,7 +212,8 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp" />
+                        android:layout_marginRight="5dp"
+                        android:background="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/ShowTitle02"
@@ -281,7 +283,8 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp" />
+                        android:layout_marginRight="5dp"
+                        android:background="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/ShowTitle03"
@@ -367,7 +370,8 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp" />
+                        android:layout_marginRight="5dp"
+                        android:background="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/ShowTitle04"
@@ -438,7 +442,8 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp" />
+                        android:layout_marginRight="5dp"
+                        android:background="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/ShowTitle05"
@@ -508,7 +513,8 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="5dp" />
+                        android:layout_marginRight="5dp"
+                        android:background="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/ShowTitle06"
@@ -596,7 +602,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp" />
+                    android:layout_marginRight="5dp"
+                    android:background="#FFFFFF" />
 
                 <TextView
                     android:id="@+id/ShowTitle07"
@@ -644,7 +651,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp" />
+                    android:layout_marginRight="5dp"
+                    android:background="#FFFFFF" />
 
                 <TextView
                     android:id="@+id/ShowTitle08"
@@ -691,7 +699,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp" />
+                    android:layout_marginRight="5dp"
+                    android:background="#FFFFFF" />
 
                 <TextView
                     android:id="@+id/ShowTitle09"

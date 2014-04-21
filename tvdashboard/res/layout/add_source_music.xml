@@ -7,129 +7,141 @@
     android:paddingLeft="140dp"
     android:paddingTop="70dp" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="SELECT SOURCE"
-        android:textSize="24sp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" >
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
 
-        <ImageButton
-            android:id="@+id/btn_browse"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="5dp"
-            android:background="@drawable/browse_btn_style" />
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-        <EditText
-            android:id="@+id/text_browse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="5dp"
-            android:layout_toLeftOf="@id/btn_browse"
-            android:background="@drawable/addsource_edittext_style"
-            android:enabled="false"
-            android:hint="ADD SOURCE"
-            android:padding="11dp"
-            android:singleLine="true"
-            android:textColor="#6d6d6d" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/DirectoryLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" >
-
-        <fragment
-            android:id="@+id/directoryFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            class="com.tvdashboard.main.FragmentSelectedDirectoryList" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp" >
-
-        <ImageButton
-            android:id="@+id/okBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/ok_btn_style" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <EditText
-            android:id="@+id/text_source_name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="@drawable/addsource_edittext_style"
-            android:hint="NAME SOURCE"
-            android:padding="11dp"
-            android:singleLine="true"
-            android:textColor="#6d6d6d" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:text="SELECT SCRAPPER"
-            android:textSize="24sp"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/spinner_source"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal" >
+                android:layout_margin="15dp"
+                android:text="SELECT SOURCE"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" >
 
                 <ImageButton
-                    android:id="@+id/returnBtn"
+                    android:id="@+id/btn_browse"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/browse_btn_style" />
+
+                <EditText
+                    android:id="@+id/text_browse"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/return_btn_style" />
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:layout_toLeftOf="@id/btn_browse"
+                    android:background="@drawable/addsource_edittext_style"
+                    android:enabled="false"
+                    android:hint="ADD SOURCE"
+                    android:padding="11dp"
+                    android:singleLine="true"
+                    android:textColor="#6d6d6d" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/DirectoryLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" >
+
+                <fragment
+                    android:id="@+id/directoryFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    class="com.tvdashboard.main.FragmentSelectedDirectoryList" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp" >
 
                 <ImageButton
-                    android:id="@+id/btn_add_source"
+                    android:id="@+id/okBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/addsource_btn_style" />
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/ok_btn_style" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/text_source_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/addsource_edittext_style"
+                    android:hint="NAME SOURCE"
+                    android:padding="11dp"
+                    android:singleLine="true"
+                    android:textColor="#6d6d6d" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:text="SELECT SCRAPPER"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinner_source"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal" >
+
+                        <ImageButton
+                            android:id="@+id/returnBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/return_btn_style" />
+
+                        <ImageButton
+                            android:id="@+id/btn_add_source"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/addsource_btn_style" />
+                    </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
-        </RelativeLayout>
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

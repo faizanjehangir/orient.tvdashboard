@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -49,7 +51,11 @@ public class FragmentNowShowingMain extends Fragment {
 		gvNowShowing.setAdapter(imageAdapter);
 		AsyncUpdateNowshowing task = new AsyncUpdateNowshowing(imageAdapter,
 				this.nowShowingList, this.hmSchedule);
-		task.execute();
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+		}
+		else
+			task.execute();
 	}
 
 	/****** Function to set data in ArrayList *************/

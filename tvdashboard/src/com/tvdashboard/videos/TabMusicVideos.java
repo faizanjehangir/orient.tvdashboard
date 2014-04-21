@@ -50,7 +50,7 @@ public class TabMusicVideos extends FragmentActivity implements OnPageChangeList
         setContentView(R.layout.tab_videos_layout);
 
         context = this.getApplicationContext();        
-        new getAllMusicVideos().execute();
+//        new getAllMusicVideos().execute();
     }
     
     @Override

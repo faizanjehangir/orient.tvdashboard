@@ -8,6 +8,9 @@ import com.tvdashboard.database.R;
 import com.tvdashboard.helper.DatabaseHelper;
 import com.tvdashboard.main.FixedSpeedScroller;
 import com.tvdashboard.model.Video;
+import com.tvdashboard.music.FragmentFileManager;
+import com.tvdashboard.music.MusicPageAdapter;
+import com.tvdashboard.music.TabMusicFileManager;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 
@@ -28,144 +31,72 @@ import android.widget.Toast;
 
 public class TabFileExplorer extends FragmentActivity implements OnPageChangeListener {
 
-    VideosPageAdapter pageAdapter;
+    MusicPageAdapter pageAdapter;
     private ViewPager mViewPager;
-    List<Fragment> fragments;
     PageIndicator mIndicator;
-    private static int numOfPages;
+    int fragmentCounter=0;
     
-    Context context;
-    
-    public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
-    private ProgressDialog mProgressDialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tab_videos_layout);    
+        setContentView(R.layout.tab_videos_layout);
+
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        mViewPager.setPageMargin(-150);
+        List<Fragment> fragments = getFragments();
+        pageAdapter = new MusicPageAdapter(getSupportFragmentManager(), fragments);
+        mViewPager.setAdapter(pageAdapter);
+        mViewPager.setOnPageChangeListener(TabFileExplorer.this);
+        mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
+        mIndicator.setViewPager(mViewPager);
         
-        context = this.getApplicationContext();
-        new getAllFiles().execute();
+        try {
+			Field mScroller;
+			mScroller = ViewPager.class.getDeclaredField("mScroller");
+			mScroller.setAccessible(true);
+			Interpolator sInterpolator = null;
+			FixedSpeedScroller scroller = new FixedSpeedScroller(
+					mViewPager.getContext(), sInterpolator);
+			// scroller.setFixedDuration(5000);
+			mScroller.set(mViewPager, scroller);
+		} catch (NoSuchFieldException e) {
+		} catch (IllegalArgumentException e) {
+		} catch (IllegalAccessException e) {
+		}
         
-    }
-    
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-        case DIALOG_DOWNLOAD_PROGRESS:
-            mProgressDialog = new ProgressDialog(this);
-            mProgressDialog.setMessage("Initializing ...");
-            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-            mProgressDialog.setCancelable(false);
-            mProgressDialog.show();
-            return mProgressDialog;
-        default:
-        return null;
-        }
+        mViewPager.setPageTransformer(false, new ViewPager.PageTransformer(){
+			@Override
+			public void transformPage(View page, float position) {				
+				
+				final float normalizedposition = Math.abs(Math.abs(position) - 1);
+			    page.setScaleX(normalizedposition / 2 + 0.5f);
+			    page.setScaleY(normalizedposition / 2 + 0.5f);
+			    page.setAlpha(normalizedposition);				
+//				page.setRotationY(position * -30);				
+			}        	
+        });
     }
 
     @Override
     public void onPageScrollStateChanged(int arg0) {
-    	
     }
-    
+
     @Override
     public void onPageScrolled(int arg0, float arg1, int arg2) {
         int pos = this.mViewPager.getCurrentItem();
-        
     }
 
     @Override
         public void onPageSelected(int arg0) {
     }
 
-    private List<Fragment> getFragments(int numOfPages){
+    private List<Fragment> getFragments(){
+    	
         List<Fragment> fList = new ArrayList<Fragment>();
-        FragmentFileExplorer [] f = new FragmentFileExplorer[numOfPages];
-
-        for (int i=0; i<numOfPages; i++)
-        {
-        	f[i] = new FragmentFileExplorer().newInstance();
-        	fList.add(f[i]);
-        }
-        
+        FragmentFileManager f1 = FragmentFileManager.newInstance(String.valueOf(fragmentCounter));
+        fragmentCounter++;
+        fList.add(f1);
         return fList;
     }
-    
-    public class getAllFiles extends AsyncTask<Void, Void, Boolean>
-	{
-    	
-    	@Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            showDialog(DIALOG_DOWNLOAD_PROGRESS);
-        }
-    	
-		@Override
-		protected Boolean doInBackground(Void... params) {
-			
-			try 
-			{
-				return true;
-			}
-			catch (Exception e)
-			{
-				return false;
-			}
-		}
-
-		protected void onProgressUpdate(String... progress) {
-			mProgressDialog.setProgress(Integer.parseInt(progress[0]));
-		}
-		
-		@Override
-		protected void onPostExecute(Boolean result) {			
-			super.onPostExecute(result);
-			
-			if (result)
-			{
-				numOfPages = 1;				
-				
-				mViewPager = (ViewPager) findViewById(R.id.viewpager);
-		        mViewPager.setPageMargin(-150);
-		        fragments = getFragments(numOfPages);       
-		        pageAdapter = new VideosPageAdapter(getSupportFragmentManager(), fragments);
-		        mViewPager.setAdapter(pageAdapter);
-		        mViewPager.setOnPageChangeListener(TabFileExplorer.this);
-		        mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
-		        mIndicator.setViewPager(mViewPager);
-		        
-				try {
-					Field mScroller;
-					mScroller = ViewPager.class.getDeclaredField("mScroller");
-					mScroller.setAccessible(true);
-					Interpolator sInterpolator = null;
-					FixedSpeedScroller scroller = new FixedSpeedScroller(
-							mViewPager.getContext(), sInterpolator);
-					// scroller.setFixedDuration(5000);
-					mScroller.set(mViewPager, scroller);
-				} 
-				catch (NoSuchFieldException e) {
-				} 
-				catch (IllegalArgumentException e) {
-				} 
-				catch (IllegalAccessException e) {
-				}
-		        
-		        mViewPager.setPageTransformer(false, new ViewPager.PageTransformer(){
-					@Override
-					public void transformPage(View page, float position) {				
-						
-						final float normalizedposition = Math.abs(Math.abs(position) - 1);
-//					    page.setScaleX(normalizedposition / 2 + 0.5f);
-//					    page.setScaleY(normalizedposition / 2 + 0.5f);
-					    page.setAlpha(normalizedposition);				
-//						page.setRotationY(position * -30);			
-					}        	
-		        });
-			}
-			dismissDialog(DIALOG_DOWNLOAD_PROGRESS);
-		}		
-	}
 
 }
